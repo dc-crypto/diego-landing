@@ -515,24 +515,32 @@
       .hero { padding-top: 86px; padding-bottom: 64px; }
       .hero h1 { font-size: clamp(1.875rem, 7.5vw, 3.25rem); }
       .hero-sub { font-size: 1rem; }
-      /* Float cards: absolute overlays on the dashboard */
+      /* ── Compact overlays at the bottom of the CRM ─────────────────── */
       .hero-notif, .hero-wa {
         position: absolute;
-        left: 10px; right: 10px;
+        left: 8px; right: 8px;
         width: auto; min-width: 0;
+        padding: 6px 10px;
+        border-radius: 8px;
         animation: none;
         opacity: 0;
-        transform: translateY(14px);
-        transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+        transform: translateY(10px);
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
       }
-      /* Notif: first to appear, at bottom, highest z-index (front) */
-      .hero-notif { bottom: 8px; z-index: 6; }
-      /* WA: half height — header only, peeks above notif, behind it in z-order */
-      .hero-wa    { bottom: 36px; z-index: 5; }
+      /* Notif: first card, sits at the very bottom */
+      .hero-notif { bottom: 8px; z-index: 6; gap: 8px; }
+      .hero-notif .hero-notif-icon  { width: 22px; height: 22px; border-radius: 5px; font-size: 11px; flex-shrink: 0; }
+      .hero-notif .hero-notif-title { font-size: 9.5px; }
+      .hero-notif .hero-notif-sub   { font-size: 8px; }
+      /* WA: sits just above notif (52px gap), header only, behind notif in z-order */
+      .hero-wa { bottom: 52px; z-index: 5; }
       .hero-wa .wa-bubble { display: none; }
-      .hero-wa .wa-row    { margin-bottom: 0; }
+      .hero-wa .wa-row    { margin-bottom: 0; gap: 6px; }
+      .hero-wa .wa-dot    { width: 18px; height: 18px; flex-shrink: 0; }
+      .hero-wa .wa-name   { font-size: 9.5px; }
+      .hero-wa .wa-sub    { font-size: 8px; }
 
       .hero-notif.mobile-reveal { opacity: 1; transform: none; }
       .hero-wa.mobile-reveal    { opacity: 1; transform: none; }
