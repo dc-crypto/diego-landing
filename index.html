@@ -515,13 +515,26 @@
       .hero { padding-top: 86px; padding-bottom: 64px; }
       .hero h1 { font-size: clamp(1.875rem, 7.5vw, 3.25rem); }
       .hero-sub { font-size: 1rem; }
-      /* Float cards: switch from absolute to inline below the CRM on mobile */
+      /* Float cards: inline below CRM, revealed by scroll with stagger */
       .hero-mockup-wrap { display: flex; flex-direction: column; gap: 10px; }
       .hero-notif, .hero-wa {
         position: static;
-        opacity: 1; transform: none; animation: none;
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        animation: none;
         min-width: 0; width: 100%;
         box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+      .hero-notif.mobile-reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .hero-wa.mobile-reveal {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0.38s;
       }
       .wa-bubble, .wa-bubble-out { max-width: 100%; }
       /* CRM mockup: shrink the 4-column pipeline to 2 cols so cards don't squish */
@@ -1407,6 +1420,31 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
   document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+  /* ── Mobile: staggered scroll reveal for hero cards ── */
+  const notifEl = document.querySelector('.hero-notif');
+  const waEl    = document.querySelector('.hero-wa');
+  if (notifEl && waEl) {
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isMobile() && !prefersReduced) {
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            notifEl.classList.add('mobile-reveal');
+            waEl.classList.add('mobile-reveal');
+            cardObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      cardObserver.observe(notifEl);
+    } else if (isMobile() && prefersReduced) {
+      /* Skip animation for users who prefer reduced motion */
+      notifEl.classList.add('mobile-reveal');
+      waEl.classList.add('mobile-reveal');
+    }
+  }
 
   /* ── Contact form ── */
   const form = document.getElementById('contactForm');
