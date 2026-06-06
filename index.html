@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" id="metaDesc" content="Diego Castro — Ingeniero que construye sistemas para que las empresas capten, gestionen y conviertan más clientes automáticamente.">
+  <title>Diego Castro — Tecnología y Sistemas Empresariales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #FAFAFA;
+      --bg-surface: #FFFFFF;
+      --bg-muted: #F4F4F5;
+      --border: #E4E4E7;
+      --text-primary: #09090B;
+      --text-secondary: #52525B;
+      --text-tertiary: #A1A1AA;
+      --accent: #2563EB;
+      --accent-hover: #1D4ED8;
+      --accent-light: #EFF6FF;
+      --dark-bg: #09090B;
+      --dark-surface: #18181B;
+      --dark-surface-alt: #27272A;
+      --dark-border: #3F3F46;
+      --dark-text: #FAFAFA;
+      --dark-text-secondary: #A1A1AA;
+      --dark-text-tertiary: #71717A;
+      --dark-accent: #3B82F6;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0, 0, 0.2, 1);
+      --max-w: 1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-primary);
+      background: var(--bg-canvas);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    input, textarea { font-family: inherit; }
+    img, svg { display: block; max-width: 100%; }
+
+    /* ── Layout ── */
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-dark { background: var(--dark-bg); color: var(--dark-text); }
+    .section-muted { background: var(--bg-muted); }
+
+    /* ── Typography ── */
+    .display { font-size: clamp(2.25rem, 4.5vw, 3.5rem); font-weight: 700; line-height: 1.06; letter-spacing: -0.025em; }
+    .h1 { font-size: clamp(1.875rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .h2 { font-size: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; }
+    .h3 { font-size: 1.0625rem; font-weight: 600; line-height: 1.3; }
+
+    .overline {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .overline::before { content: ''; width: 20px; height: 1px; background: currentColor; }
+    .overline.dark { color: var(--dark-accent); }
+
+    /* ── Section header ── */
+    .section-header { text-align: center; max-width: 600px; margin: 0 auto 64px; }
+    .section-header .h1 { margin-bottom: 14px; }
+    .section-header p { color: var(--text-secondary); font-size: 1.0625rem; }
+    .section-header.dark p { color: var(--dark-text-secondary); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.9375rem; font-weight: 500; border-radius: 8px; padding: 11px 22px;
+      transition: background 0.15s var(--ease-out), transform 0.2s var(--ease), box-shadow 0.15s var(--ease-out);
+      white-space: nowrap; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37,99,235,0.28); }
+    .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg-muted); }
+    .btn-secondary-dark { background: transparent; color: var(--dark-text); border: 1px solid var(--dark-border); }
+    .btn-secondary-dark:hover { background: var(--dark-surface); }
+    .btn-lg { font-size: 1rem; padding: 13px 26px; }
+
+    /* ── Tags ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px; background: var(--accent-light); color: var(--accent);
+    }
+    .tag-dark { background: rgba(59,130,246,0.12); color: var(--dark-accent); }
+    .tag-neutral { background: var(--bg-muted); color: var(--text-secondary); }
+    .tag-neutral-dark { background: var(--dark-surface-alt); color: var(--dark-text-secondary); }
+
+    /* ── Fade-up animations ── */
+    .fu { opacity: 0; transform: translateY(18px); transition: opacity 0.45s var(--ease), transform 0.45s var(--ease); }
+    .fu.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 60ms; }
+    .d2 { transition-delay: 120ms; }
+    .d3 { transition-delay: 180ms; }
+    .d4 { transition-delay: 240ms; }
+    .d5 { transition-delay: 300ms; }
+
+    /* ════════════════════════════════════
+       NAV
+    ════════════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 62px; padding: 0 24px;
+      display: flex; align-items: center;
+      background: rgba(250,250,250,0.8); backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .nav.scrolled { border-color: var(--border); background: rgba(250,250,250,0.94); }
+    .nav-inner { max-width: var(--max-w); width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .nav-logo { font-size: 0.9375rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-toggle { display: none; padding: 6px; color: var(--text-secondary); }
+    .nav-mobile {
+      display: none; position: fixed; top: 62px; left: 0; right: 0; z-index: 99;
+      background: var(--bg-surface); border-bottom: 1px solid var(--border);
+      padding: 20px 24px; flex-direction: column; gap: 4px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 1rem; font-weight: 500; color: var(--text-secondary); padding: 10px 0; border-bottom: 1px solid var(--bg-muted); }
+    .nav-mobile .btn { margin-top: 12px; justify-content: center; }
+
+    /* ════════════════════════════════════
+       HERO
+    ════════════════════════════════════ */
+    .hero {
+      padding: 124px 0 88px; background: var(--bg-canvas); position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+
+    .hero-overline { color: var(--accent); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+    .hero-overline::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 4.2vw, 3.25rem); font-weight: 700; line-height: 1.07;
+      letter-spacing: -0.025em; color: var(--text-primary); margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+
+    .hero-sub { font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 36px; max-width: 480px; }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px; }
+
+    .hero-proof { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-proof-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.6875rem; font-weight: 500; color: var(--text-tertiary);
+      padding: 4px 10px; border: 1px solid var(--border); border-radius: 100px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .hero-proof-chip:hover { border-color: rgba(37,99,235,0.4); color: var(--accent); }
+    .hero-proof-chip svg { width: 11px; height: 11px; }
+
+    /* Hero visual */
+    .hero-visual { position: relative; display: flex; justify-content: flex-end; align-items: center; }
+
+    .hero-mockup-wrap {
+      position: relative; width: 100%; max-width: 520px;
+      animation: hfloat 8s ease-in-out infinite;
+    }
+    @keyframes hfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+    .hero-glow {
+      position: absolute; inset: -60px;
+      background: radial-gradient(ellipse at center, rgba(37,99,235,0.1) 0%, transparent 68%);
+      pointer-events: none; border-radius: 50%;
+    }
+    @media (max-width: 768px) {
+      .hero-glow { display: none; }
+    }
+
+    /* CRM card */
+    .crm {
+      background: #fff; border: 1px solid #E4E4E7; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 24px 56px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05);
+      position: relative; z-index: 1;
+    }
+    .crm-top {
+      padding: 10px 14px; border-bottom: 1px solid #F4F4F5; background: #FAFAFA;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .crm-top-title { font-size: 11px; font-weight: 700; color: #09090B; letter-spacing: -0.01em; }
+    .crm-live { display: flex; align-items: center; gap: 5px; font-size: 9px; font-weight: 600; color: #16A34A; }
+    .crm-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+    .crm-cols { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; padding: 12px; }
+    .crm-col { display: flex; flex-direction: column; gap: 5px; }
+    .crm-col-head {
+      font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: #A1A1AA; text-align: center; padding: 3px 6px; background: #F4F4F5; border-radius: 4px;
+    }
+    .crm-card {
+      background: #fff; border: 1px solid #E4E4E7; border-radius: 6px; padding: 7px 8px;
+      transition: border-color 0.15s;
+    }
+    .crm-card:hover { border-color: #93C5FD; }
+    .crm-card-name { font-size: 8.5px; font-weight: 600; color: #09090B; margin-bottom: 1px; }
+    .crm-card-co { font-size: 7.5px; color: #71717A; }
+    .crm-card-tag {
+      display: inline-block; font-size: 7px; font-weight: 600;
+      padding: 1px 5px; border-radius: 100px; margin-top: 4px;
+    }
+    .ct-hotel { background: #F0FDF4; color: #16A34A; }
+    .ct-tour  { background: #EFF6FF; color: #2563EB; }
+    .ct-pm    { background: #FDF4FF; color: #9333EA; }
+    .ct-re    { background: #FFF7ED; color: #EA580C; }
+
+    .crm-stats {
+      border-top: 1px solid #F4F4F5; background: #FAFAFA;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 0; padding: 0;
+    }
+    .crm-stat {
+      text-align: center; padding: 10px 8px;
+      border-right: 1px solid #F4F4F5;
+    }
+    .crm-stat:last-child { border-right: none; }
+    .crm-stat-val { font-size: 15px; font-weight: 800; color: #09090B; letter-spacing: -0.03em; line-height: 1.1; }
+    .crm-stat-lbl { font-size: 7.5px; color: #A1A1AA; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 1px; }
+    .crm-stat-change { font-size: 8.5px; font-weight: 600; color: #16A34A; }
+
+    /* Floating cards */
+    .hero-notif {
+      position: absolute; bottom: -18px; left: -28px; z-index: 2;
+      background: #fff; border: 1px solid #E4E4E7; border-radius: 10px;
+      padding: 9px 13px; display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 210px;
+      animation: sfadeup 0.5s var(--ease) 0.9s both;
+    }
+    @keyframes sfadeup { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+
+    .hero-notif-icon {
+      width: 30px; height: 30px; border-radius: 7px; background: #F0FDF4;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px;
+    }
+    .hero-notif-title { font-size: 10px; font-weight: 700; color: #09090B; }
+    .hero-notif-sub { font-size: 9px; color: #71717A; }
+
+    .hero-wa {
+      position: absolute; top: -18px; right: -12px; z-index: 2;
+      background: #fff; border: 1px solid #E4E4E7; border-radius: 10px;
+      padding: 10px 13px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 190px;
+      animation: sfadedown 0.5s var(--ease) 1.1s both;
+    }
+    @keyframes sfadedown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
+
+    .wa-row { display: flex; align-items: center; gap: 6px; margin-bottom: 7px; }
+    .wa-dot { width: 22px; height: 22px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .wa-name { font-size: 9px; font-weight: 700; color: #09090B; }
+    .wa-sub { font-size: 8px; color: #71717A; }
+    .wa-bubble { font-size: 8.5px; padding: 5px 8px; border-radius: 0 7px 7px 7px; background: #F4F4F5; color: #52525B; margin-bottom: 4px; max-width: 160px; }
+    .wa-bubble-out { border-radius: 7px 0 7px 7px; background: #EFF6FF; color: #1D4ED8; margin-left: auto; max-width: 140px; }
+
+    /* ════════════════════════════════════
+       PROBLEM
+    ════════════════════════════════════ */
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+    .problem-hl { font-size: clamp(1.75rem,3vw,2.25rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; color: var(--dark-text); margin-bottom: 16px; }
+    .problem-hl em { font-style: normal; color: var(--dark-accent); }
+    .problem-sub { color: var(--dark-text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 28px; }
+
+    .problem-items { display: flex; flex-direction: column; gap: 10px; }
+    .problem-item {
+      display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px;
+      border: 1px solid var(--dark-border); border-radius: 10px; background: var(--dark-surface);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .problem-item:hover { border-color: rgba(59,130,246,0.35); background: rgba(59,130,246,0.04); }
+    .problem-item-icon {
+      width: 32px; height: 32px; border-radius: 7px; background: rgba(239,68,68,0.1);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #F87171;
+    }
+    .problem-item-icon svg { width: 15px; height: 15px; }
+    .problem-item h4 { font-size: 0.875rem; font-weight: 600; color: var(--dark-text); margin-bottom: 2px; }
+    .problem-item p { font-size: 0.8125rem; color: var(--dark-text-tertiary); line-height: 1.5; }
+
+    /* ════════════════════════════════════
+       SOLUTIONS
+    ════════════════════════════════════ */
+    .solutions-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+
+    .sol-card {
+      background: var(--bg-surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 26px; position: relative; overflow: hidden;
+      transition: border-color 0.2s, transform 0.4s var(--ease), box-shadow 0.2s;
+    }
+    .sol-card::after {
+      content: ''; position: absolute; inset: 0 0 auto 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), rgba(37,99,235,0.2));
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .sol-card:hover { border-color: rgba(37,99,235,0.25); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+    .sol-card:hover::after { opacity: 1; }
+
+    .sol-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .sol-icon svg { width: 20px; height: 20px; }
+    .sol-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; margin-bottom: 8px; }
+    .sol-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px; }
+    .sol-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .sol-tag {
+      font-size: 0.6875rem; font-weight: 500; padding: 3px 9px; border-radius: 100px;
+      background: var(--bg-muted); color: var(--text-secondary);
+    }
+
+    /* ════════════════════════════════════
+       PROJECTS
+    ════════════════════════════════════ */
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+    .proj-card {
+      background: var(--bg-surface); border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; transition: border-color 0.2s, transform 0.4s var(--ease), box-shadow 0.2s;
+    }
+    .proj-card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+
+    .proj-thumb {
+      height: 172px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; padding: 16px;
+    }
+    .proj-thumb-1 { background: linear-gradient(135deg,#EFF6FF,#DBEAFE); }
+    .proj-thumb-2 { background: linear-gradient(135deg,#F0FDF4,#DCFCE7); }
+    .proj-thumb-3 { background: linear-gradient(135deg,#FDF4FF,#F3E8FF); }
+
+    /* Mini UI mockup inside thumb */
+    .mini-ui {
+      width: 88%; background: #fff; border: 1px solid #E4E4E7; border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.09); overflow: hidden;
+    }
+    .mini-ui-top {
+      padding: 6px 10px; background: #FAFAFA; border-bottom: 1px solid #F4F4F5;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .mini-ui-title { font-size: 7.5px; font-weight: 700; color: #09090B; }
+    .mini-ui-badge { font-size: 7px; font-weight: 600; padding: 1px 6px; border-radius: 100px; }
+    .badge-blue { background: #EFF6FF; color: #2563EB; }
+    .badge-green { background: #F0FDF4; color: #16A34A; }
+    .badge-purple { background: #FDF4FF; color: #9333EA; }
+    .mini-ui-body { padding: 8px 10px; }
+    .mini-bar-row { display: flex; gap: 3px; margin-bottom: 3px; align-items: center; }
+    .mini-label { font-size: 7px; color: #A1A1AA; width: 28px; flex-shrink: 0; }
+    .mini-bar { height: 5px; border-radius: 3px; flex: 1; }
+    .mini-bar-val { font-size: 7px; font-weight: 600; color: #09090B; margin-left: 4px; width: 20px; }
+    .b-b1 { background: #93C5FD; }
+    .b-b2 { background: #60A5FA; }
+    .b-b3 { background: #3B82F6; }
+    .b-g1 { background: #86EFAC; }
+    .b-g2 { background: #4ADE80; }
+    .b-g3 { background: #22C55E; }
+    .b-p1 { background: #D8B4FE; }
+    .b-p2 { background: #C084FC; }
+    .b-p3 { background: #A855F7; }
+    .mini-ui-footer {
+      padding: 5px 10px; background: #FAFAFA; border-top: 1px solid #F4F4F5;
+      display: flex; gap: 4px;
+    }
+    .mini-pill { font-size: 7px; font-weight: 500; padding: 1px 6px; border-radius: 100px; }
+
+    .proj-body { padding: 20px 22px; }
+    .proj-sector { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .proj-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-primary); margin-bottom: 7px; }
+    .proj-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 14px; }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
+    .proj-stack span { font-size: 0.6875rem; font-weight: 500; padding: 2px 8px; border-radius: 100px; background: var(--bg-muted); color: var(--text-secondary); }
+    .proj-metric { padding: 9px 12px; background: var(--bg-muted); border-radius: 7px; display: flex; align-items: center; gap: 8px; }
+    .proj-metric-val { font-size: 0.9375rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+    .proj-metric-lbl { font-size: 0.75rem; color: var(--text-secondary); }
+
+    /* ════════════════════════════════════
+       PROCESS
+    ════════════════════════════════════ */
+    .process-steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute; top: 27px; left: calc(10% + 10px); right: calc(10% + 10px);
+      height: 1px; background: linear-gradient(90deg, var(--border), rgba(37,99,235,0.25), var(--border));
+    }
+    .process-step { text-align: center; }
+    .process-num {
+      width: 54px; height: 54px; border-radius: 50%; border: 1px solid var(--border);
+      background: var(--bg-surface); display: flex; align-items: center; justify-content: center;
+      font-size: 0.875rem; font-weight: 700; color: var(--accent);
+      margin: 0 auto 18px; position: relative; z-index: 1;
+      transition: background 0.2s, border-color 0.2s, transform 0.35s var(--ease), color 0.2s;
+    }
+    .process-step:hover .process-num { background: var(--accent); border-color: var(--accent); color: #fff; transform: scale(1.1); }
+    .process-step h4 { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+    .process-step p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ════════════════════════════════════
+       ABOUT
+    ════════════════════════════════════ */
+    .about-inner { display: grid; grid-template-columns: 1fr 1.7fr; gap: 72px; align-items: center; }
+    .about-photo {
+      aspect-ratio: 4/5; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--dark-border);
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+    .about-hl { font-size: clamp(1.75rem,3vw,2.125rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; color: var(--dark-text); margin-bottom: 16px; }
+    .about-body { color: var(--dark-text-secondary); font-size: 1rem; line-height: 1.72; margin-bottom: 20px; }
+    .about-quote { border-left: 2px solid var(--dark-accent); padding-left: 18px; color: var(--dark-text); font-size: 0.9375rem; font-style: italic; line-height: 1.65; margin-bottom: 28px; }
+    .about-creds { display: flex; flex-direction: column; gap: 10px; }
+    .about-cred { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--dark-text-secondary); }
+    .about-cred::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--dark-accent); flex-shrink: 0; }
+
+    /* ════════════════════════════════════
+       CONTACT
+    ════════════════════════════════════ */
+    .contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: start; }
+    .contact-hl { margin-bottom: 12px; }
+    .contact-sub { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 32px; }
+    .contact-methods { display: flex; flex-direction: column; gap: 10px; }
+    .contact-method {
+      display: flex; align-items: center; gap: 12px; padding: 11px 15px;
+      border: 1px solid var(--border); border-radius: 10px;
+      font-size: 0.9rem; color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .contact-method:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-method svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-label { font-size: 0.875rem; font-weight: 500; color: var(--text-primary); }
+    .form-input, .form-textarea {
+      font-size: 0.9375rem; padding: 10px 13px;
+      border: 1px solid var(--border); border-radius: 7px;
+      background: var(--bg-surface); color: var(--text-primary);
+      outline: none; width: 100%;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-tertiary); }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-submit { width: 100%; justify-content: center; }
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    .footer { background: var(--dark-bg); border-top: 1px solid var(--dark-border); padding: 44px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-name { font-size: 0.9375rem; font-weight: 700; color: var(--dark-text); letter-spacing: -0.01em; margin-bottom: 3px; }
+    .footer-tagline { font-size: 0.8125rem; color: var(--dark-text-tertiary); }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: 7px; border: 1px solid var(--dark-border);
+      display: flex; align-items: center; justify-content: center; color: var(--dark-text-secondary);
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .footer-social:hover { border-color: var(--dark-accent); color: var(--dark-accent); background: rgba(59,130,246,0.08); }
+    .footer-social svg { width: 15px; height: 15px; }
+    .footer-copy { font-size: 0.8125rem; color: var(--dark-text-tertiary); width: 100%; }
+
+    /* ════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════ */
+
+    /* Tablet: collapse two-column layouts, keep image below text (DOM order) */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      /* No order change — DOM has text first, visual second, which is correct */
+      .hero-visual { justify-content: center; }
+      .hero-sub { max-width: 100%; }
+      .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+      .projects-grid { grid-template-columns: repeat(2,1fr); }
+      .process-steps { grid-template-columns: repeat(3,1fr); }
+      .process-steps::before { display: none; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo { max-width: 300px; margin: 0 auto; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* Mobile: 768px and below */
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .wrap { padding: 0 20px; }
+
+      /* Nav */
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; align-items: center; justify-content: center; }
+
+      /* Hero */
+      .hero { padding-top: 86px; padding-bottom: 64px; }
+      .hero h1 { font-size: clamp(1.875rem, 7.5vw, 3.25rem); }
+      .hero-sub { font-size: 1rem; }
+      /* Float cards: switch from absolute to inline below the CRM on mobile */
+      .hero-mockup-wrap { display: flex; flex-direction: column; gap: 10px; }
+      .hero-notif, .hero-wa {
+        position: static;
+        opacity: 1; transform: none; animation: none;
+        min-width: 0; width: 100%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+      .wa-bubble, .wa-bubble-out { max-width: 100%; }
+      /* CRM mockup: shrink the 4-column pipeline to 2 cols so cards don't squish */
+      .crm-cols { grid-template-columns: repeat(2,1fr); }
+
+      /* Sections */
+      .solutions-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2,1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .section-header { margin-bottom: 40px; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-copy { text-align: left; }
+    }
+
+    /* Small mobile: 480px and below */
+    @media (max-width: 480px) {
+      .section { padding: 56px 0; }
+      .wrap { padding: 0 16px; }
+
+      /* Hero */
+      .hero { padding-top: 80px; padding-bottom: 48px; }
+      .hero h1 { font-size: 1.875rem; line-height: 1.1; }
+      .hero-sub { font-size: 0.9375rem; margin-bottom: 28px; }
+      .hero-ctas { flex-direction: column; gap: 10px; margin-bottom: 32px; }
+      .hero-ctas .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
+      .hero-proof { gap: 6px; }
+
+      /* CRM: keep 2 cols but trim padding */
+      .crm-cols { padding: 10px 8px; gap: 6px; }
+      .crm-col-head { font-size: 7px; }
+      .crm-card-name { font-size: 8px; }
+
+      /* Process */
+      .process-steps { grid-template-columns: 1fr; gap: 24px; }
+
+      /* About */
+      .about-hl { font-size: 1.5rem; }
+      .about-photo { max-width: 240px; }
+
+      /* Section headers */
+      .section-header { margin-bottom: 32px; }
+      .section-header p { font-size: 1rem; }
+
+      /* Problem */
+      .problem-hl { font-size: 1.625rem; }
+
+      /* Contact */
+      .contact-methods { gap: 8px; }
+      .contact-method { font-size: 0.875rem; padding: 10px 12px; }
+
+      /* Buttons */
+      .btn-lg { font-size: 0.9375rem; padding: 12px 20px; }
+
+      /* Footer */
+      .footer-inner { gap: 12px; }
+      .footer-copy { margin-top: 4px; }
+    }
+
+    /* ── Language toggle ── */
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; flex-shrink: 0; }
+    .lang-btn { padding: 5px 9px; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text-tertiary); background: transparent; cursor: pointer; transition: background 0.15s, color 0.15s; border: none; font-family: var(--font); line-height: 1; }
+    .lang-btn.active { background: var(--accent); color: #fff; }
+    .lang-btn:not(.active):hover { background: var(--bg-muted); color: var(--text-secondary); }
+    .lang-sep { width: 1px; height: 18px; background: var(--border); display: inline-block; flex-shrink: 0; }
+    @media (max-width: 768px) { .nav-cta-btn { display: none; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-mockup-wrap { animation: none; }
+      .hero-notif, .hero-wa { animation: none; opacity: 1; transform: none; }
+      .fu { opacity: 1; transform: none; transition: none; }
+      * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Diego Castro</a>
+    <ul class="nav-links">
+      <li><a href="#solutions" data-i18n="nav-solutions">Soluciones</a></li>
+      <li><a href="#projects" data-i18n="nav-projects">Proyectos</a></li>
+      <li><a href="#about" data-i18n="nav-about">Sobre mí</a></li>
+      <li><a href="#contact" data-i18n="nav-contact">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEs" onclick="setLang('es')">ES</button>
+        <span class="lang-sep"></span>
+        <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#contact" class="btn btn-primary nav-cta-btn" style="padding:8px 18px;font-size:0.875rem;" data-i18n="nav-cta">Solicitar diagnóstico</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <svg id="iconMenu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="iconClose" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="#solutions" class="mobile-link" data-i18n="nav-solutions">Soluciones</a>
+  <a href="#projects" class="mobile-link" data-i18n="nav-projects">Proyectos</a>
+  <a href="#about" class="mobile-link" data-i18n="nav-about">Sobre mí</a>
+  <a href="#contact" class="mobile-link" data-i18n="nav-contact">Contacto</a>
+  <a href="#contact" class="btn btn-primary" data-i18n="mob-cta">Solicitar diagnóstico gratuito</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="wrap hero-inner">
+
+    <div class="hero-content">
+      <div class="hero-overline" data-i18n="hero-overline">Tecnología y Sistemas Empresariales</div>
+      <h1 class="display fu" data-i18n-html="hero-h1">
+        Construyo <em>sistemas</em> que ayudan a las empresas a captar más clientes y operar mejor.
+      </h1>
+      <p class="hero-sub fu d1" data-i18n="hero-sub">
+        Ayudo a empresas a automatizar la captación de prospectos, el seguimiento comercial y los procesos operativos para que puedan crecer sin añadir complejidad innecesaria.
+      </p>
+      <div class="hero-ctas fu d2">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          <span data-i18n="hero-cta1">Solicitar diagnóstico gratuito</span>
+        </a>
+        <a href="#projects" class="btn btn-secondary btn-lg">
+          <span data-i18n="hero-cta2">Ver proyectos</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-proof fu d3">
+        <span class="hero-proof-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="hero-proof1">Liderazgo tecnológico</span>
+        </span>
+        <span class="hero-proof-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="hero-proof2">Optimización de procesos</span>
+        </span>
+        <span class="hero-proof-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="hero-proof3">Automatización</span>
+        </span>
+        <span class="hero-proof-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="hero-proof4">Desarrollo de software</span>
+        </span>
+        <span class="hero-proof-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="hero-proof5">Integración de IA</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Hero Visual: CRM Dashboard Mockup -->
+    <div class="hero-visual fu d1">
+      <div class="hero-mockup-wrap">
+        <div class="hero-glow"></div>
+
+        <div class="crm">
+          <div class="crm-top">
+            <span class="crm-top-title" data-i18n="crm-title">Pipeline de Ventas — Q3 2025</span>
+            <span class="crm-live"><span class="crm-live-dot"></span>Live</span>
+          </div>
+          <div class="crm-cols">
+            <!-- New -->
+            <div class="crm-col">
+              <div class="crm-col-head" data-i18n="crm-col1">Nuevo</div>
+              <div class="crm-card">
+                <div class="crm-card-name">Marina Hotel</div>
+                <div class="crm-card-co">Puerto Vallarta</div>
+                <span class="crm-card-tag ct-hotel">Hotel</span>
+              </div>
+              <div class="crm-card">
+                <div class="crm-card-name">Casa Boutique</div>
+                <div class="crm-card-co">Cancún</div>
+                <span class="crm-card-tag ct-hotel">Hotel</span>
+              </div>
+              <div class="crm-card">
+                <div class="crm-card-name">Tours Pacífico</div>
+                <div class="crm-card-co">Nayarit</div>
+                <span class="crm-card-tag ct-tour">Tours</span>
+              </div>
+            </div>
+            <!-- Qualified -->
+            <div class="crm-col">
+              <div class="crm-col-head" data-i18n="crm-col2">Calificado</div>
+              <div class="crm-card">
+                <div class="crm-card-name">Airbnb Manager</div>
+                <div class="crm-card-co">CDMX</div>
+                <span class="crm-card-tag ct-pm">Prop. Mgmt</span>
+              </div>
+              <div class="crm-card">
+                <div class="crm-card-name">PV Tours Co.</div>
+                <div class="crm-card-co">Jalisco</div>
+                <span class="crm-card-tag ct-tour">Tours</span>
+              </div>
+            </div>
+            <!-- Proposal -->
+            <div class="crm-col">
+              <div class="crm-col-head" data-i18n="crm-col3">Propuesta</div>
+              <div class="crm-card">
+                <div class="crm-card-name">InmoPlaya</div>
+                <div class="crm-card-co">Los Cabos</div>
+                <span class="crm-card-tag ct-re">Real Estate</span>
+              </div>
+              <div class="crm-card">
+                <div class="crm-card-name">Hotel Grupo</div>
+                <div class="crm-card-co">Guadalajara</div>
+                <span class="crm-card-tag ct-hotel">Hotel</span>
+              </div>
+            </div>
+            <!-- Closed -->
+            <div class="crm-col">
+              <div class="crm-col-head" data-i18n="crm-col4">Cerrado</div>
+              <div class="crm-card">
+                <div class="crm-card-name">TourMex</div>
+                <div class="crm-card-co">Puebla</div>
+                <span class="crm-card-tag ct-tour">Tours</span>
+              </div>
+              <div class="crm-card">
+                <div class="crm-card-name">Vacasa MX</div>
+                <div class="crm-card-co">Monterrey</div>
+                <span class="crm-card-tag ct-pm">Prop. Mgmt</span>
+              </div>
+            </div>
+          </div>
+          <div class="crm-stats">
+            <div class="crm-stat">
+              <div class="crm-stat-val">142</div>
+              <div class="crm-stat-lbl" data-i18n="crm-lbl1">Total Prospectos</div>
+              <div class="crm-stat-change" data-i18n="crm-chg1">+31 esta semana</div>
+            </div>
+            <div class="crm-stat">
+              <div class="crm-stat-val">23%</div>
+              <div class="crm-stat-lbl" data-i18n="crm-lbl2">Conversión</div>
+              <div class="crm-stat-change" data-i18n="crm-chg2">↑ 4.2%</div>
+            </div>
+            <div class="crm-stat">
+              <div class="crm-stat-val">$48K</div>
+              <div class="crm-stat-lbl" data-i18n="crm-lbl3">Pipeline</div>
+              <div class="crm-stat-change" data-i18n="crm-chg3">+18% mensual</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating: New lead notification -->
+        <div class="hero-notif">
+          <div class="hero-notif-icon">🎯</div>
+          <div>
+            <div class="hero-notif-title" data-i18n="notif-title">Nuevo Prospecto Captado</div>
+            <div class="hero-notif-sub" data-i18n="notif-sub">Hotel Marina Vallarta · ahora mismo</div>
+          </div>
+        </div>
+
+        <!-- Floating: WhatsApp card -->
+        <div class="hero-wa">
+          <div class="wa-row">
+            <div class="wa-dot">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.534 5.853L0 24l6.335-1.509A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.592-.491-5.103-1.352l-.361-.215-3.763.896.945-3.668-.235-.375A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            </div>
+            <div>
+              <div class="wa-name" data-i18n="wa-name">Seguimiento Automático</div>
+              <div class="wa-sub" data-i18n="wa-sub">WhatsApp · enviado automáticamente</div>
+            </div>
+          </div>
+          <div class="wa-bubble">¡Hola! Gracias por tu interés. ¿Cuándo podemos hablar?</div>
+          <div class="wa-bubble wa-bubble-out">Perfecto, mañana a las 10am 👍</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PROBLEM ── -->
+<section class="section section-dark" id="problem">
+  <div class="wrap problem-grid">
+    <div class="fu">
+      <div class="overline dark" data-i18n="prob-overline">El verdadero problema</div>
+      <h2 class="problem-hl" data-i18n-html="prob-h2">La mayoría de los negocios no tienen un problema de prospectos. Tienen un problema de <em>sistemas</em>.</h2>
+      <p class="problem-sub" data-i18n="prob-sub">Tu negocio está generando interés — pero sin los sistemas adecuados, las oportunidades se pierden cada día.</p>
+      <a href="#contact" class="btn btn-secondary-dark"><span data-i18n="prob-cta">Solucionémoslo</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="problem-items fu d1">
+      <div class="problem-item">
+        <div class="problem-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div>
+          <h4 data-i18n="prob1-title">Los prospectos llegan de demasiados canales</h4>
+          <p data-i18n="prob1-desc">Instagram, WhatsApp, correo, sitio web — todo desconectado y cayendo en el olvido.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div>
+          <h4 data-i18n="prob2-title">El seguimiento es inconsistente o manual</h4>
+          <p data-i18n="prob2-desc">El que recuerda llamar cierra el trato. Eso no es un modelo escalable.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <h4 data-i18n="prob3-title">Las oportunidades se pierden en el pipeline</h4>
+          <p data-i18n="prob3-desc">Sin visibilidad de dónde está cada prospecto ni por qué los tratos se estancan.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <div>
+          <h4 data-i18n="prob4-title">Los equipos dependen de procesos manuales</h4>
+          <p data-i18n="prob4-desc">Horas perdidas cada semana en tareas que deberían ejecutarse automáticamente.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div>
+          <h4 data-i18n="prob5-title">La información del cliente está dispersa</h4>
+          <p data-i18n="prob5-desc">Hojas de cálculo, notas, DMs — sin una fuente única de verdad para tu negocio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTIONS ── -->
+<section class="section" id="solutions">
+  <div class="wrap">
+    <div class="section-header fu">
+      <div class="overline" data-i18n="sol-overline">Lo que construyo</div>
+      <h2 class="h1" data-i18n="sol-h2">Cómo puedo ayudarte</h2>
+      <p data-i18n="sol-sub">Sistemas adaptados a tu negocio — no software genérico, no una agencia de retainer.</p>
+    </div>
+    <div class="solutions-grid">
+
+      <div class="sol-card fu">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.01z"/></svg>
+        </div>
+        <h3 class="sol-title" data-i18n="sol1-title">Captación y seguimiento de prospectos</h3>
+        <p class="sol-desc" data-i18n="sol1-desc">Sistemas de extremo a extremo que captan prospectos de cualquier canal, los califican automáticamente y hacen seguimiento sin intervención humana — para que ninguna oportunidad se pierda.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Landing Pages</span>
+          <span class="sol-tag">CRM Setup</span>
+          <span class="sol-tag">Pipelines</span>
+          <span class="sol-tag">WhatsApp</span>
+          <span class="sol-tag">Email Automation</span>
+        </div>
+      </div>
+
+      <div class="sol-card fu d1">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="sol-title" data-i18n="sol2-title">Automatización de procesos empresariales</h3>
+        <p class="sol-desc" data-i18n="sol2-desc">Identifica tareas repetitivas y reemplázalas con flujos automatizados. Reduce errores, libera a tu equipo y crea procesos que escalan con tu negocio.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Integrations</span>
+          <span class="sol-tag">Workflow Design</span>
+          <span class="sol-tag">Task Reduction</span>
+          <span class="sol-tag">Operations</span>
+        </div>
+      </div>
+
+      <div class="sol-card fu d2">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="sol-title" data-i18n="sol3-title">Software a medida</h3>
+        <p class="sol-desc" data-i18n="sol3-desc">Cuando las herramientas estándar no se adaptan a tu flujo de trabajo, construyo software personalizado — aplicaciones web, portales internos y sistemas de gestión diseñados para tus requerimientos exactos.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Web Applications</span>
+          <span class="sol-tag">Portals</span>
+          <span class="sol-tag">Internal Tools</span>
+          <span class="sol-tag">APIs</span>
+        </div>
+      </div>
+
+      <div class="sol-card fu d3">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <h3 class="sol-title" data-i18n="sol4-title">Flujos de trabajo con IA</h3>
+        <p class="sol-desc" data-i18n="sol4-desc">Integra IA en tus operaciones para atender consultas de clientes, procesar información y automatizar decisiones inteligentes — sin reemplazar el juicio humano donde importa.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">AI Assistants</span>
+          <span class="sol-tag">Intelligent Automation</span>
+          <span class="sol-tag">Customer Service</span>
+          <span class="sol-tag">Data Processing</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section class="section section-muted" id="projects">
+  <div class="wrap">
+    <div class="section-header fu">
+      <div class="overline" data-i18n="proj-overline">Casos de estudio</div>
+      <h2 class="h1" data-i18n="proj-h2">Proyectos Destacados</h2>
+      <p data-i18n="proj-sub">Sistemas reales construidos para retos reales de negocio — sin relleno, solo resultados.</p>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="proj-card fu">
+        <div class="proj-thumb proj-thumb-1">
+          <div class="mini-ui">
+            <div class="mini-ui-top">
+              <span class="mini-ui-title">PV Tours — Reservations</span>
+              <span class="mini-ui-badge badge-blue">Live</span>
+            </div>
+            <div class="mini-ui-body">
+              <div class="mini-bar-row"><span class="mini-label">Beach</span><div class="mini-bar b-b3" style="width:80%"></div><span class="mini-bar-val">80%</span></div>
+              <div class="mini-bar-row"><span class="mini-label">Jungle</span><div class="mini-bar b-b2" style="width:60%"></div><span class="mini-bar-val">60%</span></div>
+              <div class="mini-bar-row"><span class="mini-label">City</span><div class="mini-bar b-b1" style="width:40%"></div><span class="mini-bar-val">40%</span></div>
+            </div>
+            <div class="mini-ui-footer">
+              <span class="mini-pill" style="background:#EFF6FF;color:#2563EB">Next.js</span>
+              <span class="mini-pill" style="background:#EFF6FF;color:#2563EB">CRM</span>
+              <span class="mini-pill" style="background:#EFF6FF;color:#2563EB">WA</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-sector" data-i18n="proj1-sector">Turismo y Tours</div>
+          <h3 class="proj-name" data-i18n="proj1-name">Puerto Vallarta Tours</h3>
+          <p class="proj-desc" data-i18n="proj1-desc">Plataforma turística diseñada para generar prospectos, gestionar consultas y apoyar flujos de reserva — convirtiendo visitantes en huéspedes confirmados automáticamente.</p>
+          <div class="proj-stack">
+            <span>Next.js</span><span>CRM Integration</span><span>WhatsApp API</span><span>Automation</span>
+          </div>
+          <div class="proj-metric">
+            <span class="proj-metric-val">3×</span>
+            <span class="proj-metric-lbl" data-i18n="proj1-metric">de aumento en consultas calificadas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="proj-card fu d1">
+        <div class="proj-thumb proj-thumb-2">
+          <div class="mini-ui">
+            <div class="mini-ui-top">
+              <span class="mini-ui-title">Property Manager Portal</span>
+              <span class="mini-ui-badge badge-green">12 Units</span>
+            </div>
+            <div class="mini-ui-body">
+              <div class="mini-bar-row"><span class="mini-label">Occup.</span><div class="mini-bar b-g3" style="width:85%"></div><span class="mini-bar-val">85%</span></div>
+              <div class="mini-bar-row"><span class="mini-label">Revenue</span><div class="mini-bar b-g2" style="width:72%"></div><span class="mini-bar-val">72%</span></div>
+              <div class="mini-bar-row"><span class="mini-label">Tasks</span><div class="mini-bar b-g1" style="width:50%"></div><span class="mini-bar-val">50%</span></div>
+            </div>
+            <div class="mini-ui-footer">
+              <span class="mini-pill" style="background:#F0FDF4;color:#16A34A">SaaS</span>
+              <span class="mini-pill" style="background:#F0FDF4;color:#16A34A">Dashboard</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-sector" data-i18n="proj2-sector">Gestión de Propiedades</div>
+          <h3 class="proj-name" data-i18n="proj2-name">Plataforma para Property Managers</h3>
+          <p class="proj-desc" data-i18n="proj2-desc">Software estilo SaaS para administradores de propiedades vacacionales que centraliza operaciones, reportes, mantenimiento y comunicación con huéspedes en un solo lugar.</p>
+          <div class="proj-stack">
+            <span>Web Application</span><span>Dashboard</span><span>Multi-tenant</span><span>Reporting</span>
+          </div>
+          <div class="proj-metric">
+            <span class="proj-metric-val">60%</span>
+            <span class="proj-metric-lbl" data-i18n="proj2-metric">de reducción en administración manual</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="proj-card fu d2">
+        <div class="proj-thumb proj-thumb-3">
+          <div class="mini-ui">
+            <div class="mini-ui-top">
+              <span class="mini-ui-title">Lead Pipeline — CRM</span>
+              <span class="mini-ui-badge badge-purple">Auto</span>
+            </div>
+            <div class="mini-ui-body">
+              <div class="mini-bar-row"><span class="mini-label">New</span><div class="mini-bar b-p3" style="width:90%"></div><span class="mini-bar-val">47</span></div>
+              <div class="mini-bar-row"><span class="mini-label">Qual.</span><div class="mini-bar b-p2" style="width:60%"></div><span class="mini-bar-val">31</span></div>
+              <div class="mini-bar-row"><span class="mini-label">Closed</span><div class="mini-bar b-p1" style="width:30%"></div><span class="mini-bar-val">16</span></div>
+            </div>
+            <div class="mini-ui-footer">
+              <span class="mini-pill" style="background:#FDF4FF;color:#9333EA">CRM</span>
+              <span class="mini-pill" style="background:#FDF4FF;color:#9333EA">n8n</span>
+              <span class="mini-pill" style="background:#FDF4FF;color:#9333EA">WA</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-sector" data-i18n="proj3-sector">Ventas y CRM</div>
+          <h3 class="proj-name" data-i18n="proj3-name">Sistema de Captación de Clientes</h3>
+          <p class="proj-desc" data-i18n="proj3-desc">Sistema de captación y seguimiento de extremo a extremo: landing pages, CRM, automatización de WhatsApp y orquestación de flujos — construido para eliminar la pérdida de prospectos.</p>
+          <div class="proj-stack">
+            <span>Landing Pages</span><span>CRM</span><span>WhatsApp API</span><span>n8n</span>
+          </div>
+          <div class="proj-metric">
+            <span class="proj-metric-val">0</span>
+            <span class="proj-metric-lbl" data-i18n="proj3-metric">prospectos perdidos por falta de seguimiento</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-header fu">
+      <div class="overline" data-i18n="proc-overline">Mi enfoque</div>
+      <h2 class="h1" data-i18n="proc-h2">Cómo trabajo</h2>
+      <p data-i18n="proc-sub">La tecnología por sí sola no resuelve problemas. Primero entiendo el negocio — luego diseño el sistema correcto.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fu">
+        <div class="process-num">01</div>
+        <h4 data-i18n="step1-title">Diagnóstico empresarial</h4>
+        <p data-i18n="step1-desc">Identifico los retos actuales, los cuellos de botella y dónde se están perdiendo oportunidades.</p>
+      </div>
+      <div class="process-step fu d1">
+        <div class="process-num">02</div>
+        <h4 data-i18n="step2-title">Análisis de procesos</h4>
+        <p data-i18n="step2-desc">Mapeo los flujos existentes para identificar ineficiencias y las mejoras de mayor impacto.</p>
+      </div>
+      <div class="process-step fu d2">
+        <div class="process-num">03</div>
+        <h4 data-i18n="step3-title">Diseño del sistema</h4>
+        <p data-i18n="step3-desc">Diseño una solución práctica alineada a los objetivos del negocio — sin ingeniería excesiva ni soluciones incompletas.</p>
+      </div>
+      <div class="process-step fu d3">
+        <div class="process-num">04</div>
+        <h4 data-i18n="step4-title">Implementación</h4>
+        <p data-i18n="step4-desc">Despliego tecnología, automatizaciones e integraciones. Tu equipo recibe capacitación, no solo una herramienta.</p>
+      </div>
+      <div class="process-step fu d4">
+        <div class="process-num">05</div>
+        <h4 data-i18n="step5-title">Mejora continua</h4>
+        <p data-i18n="step5-desc">Mido resultados, optimizo el sistema y escalo lo que funciona.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="section section-dark" id="about">
+  <div class="wrap about-inner">
+    <div class="about-photo fu">
+      <img src="diego.jpg" alt="Diego Castro — Technology & Business Systems Consultant">
+    </div>
+    <div class="fu d1">
+      <div class="overline dark" data-i18n="about-overline">Sobre mí</div>
+      <h2 class="about-hl" data-i18n="about-h2">Diego Castro — Ingeniero, constructor de sistemas y socio tecnológico.</h2>
+      <p class="about-body" data-i18n="about-body1">Soy Ingeniero Industrial e Ingeniero en Ciberseguridad con experiencia liderando iniciativas tecnológicas, proyectos de software, transformación digital y mejora operativa en múltiples industrias.</p>
+      <p class="about-body" data-i18n="about-body2">Mi enfoque no está en vender tecnología — está en resolver problemas de negocio. He construido plataformas para operadores turísticos, administradores de propiedades y empresas de servicios que necesitaban crecer sin contratar un equipo de operaciones completo.</p>
+      <blockquote class="about-quote" data-i18n="about-quote">
+        "Creo que la tecnología debe simplificar operaciones, mejorar la experiencia del cliente y generar valor empresarial medible — no añadir complejidad por sí misma."
+      </blockquote>
+      <div class="about-creds">
+        <div class="about-cred" data-i18n="about-cred1">Ingeniería Industrial · Optimización de procesos y diseño de sistemas</div>
+        <div class="about-cred" data-i18n="about-cred2">Ingeniería en Ciberseguridad · Arquitectura de sistemas segura y resiliente</div>
+        <div class="about-cred" data-i18n="about-cred3">Transformación digital para hospitalidad, turismo y gestión de propiedades</div>
+        <div class="about-cred" data-i18n="about-cred4">Implementación de CRM, automatización y sistemas de captación de clientes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="section" id="contact">
+  <div class="wrap contact-inner">
+    <div class="fu">
+      <div class="overline" data-i18n="cont-overline">Contáctame</div>
+      <h2 class="h1 contact-hl" data-i18n="cont-h2">Identifiquemos dónde tu negocio está perdiendo oportunidades.</h2>
+      <p class="contact-sub" data-i18n="cont-sub">Agenda una sesión de diagnóstico gratuita. Revisamos tu proceso actual, encontramos las brechas y definimos cómo solucionarlo — sin compromiso.</p>
+      <div class="contact-methods">
+        <a href="https://linkedin.com" class="contact-method" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span data-i18n="cont-linkedin">LinkedIn — Diego Castro</span>
+        </a>
+        <a href="https://wa.me/521XXXXXXXXXX" class="contact-method" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <span data-i18n="cont-whatsapp">WhatsApp — Enviar mensaje</span>
+        </a>
+        <a href="mailto:diego@example.com" class="contact-method">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span data-i18n="cont-email">diego@example.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="fu d1">
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fname" data-i18n="form-name-lbl">Nombre</label>
+            <input class="form-input" id="fname" name="name" type="text" placeholder="Tu nombre" data-i18n-ph="form-name-ph" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fcompany" data-i18n="form-company-lbl">Empresa</label>
+            <input class="form-input" id="fcompany" name="company" type="text" placeholder="Empresa o negocio" data-i18n-ph="form-company-ph">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="femail" data-i18n="form-email-lbl">Correo electrónico</label>
+            <input class="form-input" id="femail" name="email" type="email" placeholder="tu@empresa.com" data-i18n-ph="form-email-ph" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fphone" data-i18n="form-phone-lbl">Teléfono</label>
+            <input class="form-input" id="fphone" name="phone" type="tel" placeholder="+52 ..." data-i18n-ph="form-phone-ph">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fmessage" data-i18n="form-msg-lbl">¿Qué reto estás intentando resolver?</label>
+          <textarea class="form-textarea" id="fmessage" name="message" placeholder="Cuéntame sobre tu negocio y dónde crees que se están perdiendo oportunidades..." data-i18n-ph="form-msg-ph" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg form-submit" id="formSubmitBtn">
+          <span data-i18n="form-submit">Solicitar diagnóstico gratuito</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-name">Diego Castro</div>
+        <div class="footer-tagline" data-i18n="foot-tagline">Tecnología, Automatización y Sistemas Empresariales</div>
+      </div>
+      <div class="footer-socials">
+        <a href="https://linkedin.com" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://wa.me/521XXXXXXXXXX" class="footer-social" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+        <a href="mailto:diego@example.com" class="footer-social" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy" data-i18n="foot-copy">© 2025 Diego Castro. Todos los derechos reservados.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ══════════════════════════════════════════
+     TRANSLATIONS
+  ══════════════════════════════════════════ */
+  const T = {
+    es: {
+      'meta-title':'Diego Castro — Tecnología y Sistemas Empresariales',
+      'meta-desc':'Diego Castro — Ingeniero que construye sistemas para que las empresas capten, gestionen y conviertan más clientes automáticamente.',
+      'nav-solutions':'Soluciones','nav-projects':'Proyectos','nav-about':'Sobre mí','nav-contact':'Contacto',
+      'nav-cta':'Solicitar diagnóstico','mob-cta':'Solicitar diagnóstico gratuito',
+      'hero-overline':'Tecnología y Sistemas Empresariales',
+      'hero-h1':'Construyo <em>sistemas</em> que ayudan a las empresas a captar más clientes y operar mejor.',
+      'hero-sub':'Ayudo a empresas a automatizar la captación de prospectos, el seguimiento comercial y los procesos operativos para que puedan crecer sin añadir complejidad innecesaria.',
+      'hero-cta1':'Solicitar diagnóstico gratuito','hero-cta2':'Ver proyectos',
+      'hero-proof1':'Liderazgo tecnológico','hero-proof2':'Optimización de procesos',
+      'hero-proof3':'Automatización','hero-proof4':'Desarrollo de software','hero-proof5':'Integración de IA',
+      'crm-title':'Pipeline de Ventas — Q3 2025',
+      'crm-col1':'Nuevo','crm-col2':'Calificado','crm-col3':'Propuesta','crm-col4':'Cerrado',
+      'crm-lbl1':'Total Prospectos','crm-chg1':'+31 esta semana',
+      'crm-lbl2':'Conversión','crm-chg2':'↑ 4.2%',
+      'crm-lbl3':'Pipeline','crm-chg3':'+18% mensual',
+      'notif-title':'Nuevo Prospecto Captado','notif-sub':'Hotel Marina Vallarta · ahora mismo',
+      'wa-name':'Seguimiento Automático','wa-sub':'WhatsApp · enviado automáticamente',
+      'prob-overline':'El verdadero problema',
+      'prob-h2':'La mayoría de los negocios no tienen un problema de prospectos. Tienen un problema de <em>sistemas</em>.',
+      'prob-sub':'Tu negocio está generando interés — pero sin los sistemas adecuados, las oportunidades se pierden cada día.',
+      'prob-cta':'Solucionémoslo',
+      'prob1-title':'Los prospectos llegan de demasiados canales','prob1-desc':'Instagram, WhatsApp, correo, sitio web — todo desconectado y cayendo en el olvido.',
+      'prob2-title':'El seguimiento es inconsistente o manual','prob2-desc':'El que recuerda llamar cierra el trato. Eso no es un modelo escalable.',
+      'prob3-title':'Las oportunidades se pierden en el pipeline','prob3-desc':'Sin visibilidad de dónde está cada prospecto ni por qué los tratos se estancan.',
+      'prob4-title':'Los equipos dependen de procesos manuales','prob4-desc':'Horas perdidas cada semana en tareas que deberían ejecutarse automáticamente.',
+      'prob5-title':'La información del cliente está dispersa','prob5-desc':'Hojas de cálculo, notas, DMs — sin una fuente única de verdad para tu negocio.',
+      'sol-overline':'Lo que construyo','sol-h2':'Cómo puedo ayudarte',
+      'sol-sub':'Sistemas adaptados a tu negocio — no software genérico, no una agencia de retainer.',
+      'sol1-title':'Captación y seguimiento de prospectos',
+      'sol1-desc':'Sistemas de extremo a extremo que captan prospectos de cualquier canal, los califican automáticamente y hacen seguimiento sin intervención humana — para que ninguna oportunidad se pierda.',
+      'sol2-title':'Automatización de procesos empresariales',
+      'sol2-desc':'Identifica tareas repetitivas y reemplázalas con flujos automatizados. Reduce errores, libera a tu equipo y crea procesos que escalan con tu negocio.',
+      'sol3-title':'Software a medida',
+      'sol3-desc':'Cuando las herramientas estándar no se adaptan a tu flujo de trabajo, construyo software personalizado — aplicaciones web, portales internos y sistemas de gestión diseñados para tus requerimientos exactos.',
+      'sol4-title':'Flujos de trabajo con IA',
+      'sol4-desc':'Integra IA en tus operaciones para atender consultas de clientes, procesar información y automatizar decisiones inteligentes — sin reemplazar el juicio humano donde importa.',
+      'proj-overline':'Casos de estudio','proj-h2':'Proyectos Destacados',
+      'proj-sub':'Sistemas reales construidos para retos reales de negocio — sin relleno, solo resultados.',
+      'proj1-sector':'Turismo y Tours','proj1-name':'Puerto Vallarta Tours',
+      'proj1-desc':'Plataforma turística diseñada para generar prospectos, gestionar consultas y apoyar flujos de reserva — convirtiendo visitantes en huéspedes confirmados automáticamente.',
+      'proj1-metric':'de aumento en consultas calificadas',
+      'proj2-sector':'Gestión de Propiedades','proj2-name':'Plataforma para Property Managers',
+      'proj2-desc':'Software estilo SaaS para administradores de propiedades vacacionales que centraliza operaciones, reportes, mantenimiento y comunicación con huéspedes en un solo lugar.',
+      'proj2-metric':'de reducción en administración manual',
+      'proj3-sector':'Ventas y CRM','proj3-name':'Sistema de Captación de Clientes',
+      'proj3-desc':'Sistema de captación y seguimiento de extremo a extremo: landing pages, CRM, automatización de WhatsApp y orquestación de flujos — construido para eliminar la pérdida de prospectos.',
+      'proj3-metric':'prospectos perdidos por falta de seguimiento',
+      'proc-overline':'Mi enfoque','proc-h2':'Cómo trabajo',
+      'proc-sub':'La tecnología por sí sola no resuelve problemas. Primero entiendo el negocio — luego diseño el sistema correcto.',
+      'step1-title':'Diagnóstico empresarial','step1-desc':'Identifico los retos actuales, los cuellos de botella y dónde se están perdiendo oportunidades.',
+      'step2-title':'Análisis de procesos','step2-desc':'Mapeo los flujos existentes para identificar ineficiencias y las mejoras de mayor impacto.',
+      'step3-title':'Diseño del sistema','step3-desc':'Diseño una solución práctica alineada a los objetivos del negocio — sin ingeniería excesiva ni soluciones incompletas.',
+      'step4-title':'Implementación','step4-desc':'Despliego tecnología, automatizaciones e integraciones. Tu equipo recibe capacitación, no solo una herramienta.',
+      'step5-title':'Mejora continua','step5-desc':'Mido resultados, optimizo el sistema y escalo lo que funciona.',
+      'about-overline':'Sobre mí','about-h2':'Diego Castro — Ingeniero, constructor de sistemas y socio tecnológico.',
+      'about-body1':'Soy Ingeniero Industrial e Ingeniero en Ciberseguridad con experiencia liderando iniciativas tecnológicas, proyectos de software, transformación digital y mejora operativa en múltiples industrias.',
+      'about-body2':'Mi enfoque no está en vender tecnología — está en resolver problemas de negocio. He construido plataformas para operadores turísticos, administradores de propiedades y empresas de servicios que necesitaban crecer sin contratar un equipo de operaciones completo.',
+      'about-quote':'"Creo que la tecnología debe simplificar operaciones, mejorar la experiencia del cliente y generar valor empresarial medible — no añadir complejidad por sí misma."',
+      'about-cred1':'Ingeniería Industrial · Optimización de procesos y diseño de sistemas',
+      'about-cred2':'Ingeniería en Ciberseguridad · Arquitectura de sistemas segura y resiliente',
+      'about-cred3':'Transformación digital para hospitalidad, turismo y gestión de propiedades',
+      'about-cred4':'Implementación de CRM, automatización y sistemas de captación de clientes',
+      'cont-overline':'Contáctame','cont-h2':'Identifiquemos dónde tu negocio está perdiendo oportunidades.',
+      'cont-sub':'Agenda una sesión de diagnóstico gratuita. Revisamos tu proceso actual, encontramos las brechas y definimos cómo solucionarlo — sin compromiso.',
+      'cont-linkedin':'LinkedIn — Diego Castro','cont-whatsapp':'WhatsApp — Enviar mensaje','cont-email':'diego@example.com',
+      'form-name-lbl':'Nombre','form-name-ph':'Tu nombre',
+      'form-company-lbl':'Empresa','form-company-ph':'Empresa o negocio',
+      'form-email-lbl':'Correo electrónico','form-email-ph':'tu@empresa.com',
+      'form-phone-lbl':'Teléfono','form-phone-ph':'+52 ...',
+      'form-msg-lbl':'¿Qué reto estás intentando resolver?',
+      'form-msg-ph':'Cuéntame sobre tu negocio y dónde crees que se están perdiendo oportunidades...',
+      'form-submit':'Solicitar diagnóstico gratuito','form-success':'✓ Mensaje enviado — te contactaré pronto',
+      'foot-tagline':'Tecnología, Automatización y Sistemas Empresariales',
+      'foot-copy':'© 2025 Diego Castro. Todos los derechos reservados.',
+    },
+    en: {
+      'meta-title':'Diego Castro — Technology & Business Systems',
+      'meta-desc':'Diego Castro — Engineer who builds systems that help businesses attract, manage and convert customers automatically.',
+      'nav-solutions':'Solutions','nav-projects':'Projects','nav-about':'About','nav-contact':'Contact',
+      'nav-cta':'Book Diagnostic','mob-cta':'Book a Free Diagnostic',
+      'hero-overline':'Technology & Business Systems',
+      'hero-h1':'Build <em>systems</em> that help your business capture, manage and convert more customers.',
+      'hero-sub':'I help businesses automate lead generation, customer follow-up and operational processes so they can scale without adding unnecessary complexity.',
+      'hero-cta1':'Book a Free Business Diagnostic','hero-cta2':'View Projects',
+      'hero-proof1':'Technology Leadership','hero-proof2':'Process Optimization',
+      'hero-proof3':'Automation','hero-proof4':'Software Development','hero-proof5':'AI Integration',
+      'crm-title':'Sales Pipeline — Q3 2025',
+      'crm-col1':'New','crm-col2':'Qualified','crm-col3':'Proposal','crm-col4':'Closed',
+      'crm-lbl1':'Total Leads','crm-chg1':'+31 this week',
+      'crm-lbl2':'Conversion','crm-chg2':'↑ 4.2%',
+      'crm-lbl3':'Pipeline','crm-chg3':'+18% MoM',
+      'notif-title':'New Lead Captured','notif-sub':'Hotel Marina Vallarta · just now',
+      'wa-name':'Automated Follow-up','wa-sub':'WhatsApp · sent automatically',
+      'prob-overline':'The real challenge',
+      'prob-h2':'Most businesses don\'t have a lead problem. They have a <em>system</em> problem.',
+      'prob-sub':'Your business is generating interest — but without the right systems, opportunities slip through the cracks every day.',
+      'prob-cta':'Let\'s fix it',
+      'prob1-title':'Leads arrive from too many channels','prob1-desc':'Instagram, WhatsApp, email, website — all disconnected and falling through the cracks.',
+      'prob2-title':'Follow-up is inconsistent or manual','prob2-desc':'Whoever remembers to call back gets the deal. That\'s not a scalable model.',
+      'prob3-title':'Opportunities get lost in the pipeline','prob3-desc':'No visibility on where each prospect stands or why deals are stalling.',
+      'prob4-title':'Teams rely entirely on manual processes','prob4-desc':'Hours lost every week on tasks that should run automatically.',
+      'prob5-title':'Customer data is scattered everywhere','prob5-desc':'Spreadsheets, notes, DMs — no single source of truth for your business.',
+      'sol-overline':'What I build','sol-h2':'How I can help',
+      'sol-sub':'Systems tailored to your business — not generic software, not an agency retainer.',
+      'sol1-title':'Lead Capture & Follow-up Systems',
+      'sol1-desc':'End-to-end systems that capture leads from any channel, qualify them automatically and follow up without human intervention — so no opportunity is ever dropped.',
+      'sol2-title':'Business Process Automation',
+      'sol2-desc':'Identify repetitive tasks and replace them with automated workflows. Reduce errors, free up your team and create processes that scale as your business grows.',
+      'sol3-title':'Custom Software Solutions',
+      'sol3-desc':'When off-the-shelf tools don\'t fit your workflow, I build tailored software — web applications, internal portals and management systems designed around your exact requirements.',
+      'sol4-title':'AI-Powered Workflows',
+      'sol4-desc':'Integrate AI into your operations to handle customer inquiries, process information and automate intelligent decisions — without replacing the human judgment that matters.',
+      'proj-overline':'Case studies','proj-h2':'Featured Projects',
+      'proj-sub':'Real systems built for real business challenges — no case study fluff, just outcomes.',
+      'proj1-sector':'Tourism & Tours','proj1-name':'Puerto Vallarta Tours',
+      'proj1-desc':'Tourism platform designed to generate leads, manage customer inquiries and support reservation workflows — turning website visitors into booked guests automatically.',
+      'proj1-metric':'increase in qualified inquiry volume',
+      'proj2-sector':'Property Management','proj2-name':'Property Management Platform',
+      'proj2-desc':'SaaS-style software for vacation rental managers that centralizes unit operations, owner reporting, maintenance tracking and guest communication in one place.',
+      'proj2-metric':'reduction in manual admin time',
+      'proj3-sector':'Sales & CRM','proj3-name':'Customer Acquisition System',
+      'proj3-desc':'End-to-end lead capture and follow-up system including landing pages, CRM configuration, WhatsApp automation and workflow orchestration — built to eliminate prospect loss.',
+      'proj3-metric':'leads lost due to missed follow-up',
+      'proc-overline':'My approach','proc-h2':'How I work',
+      'proc-sub':'Technology alone doesn\'t solve problems. First I understand the business — then I design the right system.',
+      'step1-title':'Business Diagnostic','step1-desc':'Understand current challenges, bottlenecks and where opportunities are being missed.',
+      'step2-title':'Process Analysis','step2-desc':'Map existing workflows to identify inefficiencies and the highest-leverage improvements.',
+      'step3-title':'System Design','step3-desc':'Design a practical solution aligned with business goals — not over-engineered, not underbuilt.',
+      'step4-title':'Implementation','step4-desc':'Deploy technology, automation and integrations. Your team gets trained, not just handed a tool.',
+      'step5-title':'Continuous Improvement','step5-desc':'Measure results, optimize the system and scale what\'s working.',
+      'about-overline':'About','about-h2':'Diego Castro — Engineer, systems builder, technology partner.',
+      'about-body1':'I\'m an Industrial Engineer and Cybersecurity Engineer with experience leading technology initiatives, software projects, digital transformation and operational improvement across multiple industries.',
+      'about-body2':'My focus isn\'t on selling technology — it\'s on solving business problems. I\'ve built platforms for tourism operators, property managers and service businesses that needed to grow without hiring an entire operations team.',
+      'about-quote':'"I believe technology should simplify operations, improve customer experiences and create measurable business value — not add complexity for its own sake."',
+      'about-cred1':'Industrial Engineering · Process optimization and systems design',
+      'about-cred2':'Cybersecurity Engineering · Secure, resilient system architecture',
+      'about-cred3':'Digital transformation for hospitality, tourism & property management',
+      'about-cred4':'CRM implementation, automation and lead generation systems',
+      'cont-overline':'Get in touch','cont-h2':'Let\'s identify where your business is losing opportunities.',
+      'cont-sub':'Book a free diagnostic session. We\'ll review your current process, find the gaps and define what a system fix would look like — no commitment required.',
+      'cont-linkedin':'LinkedIn — Diego Castro','cont-whatsapp':'WhatsApp — Send a message','cont-email':'diego@example.com',
+      'form-name-lbl':'Name','form-name-ph':'Your name',
+      'form-company-lbl':'Company','form-company-ph':'Company or business',
+      'form-email-lbl':'Email','form-email-ph':'you@company.com',
+      'form-phone-lbl':'Phone','form-phone-ph':'+52 ...',
+      'form-msg-lbl':'What challenge are you trying to solve?',
+      'form-msg-ph':'Tell me about your business and where you think opportunities are being missed...',
+      'form-submit':'Request Free Diagnostic','form-success':'✓ Message sent — I\'ll be in touch soon',
+      'foot-tagline':'Technology, Automation & Business Systems',
+      'foot-copy':'© 2025 Diego Castro. All rights reserved.',
+    }
+  };
+
+  /* ── Apply translations ── */
+  let lang = localStorage.getItem('dc_lang') || 'es';
+
+  function setLang(l) {
+    lang = l;
+    localStorage.setItem('dc_lang', l);
+    document.documentElement.lang = l;
+    document.title = T[l]['meta-title'];
+    document.getElementById('metaDesc').setAttribute('content', T[l]['meta-desc']);
+    document.getElementById('btnEs').classList.toggle('active', l === 'es');
+    document.getElementById('btnEn').classList.toggle('active', l === 'en');
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = T[l][el.dataset.i18n];
+      if (v !== undefined) el.textContent = v;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const v = T[l][el.dataset.i18nHtml];
+      if (v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const v = T[l][el.dataset.i18nPh];
+      if (v !== undefined) el.placeholder = v;
+    });
+  }
+
+  /* ── Nav scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ── Mobile menu ── */
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMobile');
+  const iconMenu = document.getElementById('iconMenu');
+  const iconClose = document.getElementById('iconClose');
+  let open = false;
+
+  toggle.addEventListener('click', () => {
+    open = !open;
+    menu.classList.toggle('open', open);
+    iconMenu.style.display = open ? 'none' : 'block';
+    iconClose.style.display = open ? 'block' : 'none';
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(l => {
+    l.addEventListener('click', () => {
+      open = false;
+      menu.classList.remove('open');
+      iconMenu.style.display = 'block';
+      iconClose.style.display = 'none';
+    });
+  });
+
+  /* ── Intersection Observer: fade-up ── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+  /* ── Contact form ── */
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('formSubmitBtn');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const span = submitBtn.querySelector('[data-i18n="form-submit"]');
+    const origText = span.textContent;
+    span.textContent = T[lang]['form-success'];
+    submitBtn.disabled = true;
+    submitBtn.style.background = '#16A34A';
+    setTimeout(() => {
+      span.textContent = origText;
+      submitBtn.disabled = false;
+      submitBtn.style.background = '';
+      form.reset();
+    }, 4000);
+  });
+
+  /* ── Init language ── */
+  setLang(lang);
+</script>
+</body>
+</html>

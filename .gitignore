@@ -1,0 +1,31 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Logs & temp
+*.log
+*.tmp
+*.swp
+*~
+
+# Node (if tooling is added later)
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Env
+.env
+.env.local
+.env*.local
+
+# Build output (if added later)
+dist/
+build/
+.cache/
