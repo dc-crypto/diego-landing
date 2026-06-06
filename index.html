@@ -515,9 +515,10 @@
       .hero { padding-top: 86px; padding-bottom: 64px; }
       .hero h1 { font-size: clamp(1.875rem, 7.5vw, 3.25rem); }
       .hero-sub { font-size: 1rem; }
-      /* Float cards: absolute overlays on the dashboard, partial coverage only */
+      /* Float cards: absolute overlays on the dashboard */
       .hero-notif, .hero-wa {
         position: absolute;
+        left: 10px; right: 10px;
         width: auto; min-width: 0;
         animation: none;
         opacity: 0;
@@ -526,24 +527,15 @@
                     transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: 0 8px 28px rgba(0,0,0,0.2);
       }
-      /* Notif card: bottom-left, leaves right side of dashboard visible */
-      .hero-notif {
-        bottom: 56px;
-        left: 10px;
-        right: 60px;   /* doesn't reach the right edge */
-        z-index: 6;
-      }
-      /* WA card: bottom-right, leaves left side of dashboard visible */
-      .hero-wa {
-        bottom: 8px;
-        left: 60px;    /* doesn't reach the left edge */
-        right: 10px;
-        z-index: 5;
-      }
-      /* Each card revealed by its own scroll threshold — no time-delay */
+      /* Notif: first to appear, at bottom, highest z-index (front) */
+      .hero-notif { bottom: 8px; z-index: 6; }
+      /* WA: half height — header only, peeks above notif, behind it in z-order */
+      .hero-wa    { bottom: 36px; z-index: 5; }
+      .hero-wa .wa-bubble { display: none; }
+      .hero-wa .wa-row    { margin-bottom: 0; }
+
       .hero-notif.mobile-reveal { opacity: 1; transform: none; }
       .hero-wa.mobile-reveal    { opacity: 1; transform: none; }
-      .wa-bubble, .wa-bubble-out { max-width: 100%; }
       /* CRM mockup: shrink the 4-column pipeline to 2 cols so cards don't squish */
       .crm-cols { grid-template-columns: repeat(2,1fr); }
 
