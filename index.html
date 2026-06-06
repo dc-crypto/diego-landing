@@ -515,27 +515,26 @@
       .hero { padding-top: 86px; padding-bottom: 64px; }
       .hero h1 { font-size: clamp(1.875rem, 7.5vw, 3.25rem); }
       .hero-sub { font-size: 1rem; }
-      /* Float cards: inline below CRM, revealed by scroll with stagger */
-      .hero-mockup-wrap { display: flex; flex-direction: column; gap: 10px; }
+      /* Float cards: absolute over the dashboard, revealed by scroll */
       .hero-notif, .hero-wa {
-        position: static;
-        opacity: 0;
-        transform: translateY(22px);
-        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        position: absolute;
+        left: 10px; right: 10px;
+        width: auto; min-width: 0;
         animation: none;
-        min-width: 0; width: 100%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+        backdrop-filter: blur(2px);
       }
-      .hero-notif.mobile-reveal {
-        opacity: 1;
-        transform: none;
-      }
-      .hero-wa.mobile-reveal {
-        opacity: 1;
-        transform: none;
-        transition-delay: 0.38s;
-      }
+      /* Notif: over the pipeline columns area */
+      .hero-notif { bottom: 70px; z-index: 6; }
+      /* WA: over the stats bar area, appears after */
+      .hero-wa    { bottom: 8px;  z-index: 5; }
+
+      .hero-notif.mobile-reveal { opacity: 1; transform: none; }
+      .hero-wa.mobile-reveal    { opacity: 1; transform: none; transition-delay: 0.42s; }
       .wa-bubble, .wa-bubble-out { max-width: 100%; }
       /* CRM mockup: shrink the 4-column pipeline to 2 cols so cards don't squish */
       .crm-cols { grid-template-columns: repeat(2,1fr); }
@@ -1424,23 +1423,24 @@
   /* ── Mobile: staggered scroll reveal for hero cards ── */
   const notifEl = document.querySelector('.hero-notif');
   const waEl    = document.querySelector('.hero-wa');
-  if (notifEl && waEl) {
-    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+  const crmEl   = document.querySelector('.crm');
+  if (notifEl && waEl && crmEl) {
+    const isMobile      = window.matchMedia('(max-width: 768px)').matches;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (isMobile() && !prefersReduced) {
+    if (isMobile && !prefersReduced) {
+      /* Fire when the CRM dashboard is 60% in view — user has clearly scrolled to it */
       const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            notifEl.classList.add('mobile-reveal');
-            waEl.classList.add('mobile-reveal');
+            notifEl.classList.add('mobile-reveal');   /* appears immediately */
+            waEl.classList.add('mobile-reveal');       /* appears after 420ms delay (CSS) */
             cardObserver.disconnect();
           }
         });
-      }, { threshold: 0.3 });
-      cardObserver.observe(notifEl);
-    } else if (isMobile() && prefersReduced) {
-      /* Skip animation for users who prefer reduced motion */
+      }, { threshold: 0.6 });
+      cardObserver.observe(crmEl);
+    } else if (isMobile && prefersReduced) {
       notifEl.classList.add('mobile-reveal');
       waEl.classList.add('mobile-reveal');
     }
