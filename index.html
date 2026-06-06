@@ -515,26 +515,34 @@
       .hero { padding-top: 86px; padding-bottom: 64px; }
       .hero h1 { font-size: clamp(1.875rem, 7.5vw, 3.25rem); }
       .hero-sub { font-size: 1rem; }
-      /* Float cards: absolute over the dashboard, revealed by scroll */
+      /* Float cards: absolute overlays on the dashboard, partial coverage only */
       .hero-notif, .hero-wa {
         position: absolute;
-        left: 10px; right: 10px;
         width: auto; min-width: 0;
         animation: none;
         opacity: 0;
-        transform: translateY(18px);
-        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 8px 28px rgba(0,0,0,0.18);
-        backdrop-filter: blur(2px);
+        transform: translateY(14px);
+        transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 8px 28px rgba(0,0,0,0.2);
       }
-      /* Notif: over the pipeline columns area */
-      .hero-notif { bottom: 70px; z-index: 6; }
-      /* WA: over the stats bar area, appears after */
-      .hero-wa    { bottom: 8px;  z-index: 5; }
-
+      /* Notif card: bottom-left, leaves right side of dashboard visible */
+      .hero-notif {
+        bottom: 56px;
+        left: 10px;
+        right: 60px;   /* doesn't reach the right edge */
+        z-index: 6;
+      }
+      /* WA card: bottom-right, leaves left side of dashboard visible */
+      .hero-wa {
+        bottom: 8px;
+        left: 60px;    /* doesn't reach the left edge */
+        right: 10px;
+        z-index: 5;
+      }
+      /* Each card revealed by its own scroll threshold — no time-delay */
       .hero-notif.mobile-reveal { opacity: 1; transform: none; }
-      .hero-wa.mobile-reveal    { opacity: 1; transform: none; transition-delay: 0.42s; }
+      .hero-wa.mobile-reveal    { opacity: 1; transform: none; }
       .wa-bubble, .wa-bubble-out { max-width: 100%; }
       /* CRM mockup: shrink the 4-column pipeline to 2 cols so cards don't squish */
       .crm-cols { grid-template-columns: repeat(2,1fr); }
@@ -1420,26 +1428,33 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
   document.querySelectorAll('.fu').forEach(el => io.observe(el));
 
-  /* ── Mobile: staggered scroll reveal for hero cards ── */
+  /* ── Mobile: each card has its own scroll trigger at a different threshold ── */
   const notifEl = document.querySelector('.hero-notif');
   const waEl    = document.querySelector('.hero-wa');
   const crmEl   = document.querySelector('.crm');
   if (notifEl && waEl && crmEl) {
-    const isMobile      = window.matchMedia('(max-width: 768px)').matches;
+    const isMobile       = window.matchMedia('(max-width: 768px)').matches;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (isMobile && !prefersReduced) {
-      /* Fire when the CRM dashboard is 60% in view — user has clearly scrolled to it */
-      const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            notifEl.classList.add('mobile-reveal');   /* appears immediately */
-            waEl.classList.add('mobile-reveal');       /* appears after 420ms delay (CSS) */
-            cardObserver.disconnect();
-          }
-        });
-      }, { threshold: 0.6 });
-      cardObserver.observe(crmEl);
+      /* Notif: appears when 45% of the CRM is in view (user just reached the dashboard) */
+      const obs1 = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          notifEl.classList.add('mobile-reveal');
+          obs1.disconnect();
+        }
+      }, { threshold: 0.45 });
+
+      /* WA: appears when 72% of the CRM is in view (user scrolled further into it) */
+      const obs2 = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          waEl.classList.add('mobile-reveal');
+          obs2.disconnect();
+        }
+      }, { threshold: 0.72 });
+
+      obs1.observe(crmEl);
+      obs2.observe(crmEl);
     } else if (isMobile && prefersReduced) {
       notifEl.classList.add('mobile-reveal');
       waEl.classList.add('mobile-reveal');
