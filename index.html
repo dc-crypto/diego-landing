@@ -603,6 +603,106 @@
       .footer-copy { margin-top: 4px; }
     }
 
+    /* ════════════════════════════════════
+       PIPELINE DEMO SECTION
+    ════════════════════════════════════ */
+    .demo-section {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 3rem; max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    }
+    .demo-section__text { flex: 1; min-width: 0; }
+    .demo-section__text h2 { margin-bottom: 14px; }
+    .demo-section__text p { color: var(--text-secondary); font-size: 1.0625rem; line-height: 1.65; }
+    .demo-section__visual { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+
+    .phone-frame {
+      width: 280px; height: 520px; border-radius: 32px;
+      border: 2px solid #e0ded8; background: #f7f7f5;
+      position: relative; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .phone-screen { width: 100%; height: 100%; position: relative; background: #f7f7f5; overflow: hidden; }
+
+    .screen-header {
+      background: #fff; padding: 14px 14px 10px;
+      border-bottom: 0.5px solid #e0ded8;
+      display: flex; align-items: center; justify-content: space-between;
+      position: relative; z-index: 2;
+    }
+    /* Font: Inter (site font) instead of Fraunces */
+    .screen-logo { font-family: var(--font); font-size: 13px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.03em; }
+    .screen-logo span { color: var(--accent); }
+
+    /* Scoped under .phone-frame to avoid conflicts with nav .lang-toggle / .lang-btn */
+    .phone-frame .lang-toggle { display: flex; gap: 3px; font-size: 10px; border: none; border-radius: 0; overflow: visible; }
+    .phone-frame .lang-btn { padding: 2px 6px; border-radius: 4px; background: var(--accent); color: #fff; font-weight: 600; font-family: var(--font); font-size: 10px; line-height: 1; cursor: default; letter-spacing: 0; }
+    .phone-frame .lang-btn.inactive { background: transparent; color: #999; }
+
+    .screen-body { padding: 12px 10px; overflow-y: auto; height: calc(100% - 52px); }
+    .pipeline-card { background: #fff; border-radius: 10px; border: 0.5px solid #e0ded8; padding: 12px 10px; }
+    .pipeline-title { font-size: 11px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+
+    .live-dot { display: flex; align-items: center; gap: 4px; font-size: 9px; color: var(--accent); font-weight: 500; }
+    .live-dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(0.75);} }
+
+    .kanban-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .k-col-title { font-size: 8px; letter-spacing: 0.06em; text-transform: uppercase; color: #aaa; margin-bottom: 4px; font-weight: 600; }
+    .k-card { background: #f7f7f5; border-radius: 6px; border: 0.5px solid #e0ded8; padding: 6px 8px; margin-bottom: 4px; }
+    .k-card-name { font-size: 10px; font-weight: 600; color: #1a1a1a; }
+    .k-card-city { font-size: 9px; color: #aaa; margin-top: 1px; }
+    .k-badge { display: inline-block; margin-top: 3px; padding: 1px 5px; border-radius: 3px; font-size: 8px; font-weight: 600; }
+    .badge-hotel { background: #eaf3de; color: #3b6d11; } /* green kept: hotel semantic color */
+    .badge-tours { background: #e6f1fb; color: #185fa5; }
+    .badge-prop  { background: #eeedfe; color: #534ab7; }
+
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; margin-top: 8px; }
+    .stat-mini { background: #f7f7f5; border-radius: 6px; padding: 6px 5px; text-align: center; }
+    .stat-num { font-size: 13px; font-weight: 700; color: #1a1a1a; }
+    .stat-lbl { font-size: 7px; color: #aaa; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stat-up  { font-size: 8px; color: var(--accent); margin-top: 1px; }
+
+    /* Animation 1: Notification slide-up */
+    .notif-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: #fff; border-top: 0.5px solid #e0ded8;
+      padding: 10px 12px; display: flex; align-items: center; gap: 10px;
+      z-index: 10;
+      transform: translateY(100%);
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .notif-bar.show { transform: translateY(0); }
+    .notif-icon { width: 30px; height: 30px; border-radius: 8px; background: #eaf3de; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+    .notif-title { font-size: 10px; font-weight: 600; color: #1a1a1a; }
+    .notif-sub   { font-size: 9px; color: #aaa; margin-top: 1px; }
+
+    /* Animation 2: WhatsApp chat fade+scale */
+    .chat-bubble {
+      position: absolute; top: 58px; right: 8px; width: 172px;
+      background: #fff; border-radius: 10px; border: 0.5px solid #e0ded8;
+      padding: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+      z-index: 20;
+      opacity: 0; transform: translateY(-10px) scale(0.93);
+      transform-origin: top right;
+      transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+    }
+    .chat-bubble.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .chat-header { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 0.5px solid #e0ded8; }
+    .wa-icon { width: 20px; height: 20px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; color: #fff; }
+    .chat-title { font-size: 10px; font-weight: 600; color: #1a1a1a; }
+    .chat-sub   { font-size: 8px; color: #aaa; }
+    .msg { margin-bottom: 5px; }
+    .msg-bot { background: #f7f7f5; border-radius: 6px 6px 6px 2px; padding: 5px 8px; font-size: 9px; color: #333; display: inline-block; max-width: 88%; line-height: 1.4; }
+    .msg-user-wrap { text-align: right; }
+    /* #3b6d11 → var(--accent): user message bubble matches site accent */
+    .msg-user { background: var(--accent); color: #fff; border-radius: 6px 6px 2px 6px; padding: 5px 8px; font-size: 9px; display: inline-block; max-width: 88%; line-height: 1.4; }
+
+    @media (max-width: 768px) {
+      .demo-section { flex-direction: column; gap: 2rem; text-align: center; }
+      .demo-section__text { width: 100%; }
+    }
+
     /* ── Language toggle ── */
     .nav-right { display: flex; align-items: center; gap: 10px; }
     .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; flex-shrink: 0; }
@@ -951,6 +1051,119 @@
   </div>
 </section>
 
+<!-- ── PIPELINE DEMO ── -->
+<section class="section section-muted" id="demo">
+  <div class="demo-section">
+
+    <div class="demo-section__text">
+      <div class="overline">En acción</div>
+      <h2 class="h1" data-i18n="demo-h2">Tu pipeline de ventas, automatizado</h2>
+      <p data-i18n="demo-p">Captura prospectos, da seguimiento automático por WhatsApp y cierra más negocios sin esfuerzo manual.</p>
+    </div>
+
+    <div class="demo-section__visual">
+      <div class="phone-frame" id="pipelineDemo">
+        <div class="phone-screen">
+
+          <div class="screen-header">
+            <div class="screen-logo">diegocastro<span>.tech</span></div>
+            <div class="lang-toggle">
+              <span class="lang-btn">ES</span>
+              <span class="lang-btn inactive">EN</span>
+            </div>
+          </div>
+
+          <div class="screen-body">
+            <div class="pipeline-card">
+              <div class="pipeline-title">
+                Pipeline de Ventas — Q3 2025
+                <span class="live-dot">Live</span>
+              </div>
+              <div class="kanban-cols">
+                <div>
+                  <div class="k-col-title">Nuevo</div>
+                  <div class="k-card">
+                    <div class="k-card-name">Marina Hotel</div>
+                    <div class="k-card-city">Puerto Vallarta</div>
+                    <span class="k-badge badge-hotel">Hotel</span>
+                  </div>
+                  <div class="k-card">
+                    <div class="k-card-name">Casa Boutique</div>
+                    <div class="k-card-city">Cancún</div>
+                    <span class="k-badge badge-hotel">Hotel</span>
+                  </div>
+                  <div class="k-card">
+                    <div class="k-card-name">Tours Pacífico</div>
+                    <div class="k-card-city">Nayarit</div>
+                    <span class="k-badge badge-tours">Tours</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="k-col-title">Calificado</div>
+                  <div class="k-card">
+                    <div class="k-card-name">Airbnb Manager</div>
+                    <div class="k-card-city">CDMX</div>
+                    <span class="k-badge badge-prop">Prop. Mgmt</span>
+                  </div>
+                  <div class="k-card">
+                    <div class="k-card-name">PV Tours Co.</div>
+                    <div class="k-card-city">Jalisco</div>
+                    <span class="k-badge badge-tours">Tours</span>
+                  </div>
+                </div>
+              </div>
+              <div class="stats-row">
+                <div class="stat-mini">
+                  <div class="stat-num">142</div>
+                  <div class="stat-lbl">Prospectos</div>
+                  <div class="stat-up">+31 sem.</div>
+                </div>
+                <div class="stat-mini">
+                  <div class="stat-num">23%</div>
+                  <div class="stat-lbl">Conversión</div>
+                  <div class="stat-up">+4.2%</div>
+                </div>
+                <div class="stat-mini">
+                  <div class="stat-num">$48K</div>
+                  <div class="stat-lbl">Pipeline</div>
+                  <div class="stat-up">+18% mes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Animation 1: Notification bar -->
+          <div class="notif-bar" id="notifBar">
+            <div class="notif-icon">🏨</div>
+            <div>
+              <div class="notif-title">Nuevo Prospecto Captado</div>
+              <div class="notif-sub">Hotel Marina Vallarta · ahora mismo</div>
+            </div>
+          </div>
+
+          <!-- Animation 2: WhatsApp chat -->
+          <div class="chat-bubble" id="chatBubble">
+            <div class="chat-header">
+              <div class="wa-icon">💬</div>
+              <div>
+                <div class="chat-title">Seguimiento Automático</div>
+                <div class="chat-sub">WhatsApp · enviado automáticamente</div>
+              </div>
+            </div>
+            <div class="msg">
+              <span class="msg-bot">¡Hola! Gracias por tu interés. ¿Cuándo podemos hablar?</span>
+            </div>
+            <div class="msg msg-user-wrap">
+              <span class="msg-user">Perfecto, mañana a las 10am 🔥</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── PROJECTS ── -->
 <section class="section section-muted" id="projects">
   <div class="wrap">
@@ -1287,6 +1500,8 @@
       'form-msg-lbl':'¿Qué reto estás intentando resolver?',
       'form-msg-ph':'Cuéntame sobre tu negocio y dónde crees que se están perdiendo oportunidades...',
       'form-submit':'Solicitar diagnóstico gratuito','form-success':'✓ Mensaje enviado — te contactaré pronto',
+      'demo-h2':'Tu pipeline de ventas, automatizado',
+      'demo-p':'Captura prospectos, da seguimiento automático por WhatsApp y cierra más negocios sin esfuerzo manual.',
       'foot-tagline':'Tecnología, Automatización y Sistemas Empresariales',
       'foot-copy':'© 2025 Diego Castro. Todos los derechos reservados.',
     },
@@ -1363,6 +1578,8 @@
       'form-msg-lbl':'What challenge are you trying to solve?',
       'form-msg-ph':'Tell me about your business and where you think opportunities are being missed...',
       'form-submit':'Request Free Diagnostic','form-success':'✓ Message sent — I\'ll be in touch soon',
+      'demo-h2':'Your sales pipeline, automated',
+      'demo-p':'Capture leads, follow up automatically on WhatsApp and close more deals without manual effort.',
       'foot-tagline':'Technology, Automation & Business Systems',
       'foot-copy':'© 2025 Diego Castro. All rights reserved.',
     }
@@ -1481,6 +1698,35 @@
 
   /* ── Init language ── */
   setLang(lang);
+</script>
+<script>
+(function() {
+  var notif   = document.getElementById('notifBar');
+  var chat    = document.getElementById('chatBubble');
+  var demo    = document.getElementById('pipelineDemo');
+  var timers  = [];
+  var hasRun  = false;
+
+  function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+  function resetState() { clearTimers(); notif.classList.remove('show'); chat.classList.remove('show'); }
+
+  function runSequence() {
+    resetState();
+    timers.push(setTimeout(function() { notif.classList.add('show'); }, 1800));
+    timers.push(setTimeout(function() { notif.classList.remove('show'); }, 4200));
+    timers.push(setTimeout(function() { chat.classList.add('show'); }, 4700));
+    timers.push(setTimeout(function() { runSequence(); }, 10000));
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !hasRun) { hasRun = true; runSequence(); }
+      if (!entry.isIntersecting) { hasRun = false; resetState(); }
+    });
+  }, { threshold: 0.4 });
+
+  if (demo) observer.observe(demo);
+})();
 </script>
 </body>
 </html>
