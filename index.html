@@ -185,6 +185,8 @@
       position: relative; width: 100%; max-width: 520px;
       animation: hfloat 8s ease-in-out infinite;
     }
+    /* Phone frame wrapper in hero — inherits the same float */
+    .hero-phone-wrap { animation: hfloat 8s ease-in-out infinite; }
     @keyframes hfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 
     .hero-glow {
@@ -713,7 +715,7 @@
     @media (max-width: 768px) { .nav-cta-btn { display: none; } }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-mockup-wrap { animation: none; }
+      .hero-mockup-wrap, .hero-phone-wrap { animation: none; }
       .hero-notif, .hero-wa { animation: none; opacity: 1; transform: none; }
       .fu { opacity: 1; transform: none; transition: none; }
       * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
@@ -800,120 +802,106 @@
       </div>
     </div>
 
-    <!-- Hero Visual: CRM Dashboard Mockup -->
+    <!-- Hero Visual: Pipeline Demo Phone -->
     <div class="hero-visual fu d1">
-      <div class="hero-mockup-wrap">
-        <div class="hero-glow"></div>
+      <div class="hero-phone-wrap">
+        <div class="phone-frame" id="pipelineDemo">
+          <div class="phone-screen">
 
-        <div class="crm">
-          <div class="crm-top">
-            <span class="crm-top-title" data-i18n="crm-title">Pipeline de Ventas — Q3 2025</span>
-            <span class="crm-live"><span class="crm-live-dot"></span>Live</span>
-          </div>
-          <div class="crm-cols">
-            <!-- New -->
-            <div class="crm-col">
-              <div class="crm-col-head" data-i18n="crm-col1">Nuevo</div>
-              <div class="crm-card">
-                <div class="crm-card-name">Marina Hotel</div>
-                <div class="crm-card-co">Puerto Vallarta</div>
-                <span class="crm-card-tag ct-hotel">Hotel</span>
-              </div>
-              <div class="crm-card">
-                <div class="crm-card-name">Casa Boutique</div>
-                <div class="crm-card-co">Cancún</div>
-                <span class="crm-card-tag ct-hotel">Hotel</span>
-              </div>
-              <div class="crm-card">
-                <div class="crm-card-name">Tours Pacífico</div>
-                <div class="crm-card-co">Nayarit</div>
-                <span class="crm-card-tag ct-tour">Tours</span>
+            <div class="screen-header">
+              <div class="screen-logo">diegocastro<span>.tech</span></div>
+              <div class="lang-toggle">
+                <span class="lang-btn">ES</span>
+                <span class="lang-btn inactive">EN</span>
               </div>
             </div>
-            <!-- Qualified -->
-            <div class="crm-col">
-              <div class="crm-col-head" data-i18n="crm-col2">Calificado</div>
-              <div class="crm-card">
-                <div class="crm-card-name">Airbnb Manager</div>
-                <div class="crm-card-co">CDMX</div>
-                <span class="crm-card-tag ct-pm">Prop. Mgmt</span>
-              </div>
-              <div class="crm-card">
-                <div class="crm-card-name">PV Tours Co.</div>
-                <div class="crm-card-co">Jalisco</div>
-                <span class="crm-card-tag ct-tour">Tours</span>
-              </div>
-            </div>
-            <!-- Proposal -->
-            <div class="crm-col">
-              <div class="crm-col-head" data-i18n="crm-col3">Propuesta</div>
-              <div class="crm-card">
-                <div class="crm-card-name">InmoPlaya</div>
-                <div class="crm-card-co">Los Cabos</div>
-                <span class="crm-card-tag ct-re">Real Estate</span>
-              </div>
-              <div class="crm-card">
-                <div class="crm-card-name">Hotel Grupo</div>
-                <div class="crm-card-co">Guadalajara</div>
-                <span class="crm-card-tag ct-hotel">Hotel</span>
-              </div>
-            </div>
-            <!-- Closed -->
-            <div class="crm-col">
-              <div class="crm-col-head" data-i18n="crm-col4">Cerrado</div>
-              <div class="crm-card">
-                <div class="crm-card-name">TourMex</div>
-                <div class="crm-card-co">Puebla</div>
-                <span class="crm-card-tag ct-tour">Tours</span>
-              </div>
-              <div class="crm-card">
-                <div class="crm-card-name">Vacasa MX</div>
-                <div class="crm-card-co">Monterrey</div>
-                <span class="crm-card-tag ct-pm">Prop. Mgmt</span>
-              </div>
-            </div>
-          </div>
-          <div class="crm-stats">
-            <div class="crm-stat">
-              <div class="crm-stat-val">142</div>
-              <div class="crm-stat-lbl" data-i18n="crm-lbl1">Total Prospectos</div>
-              <div class="crm-stat-change" data-i18n="crm-chg1">+31 esta semana</div>
-            </div>
-            <div class="crm-stat">
-              <div class="crm-stat-val">23%</div>
-              <div class="crm-stat-lbl" data-i18n="crm-lbl2">Conversión</div>
-              <div class="crm-stat-change" data-i18n="crm-chg2">↑ 4.2%</div>
-            </div>
-            <div class="crm-stat">
-              <div class="crm-stat-val">$48K</div>
-              <div class="crm-stat-lbl" data-i18n="crm-lbl3">Pipeline</div>
-              <div class="crm-stat-change" data-i18n="crm-chg3">+18% mensual</div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Floating: New lead notification -->
-        <div class="hero-notif">
-          <div class="hero-notif-icon">🎯</div>
-          <div>
-            <div class="hero-notif-title" data-i18n="notif-title">Nuevo Prospecto Captado</div>
-            <div class="hero-notif-sub" data-i18n="notif-sub">Hotel Marina Vallarta · ahora mismo</div>
-          </div>
-        </div>
+            <div class="screen-body">
+              <div class="pipeline-card">
+                <div class="pipeline-title">
+                  Pipeline de Ventas — Q3 2025
+                  <span class="live-dot">Live</span>
+                </div>
+                <div class="kanban-cols">
+                  <div>
+                    <div class="k-col-title">Nuevo</div>
+                    <div class="k-card">
+                      <div class="k-card-name">Marina Hotel</div>
+                      <div class="k-card-city">Puerto Vallarta</div>
+                      <span class="k-badge badge-hotel">Hotel</span>
+                    </div>
+                    <div class="k-card">
+                      <div class="k-card-name">Casa Boutique</div>
+                      <div class="k-card-city">Cancún</div>
+                      <span class="k-badge badge-hotel">Hotel</span>
+                    </div>
+                    <div class="k-card">
+                      <div class="k-card-name">Tours Pacífico</div>
+                      <div class="k-card-city">Nayarit</div>
+                      <span class="k-badge badge-tours">Tours</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="k-col-title">Calificado</div>
+                    <div class="k-card">
+                      <div class="k-card-name">Airbnb Manager</div>
+                      <div class="k-card-city">CDMX</div>
+                      <span class="k-badge badge-prop">Prop. Mgmt</span>
+                    </div>
+                    <div class="k-card">
+                      <div class="k-card-name">PV Tours Co.</div>
+                      <div class="k-card-city">Jalisco</div>
+                      <span class="k-badge badge-tours">Tours</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-row">
+                  <div class="stat-mini">
+                    <div class="stat-num">142</div>
+                    <div class="stat-lbl">Prospectos</div>
+                    <div class="stat-up">+31 sem.</div>
+                  </div>
+                  <div class="stat-mini">
+                    <div class="stat-num">23%</div>
+                    <div class="stat-lbl">Conversión</div>
+                    <div class="stat-up">+4.2%</div>
+                  </div>
+                  <div class="stat-mini">
+                    <div class="stat-num">$48K</div>
+                    <div class="stat-lbl">Pipeline</div>
+                    <div class="stat-up">+18% mes</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        <!-- Floating: WhatsApp card -->
-        <div class="hero-wa">
-          <div class="wa-row">
-            <div class="wa-dot">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.534 5.853L0 24l6.335-1.509A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.592-.491-5.103-1.352l-.361-.215-3.763.896.945-3.668-.235-.375A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            <!-- Animation 1: Notification bar -->
+            <div class="notif-bar" id="notifBar">
+              <div class="notif-icon">🏨</div>
+              <div>
+                <div class="notif-title">Nuevo Prospecto Captado</div>
+                <div class="notif-sub">Hotel Marina Vallarta · ahora mismo</div>
+              </div>
             </div>
-            <div>
-              <div class="wa-name" data-i18n="wa-name">Seguimiento Automático</div>
-              <div class="wa-sub" data-i18n="wa-sub">WhatsApp · enviado automáticamente</div>
+
+            <!-- Animation 2: WhatsApp chat -->
+            <div class="chat-bubble" id="chatBubble">
+              <div class="chat-header">
+                <div class="wa-icon">💬</div>
+                <div>
+                  <div class="chat-title">Seguimiento Automático</div>
+                  <div class="chat-sub">WhatsApp · enviado automáticamente</div>
+                </div>
+              </div>
+              <div class="msg">
+                <span class="msg-bot">¡Hola! Gracias por tu interés. ¿Cuándo podemos hablar?</span>
+              </div>
+              <div class="msg msg-user-wrap">
+                <span class="msg-user">Perfecto, mañana a las 10am 🔥</span>
+              </div>
             </div>
+
           </div>
-          <div class="wa-bubble">¡Hola! Gracias por tu interés. ¿Cuándo podemos hablar?</div>
-          <div class="wa-bubble wa-bubble-out">Perfecto, mañana a las 10am 👍</div>
         </div>
       </div>
     </div>
@@ -1047,119 +1035,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ── PIPELINE DEMO ── -->
-<section class="section section-muted" id="demo">
-  <div class="demo-section">
-
-    <div class="demo-section__text">
-      <div class="overline">En acción</div>
-      <h2 class="h1" data-i18n="demo-h2">Tu pipeline de ventas, automatizado</h2>
-      <p data-i18n="demo-p">Captura prospectos, da seguimiento automático por WhatsApp y cierra más negocios sin esfuerzo manual.</p>
-    </div>
-
-    <div class="demo-section__visual">
-      <div class="phone-frame" id="pipelineDemo">
-        <div class="phone-screen">
-
-          <div class="screen-header">
-            <div class="screen-logo">diegocastro<span>.tech</span></div>
-            <div class="lang-toggle">
-              <span class="lang-btn">ES</span>
-              <span class="lang-btn inactive">EN</span>
-            </div>
-          </div>
-
-          <div class="screen-body">
-            <div class="pipeline-card">
-              <div class="pipeline-title">
-                Pipeline de Ventas — Q3 2025
-                <span class="live-dot">Live</span>
-              </div>
-              <div class="kanban-cols">
-                <div>
-                  <div class="k-col-title">Nuevo</div>
-                  <div class="k-card">
-                    <div class="k-card-name">Marina Hotel</div>
-                    <div class="k-card-city">Puerto Vallarta</div>
-                    <span class="k-badge badge-hotel">Hotel</span>
-                  </div>
-                  <div class="k-card">
-                    <div class="k-card-name">Casa Boutique</div>
-                    <div class="k-card-city">Cancún</div>
-                    <span class="k-badge badge-hotel">Hotel</span>
-                  </div>
-                  <div class="k-card">
-                    <div class="k-card-name">Tours Pacífico</div>
-                    <div class="k-card-city">Nayarit</div>
-                    <span class="k-badge badge-tours">Tours</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="k-col-title">Calificado</div>
-                  <div class="k-card">
-                    <div class="k-card-name">Airbnb Manager</div>
-                    <div class="k-card-city">CDMX</div>
-                    <span class="k-badge badge-prop">Prop. Mgmt</span>
-                  </div>
-                  <div class="k-card">
-                    <div class="k-card-name">PV Tours Co.</div>
-                    <div class="k-card-city">Jalisco</div>
-                    <span class="k-badge badge-tours">Tours</span>
-                  </div>
-                </div>
-              </div>
-              <div class="stats-row">
-                <div class="stat-mini">
-                  <div class="stat-num">142</div>
-                  <div class="stat-lbl">Prospectos</div>
-                  <div class="stat-up">+31 sem.</div>
-                </div>
-                <div class="stat-mini">
-                  <div class="stat-num">23%</div>
-                  <div class="stat-lbl">Conversión</div>
-                  <div class="stat-up">+4.2%</div>
-                </div>
-                <div class="stat-mini">
-                  <div class="stat-num">$48K</div>
-                  <div class="stat-lbl">Pipeline</div>
-                  <div class="stat-up">+18% mes</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Animation 1: Notification bar -->
-          <div class="notif-bar" id="notifBar">
-            <div class="notif-icon">🏨</div>
-            <div>
-              <div class="notif-title">Nuevo Prospecto Captado</div>
-              <div class="notif-sub">Hotel Marina Vallarta · ahora mismo</div>
-            </div>
-          </div>
-
-          <!-- Animation 2: WhatsApp chat -->
-          <div class="chat-bubble" id="chatBubble">
-            <div class="chat-header">
-              <div class="wa-icon">💬</div>
-              <div>
-                <div class="chat-title">Seguimiento Automático</div>
-                <div class="chat-sub">WhatsApp · enviado automáticamente</div>
-              </div>
-            </div>
-            <div class="msg">
-              <span class="msg-bot">¡Hola! Gracias por tu interés. ¿Cuándo podemos hablar?</span>
-            </div>
-            <div class="msg msg-user-wrap">
-              <span class="msg-user">Perfecto, mañana a las 10am 🔥</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
 </section>
