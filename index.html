@@ -1342,7 +1342,9 @@
       </div>
     </div>
     <div class="fu d1">
-      <form class="contact-form" id="contactForm" novalidate>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xrevkenq" method="POST" novalidate>
+        <input type="hidden" name="_source" value="diegocastro.tech">
+        <input type="hidden" name="_next" value="https://diegocastro.tech/#contacto">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="fname" data-i18n="form-name-lbl">Nombre</label>
@@ -1666,7 +1668,7 @@
     submitBtn.disabled = true;
     span.textContent = '...';
     try {
-      const res = await fetch('https://formspree.io/f/PLACEHOLDER', {
+      const res = await fetch('https://formspree.io/f/xrevkenq', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: new FormData(form)
