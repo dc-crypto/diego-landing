@@ -1342,9 +1342,7 @@
       </div>
     </div>
     <div class="fu d1">
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xrevkenq" method="POST" novalidate>
-        <input type="hidden" name="_source" value="diegocastro.tech">
-        <input type="hidden" name="_next" value="https://diegocastro.tech/#contacto">
+      <form class="contact-form" id="contactForm" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="fname" data-i18n="form-name-lbl">Nombre</label>
@@ -1479,7 +1477,7 @@
       'form-phone-lbl':'Teléfono','form-phone-ph':'+52 ...',
       'form-msg-lbl':'¿Qué reto estás intentando resolver?',
       'form-msg-ph':'Cuéntame sobre tu negocio y dónde crees que se están perdiendo oportunidades...',
-      'form-submit':'Solicitar diagnóstico gratuito','form-success':'✓ Mensaje enviado — te contactaré pronto','form-error':'Error al enviar. Intenta de nuevo.',
+      'form-submit':'Solicitar diagnóstico gratuito','form-success':'Gracias, te contactaré pronto','form-error':'Error al enviar. Intenta de nuevo.',
       'demo-h2':'Tu pipeline de ventas, automatizado',
       'demo-p':'Captura prospectos, da seguimiento automático por WhatsApp y cierra más negocios sin esfuerzo manual.',
       'foot-tagline':'Tecnología, Automatización y Sistemas Empresariales',
@@ -1668,10 +1666,15 @@
     submitBtn.disabled = true;
     span.textContent = '...';
     try {
-      const res = await fetch('https://formspree.io/f/xrevkenq', {
+      const res = await fetch('https://web-production-cd8f8.up.railway.app/webhook/formspree', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre:   document.getElementById('fname').value.trim(),
+          email:    document.getElementById('femail').value.trim(),
+          telefono: document.getElementById('fphone').value.trim(),
+          mensaje:  document.getElementById('fmessage').value.trim()
+        })
       });
       if (res.ok) {
         span.textContent = T[lang]['form-success'];
