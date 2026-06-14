@@ -395,9 +395,11 @@
     .proj-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 14px; }
     .proj-stack { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
     .proj-stack span { font-size: 0.6875rem; font-weight: 500; padding: 2px 8px; border-radius: 100px; background: var(--bg-muted); color: var(--text-secondary); }
-    .proj-metric { padding: 9px 12px; background: var(--bg-muted); border-radius: 7px; display: flex; align-items: center; gap: 8px; }
+    .proj-metric { padding: 9px 12px; background: var(--bg-muted); border-radius: 7px; display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
     .proj-metric-val { font-size: 0.9375rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
     .proj-metric-lbl { font-size: 0.75rem; color: var(--text-secondary); }
+    .proj-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.8125rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: opacity 0.15s; }
+    .proj-link:hover { opacity: 0.75; text-decoration: none; }
 
     /* ════════════════════════════════════
        PROCESS
@@ -1253,6 +1255,7 @@
             <span class="proj-metric-val">0</span>
             <span class="proj-metric-lbl" data-i18n="proj3-metric">prospectos perdidos por falta de seguimiento</span>
           </div>
+          <a href="https://web-production-cd8f8.up.railway.app" target="_blank" rel="noopener" class="proj-link" data-i18n="proj3-link">Ver LeadTrack →</a>
         </div>
       </div>
 
@@ -1456,6 +1459,7 @@
       'proj3-sector':'Ventas y CRM','proj3-name':'Sistema de Captación de Clientes',
       'proj3-desc':'Sistema de captación y seguimiento de extremo a extremo: landing pages, CRM, automatización de WhatsApp y orquestación de flujos — construido para eliminar la pérdida de prospectos.',
       'proj3-metric':'prospectos perdidos por falta de seguimiento',
+      'proj3-link':'Ver LeadTrack →',
       'proc-overline':'Mi enfoque','proc-h2':'Cómo trabajo',
       'proc-sub':'La tecnología por sí sola no resuelve problemas. Primero entiendo el negocio — luego diseño el sistema correcto.',
       'step1-title':'Diagnóstico empresarial','step1-desc':'Identifico los retos actuales, los cuellos de botella y dónde se están perdiendo oportunidades.',
@@ -1534,6 +1538,7 @@
       'proj3-sector':'Sales & CRM','proj3-name':'Customer Acquisition System',
       'proj3-desc':'End-to-end lead capture and follow-up system including landing pages, CRM configuration, WhatsApp automation and workflow orchestration — built to eliminate prospect loss.',
       'proj3-metric':'leads lost due to missed follow-up',
+      'proj3-link':'See LeadTrack →',
       'proc-overline':'My approach','proc-h2':'How I work',
       'proc-sub':'Technology alone doesn\'t solve problems. First I understand the business — then I design the right system.',
       'step1-title':'Business Diagnostic','step1-desc':'Understand current challenges, bottlenecks and where opportunities are being missed.',
