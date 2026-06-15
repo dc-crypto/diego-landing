@@ -349,7 +349,7 @@
 
     .proj-thumb {
       height: 172px; display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden; padding: 16px;
+      position: relative; overflow: hidden; padding: 0;
     }
     .proj-thumb-1 { background: linear-gradient(135deg,#EFF6FF,#DBEAFE); }
     .proj-thumb-2 { background: linear-gradient(135deg,#F0FDF4,#DCFCE7); }
@@ -1160,33 +1160,62 @@
       <!-- Project 1 -->
       <div class="proj-card fu">
         <div class="proj-thumb proj-thumb-1">
-          <div class="mini-ui">
-            <div class="mini-ui-top">
-              <span class="mini-ui-title">PV Tours — Reservations</span>
-              <span class="mini-ui-badge badge-blue">Live</span>
-            </div>
-            <div class="mini-ui-body">
-              <div class="mini-bar-row"><span class="mini-label">Beach</span><div class="mini-bar b-b3" style="width:80%"></div><span class="mini-bar-val">80%</span></div>
-              <div class="mini-bar-row"><span class="mini-label">Jungle</span><div class="mini-bar b-b2" style="width:60%"></div><span class="mini-bar-val">60%</span></div>
-              <div class="mini-bar-row"><span class="mini-label">City</span><div class="mini-bar b-b1" style="width:40%"></div><span class="mini-bar-val">40%</span></div>
-            </div>
-            <div class="mini-ui-footer">
-              <span class="mini-pill" style="background:#EFF6FF;color:#2563EB">Next.js</span>
-              <span class="mini-pill" style="background:#EFF6FF;color:#2563EB">CRM</span>
-              <span class="mini-pill" style="background:#EFF6FF;color:#2563EB">WA</span>
-            </div>
-          </div>
+          <!-- WhatsApp AI Agent illustration -->
+          <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+            <!-- Background -->
+            <rect width="320" height="160" fill="#EFF6FF"/>
+            <!-- Phone silhouette -->
+            <rect x="110" y="14" width="100" height="132" rx="12" fill="#fff" stroke="#DBEAFE" stroke-width="1.5"/>
+            <!-- Screen area -->
+            <rect x="117" y="26" width="86" height="108" rx="6" fill="#F8FAFF"/>
+            <!-- WhatsApp green header -->
+            <rect x="117" y="26" width="86" height="22" rx="6" fill="#25D366"/>
+            <rect x="117" y="38" width="86" height="10" fill="#25D366"/>
+            <!-- WA icon small -->
+            <circle cx="128" cy="37" r="6" fill="rgba(255,255,255,0.25)"/>
+            <text x="128" y="40.5" font-size="7" fill="#fff" text-anchor="middle">💬</text>
+            <text x="148" y="36" font-size="6.5" fill="#fff" font-weight="600" font-family="Inter,sans-serif">Agente IA</text>
+            <text x="148" y="44" font-size="5.5" fill="rgba(255,255,255,0.8)" font-family="Inter,sans-serif">en línea</text>
+            <!-- Chat bubbles -->
+            <rect x="122" y="54" width="54" height="12" rx="5" fill="#E2F7CB"/>
+            <text x="149" y="63" font-size="5.5" fill="#1a5f2a" text-anchor="middle" font-family="Inter,sans-serif">¿Tienen tours mañana?</text>
+            <rect x="128" y="71" width="50" height="12" rx="5" fill="#fff" stroke="#E0E0E0" stroke-width="0.5"/>
+            <text x="153" y="80" font-size="5.5" fill="#333" text-anchor="middle" font-family="Inter,sans-serif">¡Sí! ¿A qué hora? 🎉</text>
+            <rect x="122" y="88" width="48" height="12" rx="5" fill="#E2F7CB"/>
+            <text x="146" y="97" font-size="5.5" fill="#1a5f2a" text-anchor="middle" font-family="Inter,sans-serif">A las 9am, somos 4</text>
+            <rect x="128" y="105" width="56" height="12" rx="5" fill="#fff" stroke="#E0E0E0" stroke-width="0.5"/>
+            <text x="156" y="114" font-size="5.5" fill="#333" text-anchor="middle" font-family="Inter,sans-serif">✅ Reserva confirmada</text>
+            <!-- Channel icons left -->
+            <circle cx="72" cy="50" r="16" fill="#fff" stroke="#DBEAFE" stroke-width="1"/>
+            <text x="72" y="54" font-size="12" text-anchor="middle">📸</text>
+            <text x="72" y="67" font-size="5.5" fill="#2563EB" text-anchor="middle" font-family="Inter,sans-serif">Instagram</text>
+            <circle cx="72" cy="100" r="16" fill="#fff" stroke="#DBEAFE" stroke-width="1"/>
+            <text x="72" y="104" font-size="12" text-anchor="middle">👤</text>
+            <text x="72" y="117" font-size="5.5" fill="#2563EB" text-anchor="middle" font-family="Inter,sans-serif">Facebook</text>
+            <!-- Arrows from channels to phone -->
+            <line x1="88" y1="50" x2="108" y2="65" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <line x1="88" y1="100" x2="108" y2="95" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <!-- Arrow to CRM right -->
+            <circle cx="250" cy="75" r="18" fill="#fff" stroke="#DBEAFE" stroke-width="1"/>
+            <text x="250" y="70" font-size="8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" fill="#2563EB">CRM</text>
+            <text x="250" y="80" font-size="6" text-anchor="middle" fill="#64748B" font-family="Inter,sans-serif">Lead</text>
+            <text x="250" y="88" font-size="6" text-anchor="middle" fill="#64748B" font-family="Inter,sans-serif">guardado</text>
+            <line x1="203" y1="78" x2="231" y2="75" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <!-- Lightning bolt badge -->
+            <rect x="226" y="48" width="48" height="16" rx="8" fill="#2563EB"/>
+            <text x="250" y="59" font-size="6" fill="#fff" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">⚡ 24/7 Auto</text>
+          </svg>
         </div>
         <div class="proj-body">
-          <div class="proj-sector" data-i18n="proj1-sector">Turismo y Tours</div>
-          <h3 class="proj-name" data-i18n="proj1-name">Puerto Vallarta Tours</h3>
-          <p class="proj-desc" data-i18n="proj1-desc">Plataforma turística diseñada para generar prospectos, gestionar consultas y apoyar flujos de reserva — convirtiendo visitantes en huéspedes confirmados automáticamente.</p>
+          <div class="proj-sector" data-i18n="proj1-sector">Automatización de Ventas</div>
+          <h3 class="proj-name" data-i18n="proj1-name">Agente de IA para WhatsApp</h3>
+          <p class="proj-desc" data-i18n="proj1-desc">Agente conversacional conectado a WhatsApp, Instagram y Facebook que responde clientes, califica prospectos y los registra automáticamente en el CRM — sin intervención humana.</p>
           <div class="proj-stack">
-            <span>Next.js</span><span>CRM Integration</span><span>WhatsApp API</span><span>Automation</span>
+            <span>WhatsApp API</span><span>Instagram DM</span><span>Facebook Messenger</span><span>CRM</span>
           </div>
           <div class="proj-metric">
-            <span class="proj-metric-val">3×</span>
-            <span class="proj-metric-lbl" data-i18n="proj1-metric">de aumento en consultas calificadas</span>
+            <span class="proj-metric-val">24/7</span>
+            <span class="proj-metric-lbl" data-i18n="proj1-metric">respuesta automática sin perder un prospecto</span>
           </div>
         </div>
       </div>
@@ -1194,21 +1223,49 @@
       <!-- Project 2 -->
       <div class="proj-card fu d1">
         <div class="proj-thumb proj-thumb-2">
-          <div class="mini-ui">
-            <div class="mini-ui-top">
-              <span class="mini-ui-title">Property Manager Portal</span>
-              <span class="mini-ui-badge badge-green">12 Units</span>
-            </div>
-            <div class="mini-ui-body">
-              <div class="mini-bar-row"><span class="mini-label">Occup.</span><div class="mini-bar b-g3" style="width:85%"></div><span class="mini-bar-val">85%</span></div>
-              <div class="mini-bar-row"><span class="mini-label">Revenue</span><div class="mini-bar b-g2" style="width:72%"></div><span class="mini-bar-val">72%</span></div>
-              <div class="mini-bar-row"><span class="mini-label">Tasks</span><div class="mini-bar b-g1" style="width:50%"></div><span class="mini-bar-val">50%</span></div>
-            </div>
-            <div class="mini-ui-footer">
-              <span class="mini-pill" style="background:#F0FDF4;color:#16A34A">SaaS</span>
-              <span class="mini-pill" style="background:#F0FDF4;color:#16A34A">Dashboard</span>
-            </div>
-          </div>
+          <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+            <rect width="320" height="160" fill="#F0FDF4"/>
+            <!-- Property cards -->
+            <rect x="20" y="20" width="80" height="55" rx="8" fill="#fff" stroke="#DCFCE7" stroke-width="1.5"/>
+            <rect x="20" y="20" width="80" height="14" rx="8" fill="#22C55E"/>
+            <rect x="20" y="26" width="80" height="8" fill="#22C55E"/>
+            <text x="60" y="30" font-size="6" fill="#fff" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Casa Palmeras</text>
+            <text x="30" y="46" font-size="5.5" fill="#16A34A" font-family="Inter,sans-serif" font-weight="600">✓ Ocupada</text>
+            <text x="30" y="56" font-size="5" fill="#6B7280" font-family="Inter,sans-serif">Check-out: 15 jun</text>
+            <text x="30" y="65" font-size="5" fill="#6B7280" font-family="Inter,sans-serif">$1,200 / noche</text>
+
+            <rect x="115" y="20" width="80" height="55" rx="8" fill="#fff" stroke="#DCFCE7" stroke-width="1.5"/>
+            <rect x="115" y="20" width="80" height="14" rx="8" fill="#4ADE80"/>
+            <rect x="115" y="26" width="80" height="8" fill="#4ADE80"/>
+            <text x="155" y="30" font-size="6" fill="#fff" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Penthouse 3</text>
+            <text x="125" y="46" font-size="5.5" fill="#F59E0B" font-family="Inter,sans-serif" font-weight="600">⏳ Limpieza</text>
+            <text x="125" y="56" font-size="5" fill="#6B7280" font-family="Inter,sans-serif">Check-in: 16 jun</text>
+            <text x="125" y="65" font-size="5" fill="#6B7280" font-family="Inter,sans-serif">$2,400 / noche</text>
+
+            <rect x="210" y="20" width="90" height="55" rx="8" fill="#fff" stroke="#DCFCE7" stroke-width="1.5"/>
+            <rect x="210" y="20" width="90" height="14" rx="8" fill="#86EFAC"/>
+            <rect x="210" y="26" width="90" height="8" fill="#86EFAC"/>
+            <text x="255" y="30" font-size="6" fill="#14532D" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Villa Cristal</text>
+            <text x="220" y="46" font-size="5.5" fill="#16A34A" font-family="Inter,sans-serif" font-weight="600">✓ Ocupada</text>
+            <text x="220" y="56" font-size="5" fill="#6B7280" font-family="Inter,sans-serif">Check-out: 20 jun</text>
+            <text x="220" y="65" font-size="5" fill="#6B7280" font-family="Inter,sans-serif">$3,100 / noche</text>
+
+            <!-- Stats row -->
+            <rect x="20" y="90" width="85" height="52" rx="8" fill="#fff" stroke="#DCFCE7" stroke-width="1"/>
+            <text x="62" y="108" font-size="14" fill="#16A34A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800">85%</text>
+            <text x="62" y="120" font-size="6" fill="#6B7280" text-anchor="middle" font-family="Inter,sans-serif">Ocupación</text>
+            <text x="62" y="130" font-size="6" fill="#16A34A" text-anchor="middle" font-family="Inter,sans-serif">↑ 12% vs mes ant.</text>
+
+            <rect x="118" y="90" width="84" height="52" rx="8" fill="#fff" stroke="#DCFCE7" stroke-width="1"/>
+            <text x="160" y="108" font-size="14" fill="#16A34A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800">$48K</text>
+            <text x="160" y="120" font-size="6" fill="#6B7280" text-anchor="middle" font-family="Inter,sans-serif">Ingresos mes</text>
+            <text x="160" y="130" font-size="6" fill="#16A34A" text-anchor="middle" font-family="Inter,sans-serif">↑ 18% mes ant.</text>
+
+            <rect x="215" y="90" width="85" height="52" rx="8" fill="#fff" stroke="#DCFCE7" stroke-width="1"/>
+            <text x="257" y="108" font-size="14" fill="#F59E0B" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800">3</text>
+            <text x="257" y="120" font-size="6" fill="#6B7280" text-anchor="middle" font-family="Inter,sans-serif">Tareas pend.</text>
+            <text x="257" y="130" font-size="6" fill="#F59E0B" text-anchor="middle" font-family="Inter,sans-serif">Limpieza · Mant.</text>
+          </svg>
         </div>
         <div class="proj-body">
           <div class="proj-sector" data-i18n="proj2-sector">Gestión de Propiedades</div>
@@ -1227,22 +1284,78 @@
       <!-- Project 3 -->
       <div class="proj-card fu d2">
         <div class="proj-thumb proj-thumb-3">
-          <div class="mini-ui">
-            <div class="mini-ui-top">
-              <span class="mini-ui-title">Lead Pipeline — CRM</span>
-              <span class="mini-ui-badge badge-purple">Auto</span>
-            </div>
-            <div class="mini-ui-body">
-              <div class="mini-bar-row"><span class="mini-label">New</span><div class="mini-bar b-p3" style="width:90%"></div><span class="mini-bar-val">47</span></div>
-              <div class="mini-bar-row"><span class="mini-label">Qual.</span><div class="mini-bar b-p2" style="width:60%"></div><span class="mini-bar-val">31</span></div>
-              <div class="mini-bar-row"><span class="mini-label">Closed</span><div class="mini-bar b-p1" style="width:30%"></div><span class="mini-bar-val">16</span></div>
-            </div>
-            <div class="mini-ui-footer">
-              <span class="mini-pill" style="background:#FDF4FF;color:#9333EA">CRM</span>
-              <span class="mini-pill" style="background:#FDF4FF;color:#9333EA">n8n</span>
-              <span class="mini-pill" style="background:#FDF4FF;color:#9333EA">WA</span>
-            </div>
-          </div>
+          <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+            <rect width="320" height="160" fill="#FDF4FF"/>
+            <!-- Funnel illustration: channels → CRM pipeline -->
+            <!-- Channel sources top -->
+            <rect x="10" y="12" width="60" height="22" rx="6" fill="#fff" stroke="#E9D5FF" stroke-width="1"/>
+            <text x="40" y="21" font-size="7" fill="#7C3AED" text-anchor="middle" font-family="Inter,sans-serif">📸 Instagram</text>
+            <text x="40" y="30" font-size="5.5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">DM automático</text>
+
+            <rect x="10" y="42" width="60" height="22" rx="6" fill="#fff" stroke="#E9D5FF" stroke-width="1"/>
+            <text x="40" y="51" font-size="7" fill="#7C3AED" text-anchor="middle" font-family="Inter,sans-serif">💬 WhatsApp</text>
+            <text x="40" y="60" font-size="5.5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">API conectada</text>
+
+            <rect x="10" y="72" width="60" height="22" rx="6" fill="#fff" stroke="#E9D5FF" stroke-width="1"/>
+            <text x="40" y="81" font-size="7" fill="#7C3AED" text-anchor="middle" font-family="Inter,sans-serif">🌐 Sitio web</text>
+            <text x="40" y="90" font-size="5.5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">Formulario</text>
+
+            <rect x="10" y="102" width="60" height="22" rx="6" fill="#fff" stroke="#E9D5FF" stroke-width="1"/>
+            <text x="40" y="111" font-size="7" fill="#7C3AED" text-anchor="middle" font-family="Inter,sans-serif">📅 Calendly</text>
+            <text x="40" y="120" font-size="5.5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">Agendado</text>
+
+            <!-- Arrows to pipeline -->
+            <line x1="70" y1="23" x2="90" y2="55" stroke="#C084FC" stroke-width="1" stroke-dasharray="3,2"/>
+            <line x1="70" y1="53" x2="90" y2="58" stroke="#C084FC" stroke-width="1" stroke-dasharray="3,2"/>
+            <line x1="70" y1="83" x2="90" y2="65" stroke="#C084FC" stroke-width="1" stroke-dasharray="3,2"/>
+            <line x1="70" y1="113" x2="90" y2="72" stroke="#C084FC" stroke-width="1" stroke-dasharray="3,2"/>
+
+            <!-- Pipeline Kanban -->
+            <rect x="88" y="10" width="220" height="140" rx="8" fill="#fff" stroke="#E9D5FF" stroke-width="1"/>
+            <text x="198" y="24" font-size="7" fill="#6B21A8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">LeadTrack — Pipeline</text>
+
+            <!-- Col headers -->
+            <rect x="95" y="30" width="46" height="10" rx="3" fill="#F3E8FF"/>
+            <text x="118" y="38" font-size="6" fill="#7C3AED" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">NUEVO</text>
+
+            <rect x="147" y="30" width="46" height="10" rx="3" fill="#EFF6FF"/>
+            <text x="170" y="38" font-size="6" fill="#2563EB" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">CALIFCD.</text>
+
+            <rect x="199" y="30" width="46" height="10" rx="3" fill="#FFF7ED"/>
+            <text x="222" y="38" font-size="6" fill="#EA580C" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">PROPSTA.</text>
+
+            <rect x="251" y="30" width="50" height="10" rx="3" fill="#F0FDF4"/>
+            <text x="276" y="38" font-size="6" fill="#16A34A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">CERRADO</text>
+
+            <!-- Cards col 1 -->
+            <rect x="95" y="45" width="46" height="24" rx="4" fill="#FAFAFA" stroke="#E9D5FF" stroke-width="0.8"/>
+            <text x="118" y="55" font-size="5.5" fill="#1a1a1a" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">Hotel Marina</text>
+            <text x="118" y="63" font-size="5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">WA · hace 2min</text>
+
+            <rect x="95" y="73" width="46" height="24" rx="4" fill="#FAFAFA" stroke="#E9D5FF" stroke-width="0.8"/>
+            <text x="118" y="83" font-size="5.5" fill="#1a1a1a" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">Tour Express</text>
+            <text x="118" y="91" font-size="5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">IG · hace 5min</text>
+
+            <!-- Cards col 2 -->
+            <rect x="147" y="45" width="46" height="24" rx="4" fill="#FAFAFA" stroke="#BFDBFE" stroke-width="0.8"/>
+            <text x="170" y="55" font-size="5.5" fill="#1a1a1a" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">Casa Azul</text>
+            <text x="170" y="63" font-size="5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">Web · ayer</text>
+
+            <!-- Cards col 3 -->
+            <rect x="199" y="45" width="46" height="24" rx="4" fill="#FAFAFA" stroke="#FED7AA" stroke-width="0.8"/>
+            <text x="222" y="55" font-size="5.5" fill="#1a1a1a" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">Villas del Mar</text>
+            <text x="222" y="63" font-size="5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">Cal. · lun</text>
+
+            <!-- Cards col 4 -->
+            <rect x="251" y="45" width="50" height="24" rx="4" fill="#FAFAFA" stroke="#BBF7D0" stroke-width="0.8"/>
+            <text x="276" y="55" font-size="5.5" fill="#16A34A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">✓ Grupo Sol</text>
+            <text x="276" y="63" font-size="5" fill="#9CA3AF" text-anchor="middle" font-family="Inter,sans-serif">$4,200</text>
+
+            <!-- Email notif badge -->
+            <rect x="148" y="108" width="100" height="30" rx="6" fill="#7C3AED"/>
+            <text x="198" y="121" font-size="6" fill="#fff" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">🔔 Nuevo lead: Hotel Marina</text>
+            <text x="198" y="131" font-size="5.5" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="Inter,sans-serif">Notif. email → diego@...</text>
+          </svg>
         </div>
         <div class="proj-body">
           <div class="proj-sector" data-i18n="proj3-sector">Ventas y CRM</div>
@@ -1333,17 +1446,21 @@
       <h2 class="h1 contact-hl" data-i18n="cont-h2">Identifiquemos dónde tu negocio está perdiendo oportunidades.</h2>
       <p class="contact-sub" data-i18n="cont-sub">Agenda una sesión de diagnóstico gratuita. Revisamos tu proceso actual, encontramos las brechas y definimos cómo solucionarlo — sin compromiso.</p>
       <div class="contact-methods">
-        <a href="https://linkedin.com" class="contact-method" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/diego-castro-larrain/" class="contact-method" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           <span data-i18n="cont-linkedin">LinkedIn — Diego Castro</span>
         </a>
-        <a href="https://wa.me/521XXXXXXXXXX" class="contact-method" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          <span data-i18n="cont-whatsapp">WhatsApp — Enviar mensaje</span>
+        <a href="https://www.instagram.com/diegocastro.tech/" class="contact-method" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <span data-i18n="cont-instagram">Instagram — @diegocastro.tech</span>
         </a>
-        <a href="mailto:diego@example.com" class="contact-method">
+        <a href="https://wa.me/523221097649" class="contact-method" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <span data-i18n="cont-whatsapp">WhatsApp — +52 322 109 7649</span>
+        </a>
+        <a href="mailto:hola@diegocastro.tech" class="contact-method">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span data-i18n="cont-email">diego@example.com</span>
+          <span data-i18n="cont-email">hola@diegocastro.tech</span>
         </a>
       </div>
     </div>
@@ -1391,13 +1508,19 @@
         <div class="footer-tagline" data-i18n="foot-tagline">Tecnología, Automatización y Sistemas Empresariales</div>
       </div>
       <div class="footer-socials">
-        <a href="https://linkedin.com" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/diego-castro-larrain/" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
-        <a href="https://wa.me/521XXXXXXXXXX" class="footer-social" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a href="https://www.instagram.com/diegocastro.tech/" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61590654365455" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://wa.me/523221097649" class="footer-social" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         </a>
-        <a href="mailto:diego@example.com" class="footer-social" aria-label="Email">
+        <a href="mailto:hola@diegocastro.tech" class="footer-social" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </a>
       </div>
@@ -1450,9 +1573,9 @@
       'sol4-desc':'Integra IA en tus operaciones para atender consultas de clientes, procesar información y automatizar decisiones inteligentes — sin reemplazar el juicio humano donde importa.',
       'proj-overline':'Casos de estudio','proj-h2':'Proyectos Destacados',
       'proj-sub':'Sistemas reales construidos para retos reales de negocio — sin relleno, solo resultados.',
-      'proj1-sector':'Turismo y Tours','proj1-name':'Puerto Vallarta Tours',
-      'proj1-desc':'Plataforma turística diseñada para generar prospectos, gestionar consultas y apoyar flujos de reserva — convirtiendo visitantes en huéspedes confirmados automáticamente.',
-      'proj1-metric':'de aumento en consultas calificadas',
+      'proj1-sector':'Automatización de Ventas','proj1-name':'Agente de IA para WhatsApp',
+      'proj1-desc':'Agente conversacional conectado a WhatsApp, Instagram y Facebook que responde clientes, califica prospectos y los registra automáticamente en el CRM — sin intervención humana.',
+      'proj1-metric':'respuesta automática sin perder un prospecto',
       'proj2-sector':'Gestión de Propiedades','proj2-name':'Plataforma para Property Managers',
       'proj2-desc':'Software estilo SaaS para administradores de propiedades vacacionales que centraliza operaciones, reportes, mantenimiento y comunicación con huéspedes en un solo lugar.',
       'proj2-metric':'de reducción en administración manual',
@@ -1477,7 +1600,7 @@
       'about-cred4':'Implementación de CRM, automatización y sistemas de captación de clientes',
       'cont-overline':'Contáctame','cont-h2':'Identifiquemos dónde tu negocio está perdiendo oportunidades.',
       'cont-sub':'Agenda una sesión de diagnóstico gratuita. Revisamos tu proceso actual, encontramos las brechas y definimos cómo solucionarlo — sin compromiso.',
-      'cont-linkedin':'LinkedIn — Diego Castro','cont-whatsapp':'WhatsApp — Enviar mensaje','cont-email':'diego@example.com',
+      'cont-linkedin':'LinkedIn — Diego Castro','cont-instagram':'Instagram — @diegocastro.tech','cont-whatsapp':'WhatsApp — +52 322 109 7649','cont-email':'hola@diegocastro.tech',
       'form-name-lbl':'Nombre','form-name-ph':'Tu nombre',
       'form-company-lbl':'Empresa','form-company-ph':'Empresa o negocio',
       'form-email-lbl':'Correo electrónico','form-email-ph':'tu@empresa.com',
@@ -1529,9 +1652,9 @@
       'sol4-desc':'Integrate AI into your operations to handle customer inquiries, process information and automate intelligent decisions — without replacing the human judgment that matters.',
       'proj-overline':'Case studies','proj-h2':'Featured Projects',
       'proj-sub':'Real systems built for real business challenges — no case study fluff, just outcomes.',
-      'proj1-sector':'Tourism & Tours','proj1-name':'Puerto Vallarta Tours',
-      'proj1-desc':'Tourism platform designed to generate leads, manage customer inquiries and support reservation workflows — turning website visitors into booked guests automatically.',
-      'proj1-metric':'increase in qualified inquiry volume',
+      'proj1-sector':'Sales Automation','proj1-name':'WhatsApp AI Agent',
+      'proj1-desc':'Conversational AI agent connected to WhatsApp, Instagram and Facebook that responds to customers, qualifies leads and registers them automatically in the CRM — with zero human intervention.',
+      'proj1-metric':'automated response without missing a single lead',
       'proj2-sector':'Property Management','proj2-name':'Property Management Platform',
       'proj2-desc':'SaaS-style software for vacation rental managers that centralizes unit operations, owner reporting, maintenance tracking and guest communication in one place.',
       'proj2-metric':'reduction in manual admin time',
@@ -1556,7 +1679,7 @@
       'about-cred4':'CRM implementation, automation and lead generation systems',
       'cont-overline':'Get in touch','cont-h2':'Let\'s identify where your business is losing opportunities.',
       'cont-sub':'Book a free diagnostic session. We\'ll review your current process, find the gaps and define what a system fix would look like — no commitment required.',
-      'cont-linkedin':'LinkedIn — Diego Castro','cont-whatsapp':'WhatsApp — Send a message','cont-email':'diego@example.com',
+      'cont-linkedin':'LinkedIn — Diego Castro','cont-instagram':'Instagram — @diegocastro.tech','cont-whatsapp':'WhatsApp — +52 322 109 7649','cont-email':'hola@diegocastro.tech',
       'form-name-lbl':'Name','form-name-ph':'Your name',
       'form-company-lbl':'Company','form-company-ph':'Company or business',
       'form-email-lbl':'Email','form-email-ph':'you@company.com',
