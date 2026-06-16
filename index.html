@@ -400,6 +400,9 @@
     .proj-metric-lbl { font-size: 0.75rem; color: var(--text-secondary); }
     .proj-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.8125rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: opacity 0.15s; }
     .proj-link:hover { opacity: 0.75; text-decoration: none; }
+    .proj-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .proj-login { display: inline-flex; align-items: center; gap: 5px; font-size: 0.8125rem; font-weight: 500; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-secondary); background: transparent; transition: border-color 0.15s, color 0.15s; }
+    .proj-login:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ════════════════════════════════════
        PROCESS
@@ -1278,7 +1281,13 @@
             <span class="proj-metric-val">60%</span>
             <span class="proj-metric-lbl" data-i18n="proj2-metric">de reducción en administración manual</span>
           </div>
-          <a href="https://propmanager.diegocastro.tech/" target="_blank" rel="noopener" class="proj-link" data-i18n="proj2-link">Ver PropManager →</a>
+          <div class="proj-actions">
+            <a href="https://propmanager.diegocastro.tech/" target="_blank" rel="noopener" class="proj-link" data-i18n="proj2-link">Ver PropManager →</a>
+            <a href="https://propmanager.diegocastro.tech/login" target="_blank" rel="noopener" class="proj-login" data-i18n="proj2-login">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              Iniciar sesión
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1369,7 +1378,13 @@
             <span class="proj-metric-val">0</span>
             <span class="proj-metric-lbl" data-i18n="proj3-metric">prospectos perdidos por falta de seguimiento</span>
           </div>
-          <a href="https://web-production-cd8f8.up.railway.app" target="_blank" rel="noopener" class="proj-link" data-i18n="proj3-link">Ver LeadTrack →</a>
+          <div class="proj-actions">
+            <a href="https://web-production-cd8f8.up.railway.app" target="_blank" rel="noopener" class="proj-link" data-i18n="proj3-link">Ver LeadTrack →</a>
+            <a href="https://web-production-cd8f8.up.railway.app/login" target="_blank" rel="noopener" class="proj-login" data-i18n="proj3-login">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              Iniciar sesión
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1581,10 +1596,12 @@
       'proj2-desc':'Software estilo SaaS para administradores de propiedades vacacionales que centraliza operaciones, reportes, mantenimiento y comunicación con huéspedes en un solo lugar.',
       'proj2-metric':'de reducción en administración manual',
       'proj2-link':'Ver PropManager →',
+      'proj2-login':'Iniciar sesión',
       'proj3-sector':'Ventas y CRM','proj3-name':'Sistema de Captación de Clientes',
       'proj3-desc':'Sistema de captación y seguimiento de extremo a extremo: landing pages, CRM, automatización de WhatsApp y orquestación de flujos — construido para eliminar la pérdida de prospectos.',
       'proj3-metric':'prospectos perdidos por falta de seguimiento',
       'proj3-link':'Ver LeadTrack →',
+      'proj3-login':'Iniciar sesión',
       'proc-overline':'Mi enfoque','proc-h2':'Cómo trabajo',
       'proc-sub':'La tecnología por sí sola no resuelve problemas. Primero entiendo el negocio — luego diseño el sistema correcto.',
       'step1-title':'Diagnóstico empresarial','step1-desc':'Identifico los retos actuales, los cuellos de botella y dónde se están perdiendo oportunidades.',
@@ -1661,10 +1678,12 @@
       'proj2-desc':'SaaS-style software for vacation rental managers that centralizes unit operations, owner reporting, maintenance tracking and guest communication in one place.',
       'proj2-metric':'reduction in manual admin time',
       'proj2-link':'See PropManager →',
+      'proj2-login':'Sign in',
       'proj3-sector':'Sales & CRM','proj3-name':'Customer Acquisition System',
       'proj3-desc':'End-to-end lead capture and follow-up system including landing pages, CRM configuration, WhatsApp automation and workflow orchestration — built to eliminate prospect loss.',
       'proj3-metric':'leads lost due to missed follow-up',
       'proj3-link':'See LeadTrack →',
+      'proj3-login':'Sign in',
       'proc-overline':'My approach','proc-h2':'How I work',
       'proc-sub':'Technology alone doesn\'t solve problems. First I understand the business — then I design the right system.',
       'step1-title':'Business Diagnostic','step1-desc':'Understand current challenges, bottlenecks and where opportunities are being missed.',
