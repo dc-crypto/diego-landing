@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans:  var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+
+  /* Canvas & surfaces */
+  --color-canvas:   #FAFAF8;
+  --color-surface:  #FFFFFF;
+
+  /* Dark sections */
+  --color-dark-bg:     #0C0A09;
+  --color-dark-sf:     #161412;
+  --color-dark-sf2:    #211E1A;
+  --color-dark-border: #2C2822;
+  --color-cream:       #F2EFE9;
+  --color-cream-muted: #9A948D;
+
+  /* Text */
+  --color-ink:    #111009;
+  --color-ash:    #6B6560;
+  --color-dust:   #B8B3AE;
+  --color-border: #E8E4E0;
+
+  /* Accent: amber/copper — distinctive, not generic blue */
+  --color-accent:    #E8943A;
+  --color-accent-h:  #D07A25;
+  --color-accent-lt: #FEF3C7;
+  --color-gold:      #F59E0B;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html  { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+/* ── Scroll-triggered reveal ───────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: 80ms; }
+.reveal.d2 { transition-delay: 160ms; }
+.reveal.d3 { transition-delay: 240ms; }
+.reveal.d4 { transition-delay: 320ms; }
+.reveal.d5 { transition-delay: 400ms; }
+
+/* ── Keyframes ─────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-9px); }
+}
+@keyframes hfloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes sfadeup {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes sfadedown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(0.7); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fillbar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes countup {
+  from { opacity: 0; transform: translateY(7px) scale(0.88); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cardpulse {
+  0%, 100% { box-shadow: none; border-color: #E5E7EB; }
+  50%       { box-shadow: 0 0 0 2px rgba(234,179,8,0.25); border-color: rgba(234,179,8,0.5); }
+}
+
+/* ── Button active press (Emil principle) ──────────────── */
+.btn-press:active { transform: scale(0.97); }
+
+/* ── Charlot page: responsive layout ──────────────────── */
+.ch-nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.ch-nav-cta   { display: inline-block; }
+.ch-mob-btn   { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+.ch-mob-menu  { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 40; flex-direction: column; }
+.ch-mob-menu.open { display: flex; }
+
+.ch-g2    { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.ch-g2c   { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.ch-g2v   { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.ch-g2-svc{ display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.ch-g3    { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.ch-g4    { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; }
+.ch-row   { display: grid; grid-template-columns: 80px 1fr auto; gap: 24px; align-items: center; }
+.ch-float { position: absolute; bottom: 24px; left: -24px; }
+.ch-badge { position: absolute; top: 24px; right: -20px; }
+.ch-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+@media (max-width: 768px) {
+  .ch-nav-links, .ch-nav-cta { display: none !important; }
+  .ch-mob-btn { display: flex !important; align-items: center; }
+
+  .ch-g2, .ch-g2c, .ch-g2v { grid-template-columns: 1fr; gap: 36px; }
+  .ch-g2-svc { grid-template-columns: 1fr; gap: 12px; }
+  .ch-g3     { grid-template-columns: 1fr; gap: 12px; }
+  .ch-g4     { grid-template-columns: repeat(2,1fr); gap: 16px; }
+  .ch-row    { grid-template-columns: 60px 1fr; }
+  .ch-row-cta{ display: none; }
+  .ch-float  { display: none; }
+  .ch-badge  { position: static; display: inline-block; margin-bottom: 14px; }
+  .ch-chips  { grid-template-columns: 1fr 1fr; }
+}
