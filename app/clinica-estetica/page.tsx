@@ -28,7 +28,7 @@ function useInView() {
     const t = setTimeout(() => setIsVisible(true), 2500);
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setIsVisible(true); clearTimeout(t); obs.disconnect(); } },
-      { threshold: 0.12 }
+      { threshold: 0, rootMargin: "0px 0px 200px 0px" }
     );
     obs.observe(el);
     return () => { obs.disconnect(); clearTimeout(t); };
@@ -50,8 +50,8 @@ function RevealDiv({
     <div ref={ref} className={className} style={{
       opacity: isVisible ? 1 : 0,
       transform: isVisible ? "none" : "translateY(20px) scale(0.97)",
-      transition: `opacity 0.65s cubic-bezier(0.23,1,0.32,1) ${delay}ms,
-                   transform 0.65s cubic-bezier(0.23,1,0.32,1) ${delay}ms`,
+      transition: `opacity 0.4s cubic-bezier(0.23,1,0.32,1) ${delay}ms,
+                   transform 0.4s cubic-bezier(0.23,1,0.32,1) ${delay}ms`,
       ...xStyle,
     }}>
       {children}
@@ -112,7 +112,7 @@ function PhotoReveal({ src, alt, delay = 0, height = 280, style: xStyle = {} }: 
       clipPath: isVisible
         ? "inset(0 0 0% 0 round 0px)"
         : "inset(0 0 100% 0 round 0px)",
-      transition: `clip-path 0.9s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms`,
+      transition: `clip-path 0.55s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms`,
       ...xStyle,
     }}>
       <img
@@ -122,7 +122,7 @@ function PhotoReveal({ src, alt, delay = 0, height = 280, style: xStyle = {} }: 
           height: typeof height === "number" ? `${height}px` : height,
           objectFit: "cover", display: "block",
           transform: isVisible ? "scale(1)" : "scale(1.08)",
-          transition: `transform 0.9s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms`,
+          transition: `transform 0.55s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms`,
         }}
       />
     </div>
