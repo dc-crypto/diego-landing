@@ -742,7 +742,7 @@ export default function ClinicaEstetica() {
             {/* Booking iframe */}
             <RevealDiv delay={80} style={{ borderRadius: "20px", overflow: "hidden", border: `1px solid ${T.border}`, background: "white", boxShadow: "0 8px 48px rgba(0,0,0,0.07)" }}>
               <iframe
-                src="https://reservas.diegocastro.tech/reservar"
+                src="https://reservas.diegocastro.tech/reservar?embed=true"
                 title="Reserva tu cita en Lumé Clínica Estética"
                 className="ce-booking-iframe"
                 style={{ width: "100%", border: "none", display: "block" }}
