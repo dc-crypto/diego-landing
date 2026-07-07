@@ -758,18 +758,18 @@ export default function ClinicaEstetica() {
             <RevealDiv delay={130}>
               <div className="ce-chips4" style={{ marginTop: "24px" }}>
                 {([
-                  ["📍", "Santiago, Chile"],
-                  ["🕐", "Lun–Vie 9:00–19:00"],
-                  ["💻", "Consultas online"],
-                  ["📞", "+56 9 1234 5678"],
-                ] as [string, string][]).map(([icon, text]) => (
+                  [<svg key="pin" width="15" height="15" viewBox="0 0 24 24" fill={T.gold}><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>, "Santiago, Chile"],
+                  [<svg key="clk" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={T.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, "Lun–Vie 9:00–19:00"],
+                  [<svg key="mon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={T.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>, "Consultas online"],
+                  [<svg key="tel" width="15" height="15" viewBox="0 0 24 24" fill={T.gold}><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>, "+56 9 1234 5678"],
+                ] as [React.ReactNode, string][]).map(([icon, text]) => (
                   <div key={text} style={{
                     display: "flex", alignItems: "center", gap: "10px",
                     background: "white", border: `1px solid ${T.border}`,
                     borderRadius: "12px", padding: "12px 16px",
                     fontFamily: sans, fontSize: "0.84rem", color: T.stone,
                   }}>
-                    <span>{icon}</span> {text}
+                    <span style={{ display: "flex", flexShrink: 0 }}>{icon}</span> {text}
                   </div>
                 ))}
               </div>
