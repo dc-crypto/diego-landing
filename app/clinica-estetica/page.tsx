@@ -100,6 +100,44 @@ function StatCounter({ value, prefix = "", suffix = "", label, fmt }: {
   );
 }
 
+/* ── ParallaxPhoto (scroll parallax, always visible) ─────── */
+function ParallaxPhoto({ src, alt }: { src: string; alt: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imgRef       = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const img       = imgRef.current;
+    if (!container || !img) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const onScroll = () => {
+      const rect   = container.getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      img.style.transform = `translateY(${center * 0.3}px)`;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // set initial position
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div ref={containerRef} style={{ height: "100%", overflow: "hidden", borderRadius: "inherit" }}>
+      <img
+        ref={imgRef}
+        src={src} alt={alt} loading="eager"
+        style={{
+          width: "100%", height: "130%", marginTop: "-15%",
+          objectFit: "cover", display: "block",
+          willChange: "transform",
+        }}
+      />
+    </div>
+  );
+}
+
 /* ── PhotoReveal (clip-path + scale, editorial reveal) ───── */
 function PhotoReveal({ src, alt, delay = 0, height = 280, style: xStyle = {} }: {
   src: string; alt: string; delay?: number; height?: number | string;
@@ -593,7 +631,7 @@ export default function ClinicaEstetica() {
             <div className="ce-g2">
               {/* Image */}
               <div style={{ borderRadius: "20px", overflow: "hidden", aspectRatio: "4/5" }}>
-                <PhotoReveal src="/ce/spa-light.webp" alt="Lumé Clínica Estética" height="100%" />
+                <ParallaxPhoto src="/ce/spa-light.webp" alt="Lumé Clínica Estética" />
               </div>
 
               {/* Text */}
