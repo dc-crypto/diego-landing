@@ -12,10 +12,11 @@ export default function Nav() {
   }, []);
 
   const links = [
-    { href: "#soluciones", label: "Soluciones" },
-    { href: "#proyectos",  label: "Proyectos" },
-    { href: "#sobre-mi",   label: "Sobre mí" },
-    { href: "#contacto",   label: "Contacto" },
+    { href: "#soluciones",      label: "Soluciones" },
+    { href: "#proyectos",       label: "Proyectos" },
+    { href: "#sobre-mi",        label: "Sobre mí" },
+    { href: "/soporte-digital", label: "Soporte" },
+    { href: "#contacto",        label: "Contacto" },
   ];
 
   return (
