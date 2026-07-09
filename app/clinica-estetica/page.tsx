@@ -17,7 +17,7 @@ const serif = "var(--font-spectral), Georgia, serif";
 const sans  = "var(--font-jost), system-ui, sans-serif";
 
 /* ── useInView (one-shot, 2500ms fallback) ──────────────── */
-function useInView() {
+function useInView(rootMargin = "0px 0px 200px 0px") {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -28,7 +28,7 @@ function useInView() {
     const t = setTimeout(() => setIsVisible(true), 2500);
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setIsVisible(true); clearTimeout(t); obs.disconnect(); } },
-      { threshold: 0, rootMargin: "0px 0px 200px 0px" }
+      { threshold: 0, rootMargin }
     );
     obs.observe(el);
     return () => { obs.disconnect(); clearTimeout(t); };
@@ -60,8 +60,8 @@ function RevealDiv({
 }
 
 /* ── useCountUp ─────────────────────────────────────────── */
-function useCountUp(target: number, duration = 1400) {
-  const { ref, isVisible } = useInView();
+function useCountUp(target: number, duration = 1800) {
+  const { ref, isVisible } = useInView("0px 0px -60px 0px");
   const [count, setCount] = useState(0);
   const started = useRef(false);
   useEffect(() => {
