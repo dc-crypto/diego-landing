@@ -39,7 +39,7 @@ const PROJECTS = [
     slug:     "centro-integral-reiki",
     name:     "Escuela Integral",
     sector:   "Centro de Reiki y terapia",
-    cover:    "/portafolio/centro-integral-reiki-cover.jpg",
+    cover:    "/portafolio/centro-integral-reiki-cover.webp",
     problem:  "Charlot tenía años de experiencia en Reiki y terapias energéticas, pero sin presencia digital sus clientes llegaban solo por boca a boca.",
     solution: "Sitio web completo con galería de servicios, calendario de cursos y reserva directa por WhatsApp — todo en su estética y paleta propias.",
     url:      "https://diegocastro.tech/centro-integral-reiki/",
@@ -84,46 +84,6 @@ function ClinicaThumbnail() {
         ref={iframeRef}
         src="https://diegocastro.tech/clinica-estetica/"
         title="Lumé Clínica Estética — preview"
-        scrolling="no"
-        style={{
-          position: "absolute",
-          top: 0, left: 0,
-          width: "1280px",
-          height: "720px",
-          border: "none",
-          transformOrigin: "top left",
-          pointerEvents: "none",
-        }}
-      />
-    </div>
-  );
-}
-
-/* ── CentroIntegralThumbnail — iframe escalado ───────────── */
-function CentroIntegralThumbnail() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const iframeRef  = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const iframe  = iframeRef.current;
-    if (!wrapper || !iframe) return;
-    const setScale = () => {
-      const scale = wrapper.offsetWidth / 1280;
-      iframe.style.transform = `scale(${scale})`;
-    };
-    setScale();
-    const ro = new ResizeObserver(setScale);
-    ro.observe(wrapper);
-    return () => ro.disconnect();
-  }, []);
-
-  return (
-    <div ref={wrapperRef} style={{ position: "relative", overflow: "hidden", aspectRatio: "16/9", backgroundColor: "#1E0E3E" }}>
-      <iframe
-        ref={iframeRef}
-        src="https://diegocastro.tech/centro-integral-reiki/"
-        title="Escuela Integral — preview"
         scrolling="no"
         style={{
           position: "absolute",
@@ -300,11 +260,7 @@ export default function Portafolio() {
               <Reveal key={p.slug} delay={(i + 1) as 1 | 2 | 3}>
                 <ProjectCard
                   project={p}
-                  thumbnail={
-                    p.slug === "clinica-estetica"     ? <ClinicaThumbnail /> :
-                    p.slug === "centro-integral-reiki" ? <CentroIntegralThumbnail /> :
-                    undefined
-                  }
+                  thumbnail={p.slug === "clinica-estetica" ? <ClinicaThumbnail /> : undefined}
                 />
               </Reveal>
             ))}
