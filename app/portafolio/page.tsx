@@ -47,13 +47,13 @@ const PROJECTS = [
   },
   {
     slug:     "pizzeria",
-    name:     "Pizzería Don Fuego",
-    sector:   "Restaurante y delivery",
-    cover:    "/portafolio/pizzeria-cover.jpg",
-    problem:  "Solo recibían pedidos por llamada y perdían ventas en horarios pico cuando el teléfono no daba abasto.",
-    solution: "Sitio web con menú visual y botón de pedido directo al WhatsApp. Los clientes arman su pedido y lo envían sin llamar.",
-    url:      "https://diegocastro.tech/pizzeria",
-    tags:     ["Sitio web", "Menú digital", "Pedidos por WhatsApp"],
+    name:     "Migrante Pizza",
+    sector:   "Restaurante · Guadalajara",
+    cover:    "/pizzeria/hero.webp",
+    problem:  "Sin presencia digital clara, el restaurante dependía de Google Maps y el boca a boca para atraer nuevos clientes.",
+    solution: "Landing page con menú visual, galería de ambiente, mapa de sucursales y botón de reserva directa por WhatsApp.",
+    url:      "https://diegocastro.tech/pizzeria/",
+    tags:     ["Sitio web", "Menú digital", "Reservas por WhatsApp"],
   },
 ];
 
