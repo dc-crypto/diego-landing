@@ -15,6 +15,7 @@ export default function Nav() {
     { href: "#soluciones",      label: "Soluciones" },
     { href: "#proyectos",       label: "Proyectos" },
     { href: "#sobre-mi",        label: "Sobre mí" },
+    { href: "/portafolio",      label: "Portafolio" },
     { href: "/soporte-digital", label: "Soporte" },
     { href: "#contacto",        label: "Contacto" },
   ];
