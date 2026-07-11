@@ -4,10 +4,11 @@ import { useEffect, useRef } from "react";
 interface RevealProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   delay?: 0 | 1 | 2 | 3 | 4 | 5;
 }
 
-export default function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+export default function Reveal({ children, className = "", style, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function Reveal({ children, className = "", delay = 0 }: RevealPr
     <div
       ref={ref}
       className={`reveal${delay ? ` d${delay}` : ""} ${className}`}
+      style={style}
     >
       {children}
     </div>
