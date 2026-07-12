@@ -414,7 +414,7 @@ function Features() {
 
   const cards = [
     {
-      img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop",
+      img: "/feat-pagina-web.webp",
       alt: "Páginas web",
       title: "Páginas Web",
       icon: (
@@ -424,7 +424,7 @@ function Features() {
       ),
     },
     {
-      img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop",
+      img: "/feat-app-web.webp",
       alt: "Aplicaciones web",
       title: "Aplicaciones Web",
       icon: (
@@ -434,7 +434,7 @@ function Features() {
       ),
     },
     {
-      img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop",
+      img: "/feat-automatizacion-ia.webp",
       alt: "Automatización e IA",
       title: "Automatización e IA",
       icon: (
