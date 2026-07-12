@@ -170,6 +170,7 @@ function PageNav() {
 function Hero() {
   const [ready, setReady] = useState(false);
   const [slide, setSlide] = useState(0);
+  const [img2Hov, setImg2Hov] = useState(false);
 
   const slides = [
     { h: "Tecnología para\nhacer crecer\ntu negocio." },
@@ -305,13 +306,17 @@ function Hero() {
           opacity: ready ? 1 : 0,
           transform: ready ? "translateX(0)" : "translateX(120%)",
           transition: `opacity ${dur.img2} ${ease} ${del.img2}, transform ${dur.img2} ${ease} ${del.img2}`,
-        }}>
+          cursor: "pointer",
+        }}
+          onMouseEnter={() => setImg2Hov(true)}
+          onMouseLeave={() => setImg2Hov(false)}
+        >
           <img
-            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80&auto=format&fit=crop"
-            alt="Team collaborating"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(100%)" }}
+            src="/hero-client.webp"
+            alt="Cliente trabajando con laptop en la playa"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: img2Hov ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
           />
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.28)" }} />
+          <div style={{ position: "absolute", inset: 0, background: img2Hov ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
           <div style={{
             position: "absolute", top: "58%", left: "38%",
             width: "34px", height: "34px", borderRadius: "50%",
