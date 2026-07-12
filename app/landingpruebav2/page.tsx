@@ -354,7 +354,7 @@ function Hero() {
           .lp-phone  { display: none !important; }
           .lp-images { display: none !important; }
           .lp-text-panel { flex: 1 !important; padding: 96px 28px 40px 28px !important; justify-content: flex-start !important; }
-          .lp-text-panel h1 { font-size: clamp(2.8rem, 11vw, 4.5rem) !important; white-space: normal !important; line-height: 1.0 !important; }
+          .lp-text-panel h1 { font-size: clamp(2rem, 9vw, 4.5rem) !important; white-space: pre-wrap !important; line-height: 1.0 !important; }
           .lp-badge { position: relative !important; bottom: auto !important; right: auto !important; margin-top: 40px !important; align-self: flex-start !important; }
           .lp-dots { position: relative !important; bottom: auto !important; left: auto !important; margin-top: 28px !important; padding-bottom: 40px !important; }
         }
@@ -499,10 +499,10 @@ function About() {
       <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }} className="about-grid">
 
         <Reveal from="left">
-          <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "480px" }}>
-            <div style={{ position: "absolute", top: "-60px", left: "-80px", width: "340px", height: "340px", borderRadius: "50%", backgroundColor: "#111", zIndex: 0 }} />
+          <div className="about-img-col" style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "480px" }}>
+            <div className="about-deco-bg" style={{ position: "absolute", top: "-60px", left: "-80px", width: "340px", height: "340px", borderRadius: "50%", backgroundColor: "#111", zIndex: 0 }} />
             <div style={{ position: "absolute", top: "20px", left: "44%", width: "42px", height: "42px", borderRadius: "50%", border: `2px solid ${C.base}`, zIndex: 3 }} />
-            <div style={{ position: "relative", width: "360px", height: "360px", borderRadius: "50%", overflow: "hidden", zIndex: 1, flexShrink: 0 }}>
+            <div className="about-circle-wrap" style={{ position: "relative", width: "360px", height: "360px", borderRadius: "50%", overflow: "hidden", zIndex: 1, flexShrink: 0 }}>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format&fit=crop"
                 alt="Equipo trabajando"
@@ -527,7 +527,14 @@ function About() {
           <OBtn href="#servicios">Conoce cómo podemos ayudarte</OBtn>
         </Reveal>
       </div>
-      <style>{`@media(max-width:900px){.about-grid{grid-template-columns:1fr!important}}`}</style>
+      <style>{`
+        @media(max-width:900px){.about-grid{grid-template-columns:1fr!important}}
+        @media(max-width:768px){
+          .about-img-col{min-height:300px!important}
+          .about-circle-wrap{width:min(260px,70vw)!important;height:min(260px,70vw)!important}
+          .about-deco-bg{display:none!important}
+        }
+      `}</style>
     </section>
   );
 }
