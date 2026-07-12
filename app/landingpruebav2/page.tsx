@@ -17,7 +17,7 @@ const C = {
   black2:  "#101010",
   black3:  "#1a1a1a",
   white:   "#ffffff",
-  color:   "#5d5d5d",
+  color:   "#909090",
   border:  "#1a1a1a",
 };
 const font = "var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif";
@@ -669,7 +669,7 @@ function Services() {
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLDivElement; el.style.backgroundColor = "#181818"; const ic = el.querySelector(".svc-icon") as HTMLElement; if (ic) ic.style.color = C.white; }}>
                 <div className="svc-icon" style={{ color: C.white, marginBottom: "28px", transition: "color 0.3s" }}>{s.icon}</div>
                 <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.white, margin: "0 0 14px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.title}</h3>
-                <p style={{ fontFamily: font, fontSize: "13px", lineHeight: 1.8, color: "rgba(255,255,255,0.48)", margin: "0 0 28px" }}>{s.desc}</p>
+                <p style={{ fontFamily: font, fontSize: "13px", lineHeight: 1.8, color: "rgba(255,255,255,0.72)", margin: "0 0 28px" }}>{s.desc}</p>
                 <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.1)", marginBottom: "20px" }} />
                 <RM />
               </div>
