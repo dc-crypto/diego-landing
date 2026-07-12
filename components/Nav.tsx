@@ -12,10 +12,9 @@ export default function Nav() {
   }, []);
 
   const links = [
-    { href: "#soluciones",      label: "Soluciones" },
-    { href: "#proyectos",       label: "Proyectos" },
-    { href: "#sobre-mi",        label: "Sobre mí" },
-    { href: "/portafolio",      label: "Portafolio" },
+    { href: "/",                label: "Inicio" },
+    { href: "/portafolio",      label: "Páginas Web" },
+    { href: "/automatizacion",  label: "Automatización" },
     { href: "/soporte-digital", label: "Soporte" },
     { href: "#contacto",        label: "Contacto" },
   ];
@@ -34,7 +33,7 @@ export default function Nav() {
         <div className="max-w-6xl w-full mx-auto flex items-center justify-between">
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             className="text-sm font-bold tracking-tight"
             style={{ color: "#F2EFE9", letterSpacing: "-0.03em" }}
           >
