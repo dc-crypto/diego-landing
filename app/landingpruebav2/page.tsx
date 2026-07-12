@@ -182,7 +182,7 @@ function Hero() {
 
   const slides = [
     { h: "Tecnología para\nhacer crecer\ntu negocio." },
-    { h: "Páginas Web ·\nAutomatización\ne IA" },
+    { h: "Páginas Web ·\nSistemas\ne IA" },
     { h: "Hablemos de\ntu próximo\nproyecto." },
   ];
 
