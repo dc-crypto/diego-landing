@@ -128,7 +128,7 @@ function PageNav() {
 
           {/* Right side */}
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }} className="nav-right">
-            <a href="mailto:dcastrol75@gmail.com" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>dcastrol75@gmail.com</a>
+            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>hola@diegocastro.tech</a>
             <OBtn href="#contacto" small>Hablemos</OBtn>
           </div>
 
@@ -212,8 +212,8 @@ function Hero() {
 
       {/* ── Email — bottom left rotated ─────────────────── */}
       <div className="lp-phone" style={{ position: "absolute", bottom: "32px", left: "20px", zIndex: 10, transform: "rotate(-90deg)", transformOrigin: "left bottom" }}>
-        <a href="mailto:dcastrol75@gmail.com" style={{ fontFamily: font, fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textDecoration: "none", whiteSpace: "nowrap" }}>
-          dcastrol75@gmail.com
+        <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textDecoration: "none", whiteSpace: "nowrap" }}>
+          hola@diegocastro.tech
         </a>
       </div>
 
@@ -827,7 +827,7 @@ function CTA() {
             Me encantaría escuchar sobre tu proyecto. Escríbeme y te respondo a la brevedad para explorar cómo puedo ayudarte.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <OBtn href="mailto:dcastrol75@gmail.com">Escribirme ahora</OBtn>
+            <OBtn href="mailto:hola@diegocastro.tech">Escribirme ahora</OBtn>
             <OBtn href="#portafolio" outline>Ver mi portafolio</OBtn>
           </div>
         </Reveal>
@@ -852,8 +852,8 @@ function Footer() {
             <p style={{ fontFamily: font, fontSize: "14px", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
               Desarrollamos páginas web, automatizaciones, soluciones con inteligencia artificial y software a la medida para ayudar a las empresas a crecer.
             </p>
-            <a href="mailto:dcastrol75@gmail.com" style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: C.base, textDecoration: "none" }}>
-              dcastrol75@gmail.com
+            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: C.base, textDecoration: "none" }}>
+              hola@diegocastro.tech
             </a>
           </div>
           {[
