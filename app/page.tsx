@@ -608,33 +608,6 @@ function VideoSection() {
         Creamos experiencias digitales impulsadas por inteligencia artificial para transformar y hacer crecer tu negocio.
       </p>
 
-      {/* Stat — arriba derecha */}
-      <div style={{ position: "absolute", right: "5%", top: "12%", textAlign: "right", ...anim(0.15) }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "14px", justifyContent: "flex-end" }}>
-          <div className="stat-div" style={{ height: "1px", width: "80px", background: "rgba(255,255,255,0.35)", transform: "rotate(20deg)" }} />
-          <span className="stat-num">+50</span>
-        </div>
-        <p className="stat-lbl" style={{ textAlign: "right" }}>proyectos entregados</p>
-      </div>
-
-      {/* Stat — abajo izquierda */}
-      <div style={{ position: "absolute", left: "5%", bottom: "22%", ...anim(0.5) }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          <span className="stat-num">100%</span>
-          <div className="stat-div" style={{ height: "1px", width: "80px", background: "rgba(255,255,255,0.35)", transform: "rotate(-20deg)" }} />
-        </div>
-        <p className="stat-lbl">clientes satisfechos</p>
-      </div>
-
-      {/* Stat — abajo derecha */}
-      <div style={{ position: "absolute", right: "5%", bottom: "14%", textAlign: "right", ...anim(0.6) }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "14px", justifyContent: "flex-end" }}>
-          <div className="stat-div" style={{ height: "1px", width: "80px", background: "rgba(255,255,255,0.35)", transform: "rotate(-20deg)" }} />
-          <span className="stat-num">×3</span>
-        </div>
-        <p className="stat-lbl" style={{ textAlign: "right" }}>más ventas con IA</p>
-      </div>
-
       {/* Gradiente inferior */}
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "180px", background: `linear-gradient(to bottom, transparent, ${C.black})`, pointerEvents: "none" }} />
 
@@ -666,22 +639,7 @@ function VideoSection() {
           letter-spacing: -0.04em;
           margin: 0;
         }
-        .stat-num {
-          font-size: clamp(2rem, 4.5vw, 4rem);
-          font-weight: 500;
-          font-family: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
-          color: #fff;
-          letter-spacing: -0.04em;
-          line-height: 1;
-        }
-        .stat-lbl {
-          font-size: 12px;
-          color: rgba(255,255,255,0.65);
-          margin: 6px 0 0 0;
-          font-family: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
-        }
         @media(max-width:768px){
-          .stat-div { display: none !important; }
           .vs-word { font-size: clamp(3rem, 17vw, 5rem) !important; }
         }
         @keyframes textRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
