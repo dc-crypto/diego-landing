@@ -170,6 +170,7 @@ function PageNav() {
 function Hero() {
   const [ready, setReady] = useState(false);
   const [slide, setSlide] = useState(0);
+  const [img1Hov, setImg1Hov] = useState(false);
   const [img2Hov, setImg2Hov] = useState(false);
 
   const slides = [
@@ -289,13 +290,17 @@ function Hero() {
           opacity: ready ? 1 : 0,
           transform: ready ? "translateX(0)" : "translateX(120%)",
           transition: `opacity ${dur.img1} ${ease} ${del.img1}, transform ${dur.img1} ${ease} ${del.img1}`,
-        }}>
+          cursor: "pointer",
+        }}
+          onMouseEnter={() => setImg1Hov(true)}
+          onMouseLeave={() => setImg1Hov(false)}
+        >
           <img
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop"
-            alt="Developer working"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(100%)" }}
+            src="/hero-dev.webp"
+            alt="Desarrollador programando al atardecer"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: img1Hov ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
           />
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.28)" }} />
+          <div style={{ position: "absolute", inset: 0, background: img1Hov ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
           <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "80px", background: "linear-gradient(to right, rgba(0,0,0,0.85), transparent)", zIndex: 2 }} />
         </div>
 
