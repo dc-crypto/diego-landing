@@ -515,54 +515,6 @@ export default function SoporteDigital() {
       </section>
 
       {/* ── PRUEBA SOCIAL (placeholder) ──────────────────── */}
-      <section id="casos" className="py-20 px-6" style={{ backgroundColor: T.surface }}>
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="text-center mb-12 max-w-xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4"
-              style={{ color: T.accent, letterSpacing: "0.1em", fontFamily: sans }}>
-              <span className="w-4 h-px" style={{ backgroundColor: T.accent }} />
-              Casos reales
-            </div>
-            <h2 className="text-3xl font-bold mb-3"
-              style={{ color: T.ink, letterSpacing: "-0.025em", fontFamily: serif }}>
-              Lo que logran nuestros clientes
-            </h2>
-            <p className="text-base leading-relaxed" style={{ color: T.ash, fontFamily: sans }}>
-              Estamos trabajando con nuestros primeros clientes. Pronto compartiremos sus resultados aquí.
-            </p>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[0, 1, 2].map((i) => (
-              <Reveal key={i} delay={(i + 1) as 1 | 2 | 3}>
-                <div className="rounded-2xl p-6 flex flex-col gap-4"
-                  style={{ backgroundColor: T.canvas, border: `1.5px dashed ${T.border}`, minHeight: "180px" }}>
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, j) => (
-                      <svg key={j} width="14" height="14" viewBox="0 0 24 24" fill={T.border} stroke="none">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
-                    ))}
-                  </div>
-                  <div className="flex-1 flex items-center justify-center">
-                    <p className="text-sm text-center" style={{ color: T.ash, fontFamily: sans, fontStyle: "italic" }}>
-                      Testimonio próximamente
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full flex-shrink-0" style={{ backgroundColor: T.border }} />
-                    <div className="flex flex-col gap-1.5">
-                      <div className="h-2.5 rounded-full w-24" style={{ backgroundColor: T.border }} />
-                      <div className="h-2 rounded-full w-16" style={{ backgroundColor: T.border, opacity: 0.5 }} />
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA FINAL ────────────────────────────────────── */}
       <section id="contacto" className="py-24 px-6 relative overflow-hidden"
         style={{ backgroundColor: T.darkBg }}>

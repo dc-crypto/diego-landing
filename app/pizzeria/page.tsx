@@ -35,8 +35,9 @@ const serif = "var(--font-fraunces), Georgia, serif";
 const sans  = "var(--font-work), system-ui, sans-serif";
 const mono  = "var(--font-space), monospace";
 
-const WA1 = "https://wa.me/523337099566";
-const WA2 = "https://wa.me/523331133453";
+/* Demo — números ficticios, no corresponden a un negocio real */
+const WA1 = "https://wa.me/525550010203";
+const WA2 = "https://wa.me/525550010204";
 
 /* ── Grain texture overlay ──────────────────────────────── */
 const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`;
@@ -115,7 +116,7 @@ function PizzeriaNav() {
       }}>
         <div style={{ maxWidth: "1080px", margin: "0 auto", padding: "16px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 500, fontSize: "20px", color: C.parchment }}>
-            Migrante Pizza
+            Pizzería Nonna
           </div>
           <div className="hidden md:flex" style={{ gap: "28px" }}>
             {links.map((l) => (
@@ -206,12 +207,9 @@ export default function Pizzeria() {
 
       {/* ── HERO ──────────────────────────────────────────── */}
       <section style={{ position: "relative", minHeight: "100svh", display: "flex", alignItems: "center" }}>
-        {/* Background image */}
         <img src="/pizzeria/hero.webp" alt="" aria-hidden
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }} />
-        {/* Dark gradient */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(28,19,16,0.93) 0%, rgba(28,19,16,0.7) 55%, rgba(28,19,16,0.2) 100%)" }} />
-        {/* Grain */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: grain, opacity: 0.045, pointerEvents: "none" }} />
 
         <div style={{ position: "relative", zIndex: 2, maxWidth: "1080px", margin: "0 auto", padding: "clamp(100px,14vw,140px) 32px 72px", width: "100%" }}>
@@ -221,11 +219,11 @@ export default function Pizzeria() {
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke={C.gold} strokeWidth="1.3">
                 <path d="M12 2 L20 20 L4 20 Z"/><circle cx="9" cy="14" r="1"/><circle cx="14" cy="16" r="1"/><circle cx="12" cy="9" r="1"/>
               </svg>
-              <span style={{ fontFamily: mono, fontSize: "9px", color: C.gold, letterSpacing: "0.06em" }}>MP</span>
+              <span style={{ fontFamily: mono, fontSize: "9px", color: C.gold, letterSpacing: "0.06em" }}>PN</span>
             </div>
 
             <div style={{ fontFamily: mono, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", color: C.gold, marginBottom: "18px" }}>
-              Pizzería · Pizza a la leña — Guadalajara
+              Pizzería · Pizza a la leña
             </div>
 
             <h1 style={{ fontFamily: serif, fontWeight: 500, fontSize: "clamp(42px,7vw,78px)", lineHeight: 1.01, margin: "0 0 22px", color: C.parchment }}>
@@ -235,12 +233,6 @@ export default function Pizzeria() {
             <p style={{ fontFamily: sans, fontSize: "18px", lineHeight: 1.65, color: C.parchmentDim, marginBottom: "36px", maxWidth: "480px" }}>
               Terraza al aire libre entre plantas, horno de leña, cócteles artesanales y música en vivo.
             </p>
-
-            {/* Google rating pill */}
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", border: `1px solid rgba(200,155,76,0.4)`, borderRadius: "100px", padding: "6px 14px", marginBottom: "32px" }}>
-              <Stars n={5} />
-              <span style={{ fontFamily: mono, fontSize: "11px", color: C.gold, letterSpacing: "0.04em" }}>4.8 · 3,005 reseñas Google</span>
-            </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <a href={WA1} target="_blank" rel="noopener noreferrer"
@@ -261,7 +253,7 @@ export default function Pizzeria() {
             </div>
 
             <div style={{ fontFamily: mono, fontSize: "11px", letterSpacing: "0.16em", textTransform: "uppercase", color: C.oasisLight, marginTop: "36px" }}>
-              Sabor sin fronteras
+              La leña lo cambia todo
             </div>
           </div>
         </div>
@@ -288,7 +280,7 @@ export default function Pizzeria() {
               {
                 icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={C.oasisLight} strokeWidth="1.5" strokeLinecap="round"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9z"/><path d="M12 22c0-4.97-4.03-9-9-9 0 4.97 4.03 9 9 9z"/><path d="M12 13V2"/></svg>,
                 title: "Terraza entre plantas",
-                desc: "Un rincón verde en medio de la ciudad. La terraza de Palma Sola es el lugar donde la gente se queda más de lo que planeó.",
+                desc: "Un rincón verde en medio de la ciudad. La terraza cubierta de plantas es el lugar donde la gente se queda más de lo que planeó.",
               },
               {
                 icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={C.oasisLight} strokeWidth="1.5" strokeLinecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>,
@@ -326,17 +318,17 @@ export default function Pizzeria() {
         <div style={{ maxWidth: "1080px", margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "56px", alignItems: "start" }} className="sd-grid-concept">
           <Reveal>
             <Eyebrow>El concepto</Eyebrow>
-            <h2 style={{ fontFamily: serif, fontWeight: 500, fontSize: "clamp(28px,4vw,40px)", color: C.parchment, margin: "0 0 20px", lineHeight: 1.1 }}>Cada pizza es un viaje.</h2>
+            <h2 style={{ fontFamily: serif, fontWeight: 500, fontSize: "clamp(28px,4vw,40px)", color: C.parchment, margin: "0 0 20px", lineHeight: 1.1 }}>Cada pizza, hecha a mano.</h2>
             <p style={{ fontFamily: sans, fontSize: "16px", lineHeight: 1.75, color: C.parchmentDim, maxWidth: "46ch" }}>
-              En Migrante Pizza cada receta lleva el nombre y el espíritu de un ingrediente que vino de otro lugar — un mito, un origen, una ruta. La leña, el queso que se estira y una terraza llena de plantas hacen el resto: un lugar para quedarse toda la tarde con gente que quieres.
+              Aquí cada receta es un homenaje al horno de leña — ingredientes simples, técnica real y una terraza llena de plantas para quedarse toda la tarde con gente que quieres.
             </p>
           </Reveal>
           <Reveal delay={1}>
             <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
               {[
-                { num: "4.8", lbl: "calificación en Google — 3,005 reseñas" },
-                { num: "$200–300", lbl: "precio promedio por persona (MXN)" },
-                { num: "2 suc.", lbl: "Palma Sola y Tesoro, Guadalajara" },
+                { num: "$180–280", lbl: "precio promedio por persona (MXN)" },
+                { num: "Lun–dom", lbl: "abierto todos los días desde la 1:00 p.m." },
+                { num: "2",       lbl: "ubicaciones disponibles" },
               ].map((s) => (
                 <div key={s.num} style={{ borderLeft: `2px solid ${C.gold}`, paddingLeft: "18px" }}>
                   <div style={{ fontFamily: mono, fontSize: "26px", color: C.gold, lineHeight: 1 }}>{s.num}</div>
@@ -359,12 +351,12 @@ export default function Pizzeria() {
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }} className="sd-grid-menu">
             {[
-              { circle: "Cabra & albahaca", title: "Jitomate y tres quesos", desc: "Provolone, queso de cabra y parmesano sobre masa a la leña, con albahaca fresca.", tag: "Pizza — para compartir", price: "$220" },
-              { circle: "Migrante Mar",      title: "Camarones en salsa migrante", desc: "Camarón con cebolla, mango y habanero. La ruta marina del menú, solo en Palma Sola.", tag: "Del mar", price: "$260" },
-              { circle: "Verde & fresco",    title: "Aguachile verde", desc: "Chile serrano, limón y un golpe fresco antes de que llegue la pizza.", tag: "Para empezar", price: "$130" },
-              { circle: "Tres chocolates",   title: "Brownie de la casa", desc: "Coronado con frutos rojos — el cierre dulce de la noche.", tag: "Postre", price: "$95" },
-              { circle: "Vino & fruta",      title: "Sangría de la casa", desc: "Vino tinto con kiwi, manzana y uva natural recién picada.", tag: "Para brindar", price: "$110" },
-              { circle: "Casa",              title: "Agua de crema de coco", desc: "La bebida que la gente pide repetir — suave, cremosa, distinta.", tag: "Bebida de la casa", price: "$75" },
+              { circle: "Cabra & albahaca", title: "Jitomate y tres quesos",    desc: "Provolone, queso de cabra y parmesano sobre masa a la leña, con albahaca fresca.", tag: "Pizza — para compartir", price: "$220" },
+              { circle: "Del mar",          title: "Camarones al ajillo",        desc: "Camarón con cebolla, mango y habanero. La ruta marina del menú.", tag: "Del mar", price: "$260" },
+              { circle: "Verde & fresco",   title: "Aguachile verde",            desc: "Chile serrano, limón y un golpe fresco antes de que llegue la pizza.", tag: "Para empezar", price: "$130" },
+              { circle: "Tres chocolates",  title: "Brownie de la casa",         desc: "Coronado con frutos rojos — el cierre dulce de la noche.", tag: "Postre", price: "$95" },
+              { circle: "Vino & fruta",     title: "Sangría de la casa",         desc: "Vino tinto con kiwi, manzana y uva natural recién picada.", tag: "Para brindar", price: "$110" },
+              { circle: "Casa",             title: "Agua de crema de coco",      desc: "La bebida que la gente pide repetir — suave, cremosa, distinta.", tag: "Bebida de la casa", price: "$75" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={((i % 3) + 1) as 1 | 2 | 3}>
                 <div style={{
@@ -381,7 +373,6 @@ export default function Pizzeria() {
                   onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.borderColor = `rgba(200,155,76,0.35)`)}
                   onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.borderColor = C.charBorder)}>
                   <div style={{ position: "absolute", inset: 0, backgroundImage: grain, opacity: 0.03, pointerEvents: "none" }} />
-                  {/* Stamp circle */}
                   <div style={{
                     position: "absolute", top: "18px", right: "18px",
                     width: "54px", height: "54px", borderRadius: "50%",
@@ -418,9 +409,7 @@ export default function Pizzeria() {
             <Eyebrow>Galería</Eyebrow>
             <SectionH2>El ambiente que te espera</SectionH2>
           </Reveal>
-          {/* Asymmetric grid: big left + 4 right */}
           <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", gridTemplateRows: "220px 220px", gap: "10px" }} className="sd-grid-gallery">
-            {/* Big image — spans 2 rows */}
             <div style={{ gridRow: "span 2", borderRadius: "2px", overflow: "hidden", backgroundColor: C.char2 }}>
               <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80&auto=format&fit=crop"
                 alt="Pizza a la leña" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="lazy" />
@@ -448,27 +437,25 @@ export default function Pizzeria() {
         <div style={{ maxWidth: "1080px", margin: "0 auto", padding: "0 32px" }}>
           <Reveal>
             <Eyebrow>Encuéntranos</Eyebrow>
-            <SectionH2>Dos paradas en Guadalajara</SectionH2>
+            <SectionH2>Dónde encontrarnos</SectionH2>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }} className="sd-grid-locations">
             {[
               {
-                num: "01", name: "Palma Sola",
-                address: "C. Palma Sola 1625, 18 de Marzo, Guadalajara",
-                phone: "33 3709 9566",
+                num: "01", name: "Las Flores",
+                address: "Av. Las Flores 1240, Col. Centro",
+                phone: "55 5001 0203",
                 hours: "Lun–dom · 1:00–11:00 p.m.",
                 tags: ["Terraza", "Cócteles", "Música en vivo"],
                 wa: WA1,
-                mapQ: "C.+Palma+Sola+1625,+18+de+Marzo,+44960+Guadalajara,+Jal.",
               },
               {
-                num: "02", name: "Cerro del Tesoro",
-                address: "Vista a la Campiña 617, Cerro del Tesoro, Tlaquepaque",
-                phone: "33 3113 3453",
+                num: "02", name: "Santa Rosa",
+                address: "Calle del Olivo 88, Col. Santa Rosa",
+                phone: "55 5001 0204",
                 hours: "Lun–dom · 1:00–11:00 p.m.",
-                tags: ["Ambiente familiar", "Tlaquepaque"],
+                tags: ["Ambiente familiar"],
                 wa: WA2,
-                mapQ: "Vista+a+la+Campi%C3%B1a+617,+Cerro+del+Tesoro,+Tlaquepaque,+Jal.",
               },
             ].map((loc, i) => (
               <Reveal key={loc.name} delay={(i + 1) as 1 | 2}>
@@ -480,33 +467,27 @@ export default function Pizzeria() {
                   display: "flex",
                   flexDirection: "column",
                 }}>
-                  {/* Header */}
-                  <div style={{ padding: "28px 28px 20px", position: "relative" }}>
+                  <div style={{ padding: "28px 28px 24px", position: "relative" }}>
                     <div style={{ position: "absolute", inset: 0, backgroundImage: grain, opacity: 0.03, pointerEvents: "none" }} />
-                    {/* Number badge */}
                     <div style={{ fontFamily: mono, fontSize: "11px", letterSpacing: "0.14em", textTransform: "uppercase", color: C.gold, marginBottom: "10px" }}>
                       Sucursal {loc.num}
                     </div>
                     <h3 style={{ fontFamily: serif, fontWeight: 500, fontSize: "26px", color: C.parchment, margin: "0 0 20px", lineHeight: 1.1 }}>
                       {loc.name}
                     </h3>
-                    {/* Info rows */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                      {/* Address */}
                       <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={C.oasisLight} strokeWidth="1.8" strokeLinecap="round" style={{ marginTop: "2px", flexShrink: 0 }}>
                           <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/>
                         </svg>
                         <span style={{ fontFamily: sans, fontSize: "14px", color: C.parchmentDim, lineHeight: 1.5 }}>{loc.address}</span>
                       </div>
-                      {/* Phone */}
                       <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={C.oasisLight} strokeWidth="1.8" strokeLinecap="round" style={{ flexShrink: 0 }}>
                           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.37 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.74a16 16 0 0 0 6.14 6.14l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                         </svg>
                         <span style={{ fontFamily: mono, fontSize: "13px", color: C.parchment }}>{loc.phone}</span>
                       </div>
-                      {/* Hours */}
                       <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={C.oasisLight} strokeWidth="1.8" strokeLinecap="round" style={{ flexShrink: 0 }}>
                           <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -514,7 +495,6 @@ export default function Pizzeria() {
                         <span style={{ fontFamily: sans, fontSize: "14px", color: C.parchmentDim }}>{loc.hours}</span>
                       </div>
                     </div>
-                    {/* Feature tags */}
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "18px" }}>
                       {loc.tags.map((tag) => (
                         <span key={tag} style={{
@@ -524,7 +504,6 @@ export default function Pizzeria() {
                         }}>{tag}</span>
                       ))}
                     </div>
-                    {/* WhatsApp CTA */}
                     <a href={loc.wa} target="_blank" rel="noopener noreferrer"
                       className="btn-press"
                       style={{
@@ -541,15 +520,6 @@ export default function Pizzeria() {
                       </svg>
                       Escribir a esta sucursal
                     </a>
-                  </div>
-                  {/* Google Map */}
-                  <div style={{ borderTop: `1px solid ${C.charBorder}`, flexShrink: 0 }}>
-                    <iframe
-                      src={`https://maps.google.com/maps?q=${loc.mapQ}&output=embed&z=15`}
-                      title={`Mapa ${loc.name}`}
-                      loading="lazy"
-                      style={{ width: "100%", height: "210px", border: "none", display: "block" }}
-                    />
                   </div>
                 </div>
               </Reveal>
@@ -569,9 +539,9 @@ export default function Pizzeria() {
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "24px" }} className="sd-grid-reviews">
             {[
-              { text: "Un lugar cálido para cenar solo o acompañado, con buena atención y detalles que se notan, como el agua de coco.", src: "María José R.", loc: "Sucursal Palma Sola" },
-              { text: "Ambiente playero y relajado, buena variedad de bebidas y servicio atento de principio a fin.", src: "Carlos M.", loc: "Google Maps" },
-              { text: "Años viniendo a esta sucursal por la pizza y la iluminación, siempre con buena música de fondo.", src: "Ana G.", loc: "Cliente habitual" },
+              { text: "Un lugar cálido para cenar solo o acompañado, con buena atención y detalles que se notan, como el agua de coco.", src: "María José R.", loc: "Sucursal Las Flores" },
+              { text: "Ambiente relajado, buena variedad de bebidas y servicio atento de principio a fin.", src: "Carlos M.", loc: "Reseña de cliente" },
+              { text: "Años viniendo por la pizza y la iluminación, siempre con buena música de fondo.", src: "Ana G.", loc: "Cliente habitual" },
             ].map((r, i) => (
               <Reveal key={r.src} delay={(i + 1) as 1 | 2 | 3}>
                 <div style={{ borderTop: `1px solid rgba(241,230,211,0.18)`, paddingTop: "20px" }}>
@@ -595,14 +565,12 @@ export default function Pizzeria() {
         <div style={{ maxWidth: "1080px", margin: "0 auto", padding: "0 32px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "24px", alignItems: "center" }}>
             <div style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 500, fontSize: "18px", color: C.parchment }}>
-              Migrante Pizza
+              Pizzería Nonna
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
               {[
-                { href: "https://www.instagram.com/migrantepizzamx/", label: "Instagram" },
-                { href: WA1, label: "WhatsApp Palma Sola" },
-                { href: WA2, label: "WhatsApp Tesoro" },
-                { href: "https://www.rappi.com.mx/restaurantes/1923246766-migrante-pizza", label: "Pedir en Rappi" },
+                { href: WA1, label: "WhatsApp Las Flores" },
+                { href: WA2, label: "WhatsApp Santa Rosa" },
               ].map((l) => (
                 <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
                   style={{ fontFamily: sans, fontSize: "14px", color: C.parchmentDim, transition: "color 0.15s" }}
@@ -633,7 +601,6 @@ export default function Pizzeria() {
 
       <MobileStickyCTA />
 
-      {/* ── Responsive overrides ────────────────────────────── */}
       <style>{`
         @media (max-width: 860px) {
           .sd-grid-experience { grid-template-columns: 1fr !important; }

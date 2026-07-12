@@ -363,14 +363,14 @@ export default function Portafolio() {
       <section id="proyectos" style={{ backgroundColor: T.darkBg, padding: "80px 0" }}>
         <div style={{ maxWidth: "1080px", margin: "0 auto", padding: "0 32px" }}>
           <Reveal>
-            <Eyebrow>Proyectos reales</Eyebrow>
+            <Eyebrow>Portafolio</Eyebrow>
             <h2 style={{
               fontFamily: serif, fontWeight: 600,
               fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
               color: T.cream, margin: "0 0 48px",
               letterSpacing: "-0.02em", lineHeight: 1.15,
             }}>
-              Casos que resolvieron<br />problemas concretos.
+              Diseño y funcionalidad<br />en proyectos concretos.
             </h2>
           </Reveal>
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -399,9 +399,9 @@ export default function Portafolio() {
             <Reveal delay={2}>
               <CaseCard
                 num="03"
-                sector="Restaurante · Guadalajara"
-                name="Migrante Pizza"
-                desc="Landing page para una pizzería con dos sucursales en Guadalajara. Menú visual, galería de ambiente, mapa interactivo de cada ubicación y reserva directa por WhatsApp — sin depender de apps de terceros."
+                sector="Restaurante · Demo"
+                name="Pizzería Nonna"
+                desc="Demo de landing page para una pizzería con dos sucursales. Menú visual, galería de ambiente, información de ubicaciones y reserva directa por WhatsApp — sin depender de apps de terceros."
                 tags={["Sitio web", "Menú digital", "Galería", "Reservas por WhatsApp"]}
                 url="https://diegocastro.tech/pizzeria/"
                 cover="/pizzeria/hero.webp"

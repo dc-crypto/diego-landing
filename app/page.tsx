@@ -138,11 +138,6 @@ function ProjectCard({ sector, name, desc, metric, metricLabel, gradient, accent
                 style={{ backgroundColor: "rgba(255,255,255,0.75)", color: accentColor, letterSpacing: "0.07em" }}>
                 {sector}
               </span>
-              <div className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-md"
-                style={{ backgroundColor: "rgba(255,255,255,0.75)", color: accentColor }}>
-                <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: accentColor, animation: "pulse-dot 2s ease-in-out infinite" }} />
-                Live
-              </div>
             </div>
             {bars && (
               <div className="rounded-xl p-3" style={{ backgroundColor: "rgba(255,255,255,0.6)", backdropFilter: "blur(4px)" }}>
@@ -158,10 +153,6 @@ function ProjectCard({ sector, name, desc, metric, metricLabel, gradient, accent
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div className="flex items-center justify-between">
           <span className="text-xs font-bold uppercase tracking-widest" style={{ color: accentColor, letterSpacing: "0.07em" }}>{sector}</span>
-          <div className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: accentColor }}>
-            <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: accentColor, animation: "pulse-dot 2s ease-in-out infinite" }} />
-            Live
-          </div>
         </div>
         <h3 className="text-base font-bold" style={{ color: T.ink, letterSpacing: "-0.01em", marginTop: "-4px" }}>{name}</h3>
         <p className="text-sm leading-relaxed" style={{ color: T.ash }}>{desc}</p>
@@ -466,7 +457,7 @@ function HeroCRM() {
           </div>
           <div>
             <div style={{ fontSize: "12px", fontWeight: 700, color: "#09090B" }}>Nuevo Prospecto Captado</div>
-            <div style={{ fontSize: "10.5px", color: "#71717A" }}>Hotel Marina Vallarta · ahora mismo</div>
+            <div style={{ fontSize: "10.5px", color: "#71717A" }}>Cliente nuevo · ahora mismo</div>
           </div>
         </div>
       </div>
@@ -498,10 +489,10 @@ export default function Home() {
 
           {/* Headline */}
           <h1 className="font-bold leading-none" style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)", letterSpacing: "-0.035em", color: T.cream }}>
-            Construyo{" "}
-            <span style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", color: T.accent, fontWeight: 400 }}>sistemas</span>
-            {" "}que hacen
-            <br />crecer negocios.
+            Construyo páginas web,{" "}
+            <span style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", color: T.accent, fontWeight: 400 }}>automatización</span>
+            {" "}y asistentes
+            <br />de WhatsApp con IA.
           </h1>
 
           {/* Subtitle */}
@@ -527,7 +518,7 @@ export default function Home() {
               onMouseEnter={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "#3D3831"; el.style.backgroundColor = "#161412"; }}
               onMouseLeave={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = T.darkBorder; el.style.backgroundColor = "transparent"; }}
             >
-              Ver casos reales
+              Ver portafolio
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
@@ -554,15 +545,6 @@ export default function Home() {
 
       </section>
 
-      {/* ── METRIC CARDS ─────────────────────────────────── */}
-      <div style={{ backgroundColor: T.darkBg, borderTop: `1px solid ${T.darkBorder}` }} className="px-6 py-10">
-        <div className="max-w-4xl mx-auto grid grid-cols-3 gap-5">
-          <MetricCard value="48+" label="Leads mensuales"   sub="en piloto automático, sin intervención" delay="0.5s" />
-          <MetricCard value="3.2×" label="Más ingresos"     sub="sin contratar más vendedores"          delay="0.65s" />
-          <MetricCard value="30d"  label="Primera entrega"  sub="de briefing a sistema en producción"   delay="0.8s" />
-        </div>
-      </div>
-
       {/* ── PROOF STRIP ──────────────────────────────────── */}
       <div
         className="px-6 py-5 border-y"
@@ -570,10 +552,10 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
           {[
-            { value: "3",      label: "sistemas activos generando resultados hoy" },
-            { value: "140+",   label: "leads captados cada mes sin intervención humana" },
-            { value: "70%",    label: "menos tiempo en tareas administrativas" },
-            { value: "< 30d",  label: "de briefing a primer lanzamiento" },
+            { value: "3",      label: "demos funcionales listos para explorar" },
+            { value: "WhatsApp", label: "Business API con respuesta automática" },
+            { value: "Next.js", label: "páginas web rápidas y optimizadas para SEO" },
+            { value: "IA",     label: "integrada en asistentes y flujos de trabajo" },
           ].map((s) => (
             <div key={s.label} className="flex items-center gap-2.5">
               <span className="text-lg font-extrabold" style={{ color: T.accent, letterSpacing: "-0.02em" }}>{s.value}</span>
@@ -615,14 +597,14 @@ export default function Home() {
               <span className="w-4 h-px" style={{ backgroundColor: T.accent }} />
               Proyectos
             </div>
-            <h2 className="text-3xl font-bold mb-3" style={{ color: T.ink, letterSpacing: "-0.025em" }}>Sistemas reales, resultados medibles</h2>
-            <p className="text-base leading-relaxed" style={{ color: T.ash }}>Cada proyecto nació de un problema de negocio concreto. Así es como los resuelvo.</p>
+            <h2 className="text-3xl font-bold mb-3" style={{ color: T.ink, letterSpacing: "-0.025em" }}>Proyectos de portafolio</h2>
+            <p className="text-base leading-relaxed" style={{ color: T.ash }}>Tres demos funcionales que muestran qué puede construirse para tu negocio.</p>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { sector: "Automatización", name: "Agente de IA para WhatsApp", desc: "Un hotel en Puerto Vallarta tardaba horas en responder leads de Instagram. El agente responde en segundos, califica y los registra solo.", metric: "3×", metricLabel: "más leads calificados", gradient: "linear-gradient(135deg, #EEF2FF, #E0E7FF)", accentColor: "#4F46E5", tags: ["WhatsApp","IA","CRM"], thumbnail: <ThumbWhatsApp /> },
-              { sector: "Prop. Management", name: "PropManager", desc: "Gestionar 12 propiedades por WhatsApp era insostenible. PropManager centraliza reservas, limpiezas y finanzas en un solo lugar.", metric: "85%", metricLabel: "ocupación promedio", gradient: "linear-gradient(135deg, #EDFAF4, #BBEED8)", accentColor: "#16A34A", tags: ["Reservas","Finanzas","Calendario"], thumbnail: <ThumbPropManager /> },
-              { sector: "Ventas y CRM", name: "LeadTrack — CRM Turístico", desc: "Una operadora en Los Cabos capturaba leads de 4 canales y los perdía en el proceso. LeadTrack los unifica y los sigue automáticamente.", metric: "48+", metricLabel: "leads/mes captados", gradient: "linear-gradient(135deg, #FEF8EE, #FDE9C3)", accentColor: "#D07A25", tags: ["CRM","Pipeline","Dashboards"], thumbnail: <ThumbLeadTrack /> },
+              { sector: "Automatización", name: "Agente de IA para WhatsApp", desc: "Demo de un agente de IA que recibe mensajes de Instagram y WhatsApp, responde automáticamente, califica prospectos y los registra en el CRM.", metric: "", metricLabel: "", gradient: "linear-gradient(135deg, #EEF2FF, #E0E7FF)", accentColor: "#4F46E5", tags: ["WhatsApp","IA","CRM"], thumbnail: <ThumbWhatsApp /> },
+              { sector: "Prop. Management", name: "PropManager", desc: "Demo de un dashboard para gestionar propiedades en renta: reservas, limpiezas, finanzas y calendario centralizado en un solo lugar.", metric: "", metricLabel: "", gradient: "linear-gradient(135deg, #EDFAF4, #BBEED8)", accentColor: "#16A34A", tags: ["Reservas","Finanzas","Calendario"], thumbnail: <ThumbPropManager /> },
+              { sector: "Ventas y CRM", name: "LeadTrack — CRM", desc: "Demo de un CRM que unifica leads de WhatsApp, Instagram, web y Calendly en un pipeline único con seguimiento automático por etapa.", metric: "", metricLabel: "", gradient: "linear-gradient(135deg, #FEF8EE, #FDE9C3)", accentColor: "#D07A25", tags: ["CRM","Pipeline","Dashboards"], thumbnail: <ThumbLeadTrack /> },
             ].map((p, i) => (
               <Reveal key={p.name} delay={(i + 1) as 1|2|3}><ProjectCard {...p} /></Reveal>
             ))}
@@ -664,7 +646,7 @@ export default function Home() {
               </Reveal>
               <Reveal delay={4}>
                 <div className="flex flex-col gap-3 mt-2">
-                  {["5+ años con hoteles, property managers y operadoras turísticas en México","Integraciones con WhatsApp Business API, HubSpot, Notion y más","Prototipo funcional en la primera semana — no en meses"].map((cred) => (
+                  {["Enfoque en hoteles, property managers y operadoras turísticas en México","Integraciones con WhatsApp Business API, HubSpot, Notion y más","Prototipo funcional en la primera semana — no en meses"].map((cred) => (
                     <div key={cred} className="flex items-start gap-3 text-sm" style={{ color: T.creamMuted }}>
                       <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: T.accent }} />
                       {cred}

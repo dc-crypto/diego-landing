@@ -225,11 +225,11 @@ export default function Automatizacion() {
               color: T.ink, margin: "0 0 8px",
               letterSpacing: "-0.02em", lineHeight: 1.15,
             }}>
-              Cuatro productos reales.
+              Cuatro demos de automatización.
             </h2>
             <p style={{ fontFamily: sans, fontSize: "16px", lineHeight: 1.7,
               color: T.ash, margin: "0 0 48px", maxWidth: "52ch" }}>
-              No son categorías genéricas — son sistemas que ya están funcionando.
+              Proyectos concretos que muestran qué puede construirse para tu negocio — no categorías genéricas.
             </p>
           </Reveal>
 
