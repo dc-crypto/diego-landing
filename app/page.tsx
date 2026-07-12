@@ -570,50 +570,122 @@ function Marquee() {
    VIDEO
 ───────────────────────────────────────────────────────── */
 function VideoSection() {
-  return (
-    <section style={{ backgroundColor: C.black, padding: "0", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "relative", height: "480px" }} className="vid-wrap">
-        <img
-          src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=80&auto=format&fit=crop"
-          alt="Equipo digital"
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-        />
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.48)" }} />
+  const secRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = secRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
-        <div style={{ position: "absolute", right: "23%", bottom: "8%", width: "190px", height: "190px", zIndex: 5 }}>
-          <svg viewBox="0 0 190 190" width="190" height="190" style={{ animation: "textRotate 14s linear infinite", position: "absolute", top: 0, left: 0 }}>
-            <defs>
-              <path id="vcp2" d="M 95,95 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0"/>
-            </defs>
-            <text style={{ fontSize: "10.5px", fontFamily: font, fontWeight: 700, fill: C.white, letterSpacing: "3.5px", textTransform: "uppercase" }}>
-              <textPath href="#vcp2">PROYECTOS · SOLUCIONES · RESULTADOS · </textPath>
-            </text>
+  const anim = (delay: number): React.CSSProperties => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? "none" : "translateY(48px)",
+    transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+  });
+
+  return (
+    <section ref={secRef} style={{ position: "relative", height: "100svh", width: "100%", overflow: "hidden", backgroundColor: C.black }}>
+      {/* Video de fondo */}
+      <video autoPlay loop muted playsInline
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_063509_7d167302-4fd4-480b-8260-18ab572333d4.mp4"
+      />
+      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.52)" }} />
+
+      {/* Palabras escalonadas */}
+      <div className="vs-word" style={{ left: "4%", top: "16%", ...anim(0.1) }}>automatiza</div>
+      <div className="vs-word" style={{ right: "4%", top: "38%", textAlign: "right", ...anim(0.25) }}>con</div>
+      <div className="vs-word" style={{ left: "20%", top: "58%", ...anim(0.4) }}>IA</div>
+
+      {/* Descripción */}
+      <p style={{ position: "absolute", left: "4%", top: "47%", maxWidth: "220px", fontSize: "14px", lineHeight: 1.55, color: "rgba(255,255,255,0.85)", fontFamily: font, margin: 0, ...anim(0.32) }}>
+        Creamos experiencias digitales impulsadas por inteligencia artificial para transformar y hacer crecer tu negocio.
+      </p>
+
+      {/* Stat — arriba derecha */}
+      <div style={{ position: "absolute", right: "5%", top: "12%", textAlign: "right", ...anim(0.15) }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px", justifyContent: "flex-end" }}>
+          <div className="stat-div" style={{ height: "1px", width: "80px", background: "rgba(255,255,255,0.35)", transform: "rotate(20deg)" }} />
+          <span className="stat-num">+50</span>
+        </div>
+        <p className="stat-lbl" style={{ textAlign: "right" }}>proyectos entregados</p>
+      </div>
+
+      {/* Stat — abajo izquierda */}
+      <div style={{ position: "absolute", left: "5%", bottom: "22%", ...anim(0.5) }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          <span className="stat-num">100%</span>
+          <div className="stat-div" style={{ height: "1px", width: "80px", background: "rgba(255,255,255,0.35)", transform: "rotate(-20deg)" }} />
+        </div>
+        <p className="stat-lbl">clientes satisfechos</p>
+      </div>
+
+      {/* Stat — abajo derecha */}
+      <div style={{ position: "absolute", right: "5%", bottom: "14%", textAlign: "right", ...anim(0.6) }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px", justifyContent: "flex-end" }}>
+          <div className="stat-div" style={{ height: "1px", width: "80px", background: "rgba(255,255,255,0.35)", transform: "rotate(-20deg)" }} />
+          <span className="stat-num">×3</span>
+        </div>
+        <p className="stat-lbl" style={{ textAlign: "right" }}>más ventas con IA</p>
+      </div>
+
+      {/* Gradiente inferior */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "180px", background: `linear-gradient(to bottom, transparent, ${C.black})`, pointerEvents: "none" }} />
+
+      {/* Badge rotatorio */}
+      <div style={{ position: "absolute", right: "5%", bottom: "8%", width: "160px", height: "160px", zIndex: 5, ...anim(0.7) }}>
+        <svg viewBox="0 0 190 190" width="160" height="160" style={{ animation: "textRotate 14s linear infinite", position: "absolute", top: 0, left: 0 }}>
+          <defs><path id="vcp2" d="M 95,95 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0"/></defs>
+          <text style={{ fontSize: "10.5px", fontFamily: font, fontWeight: 700, fill: C.white, letterSpacing: "3.5px", textTransform: "uppercase" }}>
+            <textPath href="#vcp2">PROYECTOS · SOLUCIONES · RESULTADOS · </textPath>
+          </text>
+        </svg>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "62px", height: "62px", borderRadius: "50%", backgroundColor: C.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "transform 0.25s" }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.transform = "translate(-50%,-50%) scale(1.1)")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.transform = "translate(-50%,-50%) scale(1)")}>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill={C.black2} style={{ marginLeft: "3px" }}>
+            <polygon points="5 3 19 12 5 21 5 3"/>
           </svg>
-          <div style={{
-            position: "absolute", top: "50%", left: "50%",
-            transform: "translate(-50%,-50%)",
-            width: "72px", height: "72px", borderRadius: "50%",
-            backgroundColor: C.white,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            cursor: "pointer", transition: "transform 0.25s, background-color 0.25s",
-          }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.transform = "translate(-50%,-50%) scale(1.1)")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.transform = "translate(-50%,-50%) scale(1)")}>
-            <svg width="26" height="26" viewBox="0 0 24 24" fill={C.black2} style={{ marginLeft: "4px" }}>
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-          </div>
         </div>
       </div>
 
-      <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "26%", zIndex: 4, pointerEvents: "none" }}>
-        <svg viewBox="0 0 300 480" preserveAspectRatio="none" width="100%" height="100%" style={{ display: "block" }}>
-          <path d="M 110 0 Q 10 120 110 240 Q 210 360 110 480 L 300 480 L 300 0 Z" fill={C.base}/>
-          <circle cx="300" cy="0" r="160" fill={C.black}/>
-        </svg>
-      </div>
-
-      <style>{`@media(max-width:768px){.vid-wrap{height:300px!important}}`}</style>
+      <style>{`
+        .vs-word {
+          position: absolute;
+          font-size: clamp(3.5rem, 13vw, 13vw);
+          font-family: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
+          font-weight: 500;
+          color: #fff;
+          line-height: 0.95;
+          letter-spacing: -0.04em;
+          margin: 0;
+        }
+        .stat-num {
+          font-size: clamp(2rem, 4.5vw, 4rem);
+          font-weight: 500;
+          font-family: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
+          color: #fff;
+          letter-spacing: -0.04em;
+          line-height: 1;
+        }
+        .stat-lbl {
+          font-size: 12px;
+          color: rgba(255,255,255,0.65);
+          margin: 6px 0 0 0;
+          font-family: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+        @media(max-width:768px){
+          .stat-div { display: none !important; }
+          .vs-word { font-size: clamp(3rem, 17vw, 5rem) !important; }
+        }
+        @keyframes textRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+      `}</style>
     </section>
   );
 }
