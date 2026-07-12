@@ -502,7 +502,6 @@ function About() {
         <Reveal from="left">
           <div className="about-img-col" style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "480px" }}>
             <div className="about-deco-bg" style={{ position: "absolute", top: "-60px", left: "-80px", width: "340px", height: "340px", borderRadius: "50%", backgroundColor: "#111", zIndex: 0 }} />
-            <div style={{ position: "absolute", top: "20px", left: "44%", width: "42px", height: "42px", borderRadius: "50%", border: `2px solid ${C.base}`, zIndex: 3 }} />
             <div className="about-circle-wrap" style={{ position: "relative", width: "360px", height: "360px", borderRadius: "50%", overflow: "hidden", zIndex: 1, flexShrink: 0 }}>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format&fit=crop"
@@ -577,14 +576,6 @@ function VideoSection() {
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.48)" }} />
 
-        <div style={{
-          position: "absolute", top: "56%", left: "55%",
-          width: "40px", height: "40px", borderRadius: "50%",
-          border: `2px solid ${C.base}`,
-          animation: "bubbleMover 5s ease-in-out infinite",
-          zIndex: 2,
-        }}>
-          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "8px", height: "8px", borderRadius: "50%", backgroundColor: C.base }} />
         </div>
 
         <div style={{ position: "absolute", right: "23%", bottom: "8%", width: "190px", height: "190px", zIndex: 5 }}>
