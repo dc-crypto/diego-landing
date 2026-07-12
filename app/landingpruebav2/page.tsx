@@ -555,8 +555,8 @@ function Marquee() {
   );
 
   return (
-    <section style={{ backgroundColor: C.black, overflow: "hidden", padding: "20px 0" }}>
-      <div style={{ display: "flex", width: "max-content", animation: "scrollH 24s linear infinite", willChange: "transform" }}>
+    <section style={{ backgroundColor: C.black, overflow: "hidden", padding: "60px 0" }}>
+      <div style={{ display: "flex", width: "max-content", animation: "scrollH 40s linear infinite", willChange: "transform" }}>
         {[0,1,2,3,4,5,6,7].map(unit)}
       </div>
     </section>
