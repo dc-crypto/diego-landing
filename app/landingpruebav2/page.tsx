@@ -172,6 +172,13 @@ function Hero() {
   const [slide, setSlide] = useState(0);
   const [img1Hov, setImg1Hov] = useState(false);
   const [img2Hov, setImg2Hov] = useState(false);
+  const [autoGlow, setAutoGlow] = useState(false);
+
+  useEffect(() => {
+    const on  = setTimeout(() => setAutoGlow(true),  900);
+    const off = setTimeout(() => setAutoGlow(false), 2400);
+    return () => { clearTimeout(on); clearTimeout(off); };
+  }, []);
 
   const slides = [
     { h: "Tecnología para\nhacer crecer\ntu negocio." },
@@ -299,9 +306,9 @@ function Hero() {
           <img
             src="/hero-dev2.webp"
             alt="Desarrollador programando con vista al mar"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: img1Hov ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: (img1Hov || autoGlow) ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
           />
-          <div style={{ position: "absolute", inset: 0, background: img1Hov ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
+          <div style={{ position: "absolute", inset: 0, background: (img1Hov || autoGlow) ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
           <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "80px", background: "linear-gradient(to right, rgba(0,0,0,0.85), transparent)", zIndex: 2 }} />
         </div>
 
@@ -320,9 +327,9 @@ function Hero() {
           <img
             src="/hero-client.webp"
             alt="Cliente trabajando con laptop en la playa"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: img2Hov ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: (img2Hov || autoGlow) ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
           />
-          <div style={{ position: "absolute", inset: 0, background: img2Hov ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
+          <div style={{ position: "absolute", inset: 0, background: (img2Hov || autoGlow) ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
           <div style={{
             position: "absolute", top: "58%", left: "38%",
             width: "34px", height: "34px", borderRadius: "50%",
