@@ -62,8 +62,9 @@ function SH({ children, center = false, light = true }: { children: React.ReactN
 }
 
 function OBtn({ children, href = "#", outline = false, small = false }: { children: React.ReactNode; href?: string; outline?: boolean; small?: boolean }) {
+  const external = href.startsWith("http");
   return (
-    <a href={href} style={{
+    <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} style={{
       display: "inline-flex", alignItems: "center", gap: "10px",
       fontFamily: font, fontSize: small ? "13px" : "14px", fontWeight: 700,
       padding: small ? "10px 24px" : "16px 40px",
@@ -129,7 +130,7 @@ function PageNav() {
           {/* Right side */}
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }} className="nav-right">
             <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>hola@diegocastro.tech</a>
-            <OBtn href="#contacto" small>Hablemos</OBtn>
+            <OBtn href="https://wa.me/523221097649" small>Hablemos</OBtn>
           </div>
 
           {/* Mobile toggle */}
@@ -148,7 +149,7 @@ function PageNav() {
               {l}
             </a>
           ))}
-          <div style={{ marginTop: "20px" }}><OBtn href="#contacto">Hablemos</OBtn></div>
+          <div style={{ marginTop: "20px" }}><OBtn href="https://wa.me/523221097649">Hablemos</OBtn></div>
         </div>
       )}
 
@@ -524,7 +525,7 @@ function About() {
           <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.85, color: C.color, marginBottom: "40px" }}>
             Trabajamos con emprendedores y empresas que buscan presencia digital sólida, procesos automatizados y tecnología que realmente agrega valor a su negocio.
           </p>
-          <OBtn href="#servicios">Conoce cómo podemos ayudarte</OBtn>
+          <OBtn href="https://wa.me/523221097649">Conoce cómo podemos ayudarte</OBtn>
         </Reveal>
       </div>
       <style>{`
@@ -852,7 +853,7 @@ function CTA() {
             Me encantaría escuchar sobre tu proyecto. Escríbeme y te respondo a la brevedad para explorar cómo puedo ayudarte.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <OBtn href="mailto:hola@diegocastro.tech">Escribirme ahora</OBtn>
+            <OBtn href="https://wa.me/523221097649">Escribirme ahora</OBtn>
             <OBtn href="#portafolio" outline>Ver mi portafolio</OBtn>
           </div>
         </Reveal>
