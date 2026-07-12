@@ -512,7 +512,7 @@ function About() {
               />
               <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.15)" }} />
             </div>
-            <div className="about-orbit-dot" style={{ position: "absolute", top: "50%", left: "50%", width: "56px", height: "56px", borderRadius: "50%", backgroundColor: C.base, zIndex: 3, animation: "orbitDot 12s linear infinite" }} />
+            <div className="about-orbit-dot" style={{ position: "absolute", top: "50%", left: "50%", width: "64px", height: "64px", borderRadius: "50%", backgroundColor: C.base, zIndex: 4, animation: "orbitDot 12s linear infinite", boxShadow: `0 0 24px rgba(${C.baseRgb},0.6)` }} />
           </div>
         </Reveal>
 
@@ -530,6 +530,8 @@ function About() {
         </Reveal>
       </div>
       <style>{`
+        @keyframes orbitDot{from{transform:translate(-50%,-50%) rotate(0deg) translateX(195px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(195px) rotate(-360deg)}}
+        @keyframes orbitDotMobile{from{transform:translate(-50%,-50%) rotate(0deg) translateX(140px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(140px) rotate(-360deg)}}
         @media(max-width:900px){.about-grid{grid-template-columns:1fr!important}}
         @media(max-width:768px){
           .about-img-col{min-height:300px!important}
