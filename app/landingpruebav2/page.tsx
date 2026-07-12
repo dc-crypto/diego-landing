@@ -219,9 +219,9 @@ function Hero() {
         </a>
       </div>
 
-      {/* ── Left text panel — 55% ── */}
+      {/* ── Left text panel — 42%, text overflows onto images ── */}
       <div className="lp-text-panel" style={{
-        flex: "0 0 55%", position: "relative", zIndex: 2,
+        flex: "0 0 42%", position: "relative", zIndex: 2,
         display: "flex", flexDirection: "column", justifyContent: "flex-end",
         padding: "0 0 80px 80px",
         overflow: "visible",
@@ -242,7 +242,7 @@ function Hero() {
 
         {/* Badge */}
         <div className="lp-badge" style={{
-          position: "absolute", bottom: "14%", right: "-64px",
+          position: "absolute", bottom: "14%", right: "-56px",
           width: "128px", height: "128px", zIndex: 20,
           opacity: ready ? 1 : 0,
           transform: ready ? "translateY(0)" : "translateY(72px)",
@@ -278,9 +278,10 @@ function Hero() {
         </div>
       </div>
 
-      {/* ── Right 45%: img1 | black strip | img2 ── */}
+      {/* ── Images — absolute, ocupa 60% derecho, texto flota encima ── */}
       <div className="lp-images" style={{
-        flex: "0 0 45%", zIndex: 1,
+        position: "absolute", right: 0, top: 0, bottom: 0, width: "60%",
+        zIndex: 1,
         display: "grid",
         gridTemplateColumns: "38fr 7fr 55fr",
         overflow: "hidden",
