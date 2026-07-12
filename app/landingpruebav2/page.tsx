@@ -581,8 +581,6 @@ function VideoSection() {
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.48)" }} />
 
-        </div>
-
         <div style={{ position: "absolute", right: "23%", bottom: "8%", width: "190px", height: "190px", zIndex: 5 }}>
           <svg viewBox="0 0 190 190" width="190" height="190" style={{ animation: "textRotate 14s linear infinite", position: "absolute", top: 0, left: 0 }}>
             <defs>
