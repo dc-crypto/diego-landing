@@ -506,9 +506,9 @@ function About() {
             <div className="about-deco-bg" style={{ position: "absolute", top: "-60px", left: "-80px", width: "340px", height: "340px", borderRadius: "50%", backgroundColor: "#111", zIndex: 0 }} />
             <div className="about-circle-wrap" style={{ position: "relative", width: "360px", height: "360px", borderRadius: "50%", overflow: "hidden", zIndex: 1, flexShrink: 0 }}>
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format&fit=crop"
-                alt="Equipo trabajando"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "grayscale(100%)" }}
+                src="/about-diego.webp"
+                alt="Diego Castro en el malecón de Puerto Vallarta"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block", filter: "grayscale(100%)" }}
               />
               <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.15)" }} />
             </div>
