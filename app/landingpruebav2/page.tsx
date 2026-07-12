@@ -718,6 +718,7 @@ function Portfolio() {
     { n: "02", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop" },
     { n: "03", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" },
     { n: "04", title: "Asistente IA para Property Managers",     desc: "Responde consultas, agenda visitas y atiende huéspedes 24/7.",   cat: "Inteligencia Artificial", img: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80&auto=format&fit=crop" },
+    { n: "05", title: "Landing Animada con Inteligencia Artificial", desc: "Experiencia scroll-driven con galería de moda generada con IA.", cat: "Inteligencia Artificial", img: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260629_104530_521b2f85-c0f3-4d0e-9704-b578315b4cb9.png&w=1920&q=85" },
   ];
   return (
     <section id="portafolio" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
@@ -733,7 +734,7 @@ function Portfolio() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: C.border }} className="port-grid">
           {items.map((item, i) => (
-            <Reveal key={item.n} delay={i * 0.1}>
+            <Reveal key={item.n} delay={i * 0.1} style={i === items.length - 1 && items.length % 2 !== 0 ? { gridColumn: "1 / -1" } : undefined}>
               {item.href ? (
                 <a href={item.href} target="_blank" rel="noopener noreferrer" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", display: "block", textDecoration: "none" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
