@@ -260,7 +260,7 @@ function Hero() {
               <path id="cp2" d="M 64,64 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0"/>
             </defs>
             <text style={{ fontSize: "10px", fontFamily: font, fontWeight: 700, fill: C.white, letterSpacing: "4px" }}>
-              <textPath href="#cp2">EXPLORA · MI · TRABAJO · </textPath>
+              <textPath href="#cp2">VER · NUESTROS · SERVICIOS · </textPath>
             </text>
           </svg>
           <div style={{
