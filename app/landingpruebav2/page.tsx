@@ -160,6 +160,8 @@ function PageNav() {
         @keyframes textRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
         @keyframes fadeSlideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
         @keyframes scrollH{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        @keyframes orbitDot{from{transform:translate(-50%,-50%) rotate(0deg) translateX(195px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(195px) rotate(-360deg)}}
+        @keyframes orbitDotMobile{from{transform:translate(-50%,-50%) rotate(0deg) translateX(140px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(140px) rotate(-360deg)}}
       `}</style>
     </>
   );
@@ -510,7 +512,7 @@ function About() {
               />
               <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.15)" }} />
             </div>
-            <div style={{ position: "absolute", bottom: "20px", left: "0px", width: "56px", height: "56px", borderRadius: "50%", backgroundColor: C.base, zIndex: 3, animation: "bubbleMover 4s ease-in-out infinite" }} />
+            <div className="about-orbit-dot" style={{ position: "absolute", top: "50%", left: "50%", width: "56px", height: "56px", borderRadius: "50%", backgroundColor: C.base, zIndex: 3, animation: "orbitDot 12s linear infinite" }} />
           </div>
         </Reveal>
 
@@ -533,6 +535,7 @@ function About() {
           .about-img-col{min-height:300px!important}
           .about-circle-wrap{width:min(260px,70vw)!important;height:min(260px,70vw)!important}
           .about-deco-bg{display:none!important}
+          .about-orbit-dot{animation:orbitDotMobile 12s linear infinite!important}
         }
       `}</style>
     </section>
