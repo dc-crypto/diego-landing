@@ -102,7 +102,7 @@ function PageNav() {
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
-  const links = ["Inicio","Nosotros","Servicios","Portafolio","Blog"];
+  const links = ["Inicio","Páginas Web","Automatización","Inteligencia Artificial","Proyectos","Blog"];
   return (
     <>
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: scrolled ? "rgba(0,0,0,0.97)" : "transparent", borderBottom: `1px solid ${scrolled ? C.border : "transparent"}`, backdropFilter: scrolled ? "blur(12px)" : "none", transition: "all 0.3s ease" }}>
@@ -172,9 +172,9 @@ function Hero() {
   const [slide, setSlide] = useState(0);
 
   const slides = [
-    { h: "Soluciones\ndigitales que\ntransforman" },
-    { h: "Web · Apps\ny automatización\ncon IA" },
-    { h: "Tu negocio\nen el próximo\nnivel digital" },
+    { h: "Tecnología para\nhacer crecer\ntu negocio." },
+    { h: "Páginas Web ·\nAutomatización\ne IA" },
+    { h: "Hablemos de\ntu próximo\nproyecto." },
   ];
 
   useEffect(() => {
@@ -365,7 +365,7 @@ function Brands() {
     <section style={{ backgroundColor: C.black, padding: "52px 0 0" }}>
       <div style={{ textAlign: "center", marginBottom: "36px" }}>
         <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, letterSpacing: "0.22em", color: C.base, textTransform: "uppercase" }}>
-          Tecnologías y herramientas que domino
+          Tecnologías que respaldan cada proyecto
         </span>
       </div>
 
@@ -394,8 +394,8 @@ function Features() {
   const cards = [
     {
       img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop",
-      alt: "Diseño web",
-      title: "Diseño Web",
+      alt: "Páginas web",
+      title: "Páginas Web",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
           <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
@@ -404,8 +404,8 @@ function Features() {
     },
     {
       img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop",
-      alt: "Desarrollo de Apps",
-      title: "Apps Web",
+      alt: "Aplicaciones web",
+      title: "Aplicaciones Web",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
           <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
@@ -414,8 +414,8 @@ function Features() {
     },
     {
       img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop",
-      alt: "Automatización con IA",
-      title: "IA & Automatización",
+      alt: "Automatización e IA",
+      title: "Automatización e IA",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
           <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
@@ -498,15 +498,15 @@ function About() {
 
         <Reveal from="right">
           <div style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: C.base, marginBottom: "16px" }} />
-          <SubTag>Sobre mí</SubTag>
-          <SH>Desarrollo digital con visión estratégica y tecnología de punta</SH>
+          <SubTag>Quiénes somos</SubTag>
+          <SH>Soluciones digitales para hacer crecer tu negocio</SH>
           <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.85, color: C.color, marginBottom: "20px" }}>
-            Soy desarrollador web especializado en construir aplicaciones modernas, automatizar procesos e integrar inteligencia artificial en negocios reales. Combino diseño, código y estrategia para entregar resultados que se ven y se sienten bien.
+            Ayudamos a empresas a crecer con páginas web, automatización, inteligencia artificial y soluciones de software a la medida que generan resultados reales y medibles.
           </p>
           <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.85, color: C.color, marginBottom: "40px" }}>
-            Trabajo con startups, emprendedores y empresas que necesitan presencia digital sólida, flujos de trabajo automatizados y soluciones de IA que realmente agregan valor.
+            Trabajamos con emprendedores y empresas que buscan presencia digital sólida, procesos automatizados y tecnología que realmente agrega valor a su negocio.
           </p>
-          <OBtn href="#servicios">Ver Servicios</OBtn>
+          <OBtn href="#servicios">Conoce cómo podemos ayudarte</OBtn>
         </Reveal>
       </div>
       <style>{`@media(max-width:900px){.about-grid{grid-template-columns:1fr!important}}`}</style>
@@ -521,9 +521,9 @@ function Marquee() {
   const fs = "clamp(5rem,12vw,10rem)";
   const unit = (k: number) => (
     <span key={k} aria-hidden={k > 3} style={{ display: "inline-flex", alignItems: "center", flexShrink: 0, whiteSpace: "nowrap" }}>
-      <span style={{ fontFamily: font, fontWeight: 800, fontSize: fs, color: C.white, letterSpacing: "-0.04em", lineHeight: 0.92 }}>código </span>
-      <span style={{ fontFamily: font, fontWeight: 800, fontSize: fs, color: C.base,  letterSpacing: "-0.04em", lineHeight: 0.92 }}>&amp; </span>
-      <span style={{ fontFamily: font, fontWeight: 800, fontSize: fs, color: C.white, letterSpacing: "-0.04em", lineHeight: 0.92 }}>creatividad</span>
+      <span style={{ fontFamily: font, fontWeight: 800, fontSize: fs, color: C.white, letterSpacing: "-0.04em", lineHeight: 0.92 }}>tecnología · diseño </span>
+      <span style={{ fontFamily: font, fontWeight: 800, fontSize: fs, color: C.base,  letterSpacing: "-0.04em", lineHeight: 0.92 }}>· </span>
+      <span style={{ fontFamily: font, fontWeight: 800, fontSize: fs, color: C.white, letterSpacing: "-0.04em", lineHeight: 0.92 }}>automatización · IA</span>
       <span style={{ fontFamily: font, fontWeight: 300, fontSize: "clamp(2.5rem,5vw,4rem)", color: "rgba(255,255,255,0.2)", margin: "0 48px", lineHeight: 0.92 }}>·</span>
     </span>
   );
@@ -567,7 +567,7 @@ function VideoSection() {
               <path id="vcp2" d="M 95,95 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0"/>
             </defs>
             <text style={{ fontSize: "10.5px", fontFamily: font, fontWeight: 700, fill: C.white, letterSpacing: "3.5px", textTransform: "uppercase" }}>
-              <textPath href="#vcp2">MIRA NUESTRO PORTAFOLIO DE PROYECTOS · </textPath>
+              <textPath href="#vcp2">PROYECTOS · SOLUCIONES · RESULTADOS · </textPath>
             </text>
           </svg>
           <div style={{
@@ -605,31 +605,31 @@ function VideoSection() {
 function Services() {
   const svcs = [
     {
-      n: "01", title: "Desarrollo Web",
-      desc: "Construyo aplicaciones web rápidas, modernas y escalables con Next.js, React y Node.js que se adaptan a cualquier dispositivo.",
-      icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
-    },
-    {
-      n: "02", title: "Diseño de Sitios Web",
-      desc: "Diseño sitios con identidad visual sólida, UX intuitivo y conversiones reales. Cada pixel tiene un propósito.",
+      n: "01", title: "Páginas Web",
+      desc: "Diseñamos y desarrollamos sitios web rápidos, modernos y optimizados para atraer clientes y convertir visitas en ventas.",
       icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>,
     },
     {
-      n: "03", title: "Automatización de Procesos",
-      desc: "Automatizo flujos de trabajo repetitivos con n8n, Make y APIs para que tu equipo se enfoque en lo que importa.",
+      n: "02", title: "Automatización",
+      desc: "Automatizamos procesos repetitivos para que tu equipo ahorre tiempo, reduzca errores y se enfoque en lo que realmente importa.",
       icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>,
     },
     {
-      n: "04", title: "Inteligencia Artificial",
-      desc: "Integro IA en tus flujos de trabajo y productos digitales: chatbots, agentes, análisis de datos y automatización inteligente.",
+      n: "03", title: "Inteligencia Artificial",
+      desc: "Integramos IA en tu negocio: asistentes virtuales, análisis de datos, chatbots y agentes que toman decisiones por ti.",
       icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>,
+    },
+    {
+      n: "04", title: "Desarrollo a la Medida",
+      desc: "Construimos aplicaciones y software personalizado para resolver los desafíos específicos de tu empresa con tecnología de punta.",
+      icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
     },
   ];
   return (
     <section id="servicios" style={{ backgroundColor: C.black, padding: "100px 0" }}>
       <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px" }}>
         <Reveal style={{ textAlign: "center", marginBottom: "64px" }}>
-          <SubTag>Lo que hago</SubTag>
+          <SubTag>Lo que hacemos</SubTag>
           <SH center>Servicios digitales diseñados<br />para hacer crecer tu negocio</SH>
           <p style={{ fontFamily: font, fontSize: "15px", color: C.color, maxWidth: "50ch", margin: "0 auto" }}>
             Soluciones a medida que combinan tecnología, diseño y estrategia para obtener resultados reales y medibles.
@@ -657,25 +657,25 @@ function Services() {
 }
 
 /* ─────────────────────────────────────────────────────────
-   PORTFOLIO
+   PROYECTOS
 ───────────────────────────────────────────────────────── */
 function Portfolio() {
   const items = [
-    { n: "01", title: "Plataforma de gestión de clientes", cat: "Desarrollo Web", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop" },
-    { n: "02", title: "Sitio web para startup fintech",    cat: "Diseño Web",      img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop" },
-    { n: "03", title: "Sistema de automatización de leads", cat: "Automatización",  img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" },
-    { n: "04", title: "Asistente IA para e-commerce",      cat: "Inteligencia Artificial", img: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80&auto=format&fit=crop" },
+    { n: "01", title: "Sitio web para empresa de servicios", cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop" },
+    { n: "02", title: "Landing page para startup tecnológica", cat: "Páginas Web",          img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop" },
+    { n: "03", title: "Automatización de atención al cliente", cat: "Automatización",       img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" },
+    { n: "04", title: "Asistente IA para e-commerce",          cat: "Inteligencia Artificial", img: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80&auto=format&fit=crop" },
   ];
   return (
     <section id="portafolio" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
       <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "56px", gap: "24px", flexWrap: "wrap" }}>
           <Reveal>
-            <SubTag>Mi trabajo</SubTag>
-            <SH>Proyectos recientes que<br />hablan por sí solos</SH>
+            <SubTag>Proyectos destacados</SubTag>
+            <SH>Proyectos que demuestran<br />lo que podemos hacer</SH>
           </Reveal>
           <Reveal delay={0.2}>
-            <OBtn href="#" outline>Ver todo el trabajo</OBtn>
+            <OBtn href="#" outline>Ver todos los proyectos</OBtn>
           </Reveal>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: C.border }} className="port-grid">
@@ -714,14 +714,14 @@ function Team() { return null; }
 ───────────────────────────────────────────────────────── */
 function Stats() {
   const words = [
-    "Desarrollo Web",
-    "Diseño de Sitios",
+    "Velocidad",
     "Automatización",
-    "Inteligencia Artificial",
-    "Apps Web",
-    "UX / UI",
-    "E-commerce",
-    "Integración de APIs",
+    "Conversión",
+    "Integración",
+    "IA",
+    "SEO",
+    "UX",
+    "Escalabilidad",
   ];
 
   const sep = (k: string) => (
@@ -759,16 +759,16 @@ function Stats() {
 ───────────────────────────────────────────────────────── */
 function Blog() {
   const posts = [
-    { date: "10 Jun", cat: "Tecnología", comments: "3 comentarios", title: "Cómo la IA está transformando el desarrollo web en 2025", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80&auto=format&fit=crop" },
-    { date: "28 May", cat: "Automatización", comments: "5 comentarios", title: "5 razones para automatizar los procesos de tu negocio hoy", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop" },
-    { date: "14 May", cat: "Diseño Web", comments: "2 comentarios", title: "Tendencias de diseño web que convierten visitantes en clientes", img: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80&auto=format&fit=crop" },
+    { date: "10 Jun", cat: "Negocio", comments: "4 comentarios", title: "¿Por qué tu negocio necesita una página web profesional?", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80&auto=format&fit=crop" },
+    { date: "28 May", cat: "Automatización", comments: "6 comentarios", title: "Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop" },
+    { date: "14 May", cat: "Diseño Web", comments: "3 comentarios", title: "5 errores que hacen perder clientes desde tu sitio web", img: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80&auto=format&fit=crop" },
   ];
   return (
     <section id="blog" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
       <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px" }}>
         <Reveal style={{ textAlign: "center", marginBottom: "56px" }}>
           <SubTag>Artículos recientes</SubTag>
-          <SH center>Últimas novedades y recursos<br />del blog</SH>
+          <SH center>Recursos y consejos para<br />hacer crecer tu negocio</SH>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", backgroundColor: C.border }} className="blog-grid">
           {posts.map((p, i) => (
@@ -850,7 +850,7 @@ function Footer() {
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.base, letterSpacing: "-0.03em" }}>.tech</span>
             </div>
             <p style={{ fontFamily: font, fontSize: "14px", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
-              Soluciones digitales a medida que transforman negocios. Diseño, desarrollo y automatización en un solo lugar.
+              Desarrollamos páginas web, automatizaciones, soluciones con inteligencia artificial y software a la medida para ayudar a las empresas a crecer.
             </p>
             <a href="mailto:dcastrol75@gmail.com" style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: C.base, textDecoration: "none" }}>
               dcastrol75@gmail.com
