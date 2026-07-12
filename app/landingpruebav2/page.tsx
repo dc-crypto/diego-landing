@@ -219,9 +219,9 @@ function Hero() {
         </a>
       </div>
 
-      {/* ── Left text panel — 42%, text overflows onto images ── */}
+      {/* ── Left text panel — 55%, desborda sobre las imágenes absolutas ── */}
       <div className="lp-text-panel" style={{
-        flex: "0 0 42%", position: "relative", zIndex: 2,
+        flex: "0 0 55%", position: "relative", zIndex: 2,
         display: "flex", flexDirection: "column", justifyContent: "flex-end",
         padding: "0 0 80px 80px",
         overflow: "visible",
@@ -232,7 +232,7 @@ function Hero() {
           fontSize: "clamp(3.6rem, 7.5vw, 7rem)",
           color: C.white, lineHeight: 0.95,
           letterSpacing: "-0.04em",
-          margin: 0, whiteSpace: "pre-line",
+          margin: 0, whiteSpace: "pre",
           opacity: ready ? 1 : 0,
           transform: ready ? "translateY(0)" : "translateY(-72px)",
           transition: `opacity ${dur.text} ${ease} ${del.text}, transform ${dur.text} ${ease} ${del.text}`,
@@ -297,8 +297,8 @@ function Hero() {
           onMouseLeave={() => setImg1Hov(false)}
         >
           <img
-            src="/hero-dev.webp"
-            alt="Desarrollador programando al atardecer"
+            src="/hero-dev2.webp"
+            alt="Desarrollador programando con vista al mar"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: img1Hov ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
           />
           <div style={{ position: "absolute", inset: 0, background: img1Hov ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
