@@ -309,7 +309,7 @@ function Hero() {
           <img
             src="/hero-dev2.webp"
             alt="Desarrollador programando con vista al mar"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: (img1Hov || autoGlow) ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", transition: "filter 0.7s ease" }}
           />
           <div style={{ position: "absolute", inset: 0, background: (img1Hov || autoGlow) ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
           <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "80px", background: "linear-gradient(to right, rgba(0,0,0,0.85), transparent)", zIndex: 2 }} />
@@ -330,7 +330,7 @@ function Hero() {
           <img
             src="/hero-client.webp"
             alt="Cliente trabajando con laptop en la playa"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: (img2Hov || autoGlow) ? "grayscale(0%)" : "grayscale(100%)", transition: "filter 0.7s ease" }}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", transition: "filter 0.7s ease" }}
           />
           <div style={{ position: "absolute", inset: 0, background: (img2Hov || autoGlow) ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.32)", transition: "background 0.7s ease" }} />
           <div style={{
@@ -462,7 +462,6 @@ function Features() {
                 style={{
                   width: "100%", height: "100%", objectFit: "cover",
                   display: "block",
-                  filter: "grayscale(100%)",
                   transform: hov === i ? "scale(1.07)" : "scale(1)",
                   transition: "transform 0.8s cubic-bezier(0.25,1,0.5,1)",
                 }}
@@ -508,7 +507,7 @@ function About() {
               <img
                 src="/about-diego.webp"
                 alt="Diego Castro en el malecón de Puerto Vallarta"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block", filter: "grayscale(100%)" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }}
               />
               <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.15)" }} />
             </div>
@@ -577,7 +576,7 @@ function VideoSection() {
         <img
           src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=80&auto=format&fit=crop"
           alt="Equipo digital"
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "grayscale(100%)" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.48)" }} />
 
