@@ -353,8 +353,8 @@ function Hero() {
           .lp-social { display: none !important; }
           .lp-phone  { display: none !important; }
           .lp-images { display: none !important; }
-          .lp-text-panel { flex: 1 !important; padding: 96px 28px 48px 28px !important; justify-content: space-between !important; }
-          .lp-text-panel h1 { font-size: clamp(2rem, 10.5vw, 4.5rem) !important; white-space: pre-wrap !important; line-height: 1.05 !important; }
+          .lp-text-panel { flex: 1 !important; padding: 96px 16px 48px 16px !important; justify-content: space-between !important; }
+          .lp-text-panel h1 { font-size: clamp(2rem, 11.5vw, 4.5rem) !important; white-space: pre-wrap !important; line-height: 1.05 !important; overflow-wrap: break-word !important; }
           .lp-badge { position: relative !important; bottom: auto !important; right: auto !important; margin-top: 0 !important; align-self: flex-start !important; }
           .lp-dots { position: relative !important; bottom: auto !important; left: auto !important; margin-top: 0 !important; padding-bottom: 0 !important; }
         }
