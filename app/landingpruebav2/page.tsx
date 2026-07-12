@@ -354,7 +354,7 @@ function Hero() {
           .lp-phone  { display: none !important; }
           .lp-images { display: none !important; }
           .lp-text-panel { flex: 1 !important; padding: 96px 28px 40px 28px !important; justify-content: flex-start !important; }
-          .lp-text-panel h1 { font-size: clamp(2rem, 9vw, 4.5rem) !important; white-space: pre-wrap !important; line-height: 1.0 !important; }
+          .lp-text-panel h1 { font-size: clamp(2rem, 10vw, 4.5rem) !important; white-space: pre-wrap !important; line-height: 1.0 !important; }
           .lp-badge { position: relative !important; bottom: auto !important; right: auto !important; margin-top: 40px !important; align-self: flex-start !important; }
           .lp-dots { position: relative !important; bottom: auto !important; left: auto !important; margin-top: 28px !important; padding-bottom: 40px !important; }
         }
