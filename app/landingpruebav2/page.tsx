@@ -249,24 +249,24 @@ function Hero() {
 
         {/* Badge */}
         <div className="lp-badge" style={{
-          position: "absolute", bottom: "14%", right: "-56px",
-          width: "128px", height: "128px", zIndex: 20,
+          position: "absolute", bottom: "14%", right: "-70px",
+          width: "160px", height: "160px", zIndex: 20,
           opacity: ready ? 1 : 0,
           transform: ready ? "translateY(0)" : "translateY(72px)",
           transition: `opacity ${dur.badge} ${ease} ${del.badge}, transform ${dur.badge} ${ease} ${del.badge}`,
         }}>
-          <svg viewBox="0 0 128 128" width="128" height="128" style={{ animation: "textRotate 14s linear infinite", position: "absolute", top: 0, left: 0 }}>
+          <svg viewBox="0 0 160 160" width="160" height="160" style={{ animation: "textRotate 14s linear infinite", position: "absolute", top: 0, left: 0 }}>
             <defs>
-              <path id="cp2" d="M 64,64 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0"/>
+              <path id="cp2" d="M 80,80 m -63,0 a 63,63 0 1,1 126,0 a 63,63 0 1,1 -126,0"/>
             </defs>
-            <text style={{ fontSize: "10px", fontFamily: font, fontWeight: 700, fill: C.white, letterSpacing: "4px" }}>
+            <text style={{ fontSize: "10.5px", fontFamily: font, fontWeight: 700, fill: C.white, letterSpacing: "4px" }}>
               <textPath href="#cp2">VER · NUESTROS · SERVICIOS · </textPath>
             </text>
           </svg>
           <div style={{
             position: "absolute", top: "50%", left: "50%",
             transform: "translate(-50%,-50%)",
-            width: "52px", height: "52px",
+            width: "65px", height: "65px",
             backgroundColor: C.base, borderRadius: "50%",
             display: "flex", alignItems: "center", justifyContent: "center",
             cursor: "pointer", transition: "transform 0.2s",
