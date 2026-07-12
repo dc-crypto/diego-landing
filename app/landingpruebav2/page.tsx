@@ -672,7 +672,7 @@ function Portfolio() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "56px", gap: "24px", flexWrap: "wrap" }}>
           <Reveal>
             <SubTag>Proyectos destacados</SubTag>
-            <SH>Proyectos que demuestran<br />lo que podemos hacer</SH>
+            <SH>Soluciones digitales diseñadas para hacer crecer negocios.</SH>
           </Reveal>
           <Reveal delay={0.2}>
             <OBtn href="#" outline>Ver todos los proyectos</OBtn>
