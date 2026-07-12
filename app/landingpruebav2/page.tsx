@@ -680,10 +680,10 @@ function Services() {
 ───────────────────────────────────────────────────────── */
 function Portfolio() {
   const items = [
-    { n: "01", title: "Sitio web para empresa de servicios", cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop" },
-    { n: "02", title: "Landing page para startup tecnológica", cat: "Páginas Web",          img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop" },
-    { n: "03", title: "Automatización de atención al cliente", cat: "Automatización",       img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" },
-    { n: "04", title: "Asistente IA para e-commerce",          cat: "Inteligencia Artificial", img: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80&auto=format&fit=crop" },
+    { n: "01", emoji: "🌐", title: "Clínica Estética",                         desc: "Agenda citas en línea y convierte visitantes en clientes.",      cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop" },
+    { n: "02", emoji: "💻", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop" },
+    { n: "03", emoji: "💻", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" },
+    { n: "04", emoji: "🤖", title: "Asistente IA para Property Managers",     desc: "Responde consultas, agenda visitas y atiende huéspedes 24/7.",   cat: "Inteligencia Artificial", img: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80&auto=format&fit=crop" },
   ];
   return (
     <section id="portafolio" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
@@ -706,15 +706,17 @@ function Portfolio() {
                 <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
                 <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                 <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", opacity: 0, transition: "opacity 0.3s ease" }}>
-                  <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
+                  <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.emoji} {item.cat}</span>
                   <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "22px", color: C.white, margin: 0, textAlign: "center", padding: "0 24px", letterSpacing: "-0.02em" }}>{item.title}</h3>
-                  <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "8px" }}>
+                  <p style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.85)", margin: 0, textAlign: "center", padding: "0 28px", lineHeight: 1.5 }}>{item.desc}</p>
+                  <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "4px" }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                   </div>
                 </div>
                 <div style={{ position: "absolute", bottom: "20px", left: "20px" }}>
+                  <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.emoji} {item.cat}</span>
                   <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "16px", color: C.white, margin: 0 }}>{item.title}</h3>
-                  <span style={{ fontFamily: font, fontSize: "12px", color: C.color }}>{item.cat}</span>
+                  <p style={{ fontFamily: font, fontSize: "12px", color: C.color, margin: "4px 0 0 0", lineHeight: 1.4, maxWidth: "260px" }}>{item.desc}</p>
                 </div>
               </div>
             </Reveal>
