@@ -692,19 +692,19 @@ function IframePreview({ src }: { src: string }) {
   }, []);
   return (
     <div ref={wrapRef} style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <iframe
-        src={src}
-        scrolling="no"
-        tabIndex={-1}
-        style={{
-          width: "1440px",
-          height: "900px",
-          border: "none",
-          transformOrigin: "top left",
-          transform: `scale(${scale})`,
-          display: "block",
-        }}
-      />
+      {/* scale layer — matches iframe to card width */}
+      <div style={{ transformOrigin: "top left", transform: `scale(${scale})` }}>
+        {/* pan layer — slow vertical drift to show more of the page */}
+        <div style={{ animation: "iframePan 14s ease-in-out infinite alternate" }}>
+          <iframe
+            src={src}
+            scrolling="no"
+            tabIndex={-1}
+            style={{ width: "1440px", height: "1200px", border: "none", display: "block" }}
+          />
+        </div>
+      </div>
+      <style>{`@keyframes iframePan{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-320px) scale(1.04)}}`}</style>
     </div>
   );
 }
