@@ -747,7 +747,7 @@ function Portfolio() {
     { n: "01", title: "Clínica de Medicina Estética",                         desc: "Agenda citas en línea y convierte visitantes en clientes.",      cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop", preview: "/clinica-estetica", href: "/clinica-estetica" },
     { n: "02", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp" },
     { n: "03", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "/feat-propmanager.webp" },
-    { n: "04", title: "Asistente IA para Property Managers",     desc: "Responde consultas, agenda visitas y atiende huéspedes 24/7.",   cat: "Inteligencia Artificial", img: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80&auto=format&fit=crop" },
+    { n: "04", title: "Asistente IA para Property Managers",     desc: "Responde consultas, agenda visitas y atiende huéspedes 24/7.",   cat: "Inteligencia Artificial", img: "/feat-asistente-ia.webp" },
     { n: "05", title: "Landing Animada con Inteligencia Artificial", desc: "Experiencia scroll-driven con galería de moda generada con IA.", cat: "Inteligencia Artificial", img: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260629_104530_521b2f85-c0f3-4d0e-9704-b578315b4cb9.png&w=1920&q=85" },
   ];
   return (
