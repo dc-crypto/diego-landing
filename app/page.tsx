@@ -569,6 +569,11 @@ function Marquee() {
 /* ─────────────────────────────────────────────────────────
    VIDEO
 ───────────────────────────────────────────────────────── */
+const DENTAL_IMG1 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_113640_ccf3cf97-d447-425b-a134-d7b09fc743fc.png&w=1280&q=85";
+const DENTAL_IMG2 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_114219_414dfe80-f15c-4e25-bf52-b13721f4bd88.png&w=1280&q=85";
+const DENTAL_IMG3 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_115253_c19ab167-8dd5-48b4-967d-b9f0d9d6e8fb.png&w=1280&q=85";
+const DENTAL_IMG4 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_114355_752ba9e6-0942-4abb-9047-5d9bb16632e9.png&w=1280&q=85";
+
 function VideoSection() {
   const secRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
@@ -577,7 +582,7 @@ function VideoSection() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -585,62 +590,126 @@ function VideoSection() {
 
   const anim = (delay: number): React.CSSProperties => ({
     opacity: visible ? 1 : 0,
-    transform: visible ? "none" : "translateY(48px)",
-    transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+    transform: visible ? "none" : "translateY(32px)",
+    transition: `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+  });
+
+  const card: React.CSSProperties = { borderRadius: "18px", overflow: "hidden", position: "relative" };
+  const overlay = (dir = "top"): React.CSSProperties => ({
+    position: "absolute", inset: 0,
+    background: dir === "top"
+      ? "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)"
+      : "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 60%, transparent 100%)",
   });
 
   return (
-    <section ref={secRef} style={{ position: "relative", height: "100svh", width: "100%", overflow: "hidden", backgroundColor: C.black }}>
-      {/* Video de fondo */}
-      <video autoPlay loop muted playsInline
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_063509_7d167302-4fd4-480b-8260-18ab572333d4.mp4"
-      />
-      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.52)" }} />
+    <section ref={secRef} style={{ backgroundColor: C.black, padding: "6px", display: "flex", flexDirection: "column", gap: "6px", minHeight: "100svh" }}>
 
-      {/* Palabras escalonadas */}
-      <div className="vs-word" style={{ left: "4%", top: "16%", ...anim(0.1) }}>automatiza</div>
-      <div className="vs-word" style={{ right: "4%", top: "38%", textAlign: "right", ...anim(0.25) }}>con</div>
-      <div className="vs-word" style={{ left: "20%", top: "58%", ...anim(0.4) }}>IA</div>
-
-      {/* Descripción */}
-      <p style={{ position: "absolute", left: "4%", top: "47%", maxWidth: "220px", fontSize: "14px", lineHeight: 1.55, color: "rgba(255,255,255,0.85)", fontFamily: font, margin: 0, ...anim(0.32) }}>
-        Creamos experiencias digitales impulsadas por inteligencia artificial para transformar y hacer crecer tu negocio.
-      </p>
-
-      {/* Gradiente inferior */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "180px", background: `linear-gradient(to bottom, transparent, ${C.black})`, pointerEvents: "none" }} />
-
-      {/* Badge rotatorio */}
-      <div style={{ position: "absolute", right: "5%", bottom: "8%", width: "160px", height: "160px", zIndex: 5, ...anim(0.7) }}>
-        <svg viewBox="0 0 190 190" width="160" height="160" style={{ animation: "textRotate 14s linear infinite", position: "absolute", top: 0, left: 0 }}>
-          <defs><path id="vcp2" d="M 95,95 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0"/></defs>
-          <text style={{ fontSize: "10.5px", fontFamily: font, fontWeight: 700, fill: C.white, letterSpacing: "3.5px", textTransform: "uppercase" }}>
-            <textPath href="#vcp2">PROYECTOS · SOLUCIONES · RESULTADOS · </textPath>
-          </text>
-        </svg>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "62px", height: "62px", borderRadius: "50%", backgroundColor: C.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "transform 0.25s" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.transform = "translate(-50%,-50%) scale(1.1)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.transform = "translate(-50%,-50%) scale(1)")}>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill={C.black2} style={{ marginLeft: "3px" }}>
-            <polygon points="5 3 19 12 5 21 5 3"/>
-          </svg>
+      {/* Barra superior */}
+      <div style={{ display: "flex", gap: "6px", height: "52px", flexShrink: 0, ...anim(0) }}>
+        <div style={{ flex: 1, borderRadius: "14px", backgroundColor: C.white, display: "flex", alignItems: "center", paddingLeft: "22px", gap: "10px" }}>
+          <span style={{ fontFamily: font, fontWeight: 700, fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", color: C.black }}>Clínica Dental Sonrisa</span>
+          <span style={{ fontFamily: font, fontWeight: 400, fontSize: "11px", color: C.color }}>·  Estética  ·  Implantes  ·  Blanqueamiento  ·  Ortodoncia</span>
+        </div>
+        <div style={{ width: "100px", borderRadius: "14px", backgroundColor: C.base, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ fontFamily: font, fontWeight: 700, fontSize: "11px", letterSpacing: "0.06em", textTransform: "uppercase", color: C.white }}>Dental</span>
         </div>
       </div>
 
+      {/* Grid principal */}
+      <div className="dental-grid" style={{ flex: 1, display: "grid", gridTemplateColumns: "1.45fr 1fr", gap: "6px", minHeight: 0 }}>
+
+        {/* Izquierda: imagen grande con headline */}
+        <div style={{ ...card, ...anim(0.08) }}>
+          <img src={DENTAL_IMG1} alt="Clínica dental" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          <div style={overlay("bottom")} />
+          <div style={{ position: "absolute", top: "20px", left: "22px" }}>
+            <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.75)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Tu sonrisa, nuestra pasión</span>
+          </div>
+          <div style={{ position: "absolute", bottom: "24px", left: "24px", right: "24px" }}>
+            <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(2.8rem,6vw,5.5rem)", lineHeight: 0.9, letterSpacing: "-0.04em", color: C.white, margin: "0 0 14px 0" }}>
+              Sonrisas<br />que<br />inspiran
+            </h2>
+            <p style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.72)", margin: 0, lineHeight: 1.55, maxWidth: "260px" }}>
+              Cuidamos tu salud bucal con tecnología avanzada y la calidez que mereces.
+            </p>
+          </div>
+        </div>
+
+        {/* Derecha: dos tarjetas apiladas */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+
+          {/* Tarjeta superior derecha */}
+          <div style={{ ...card, flex: 1, ...anim(0.16) }}>
+            <img src={DENTAL_IMG2} alt="Tratamiento dental" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <div style={overlay("top")} />
+            <div style={{ position: "absolute", top: "18px", left: "18px", right: "18px" }}>
+              <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>Servicio</span>
+              <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.6rem,3vw,2.6rem)", lineHeight: 0.92, letterSpacing: "-0.03em", color: C.white, margin: "6px 0 0 0" }}>
+                Blanqueamiento<br />Dental
+              </h3>
+            </div>
+            <div style={{ position: "absolute", bottom: "14px", right: "14px" }}>
+              <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: C.base, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.white }}>01</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Tarjeta inferior derecha */}
+          <div style={{ ...card, flex: 1, ...anim(0.24) }}>
+            <img src={DENTAL_IMG3} alt="Implantes dentales" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <div style={overlay("top")} />
+            <div style={{ position: "absolute", top: "18px", left: "18px", right: "18px" }}>
+              <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>Servicio</span>
+              <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.6rem,3vw,2.6rem)", lineHeight: 0.92, letterSpacing: "-0.03em", color: C.white, margin: "6px 0 0 0" }}>
+                Implantes<br />Dentales
+              </h3>
+            </div>
+            <div style={{ position: "absolute", bottom: "14px", right: "14px", display: "flex", gap: "8px", alignItems: "center" }}>
+              <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: C.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C.black} strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </div>
+              <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: C.base, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.white }}>02</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Barra inferior: imagen panorámica + servicios */}
+      <div className="dental-bottom" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "6px", height: "160px", flexShrink: 0, ...anim(0.32) }}>
+        {/* Imagen panorámica */}
+        <div style={{ ...card, gridColumn: "1 / 3" }}>
+          <img src={DENTAL_IMG4} alt="Sonrisa" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", objectPosition: "center 30%" }} />
+          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)" }} />
+          <div style={{ position: "absolute", bottom: "14px", left: "16px" }}>
+            <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Resultados que transforman</span>
+          </div>
+        </div>
+        {/* Tarjetas de servicio */}
+        {[
+          { n: "03", name: "Ortodoncia" },
+          { n: "04", name: "Estética\nDental" },
+        ].map((s) => (
+          <div key={s.n} style={{ ...card, backgroundColor: C.black3, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "14px 16px" }}>
+            <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.color }}>Servicio {s.n}</span>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "1.3rem", lineHeight: 1.05, color: C.white, margin: 0, whiteSpace: "pre-line" }}>{s.name}</h4>
+              <div style={{ width: "28px", height: "28px", borderRadius: "50%", border: `1px solid ${C.color}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={C.color} strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <style>{`
-        .vs-word {
-          position: absolute;
-          font-size: clamp(3.5rem, 13vw, 13vw);
-          font-family: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
-          font-weight: 500;
-          color: #fff;
-          line-height: 0.95;
-          letter-spacing: -0.04em;
-          margin: 0;
-        }
         @media(max-width:768px){
-          .vs-word { font-size: clamp(3rem, 17vw, 5rem) !important; }
+          .dental-grid { grid-template-columns: 1fr !important; }
+          .dental-bottom { grid-template-columns: 1fr 1fr !important; height: auto !important; }
+          .dental-bottom > div:first-child { grid-column: 1 / -1 !important; height: 140px; }
         }
         @keyframes textRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
       `}</style>
