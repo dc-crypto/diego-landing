@@ -758,7 +758,7 @@ function Portfolio() {
           {items.map((item, i) => (
             <Reveal key={item.n} delay={i * 0.1} style={i === items.length - 1 && items.length % 2 !== 0 ? { gridColumn: "1 / -1" } : undefined}>
               {item.href ? (
-                <a href={item.href} target="_blank" rel="noopener noreferrer" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", display: "block", textDecoration: "none" }}
+                <a href={item.href} target="_blank" rel="noopener noreferrer" className="port-card" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", display: "block", textDecoration: "none" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
                   {item.preview
@@ -779,7 +779,7 @@ function Portfolio() {
                   </div>
                 </a>
               ) : (
-                <div style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer" }}
+                <div className="port-card" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
                   {item.vidSrc
@@ -804,7 +804,12 @@ function Portfolio() {
           ))}
         </div>
       </div>
-      <style>{`@media(max-width:600px){.port-grid{grid-template-columns:1fr!important}}`}</style>
+      <style>{`
+          @media(max-width:600px){
+            .port-grid{grid-template-columns:1fr!important}
+            .port-card{aspect-ratio:4/3!important}
+          }
+        `}</style>
     </section>
   );
 }
