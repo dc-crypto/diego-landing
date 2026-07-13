@@ -82,12 +82,27 @@ function OBtn({ children, href = "#", outline = false, small = false }: { childr
   );
 }
 
-function RM({ href = "#" }: { href?: string }) {
+function RM({ href = "#", nested = false }: { href?: string; nested?: boolean }) {
+  const style: React.CSSProperties = { fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", letterSpacing: "0.03em", transition: "gap 0.2s" };
+  const content = (
+    <>
+      Leer más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </>
+  );
+  if (nested) {
+    return (
+      <span style={{ ...style, cursor: "pointer" }}
+        onMouseEnter={(e) => ((e.currentTarget as HTMLSpanElement).style.gap = "12px")}
+        onMouseLeave={(e) => ((e.currentTarget as HTMLSpanElement).style.gap = "6px")}>
+        {content}
+      </span>
+    );
+  }
   return (
-    <a href={href} style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", letterSpacing: "0.03em", transition: "gap 0.2s" }}
+    <a href={href} style={style}
       onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.gap = "12px")}
       onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.gap = "6px")}>
-      Leer más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      {content}
     </a>
   );
 }
@@ -935,7 +950,7 @@ function Blog() {
                     onMouseLeave={(e) => ((e.currentTarget as HTMLHeadingElement).style.color = C.white)}>
                     {p.title}
                   </h3>
-                  <RM href={p.href} />
+                  <RM href={p.href} nested />
                 </div>
               </a>
             </Reveal>
