@@ -790,6 +790,7 @@ function Portfolio() {
                     ? <IframePreview src={item.preview} />
                     : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
                   }
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "55%", background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.45) 45%, transparent 100%)", pointerEvents: "none" }} />
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                   <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", opacity: 0, transition: "opacity 0.3s ease" }}>
                     <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
@@ -798,7 +799,7 @@ function Portfolio() {
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                     </div>
                   </div>
-                  <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
+                  <div style={{ position: "absolute", bottom: "16px", left: "16px", right: "16px" }}>
                     <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
                     <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0 }}>{item.title}</h3>
                   </div>
@@ -811,6 +812,7 @@ function Portfolio() {
                     ? <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} src={item.vidSrc} />
                     : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
                   }
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "55%", background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.45) 45%, transparent 100%)", pointerEvents: "none" }} />
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                   <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", opacity: 0, transition: "opacity 0.3s ease" }}>
                     <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
@@ -819,7 +821,7 @@ function Portfolio() {
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                     </div>
                   </div>
-                  <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
+                  <div style={{ position: "absolute", bottom: "16px", left: "16px", right: "16px" }}>
                     <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
                     <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0 }}>{item.title}</h3>
                   </div>
