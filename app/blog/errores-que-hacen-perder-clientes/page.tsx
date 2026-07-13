@@ -125,14 +125,14 @@ function BlogFooter() {
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.white, letterSpacing: "-0.03em" }}>diegocastro</span>
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.base,  letterSpacing: "-0.03em" }}>.tech</span>
             </div>
-            <p style={{ fontFamily: font, fontSize: "14px", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
+            <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
               Desarrollamos páginas web, automatizaciones, soluciones con IA y software a la medida para ayudar a las empresas a crecer.
             </p>
-            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: C.base, textDecoration: "none" }}>hola@diegocastro.tech</a>
+            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: C.base, textDecoration: "none" }}>hola@diegocastro.tech</a>
           </div>
           {cols.map((col) => (
             <div key={col.title}>
-              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "15px", color: C.white, margin: "0 0 24px" }}>{col.title}</h4>
+              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.white, margin: "0 0 24px" }}>{col.title}</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {col.links.map(([label, href]) => (
                   <li key={label}>
@@ -216,7 +216,7 @@ export default function PostErroresPerdidaClientes() {
               <span style={{ color: "rgba(255,255,255,0.4)" }}>›</span>
               <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base }}>Diseño Web</span>
             </div>
-            <h1 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.9rem,4.5vw,3.6rem)", color: C.white, lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px" }}>
+            <h1 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(36px,4vw,52px)", color: C.white, lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px" }}>
               5 errores que hacen perder clientes desde tu sitio web
             </h1>
             <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
@@ -234,7 +234,7 @@ export default function PostErroresPerdidaClientes() {
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
         {/* Lead */}
-        <p style={{ fontFamily: font, fontSize: "clamp(17px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
+        <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
           Tu página web puede estar haciendo exactamente lo contrario de lo que quieres: alejar clientes antes de que tengan la oportunidad de conocerte. Estos son los 5 errores más comunes —y cómo corregirlos sin reconstruir todo desde cero.
         </p>
 
@@ -252,14 +252,14 @@ export default function PostErroresPerdidaClientes() {
 
               {/* Problem */}
               <div style={{ backgroundColor: "#0a0a0a", borderLeft: `3px solid rgba(255,255,255,0.08)`, padding: "20px 24px", marginBottom: "16px" }}>
-                <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>El problema</span>
-                <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.85, color: "rgba(255,255,255,0.65)", margin: 0 }}>{err.problem}</p>
+                <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>El problema</span>
+                <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.85, color: "rgba(255,255,255,0.65)", margin: 0 }}>{err.problem}</p>
               </div>
 
               {/* Solution */}
               <div style={{ backgroundColor: "rgba(245,144,13,0.06)", borderLeft: `3px solid ${C.base}`, padding: "20px 24px" }}>
-                <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>La solución</span>
-                <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.85, color: "rgba(255,255,255,0.72)", margin: 0 }}>{err.solution}</p>
+                <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>La solución</span>
+                <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.85, color: "rgba(255,255,255,0.72)", margin: 0 }}>{err.solution}</p>
               </div>
 
               {i < errors.length - 1 && <div style={{ height: "1px", backgroundColor: C.border, marginTop: "52px" }} />}
@@ -272,10 +272,10 @@ export default function PostErroresPerdidaClientes() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             La buena noticia
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             Ninguno de estos errores requiere reconstruir tu sitio desde cero. La mayoría se corrige con ajustes específicos y bien dirigidos. Lo importante es identificarlos antes de que sigan costándote clientes silenciosamente.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "0" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "0" }}>
             Si quieres saber exactamente qué está fallando en tu sitio actual, escríbeme y hacemos una revisión gratuita. Sin compromiso —solo te digo dónde están las oportunidades de mejora más importantes.
           </p>
         </Reveal>
@@ -284,7 +284,7 @@ export default function PostErroresPerdidaClientes() {
         <div style={{ height: "1px", backgroundColor: C.border, margin: "60px 0 32px" }} />
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           {["Diseño Web", "UX", "Conversión", "SEO"].map((tag) => (
-            <span key={tag} style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
+            <span key={tag} style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
           ))}
         </div>
       </article>
@@ -292,7 +292,7 @@ export default function PostErroresPerdidaClientes() {
       {/* ── Related posts ────────────────────────────────── */}
       <section style={{ backgroundColor: C.black2, padding: "80px 0" }}>
         <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px" }}>
-          <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "22px", color: C.white, margin: "0 0 40px", letterSpacing: "-0.02em" }}>También te puede interesar</h3>
+          <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: "0 0 40px", letterSpacing: "-0.02em" }}>También te puede interesar</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: C.border }} className="brel-grid">
             {related.map((p) => (
               <a key={p.title} href={p.href} style={{ display: "block", textDecoration: "none", backgroundColor: C.black, transition: "background-color 0.3s" }}
@@ -304,8 +304,8 @@ export default function PostErroresPerdidaClientes() {
                     onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")} />
                 </div>
                 <div style={{ padding: "24px 28px" }}>
-                  <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>{p.cat}</span>
-                  <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "16px", color: C.white, margin: 0, lineHeight: 1.4 }}>{p.title}</h4>
+                  <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>{p.cat}</span>
+                  <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0, lineHeight: 1.4 }}>{p.title}</h4>
                 </div>
               </a>
             ))}
@@ -318,11 +318,11 @@ export default function PostErroresPerdidaClientes() {
       <section style={{ backgroundColor: C.black3, padding: "96px 0", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 60% 80% at 50% 50%, rgba(${C.baseRgb},0.07) 0%, transparent 70%)`, pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "700px", margin: "0 auto", padding: "0 24px" }}>
-          <span style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.base, display: "block", marginBottom: "16px" }}>— Revisión gratuita</span>
-          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.8rem,3.5vw,3rem)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 20px" }}>
+          <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.base, display: "block", marginBottom: "16px" }}>— Revisión gratuita</span>
+          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(28px,3vw,36px)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 20px" }}>
             ¿Tu sitio web está<br /><span style={{ color: C.base }}>perdiendo clientes?</span>
           </h2>
-          <p style={{ fontFamily: font, fontSize: "15px", color: C.color, margin: "0 auto 36px", lineHeight: 1.8, maxWidth: "45ch" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", color: C.color, margin: "0 auto 36px", lineHeight: 1.8, maxWidth: "45ch" }}>
             Cuéntame sobre tu sitio actual y te digo exactamente qué ajustar para convertir más visitantes en clientes.
           </p>
           <a href="https://wa.me/523221097649" target="_blank" rel="noopener noreferrer"

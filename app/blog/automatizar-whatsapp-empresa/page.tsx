@@ -125,14 +125,14 @@ function BlogFooter() {
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.white, letterSpacing: "-0.03em" }}>diegocastro</span>
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.base,  letterSpacing: "-0.03em" }}>.tech</span>
             </div>
-            <p style={{ fontFamily: font, fontSize: "14px", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
+            <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
               Desarrollamos páginas web, automatizaciones, soluciones con IA y software a la medida para ayudar a las empresas a crecer.
             </p>
-            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: C.base, textDecoration: "none" }}>hola@diegocastro.tech</a>
+            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: C.base, textDecoration: "none" }}>hola@diegocastro.tech</a>
           </div>
           {cols.map((col) => (
             <div key={col.title}>
-              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "15px", color: C.white, margin: "0 0 24px" }}>{col.title}</h4>
+              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.white, margin: "0 0 24px" }}>{col.title}</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {col.links.map(([label, href]) => (
                   <li key={label}>
@@ -191,7 +191,7 @@ export default function PostAutomatizarWhatsApp() {
               <span style={{ color: "rgba(255,255,255,0.4)" }}>›</span>
               <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base }}>Automatización</span>
             </div>
-            <h1 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.9rem,4.5vw,3.6rem)", color: C.white, lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px" }}>
+            <h1 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(36px,4vw,52px)", color: C.white, lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px" }}>
               Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa
             </h1>
             <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
@@ -209,7 +209,7 @@ export default function PostAutomatizarWhatsApp() {
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
         {/* Lead */}
-        <p style={{ fontFamily: font, fontSize: "clamp(17px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
+        <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
           WhatsApp ya no es solo una app de mensajes personales. En México y Latinoamérica es el canal de atención al cliente número uno —y también el principal consumidor de tiempo de cualquier negocio que lo usa sin automatización.
         </p>
 
@@ -217,14 +217,14 @@ export default function PostAutomatizarWhatsApp() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             El problema del WhatsApp manual
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             Imagina este escenario: son las 10 PM y alguien escribe: "¿Cuánto cuestan sus servicios?" Si no hay nadie para responder, ese prospecto probablemente ya cotizó con tu competencia antes de que abras mañana.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             Ahora multiplica eso por decenas de mensajes al día: preguntas repetitivas, solicitudes de citas, peticiones de información, quejas, confirmaciones. Sin automatización, estás atrapado en una operación completamente reactiva que consume horas que deberías invertir en hacer crecer tu negocio.
           </p>
           <blockquote style={{ backgroundColor: "rgba(245,144,13,0.06)", borderLeft: `4px solid ${C.base}`, padding: "24px 28px", margin: "0 0 52px" }}>
-            <p style={{ fontFamily: font, fontSize: "17px", fontWeight: 700, color: C.white, margin: 0, lineHeight: 1.5, letterSpacing: "-0.01em" }}>
+            <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", fontWeight: 700, color: C.white, margin: 0, lineHeight: 1.5, letterSpacing: "-0.01em" }}>
               "Un negocio que recibe 50 mensajes al día consume más de 900 horas al año solo respondiendo WhatsApp de forma manual."
             </p>
           </blockquote>
@@ -234,10 +234,10 @@ export default function PostAutomatizarWhatsApp() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             ¿Qué es la automatización de WhatsApp?
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             En términos simples: configurar respuestas, flujos y acciones automáticas para que WhatsApp trabaje por ti, incluso cuando no estás disponible.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             Esto va desde mensajes de bienvenida automáticos hasta chatbots completos que califican prospectos, agendan citas en tu calendario, envían cotizaciones y procesan pagos —todo dentro de la app que tus clientes ya usan todos los días.
           </p>
         </Reveal>
@@ -249,8 +249,8 @@ export default function PostAutomatizarWhatsApp() {
           <div style={{ display: "flex", flexDirection: "column", gap: "2px", marginBottom: "52px" }}>
             {items.map((item, i) => (
               <div key={item.title} style={{ backgroundColor: i % 2 === 0 ? "#0d0d0d" : C.black, padding: "24px 28px" }}>
-                <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "15px", color: C.base, margin: "0 0 8px", letterSpacing: "-0.01em" }}>{item.title}</h3>
-                <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.8, color: "rgba(255,255,255,0.65)", margin: 0 }}>{item.desc}</p>
+                <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.base, margin: "0 0 8px", letterSpacing: "-0.01em" }}>{item.title}</h3>
+                <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.65)", margin: 0 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -260,7 +260,7 @@ export default function PostAutomatizarWhatsApp() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             Las herramientas que existen
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             No necesitas ser programador para empezar. Hay opciones para cada presupuesto y nivel técnico:
           </p>
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -272,11 +272,11 @@ export default function PostAutomatizarWhatsApp() {
             ].map((item) => (
               <li key={item} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                 <span style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: C.base, flexShrink: 0, marginTop: "8px" }} />
-                <span style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.75, color: "rgba(255,255,255,0.7)" }}>{item}</span>
+                <span style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.75, color: "rgba(255,255,255,0.7)" }}>{item}</span>
               </li>
             ))}
           </ul>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             La elección depende del volumen de mensajes, el presupuesto y el nivel de personalización que necesites. En la mayoría de los casos, una solución intermedia cubre el 80% de las necesidades con el 20% del costo de la opción más avanzada.
           </p>
         </Reveal>
@@ -285,10 +285,10 @@ export default function PostAutomatizarWhatsApp() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             El ahorro real en números
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             Un negocio que recibe 50 mensajes diarios, con un tiempo promedio de atención de 3 minutos por mensaje, consume 2.5 horas al día solo en WhatsApp. Al año, eso son más de 900 horas —equivalente a casi 4 meses de trabajo de tiempo completo.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             Con automatización bien implementada, ese tiempo puede reducirse a menos de 30 minutos diarios. Las horas recuperadas se traducen directamente en más ventas, mejor servicio y menor estrés operativo para ti y tu equipo.
           </p>
         </Reveal>
@@ -297,10 +297,10 @@ export default function PostAutomatizarWhatsApp() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             Cómo empezar hoy
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             El primer paso es mapear qué tipo de mensajes recibes y con qué frecuencia. Identifica los 5 temas más comunes y empieza por automatizar esos. No necesitas hacerlo todo de una vez —el 80% del tiempo ahorrado generalmente viene del 20% de las automatizaciones más simples.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "0" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "0" }}>
             Si prefieres que alguien lo haga por ti, podemos diseñar e instalar el sistema completo adaptado a tu negocio, tus procesos y tus clientes —listo para funcionar desde el primer día.
           </p>
         </Reveal>
@@ -309,7 +309,7 @@ export default function PostAutomatizarWhatsApp() {
         <div style={{ height: "1px", backgroundColor: C.border, margin: "60px 0 32px" }} />
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           {["Automatización", "WhatsApp", "Productividad", "Chatbots"].map((tag) => (
-            <span key={tag} style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
+            <span key={tag} style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
           ))}
         </div>
       </article>
@@ -317,7 +317,7 @@ export default function PostAutomatizarWhatsApp() {
       {/* ── Related posts ────────────────────────────────── */}
       <section style={{ backgroundColor: C.black2, padding: "80px 0" }}>
         <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px" }}>
-          <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "22px", color: C.white, margin: "0 0 40px", letterSpacing: "-0.02em" }}>También te puede interesar</h3>
+          <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: "0 0 40px", letterSpacing: "-0.02em" }}>También te puede interesar</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: C.border }} className="brel-grid">
             {related.map((p) => (
               <a key={p.title} href={p.href} style={{ display: "block", textDecoration: "none", backgroundColor: C.black, transition: "background-color 0.3s" }}
@@ -329,8 +329,8 @@ export default function PostAutomatizarWhatsApp() {
                     onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")} />
                 </div>
                 <div style={{ padding: "24px 28px" }}>
-                  <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>{p.cat}</span>
-                  <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "16px", color: C.white, margin: 0, lineHeight: 1.4 }}>{p.title}</h4>
+                  <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>{p.cat}</span>
+                  <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0, lineHeight: 1.4 }}>{p.title}</h4>
                 </div>
               </a>
             ))}
@@ -343,11 +343,11 @@ export default function PostAutomatizarWhatsApp() {
       <section style={{ backgroundColor: C.black3, padding: "96px 0", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 60% 80% at 50% 50%, rgba(${C.baseRgb},0.07) 0%, transparent 70%)`, pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "700px", margin: "0 auto", padding: "0 24px" }}>
-          <span style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.base, display: "block", marginBottom: "16px" }}>— Hablemos</span>
-          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.8rem,3.5vw,3rem)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 20px" }}>
+          <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.base, display: "block", marginBottom: "16px" }}>— Hablemos</span>
+          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(28px,3vw,36px)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 20px" }}>
             ¿Quieres automatizar<br /><span style={{ color: C.base }}>tu WhatsApp hoy?</span>
           </h2>
-          <p style={{ fontFamily: font, fontSize: "15px", color: C.color, margin: "0 auto 36px", lineHeight: 1.8, maxWidth: "45ch" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", color: C.color, margin: "0 auto 36px", lineHeight: 1.8, maxWidth: "45ch" }}>
             Diseñamos e implementamos el sistema completo para tu negocio. Cuéntame qué necesitas y te propongo una solución.
           </p>
           <a href="https://wa.me/523221097649" target="_blank" rel="noopener noreferrer"

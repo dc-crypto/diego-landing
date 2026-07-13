@@ -37,7 +37,7 @@ function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?:
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: "10px",
-      fontFamily: sans, fontSize: "12px", fontWeight: 700,
+      fontFamily: sans, fontSize: "13px", fontWeight: 700,
       letterSpacing: "0.1em", textTransform: "uppercase",
       color: T.accent, marginBottom: "16px",
     }}>
@@ -117,7 +117,7 @@ function CaseCard({ num, sector, name, desc, tags, url, cover, thumbnail }: {
         {/* Number badge */}
         <div style={{
           position: "absolute", top: "16px", left: "16px",
-          fontFamily: sans, fontSize: "11px", fontWeight: 700,
+          fontFamily: sans, fontSize: "13px", fontWeight: 700,
           letterSpacing: "0.08em", textTransform: "uppercase",
           padding: "4px 10px", borderRadius: "100px",
           backgroundColor: "rgba(12,10,9,0.75)", backdropFilter: "blur(6px)",
@@ -129,17 +129,17 @@ function CaseCard({ num, sector, name, desc, tags, url, cover, thumbnail }: {
 
       {/* Content side */}
       <div style={{ padding: "32px 28px", display: "flex", flexDirection: "column", gap: "0" }}>
-        <div style={{ fontFamily: sans, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em",
+        <div style={{ fontFamily: sans, fontSize: "13px", fontWeight: 700, letterSpacing: "0.1em",
           textTransform: "uppercase", color: T.accent, marginBottom: "6px" }}>
           {sector}
         </div>
-        <h3 style={{ fontFamily: serif, fontWeight: 600, fontSize: "22px", color: T.cream,
+        <h3 style={{ fontFamily: serif, fontWeight: 600, fontSize: "clamp(20px,2vw,24px)", color: T.cream,
           margin: "0 0 20px", lineHeight: 1.2, letterSpacing: "-0.01em" }}>
           {name}
         </h3>
 
         <div style={{ flex: 1 }}>
-          <p style={{ fontFamily: sans, fontSize: "14px", lineHeight: 1.75, color: T.creamMuted, margin: 0 }}>
+          <p style={{ fontFamily: sans, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.75, color: T.creamMuted, margin: 0 }}>
             {desc}
           </p>
         </div>
@@ -149,7 +149,7 @@ function CaseCard({ num, sector, name, desc, tags, url, cover, thumbnail }: {
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "16px" }}>
             {tags.map((t) => (
               <span key={t} style={{
-                fontFamily: sans, fontSize: "11px", padding: "3px 10px", borderRadius: "100px",
+                fontFamily: sans, fontSize: "13px", padding: "3px 10px", borderRadius: "100px",
                 backgroundColor: "rgba(242,239,233,0.06)", color: T.creamMuted,
                 border: `1px solid ${T.darkBorder}`,
               }}>{t}</span>
@@ -197,7 +197,7 @@ export default function Portafolio() {
           <Eyebrow>diegocastro.tech</Eyebrow>
           <h1 style={{
             fontFamily: serif, fontWeight: 600,
-            fontSize: "clamp(2.2rem, 5vw, 4rem)",
+            fontSize: "clamp(36px,4vw,52px)",
             color: T.cream, lineHeight: 1.1,
             letterSpacing: "-0.025em",
             margin: "0 0 24px", maxWidth: "16ch",
@@ -208,7 +208,7 @@ export default function Portafolio() {
             </em>
           </h1>
           <p style={{
-            fontFamily: sans, fontSize: "clamp(15px,1.8vw,18px)",
+            fontFamily: sans, fontSize: "clamp(18px,1.8vw,20px)",
             lineHeight: 1.7, color: T.creamMuted,
             maxWidth: "54ch", margin: "0 0 40px",
           }}>
@@ -256,7 +256,7 @@ export default function Portafolio() {
             <Eyebrow>Servicios</Eyebrow>
             <h2 style={{
               fontFamily: serif, fontWeight: 600,
-              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              fontSize: "clamp(28px,3vw,36px)",
               color: T.ink, margin: "0 0 48px",
               letterSpacing: "-0.02em", lineHeight: 1.15,
             }}>
@@ -336,18 +336,18 @@ export default function Portafolio() {
                     {s.icon}
                   </div>
                   <div>
-                    <h3 style={{ fontFamily: serif, fontWeight: 600, fontSize: "18px",
+                    <h3 style={{ fontFamily: serif, fontWeight: 600, fontSize: "clamp(20px,2vw,24px)",
                       color: T.ink, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
                       {s.title}
                     </h3>
-                    <p style={{ fontFamily: sans, fontSize: "13.5px", lineHeight: 1.7, color: T.ash, margin: 0 }}>
+                    <p style={{ fontFamily: sans, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.7, color: T.ash, margin: 0 }}>
                       {s.desc}
                     </p>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "auto" }}>
                     {s.tags.map((t) => (
                       <span key={t} style={{
-                        fontFamily: sans, fontSize: "11px", padding: "3px 10px", borderRadius: "100px",
+                        fontFamily: sans, fontSize: "13px", padding: "3px 10px", borderRadius: "100px",
                         backgroundColor: "#F4F1EE", color: T.ash,
                       }}>{t}</span>
                     ))}
@@ -366,7 +366,7 @@ export default function Portafolio() {
             <Eyebrow>Portafolio</Eyebrow>
             <h2 style={{
               fontFamily: serif, fontWeight: 600,
-              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              fontSize: "clamp(28px,3vw,36px)",
               color: T.cream, margin: "0 0 48px",
               letterSpacing: "-0.02em", lineHeight: 1.15,
             }}>
@@ -418,7 +418,7 @@ export default function Portafolio() {
             <Eyebrow>Cómo trabajo</Eyebrow>
             <h2 style={{
               fontFamily: serif, fontWeight: 600,
-              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              fontSize: "clamp(28px,3vw,36px)",
               color: T.ink, margin: "0 0 56px",
               letterSpacing: "-0.02em", lineHeight: 1.15,
             }}>
@@ -452,7 +452,7 @@ export default function Portafolio() {
                       border: `2px solid ${T.border}`,
                       backgroundColor: T.surface,
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      fontFamily: sans, fontSize: "14px", fontWeight: 700,
+                      fontFamily: sans, fontSize: "13px", fontWeight: 700,
                       color: T.accent, flexShrink: 0, position: "relative", zIndex: 1,
                       transition: "background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.3s cubic-bezier(0.16,1,0.3,1)",
                     }}
@@ -472,11 +472,11 @@ export default function Portafolio() {
                       }}>
                       {step.n}
                     </div>
-                    <h4 style={{ fontFamily: serif, fontWeight: 600, fontSize: "16px",
+                    <h4 style={{ fontFamily: serif, fontWeight: 600, fontSize: "clamp(20px,2vw,24px)",
                       color: T.ink, margin: 0, lineHeight: 1.3 }}>
                       {step.title}
                     </h4>
-                    <p style={{ fontFamily: sans, fontSize: "13px", lineHeight: 1.7,
+                    <p style={{ fontFamily: sans, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.7,
                       color: T.ash, margin: 0 }}>
                       {step.desc}
                     </p>
@@ -503,13 +503,13 @@ export default function Portafolio() {
               <Eyebrow>Hablemos</Eyebrow>
               <h2 style={{
                 fontFamily: serif, fontWeight: 600,
-                fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+                fontSize: "clamp(28px,3vw,36px)",
                 color: T.cream, margin: "0 0 16px",
                 letterSpacing: "-0.02em", lineHeight: 1.15,
               }}>
                 ¿Tu negocio necesita dar el salto digital?
               </h2>
-              <p style={{ fontFamily: sans, fontSize: "16px", lineHeight: 1.7,
+              <p style={{ fontFamily: sans, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.7,
                 color: T.creamMuted, margin: "0 0 36px" }}>
                 Escríbeme por WhatsApp. En el mismo día te doy un diagnóstico y un precio claro — sin propuestas largas ni ventas a presión.
               </p>
@@ -553,7 +553,7 @@ export default function Portafolio() {
             color: T.cream, textDecoration: "none", letterSpacing: "-0.01em" }}>
             diegocastro<span style={{ color: T.accent }}>.tech</span>
           </a>
-          <div style={{ fontFamily: sans, fontSize: "12px", color: T.creamMuted }}>
+          <div style={{ fontFamily: sans, fontSize: "13px", color: T.creamMuted }}>
             © {new Date().getFullYear()} Diego Castro · Puerto Vallarta, MX
           </div>
         </div>

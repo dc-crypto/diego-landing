@@ -125,14 +125,14 @@ function BlogFooter() {
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.white, letterSpacing: "-0.03em" }}>diegocastro</span>
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.base,  letterSpacing: "-0.03em" }}>.tech</span>
             </div>
-            <p style={{ fontFamily: font, fontSize: "14px", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
+            <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
               Desarrollamos páginas web, automatizaciones, soluciones con IA y software a la medida para ayudar a las empresas a crecer.
             </p>
-            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: C.base, textDecoration: "none" }}>hola@diegocastro.tech</a>
+            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: C.base, textDecoration: "none" }}>hola@diegocastro.tech</a>
           </div>
           {cols.map((col) => (
             <div key={col.title}>
-              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "15px", color: C.white, margin: "0 0 24px" }}>{col.title}</h4>
+              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.white, margin: "0 0 24px" }}>{col.title}</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {col.links.map(([label, href]) => (
                   <li key={label}>
@@ -183,7 +183,7 @@ export default function PostPorQueNecesitasWeb() {
               <span style={{ color: "rgba(255,255,255,0.4)" }}>›</span>
               <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base }}>Negocio</span>
             </div>
-            <h1 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.9rem,4.5vw,3.6rem)", color: C.white, lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px" }}>
+            <h1 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(36px,4vw,52px)", color: C.white, lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px" }}>
               ¿Por qué tu negocio necesita una<br className="hero-br" /> página web profesional?
             </h1>
             <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
@@ -201,7 +201,7 @@ export default function PostPorQueNecesitasWeb() {
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
         {/* Lead */}
-        <p style={{ fontFamily: font, fontSize: "clamp(17px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
+        <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
           Vivimos en una era donde la primera reacción de un consumidor ante cualquier recomendación es simple: buscar en Google. Si tu negocio no aparece —o aparece con una página desactualizada— la respuesta del cliente es igual de simple: ir a la competencia.
         </p>
 
@@ -209,10 +209,10 @@ export default function PostPorQueNecesitasWeb() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             Tu negocio no existe si no está en internet
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             Hoy en día, el 93% de las decisiones de compra comienzan con una búsqueda en línea. Tus clientes potenciales buscan soluciones, no marcas específicas. Si no tienes presencia digital, literalmente no existen para esa búsqueda —sin importar cuántos años lleves operando o qué tan bueno sea tu servicio.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             Una página web profesional no es un lujo. Es el equivalente digital de tener una vitrina en la calle más transitada de tu ciudad, disponible las 24 horas del día, los 7 días de la semana —sin pagar renta por cada hora que permanece abierta.
           </p>
         </Reveal>
@@ -221,15 +221,15 @@ export default function PostPorQueNecesitasWeb() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             Credibilidad que se traduce en ventas
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "28px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "28px" }}>
             ¿Confiarías en un médico que no tiene consultorio? ¿En un restaurante sin menú visible? Lo mismo ocurre en el mundo digital. Una página web bien diseñada proyecta profesionalismo antes de que el cliente haya hablado con nadie de tu equipo.
           </p>
           <blockquote style={{ backgroundColor: "rgba(245,144,13,0.06)", borderLeft: `4px solid ${C.base}`, padding: "24px 28px", margin: "0 0 28px" }}>
-            <p style={{ fontFamily: font, fontSize: "18px", fontWeight: 700, color: C.white, margin: 0, lineHeight: 1.5, letterSpacing: "-0.01em" }}>
+            <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", fontWeight: 700, color: C.white, margin: 0, lineHeight: 1.5, letterSpacing: "-0.01em" }}>
               "El 75% de los usuarios juzga la credibilidad de un negocio basándose únicamente en el diseño de su sitio web."
             </p>
           </blockquote>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             Un diseño limpio, moderno y funcional le comunica a tu cliente que eres serio, que cuidas los detalles y que tu producto o servicio probablemente tiene la misma calidad. Esa primera impresión es lo que convierte visitas en consultas.
           </p>
         </Reveal>
@@ -238,10 +238,10 @@ export default function PostPorQueNecesitasWeb() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             Disponible para vender cuando tú no puedes
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             Tu equipo descansa, pero tus clientes potenciales no siempre pueden esperarte. Una página web trabaja mientras duermes: responde preguntas frecuentes, muestra tu catálogo, captura datos de contacto y hasta procesa compras —sin que estés presente.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             Esto significa que cada hora del día es una oportunidad de negocio. Multiplicar tus puntos de contacto sin multiplicar tus costos operativos es uno de los mayores diferenciadores de tener una presencia digital sólida.
           </p>
         </Reveal>
@@ -250,10 +250,10 @@ export default function PostPorQueNecesitasWeb() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             La diferencia entre tú y tu competencia
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             En mercados saturados, la percepción lo es todo. Una página web profesional te diferencia de inmediato de competidores que solo usan redes sociales o que tienen páginas desactualizadas del 2015.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             Y aquí está algo crítico: las redes sociales son terreno prestado. Los algoritmos cambian de la noche a la mañana, las cuentas pueden ser suspendidas y el alcance orgánico cae año tras año. Tu página web es tuya —el único activo digital sobre el que tienes control absoluto.
           </p>
         </Reveal>
@@ -262,10 +262,10 @@ export default function PostPorQueNecesitasWeb() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             ROI real y medible
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             A diferencia de los métodos tradicionales de publicidad, una página web permite medir exactamente cuántas personas la visitaron, de dónde vienen, qué buscan, cuánto tiempo pasan en cada sección y qué los hizo comprar —o irse.
           </p>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "52px" }}>
             Con esa información puedes optimizar continuamente para atraer más clientes del perfil exacto que buscas. Es marketing con datos, no con intuición —y la diferencia en resultados es enorme.
           </p>
         </Reveal>
@@ -274,7 +274,7 @@ export default function PostPorQueNecesitasWeb() {
           <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.3rem,2.2vw,1.8rem)", color: C.white, letterSpacing: "-0.025em", margin: "0 0 18px", lineHeight: 1.2 }}>
             ¿Por dónde empezar?
           </h2>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
             Una buena página web no necesita ser complicada, pero sí estratégica. Antes de contratar a cualquier agencia o freelancer, define estas tres cosas:
           </p>
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -285,11 +285,11 @@ export default function PostPorQueNecesitasWeb() {
             ].map((item) => (
               <li key={item} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                 <span style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: C.base, flexShrink: 0, marginTop: "8px" }} />
-                <span style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.75, color: "rgba(255,255,255,0.7)" }}>{item}</span>
+                <span style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.75, color: "rgba(255,255,255,0.7)" }}>{item}</span>
               </li>
             ))}
           </ul>
-          <p style={{ fontFamily: font, fontSize: "16px", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "0" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.7)", marginBottom: "0" }}>
             Con esas respuestas claras, el diseño y el desarrollo fluyen naturalmente hacia una página que convierte visitantes en clientes. Si no tienes esas respuestas todavía, ese es el primer paso —y en el que más vale la pena invertir tiempo.
           </p>
         </Reveal>
@@ -298,7 +298,7 @@ export default function PostPorQueNecesitasWeb() {
         <div style={{ height: "1px", backgroundColor: C.border, margin: "60px 0 32px" }} />
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           {["Negocio", "Páginas Web", "Presencia Digital", "Marketing"].map((tag) => (
-            <span key={tag} style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
+            <span key={tag} style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
           ))}
         </div>
       </article>
@@ -306,7 +306,7 @@ export default function PostPorQueNecesitasWeb() {
       {/* ── Related posts ────────────────────────────────── */}
       <section style={{ backgroundColor: C.black2, padding: "80px 0" }}>
         <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px" }}>
-          <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "22px", color: C.white, margin: "0 0 40px", letterSpacing: "-0.02em" }}>También te puede interesar</h3>
+          <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: "0 0 40px", letterSpacing: "-0.02em" }}>También te puede interesar</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: C.border }} className="brel-grid">
             {related.map((p) => (
               <a key={p.title} href={p.href} style={{ display: "block", textDecoration: "none", backgroundColor: C.black, transition: "background-color 0.3s" }}
@@ -318,8 +318,8 @@ export default function PostPorQueNecesitasWeb() {
                     onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")} />
                 </div>
                 <div style={{ padding: "24px 28px" }}>
-                  <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>{p.cat}</span>
-                  <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "16px", color: C.white, margin: 0, lineHeight: 1.4 }}>{p.title}</h4>
+                  <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>{p.cat}</span>
+                  <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0, lineHeight: 1.4 }}>{p.title}</h4>
                 </div>
               </a>
             ))}
@@ -332,11 +332,11 @@ export default function PostPorQueNecesitasWeb() {
       <section style={{ backgroundColor: C.black3, padding: "96px 0", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 60% 80% at 50% 50%, rgba(${C.baseRgb},0.07) 0%, transparent 70%)`, pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "700px", margin: "0 auto", padding: "0 24px" }}>
-          <span style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.base, display: "block", marginBottom: "16px" }}>— Hablemos</span>
-          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.8rem,3.5vw,3rem)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 20px" }}>
+          <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.base, display: "block", marginBottom: "16px" }}>— Hablemos</span>
+          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(28px,3vw,36px)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 20px" }}>
             ¿Listo para tener tu<br /><span style={{ color: C.base }}>página profesional?</span>
           </h2>
-          <p style={{ fontFamily: font, fontSize: "15px", color: C.color, margin: "0 auto 36px", lineHeight: 1.8, maxWidth: "45ch" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", color: C.color, margin: "0 auto 36px", lineHeight: 1.8, maxWidth: "45ch" }}>
             Escríbeme y en menos de 24 horas te cuento cómo podemos llevar tu negocio al siguiente nivel.
           </p>
           <a href="https://wa.me/523221097649" target="_blank" rel="noopener noreferrer"

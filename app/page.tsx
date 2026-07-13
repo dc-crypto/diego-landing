@@ -55,7 +55,7 @@ function SubTag({ children }: { children: React.ReactNode }) {
 
 function SH({ children, center = false, light = true }: { children: React.ReactNode; center?: boolean; light?: boolean }) {
   return (
-    <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.8rem,3.2vw,2.8rem)", color: light ? C.white : C.black, lineHeight: 1.1, letterSpacing: "-0.025em", margin: "0 0 24px", textAlign: center ? "center" : "left" }}>
+    <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(28px,3vw,36px)", color: light ? C.white : C.black, lineHeight: 1.1, letterSpacing: "-0.025em", margin: "0 0 24px", textAlign: center ? "center" : "left" }}>
       {children}
     </h2>
   );
@@ -415,7 +415,7 @@ function Brands() {
   return (
     <section style={{ backgroundColor: C.black, padding: "52px 0 0" }}>
       <div style={{ textAlign: "center", marginBottom: "36px" }}>
-        <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, letterSpacing: "0.22em", color: C.base, textTransform: "uppercase" }}>
+        <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, letterSpacing: "0.22em", color: C.base, textTransform: "uppercase" }}>
           Tecnologías que respaldan cada proyecto
         </span>
       </div>
@@ -516,7 +516,7 @@ function Features() {
                 {card.icon}
               </div>
               <div style={{ backgroundColor: "rgba(10,10,10,0.92)", padding: "20px 24px 20px", backdropFilter: "blur(2px)" }}>
-                <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "22px", color: C.white, margin: 0, letterSpacing: "-0.02em" }}>
+                <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0, letterSpacing: "-0.02em" }}>
                   {card.title}
                 </h4>
               </div>
@@ -556,10 +556,10 @@ function About() {
           <div style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: C.base, marginBottom: "16px" }} />
           <SubTag>Quiénes somos</SubTag>
           <SH>Soluciones digitales para hacer crecer tu negocio</SH>
-          <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.85, color: C.color, marginBottom: "20px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.85, color: C.color, marginBottom: "20px" }}>
             Ayudamos a empresas a crecer con páginas web, automatización, inteligencia artificial y soluciones de software a la medida que generan resultados reales y medibles.
           </p>
-          <p style={{ fontFamily: font, fontSize: "15px", lineHeight: 1.85, color: C.color, marginBottom: "40px" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.85, color: C.color, marginBottom: "40px" }}>
             Trabajamos con emprendedores y empresas que buscan presencia digital sólida, procesos automatizados y tecnología que realmente agrega valor a su negocio.
           </p>
           <OBtn href="https://wa.me/523221097649">Conoce cómo podemos ayudarte</OBtn>
@@ -653,7 +653,7 @@ function VideoSection() {
 
       {/* ── Content ──────────────────────────────────────── */}
       <div style={{ position: "relative", zIndex: 2, maxWidth: "1340px", margin: "0 auto", padding: "0 clamp(20px,3.5vw,56px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "clamp(48px,6vh,80px)" }}>
-        <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(52px,7.2vw,112px)", lineHeight: 0.88, letterSpacing: "-0.04em", color: C.white, margin: 0, textTransform: "uppercase", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(80px)", transition: `opacity 0.9s ${spring}, transform 0.9s ${spring}` }}>
+        <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(36px,4vw,52px)", lineHeight: 0.88, letterSpacing: "-0.04em", color: C.white, margin: 0, textTransform: "uppercase", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(80px)", transition: `opacity 0.9s ${spring}, transform 0.9s ${spring}` }}>
           Diseño<br />web<br />potenciado<br />con{" "}<span style={{ color: accent, transition: "color 0.5s" }}>IA.</span>
         </h2>
       </div>
@@ -697,7 +697,7 @@ function Services() {
         <Reveal style={{ textAlign: "center", marginBottom: "64px" }}>
           <SubTag>Lo que hacemos</SubTag>
           <SH center>Servicios digitales diseñados<br />para hacer crecer tu negocio</SH>
-          <p style={{ fontFamily: font, fontSize: "15px", color: C.color, maxWidth: "50ch", margin: "0 auto" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", color: C.color, maxWidth: "50ch", margin: "0 auto" }}>
             Soluciones a medida que combinan tecnología, diseño y estrategia para obtener resultados reales y medibles.
           </p>
         </Reveal>
@@ -708,8 +708,8 @@ function Services() {
                 onMouseEnter={(e) => { const el = e.currentTarget as HTMLDivElement; el.style.backgroundColor = "#242424"; const ic = el.querySelector(".svc-icon") as HTMLElement; if (ic) ic.style.color = C.base; }}
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLDivElement; el.style.backgroundColor = "#181818"; const ic = el.querySelector(".svc-icon") as HTMLElement; if (ic) ic.style.color = C.white; }}>
                 <div className="svc-icon" style={{ color: C.white, marginBottom: "28px", transition: "color 0.3s" }}>{s.icon}</div>
-                <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.white, margin: "0 0 14px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.title}</h3>
-                <p style={{ fontFamily: font, fontSize: "13px", lineHeight: 1.8, color: "rgba(255,255,255,0.72)", margin: "0 0 28px" }}>{s.desc}</p>
+                <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: "0 0 14px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.title}</h3>
+                <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.72)", margin: "0 0 28px" }}>{s.desc}</p>
                 <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.1)", marginBottom: "20px" }} />
                 <RM />
               </div>
@@ -792,15 +792,15 @@ function Portfolio() {
                   }
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                   <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", opacity: 0, transition: "opacity 0.3s ease" }}>
-                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(18px,2.5vw,26px)", color: C.white, margin: 0, textAlign: "center", padding: "0 20px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{item.title}</h3>
+                    <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0, textAlign: "center", padding: "0 20px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{item.title}</h3>
                     <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                     </div>
                   </div>
                   <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
-                    <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "15px", color: C.white, margin: 0 }}>{item.title}</h3>
+                    <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0 }}>{item.title}</h3>
                   </div>
                 </a>
               ) : (
@@ -813,15 +813,15 @@ function Portfolio() {
                   }
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                   <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", opacity: 0, transition: "opacity 0.3s ease" }}>
-                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(18px,2.5vw,26px)", color: C.white, margin: 0, textAlign: "center", padding: "0 20px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{item.title}</h3>
+                    <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0, textAlign: "center", padding: "0 20px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{item.title}</h3>
                     <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                     </div>
                   </div>
                   <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
-                    <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "15px", color: C.white, margin: 0 }}>{item.title}</h3>
+                    <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: 0 }}>{item.title}</h3>
                   </div>
                 </div>
               )}
@@ -914,16 +914,16 @@ function Blog() {
                     onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")} />
                   <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)" }} />
                   <div style={{ position: "absolute", top: "16px", left: "16px", backgroundColor: C.base, padding: "6px 14px" }}>
-                    <span style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, color: C.white }}>{p.date}</span>
+                    <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.white }}>{p.date}</span>
                   </div>
                 </div>
                 <div style={{ padding: "28px 32px" }}>
                   <div style={{ display: "flex", gap: "16px", marginBottom: "16px" }}>
-                    <span style={{ fontFamily: font, fontSize: "12px", color: C.color }}>{p.cat}</span>
-                    <span style={{ fontFamily: font, fontSize: "12px", color: C.color }}>|</span>
-                    <span style={{ fontFamily: font, fontSize: "12px", color: C.color }}>{p.comments}</span>
+                    <span style={{ fontFamily: font, fontSize: "13px", color: C.color }}>{p.cat}</span>
+                    <span style={{ fontFamily: font, fontSize: "13px", color: C.color }}>|</span>
+                    <span style={{ fontFamily: font, fontSize: "13px", color: C.color }}>{p.comments}</span>
                   </div>
-                  <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "17px", color: C.white, margin: "0 0 20px", lineHeight: 1.4, letterSpacing: "-0.01em", transition: "color 0.2s", cursor: "pointer" }}
+                  <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: "0 0 20px", lineHeight: 1.4, letterSpacing: "-0.01em", transition: "color 0.2s", cursor: "pointer" }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLHeadingElement).style.color = C.base)}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLHeadingElement).style.color = C.white)}>
                     {p.title}
@@ -951,11 +951,11 @@ function CTA() {
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 40px", textAlign: "center", position: "relative", zIndex: 1 }}>
         <Reveal>
           <SubTag>Hablemos</SubTag>
-          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(2rem,4.5vw,3.8rem)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 24px" }}>
+          <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(28px,3vw,36px)", color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 24px" }}>
             ¿Tienes un proyecto en mente?<br />
             <span style={{ color: C.base }}>Hagámoslo realidad.</span>
           </h2>
-          <p style={{ fontFamily: font, fontSize: "15px", color: C.color, maxWidth: "50ch", margin: "0 auto 40px", lineHeight: 1.8 }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", color: C.color, maxWidth: "50ch", margin: "0 auto 40px", lineHeight: 1.8 }}>
             Me encantaría escuchar sobre tu proyecto. Escríbeme y te respondo a la brevedad para explorar cómo puedo ayudarte.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
@@ -981,10 +981,10 @@ function Footer() {
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.white, letterSpacing: "-0.03em" }}>diegocastro</span>
               <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.base, letterSpacing: "-0.03em" }}>.tech</span>
             </div>
-            <p style={{ fontFamily: font, fontSize: "14px", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
+            <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.8, color: C.color, marginBottom: "24px", maxWidth: "30ch" }}>
               Desarrollamos páginas web, automatizaciones, soluciones con inteligencia artificial y software a la medida para ayudar a las empresas a crecer.
             </p>
-            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: C.base, textDecoration: "none" }}>
+            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: C.base, textDecoration: "none" }}>
               hola@diegocastro.tech
             </a>
           </div>
@@ -1011,7 +1011,7 @@ function Footer() {
             ] },
           ].map((col) => (
             <div key={col.title}>
-              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "15px", color: C.white, margin: "0 0 24px", letterSpacing: "-0.01em" }}>{col.title}</h4>
+              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.white, margin: "0 0 24px", letterSpacing: "-0.01em" }}>{col.title}</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {col.links.map((l) => (
                   <li key={l.label}>
@@ -1038,7 +1038,7 @@ function Footer() {
               { label: "Ig", href: "https://www.instagram.com/diegocastro.tech/" },
               { label: "Fb", href: "https://www.facebook.com/profile.php?id=61590654365455" },
             ].map((s) => (
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{ width: "32px", height: "32px", border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.color, textDecoration: "none", transition: "all 0.2s" }}
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{ width: "32px", height: "32px", border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.color, textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.backgroundColor = C.base; el.style.borderColor = C.base; el.style.color = C.white; }}
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.backgroundColor = "transparent"; el.style.borderColor = C.border; el.style.color = C.color; }}>
                 {s.label}
