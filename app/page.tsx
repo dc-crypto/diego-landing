@@ -740,7 +740,7 @@ function Portfolio() {
     { n: "02", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp" },
     { n: "03", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "/feat-propmanager.webp" },
     { n: "04", title: "Asistente IA para Property Managers",     desc: "Responde consultas, agenda visitas y atiende huéspedes 24/7.",   cat: "Inteligencia Artificial", img: "/feat-asistente-ia.webp" },
-    { n: "05", title: "Landing Animada con Inteligencia Artificial", desc: "Experiencia scroll-driven con galería de moda generada con IA.", cat: "Inteligencia Artificial", img: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260629_104530_521b2f85-c0f3-4d0e-9704-b578315b4cb9.png&w=1920&q=85" },
+    { n: "05", title: "Animación con Inteligencia Artificial", desc: "Hero page con video generado por IA, navbar flotante y tipografía escalonada.", cat: "Inteligencia Artificial", vidSrc: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_215831_c6a8989c-d716-4d8d-8745-e972a2eec711.mp4" },
   ];
   return (
     <section id="portafolio" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
@@ -761,7 +761,12 @@ function Portfolio() {
                 <a href={item.href} target="_blank" rel="noopener noreferrer" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", display: "block", textDecoration: "none" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
-                  {item.preview ? <IframePreview src={item.preview} /> : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />}
+                  {item.preview
+                    ? <IframePreview src={item.preview} />
+                    : item.vidSrc
+                      ? <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} src={item.vidSrc} />
+                      : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
+                  }
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                   <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", opacity: 0, transition: "opacity 0.3s ease" }}>
                     <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
@@ -781,7 +786,10 @@ function Portfolio() {
                 <div style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
-                  <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
+                  {item.vidSrc
+                    ? <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} src={item.vidSrc} />
+                    : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
+                  }
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                   <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", opacity: 0, transition: "opacity 0.3s ease" }}>
                     <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
