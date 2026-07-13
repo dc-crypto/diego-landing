@@ -206,6 +206,13 @@ function Hero() {
   return (
     <section id="inicio" className="lp-hero" style={{ position: "relative", backgroundColor: C.black, height: "100vh", minHeight: "600px", overflow: "hidden", display: "flex" }}>
 
+      {/* ── Mobile video background ─────────────────────── */}
+      <video className="lp-hero-vid" autoPlay muted loop playsInline
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "70% center", display: "none" }}
+      />
+      <div className="lp-hero-vid-ov" style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.62) 100%)", display: "none" }} />
+
       {/* ── Social icons — left edge ────────────────────── */}
       <div className="lp-social" style={{ position: "absolute", left: "28px", top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", gap: "20px", zIndex: 10 }}>
         {[
@@ -356,6 +363,8 @@ function Hero() {
           .lp-social { display: none !important; }
           .lp-phone  { display: none !important; }
           .lp-images { display: none !important; }
+          .lp-hero-vid { display: block !important; }
+          .lp-hero-vid-ov { display: block !important; }
           .lp-text-panel { flex: 1 !important; padding: 96px 16px 48px 16px !important; justify-content: space-between !important; }
           .lp-text-panel h1 { font-size: clamp(2.5rem, 14vw, 5rem) !important; white-space: pre-wrap !important; line-height: 1.05 !important; overflow-wrap: break-word !important; }
           .lp-badge { position: relative !important; bottom: auto !important; right: auto !important; margin-top: 0 !important; align-self: flex-start !important; }
