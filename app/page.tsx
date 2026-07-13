@@ -569,10 +569,6 @@ function Marquee() {
 /* ─────────────────────────────────────────────────────────
    VIDEO
 ───────────────────────────────────────────────────────── */
-const DENTAL_IMG1 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_113640_ccf3cf97-d447-425b-a134-d7b09fc743fc.png&w=1280&q=85";
-const DENTAL_IMG2 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_114219_414dfe80-f15c-4e25-bf52-b13721f4bd88.png&w=1280&q=85";
-const DENTAL_IMG3 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_115253_c19ab167-8dd5-48b4-967d-b9f0d9d6e8fb.png&w=1280&q=85";
-const DENTAL_IMG4 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_114355_752ba9e6-0942-4abb-9047-5d9bb16632e9.png&w=1280&q=85";
 
 function VideoSection() {
   const secRef = useRef<HTMLElement>(null);
@@ -582,146 +578,64 @@ function VideoSection() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  const anim = (delay: number): React.CSSProperties => ({
+  const fadeUp = (delay: number): React.CSSProperties => ({
     opacity: visible ? 1 : 0,
-    transform: visible ? "none" : "translateY(32px)",
-    transition: `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
-  });
-
-  const card: React.CSSProperties = { borderRadius: "18px", overflow: "hidden", position: "relative" };
-  const overlay = (dir = "top"): React.CSSProperties => ({
-    position: "absolute", inset: 0,
-    background: dir === "top"
-      ? "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)"
-      : "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 60%, transparent 100%)",
+    transform: visible ? "translateY(0)" : "translateY(24px)",
+    transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`,
   });
 
   return (
-    <section ref={secRef} style={{ backgroundColor: C.black, padding: "6px", display: "flex", flexDirection: "column", gap: "6px", minHeight: "100svh" }}>
+    <section ref={secRef} style={{ position: "relative", height: "100svh", width: "100%", overflow: "hidden", backgroundColor: C.black }}>
 
-      {/* Barra superior */}
-      <div style={{ display: "flex", gap: "6px", height: "52px", flexShrink: 0, ...anim(0) }}>
-        <div style={{ flex: 1, borderRadius: "14px", backgroundColor: C.white, display: "flex", alignItems: "center", paddingLeft: "22px", gap: "10px" }}>
-          <span style={{ fontFamily: font, fontWeight: 700, fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", color: C.black }}>Clínica Dental Sonrisa</span>
-          <span style={{ fontFamily: font, fontWeight: 400, fontSize: "11px", color: C.color }}>·  Estética  ·  Implantes  ·  Blanqueamiento  ·  Ortodoncia</span>
-        </div>
-        <div style={{ width: "100px", borderRadius: "14px", backgroundColor: C.base, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ fontFamily: font, fontWeight: 700, fontSize: "11px", letterSpacing: "0.06em", textTransform: "uppercase", color: C.white }}>Dental</span>
-        </div>
-      </div>
+      {/* Video de fondo */}
+      <video autoPlay muted loop playsInline
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "70% center" }}
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
+      />
 
-      {/* Grid principal */}
-      <div className="dental-grid" style={{ flex: 1, display: "grid", gridTemplateColumns: "1.45fr 1fr", gap: "6px", minHeight: 0 }}>
+      {/* Overlay degradado */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.65) 100%)" }} />
 
-        {/* Izquierda: imagen grande con headline */}
-        <div style={{ ...card, ...anim(0.08) }}>
-          <img src={DENTAL_IMG1} alt="Clínica dental" className="kb-1" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-          <div style={overlay("bottom")} />
-          <div style={{ position: "absolute", top: "20px", left: "22px" }}>
-            <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.75)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Tu sonrisa, nuestra pasión</span>
-          </div>
-          <div style={{ position: "absolute", bottom: "24px", left: "24px", right: "24px" }}>
-            <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(2.8rem,6vw,5.5rem)", lineHeight: 0.9, letterSpacing: "-0.04em", color: C.white, margin: "0 0 14px 0" }}>
-              Sonrisas<br />que<br />inspiran
-            </h2>
-            <p style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.72)", margin: 0, lineHeight: 1.55, maxWidth: "260px" }}>
-              Cuidamos tu salud bucal con tecnología avanzada y la calidez que mereces.
-            </p>
-          </div>
+      {/* Contenido */}
+      <div style={{ position: "relative", zIndex: 10, height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "clamp(48px,8vh,80px) clamp(24px,6vw,64px) clamp(40px,6vh,64px)" }}>
+
+        {/* Arriba: badge + titular */}
+        <div style={{ maxWidth: "820px" }}>
+          <p style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "20px", ...fadeUp(0.2) }}>
+            Diseño &amp; Estrategia Digital
+          </p>
+          <h2 style={{ fontFamily: font, fontWeight: 500, fontSize: "clamp(2.4rem,6.5vw,6rem)", lineHeight: 1.06, letterSpacing: "-0.04em", color: C.white, margin: 0, ...fadeUp(0.4) }}>
+            Diseño potenciado<br />
+            con inteligencia<br />
+            artificial.
+          </h2>
         </div>
 
-        {/* Derecha: dos tarjetas apiladas */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-
-          {/* Tarjeta superior derecha */}
-          <div style={{ ...card, flex: 1, ...anim(0.16) }}>
-            <img src={DENTAL_IMG2} alt="Tratamiento dental" className="kb-2" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            <div style={overlay("top")} />
-            <div style={{ position: "absolute", top: "18px", left: "18px", right: "18px" }}>
-              <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>Servicio</span>
-              <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.6rem,3vw,2.6rem)", lineHeight: 0.92, letterSpacing: "-0.03em", color: C.white, margin: "6px 0 0 0" }}>
-                Blanqueamiento<br />Dental
-              </h3>
-            </div>
-            <div style={{ position: "absolute", bottom: "14px", right: "14px" }}>
-              <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: C.base, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.white }}>01</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Tarjeta inferior derecha */}
-          <div style={{ ...card, flex: 1, ...anim(0.24) }}>
-            <img src={DENTAL_IMG3} alt="Implantes dentales" className="kb-3" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            <div style={overlay("top")} />
-            <div style={{ position: "absolute", top: "18px", left: "18px", right: "18px" }}>
-              <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>Servicio</span>
-              <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(1.6rem,3vw,2.6rem)", lineHeight: 0.92, letterSpacing: "-0.03em", color: C.white, margin: "6px 0 0 0" }}>
-                Implantes<br />Dentales
-              </h3>
-            </div>
-            <div style={{ position: "absolute", bottom: "14px", right: "14px", display: "flex", gap: "8px", alignItems: "center" }}>
-              <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: C.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C.black} strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-              </div>
-              <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: C.base, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.white }}>02</span>
-              </div>
-            </div>
-          </div>
+        {/* Abajo: descripción + CTA */}
+        <div>
+          <p style={{ fontFamily: font, fontSize: "clamp(14px,1.4vw,17px)", lineHeight: 1.7, color: "rgba(255,255,255,0.58)", maxWidth: "460px", marginBottom: "28px", ...fadeUp(0.65) }}>
+            Transformamos tu visión en realidad con diseño preciso, movimiento fluido y la potencia de la inteligencia artificial.
+          </p>
+          <a href="#portafolio"
+            style={{ display: "inline-flex", alignItems: "center", gap: "10px", backgroundColor: C.white, color: C.black, fontFamily: font, fontSize: "14px", fontWeight: 600, padding: "13px 26px", borderRadius: "10px", textDecoration: "none", cursor: "pointer", transition: "transform 0.2s ease", ...fadeUp(0.85) }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.05)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)")}>
+            Ver proyectos
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
         </div>
       </div>
 
-      {/* Barra inferior: imagen panorámica + servicios */}
-      <div className="dental-bottom" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "6px", height: "160px", flexShrink: 0, ...anim(0.32) }}>
-        {/* Imagen panorámica */}
-        <div style={{ ...card, gridColumn: "1 / 3" }}>
-          <img src={DENTAL_IMG4} alt="Sonrisa" className="kb-4" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", objectPosition: "center 30%" }} />
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)" }} />
-          <div style={{ position: "absolute", bottom: "14px", left: "16px" }}>
-            <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Resultados que transforman</span>
-          </div>
-        </div>
-        {/* Tarjetas de servicio */}
-        {[
-          { n: "03", name: "Ortodoncia" },
-          { n: "04", name: "Estética\nDental" },
-        ].map((s) => (
-          <div key={s.n} style={{ ...card, backgroundColor: C.black3, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "14px 16px" }}>
-            <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.color }}>Servicio {s.n}</span>
-            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
-              <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "1.3rem", lineHeight: 1.05, color: C.white, margin: 0, whiteSpace: "pre-line" }}>{s.name}</h4>
-              <div style={{ width: "28px", height: "28px", borderRadius: "50%", border: `1px solid ${C.color}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={C.color} strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <style>{`
-        .kb-1 { animation: kb1 18s ease-in-out infinite alternate; transform-origin: center center; }
-        .kb-2 { animation: kb2 14s ease-in-out infinite alternate; transform-origin: center top; }
-        .kb-3 { animation: kb3 16s ease-in-out infinite alternate; transform-origin: center bottom; }
-        .kb-4 { animation: kb4 20s ease-in-out infinite alternate; transform-origin: left center; }
-        @keyframes kb1 { 0%{transform:scale(1) translate(0,0)} 100%{transform:scale(1.10) translate(-2%,-1.5%)} }
-        @keyframes kb2 { 0%{transform:scale(1.08) translateX(2%)} 100%{transform:scale(1) translateX(-2%)} }
-        @keyframes kb3 { 0%{transform:scale(1) translateY(0)} 100%{transform:scale(1.09) translateY(-3%)} }
-        @keyframes kb4 { 0%{transform:scale(1.06) translate(1%,0)} 100%{transform:scale(1) translate(-1%,1%)} }
-        @media(prefers-reduced-motion:reduce){ .kb-1,.kb-2,.kb-3,.kb-4{ animation:none !important; } }
-        @media(max-width:768px){
-          .dental-grid { grid-template-columns: 1fr !important; }
-          .dental-bottom { grid-template-columns: 1fr 1fr !important; height: auto !important; }
-          .dental-bottom > div:first-child { grid-column: 1 / -1 !important; height: 140px; }
-        }
-        @keyframes textRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-      `}</style>
+      {/* Gradiente inferior hacia negro */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "160px", background: `linear-gradient(to bottom, transparent, ${C.black})`, pointerEvents: "none", zIndex: 5 }} />
     </section>
   );
 }
