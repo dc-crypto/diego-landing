@@ -421,17 +421,18 @@ function Brands() {
       </div>
 
       <div style={{ overflow: "hidden", padding: "20px 0 52px", borderBottom: `1px solid ${C.border}` }}>
-        <div style={{ display: "flex", animation: "scrollH 28s linear infinite", whiteSpace: "nowrap", flexShrink: 0 }}>
+        <div style={{ display: "flex", animation: "scrollH 20s linear infinite", whiteSpace: "nowrap", flexShrink: 0 }}>
           {doubled.map((logo, i) => (
-            <div key={i} style={{ display: "inline-flex", alignItems: "center", gap: "10px", margin: "0 52px", opacity: 0.22, color: C.white, transition: "opacity 0.3s", cursor: "default", flexShrink: 0 }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.opacity = "0.65")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.opacity = "0.22")}>
-              {logo.icon}
-              <span style={{ fontFamily: font, fontSize: "17px", fontWeight: 700, letterSpacing: "-0.01em" }}>{logo.name}</span>
+            <div key={i} style={{ display: "inline-flex", alignItems: "center", gap: "15px", margin: "0 78px", opacity: 0.5, color: C.white, transition: "opacity 0.3s", cursor: "default", flexShrink: 0 }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.opacity = "0.9")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.opacity = "0.5")}>
+              <span className="brand-logo-icon" style={{ display: "inline-flex" }}>{logo.icon}</span>
+              <span style={{ fontFamily: font, fontSize: "25px", fontWeight: 700, letterSpacing: "-0.01em" }}>{logo.name}</span>
             </div>
           ))}
         </div>
       </div>
+      <style>{`.brand-logo-icon svg { width: 27px; height: 27px; }`}</style>
     </section>
   );
 }
