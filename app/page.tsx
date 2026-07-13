@@ -766,18 +766,16 @@ function Portfolio() {
                     : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
                   }
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
-                  <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", opacity: 0, transition: "opacity 0.3s ease" }}>
-                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "22px", color: C.white, margin: 0, textAlign: "center", padding: "0 24px", letterSpacing: "-0.02em" }}>{item.title}</h3>
-                    <p style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.85)", margin: 0, textAlign: "center", padding: "0 28px", lineHeight: 1.5 }}>{item.desc}</p>
-                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "4px" }}>
+                  <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", opacity: 0, transition: "opacity 0.3s ease" }}>
+                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(18px,2.5vw,26px)", color: C.white, margin: 0, textAlign: "center", padding: "0 20px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{item.title}</h3>
+                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                     </div>
                   </div>
-                  <div style={{ position: "absolute", bottom: "20px", left: "20px" }}>
-                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "16px", color: C.white, margin: 0 }}>{item.title}</h3>
-                    <p style={{ fontFamily: font, fontSize: "12px", color: C.color, margin: "4px 0 0 0", lineHeight: 1.4, maxWidth: "260px" }}>{item.desc}</p>
+                  <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
+                    <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "15px", color: C.white, margin: 0 }}>{item.title}</h3>
                   </div>
                 </a>
               ) : (
@@ -789,18 +787,16 @@ function Portfolio() {
                     : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
                   }
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
-                  <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", opacity: 0, transition: "opacity 0.3s ease" }}>
-                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "22px", color: C.white, margin: 0, textAlign: "center", padding: "0 24px", letterSpacing: "-0.02em" }}>{item.title}</h3>
-                    <p style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.85)", margin: 0, textAlign: "center", padding: "0 28px", lineHeight: 1.5 }}>{item.desc}</p>
-                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "4px" }}>
+                  <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", opacity: 0, transition: "opacity 0.3s ease" }}>
+                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(18px,2.5vw,26px)", color: C.white, margin: 0, textAlign: "center", padding: "0 20px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{item.title}</h3>
+                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                     </div>
                   </div>
-                  <div style={{ position: "absolute", bottom: "20px", left: "20px" }}>
-                    <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
-                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "16px", color: C.white, margin: 0 }}>{item.title}</h3>
-                    <p style={{ fontFamily: font, fontSize: "12px", color: C.color, margin: "4px 0 0 0", lineHeight: 1.4, maxWidth: "260px" }}>{item.desc}</p>
+                  <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
+                    <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>{item.cat}</span>
+                    <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: "15px", color: C.white, margin: 0 }}>{item.title}</h3>
                   </div>
                 </div>
               )}
