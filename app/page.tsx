@@ -621,7 +621,7 @@ function VideoSection() {
 
         {/* Izquierda: imagen grande con headline */}
         <div style={{ ...card, ...anim(0.08) }}>
-          <img src={DENTAL_IMG1} alt="Clínica dental" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          <img src={DENTAL_IMG1} alt="Clínica dental" className="kb-1" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           <div style={overlay("bottom")} />
           <div style={{ position: "absolute", top: "20px", left: "22px" }}>
             <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.75)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Tu sonrisa, nuestra pasión</span>
@@ -641,7 +641,7 @@ function VideoSection() {
 
           {/* Tarjeta superior derecha */}
           <div style={{ ...card, flex: 1, ...anim(0.16) }}>
-            <img src={DENTAL_IMG2} alt="Tratamiento dental" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <img src={DENTAL_IMG2} alt="Tratamiento dental" className="kb-2" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             <div style={overlay("top")} />
             <div style={{ position: "absolute", top: "18px", left: "18px", right: "18px" }}>
               <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>Servicio</span>
@@ -658,7 +658,7 @@ function VideoSection() {
 
           {/* Tarjeta inferior derecha */}
           <div style={{ ...card, flex: 1, ...anim(0.24) }}>
-            <img src={DENTAL_IMG3} alt="Implantes dentales" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <img src={DENTAL_IMG3} alt="Implantes dentales" className="kb-3" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             <div style={overlay("top")} />
             <div style={{ position: "absolute", top: "18px", left: "18px", right: "18px" }}>
               <span style={{ fontFamily: font, fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>Servicio</span>
@@ -682,7 +682,7 @@ function VideoSection() {
       <div className="dental-bottom" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "6px", height: "160px", flexShrink: 0, ...anim(0.32) }}>
         {/* Imagen panorámica */}
         <div style={{ ...card, gridColumn: "1 / 3" }}>
-          <img src={DENTAL_IMG4} alt="Sonrisa" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", objectPosition: "center 30%" }} />
+          <img src={DENTAL_IMG4} alt="Sonrisa" className="kb-4" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", objectPosition: "center 30%" }} />
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)" }} />
           <div style={{ position: "absolute", bottom: "14px", left: "16px" }}>
             <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Resultados que transforman</span>
@@ -706,6 +706,15 @@ function VideoSection() {
       </div>
 
       <style>{`
+        .kb-1 { animation: kb1 18s ease-in-out infinite alternate; transform-origin: center center; }
+        .kb-2 { animation: kb2 14s ease-in-out infinite alternate; transform-origin: center top; }
+        .kb-3 { animation: kb3 16s ease-in-out infinite alternate; transform-origin: center bottom; }
+        .kb-4 { animation: kb4 20s ease-in-out infinite alternate; transform-origin: left center; }
+        @keyframes kb1 { 0%{transform:scale(1) translate(0,0)} 100%{transform:scale(1.10) translate(-2%,-1.5%)} }
+        @keyframes kb2 { 0%{transform:scale(1.08) translateX(2%)} 100%{transform:scale(1) translateX(-2%)} }
+        @keyframes kb3 { 0%{transform:scale(1) translateY(0)} 100%{transform:scale(1.09) translateY(-3%)} }
+        @keyframes kb4 { 0%{transform:scale(1.06) translate(1%,0)} 100%{transform:scale(1) translate(-1%,1%)} }
+        @media(prefers-reduced-motion:reduce){ .kb-1,.kb-2,.kb-3,.kb-4{ animation:none !important; } }
         @media(max-width:768px){
           .dental-grid { grid-template-columns: 1fr !important; }
           .dental-bottom { grid-template-columns: 1fr 1fr !important; height: auto !important; }
