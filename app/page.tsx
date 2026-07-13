@@ -530,8 +530,8 @@ function About() {
             <div className="about-circle-wrap" style={{ position: "relative", width: "360px", height: "360px", borderRadius: "50%", overflow: "hidden", zIndex: 1, flexShrink: 0 }}>
               <img
                 src="/about-diego.webp"
-                alt="Diego Castro en el malecón de Puerto Vallarta"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }}
+                alt="Diego Castro, fundador de diegocastro.tech"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
               />
               <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.15)" }} />
             </div>
