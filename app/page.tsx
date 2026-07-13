@@ -620,7 +620,7 @@ function VideoSection() {
   const spring = "cubic-bezier(0.16,1,0.3,1)";
 
   return (
-    <section ref={secRef} className="vid-section" style={{ position: "relative", height: "100svh", backgroundColor: C.black, overflow: "hidden" }}>
+    <section ref={secRef} className="vid-section" style={{ position: "relative", minHeight: "100svh", backgroundColor: C.black, overflow: "hidden" }}>
 
       {/* ── 3 videos crossfade ───────────────────────────── */}
       {videos.map((src, i) => (
@@ -637,11 +637,11 @@ function VideoSection() {
       <div style={{ position: "relative", zIndex: 2, maxWidth: "1340px", margin: "0 auto", padding: "0 clamp(20px,3.5vw,56px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", gap: "clamp(52px,8vw,120px)", paddingBottom: "clamp(48px,6vh,80px)" }}>
 
         {/* Row 1 — video switcher + disponibilidad */}
-        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px" }}>
+        <div className="vs-row1" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
             {labels.map((label, i) => (
               <button key={i} onClick={() => setActiveIndex(i)}
-                style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "5px 0", fontFamily: font, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.white, opacity: i === activeIndex ? 1 : 0.4, transform: i === activeIndex ? "translateX(10px)" : "translateX(0)", transition: "opacity 0.3s, transform 0.4s cubic-bezier(0.16,1,0.3,1)" }}
+                style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "5px 0", fontFamily: font, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.white, opacity: i === activeIndex ? 1 : 0.4, transform: i === activeIndex ? "translateX(10px)" : "translateX(0)", transition: "opacity 0.3s, transform 0.4s cubic-bezier(0.16,1,0.3,1)", whiteSpace: "nowrap" }}
                 onMouseEnter={(e) => { if (i !== activeIndex) (e.currentTarget as HTMLButtonElement).style.opacity = "0.7"; }}
                 onMouseLeave={(e) => { if (i !== activeIndex) (e.currentTarget as HTMLButtonElement).style.opacity = "0.4"; }}>
                 {label}
@@ -657,13 +657,13 @@ function VideoSection() {
         </div>
 
         {/* Row 2 — big text + párrafo + CTA */}
-        <div style={{ display: "flex", alignItems: "flex-end", gap: "clamp(24px,4vw,64px)" }}>
+        <div className="vs-row2" style={{ display: "flex", alignItems: "flex-end", gap: "clamp(24px,4vw,64px)" }}>
           <div style={{ flexShrink: 0 }}>
             <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(52px,7.2vw,112px)", lineHeight: 0.88, letterSpacing: "-0.04em", color: C.white, margin: 0, textTransform: "uppercase", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(80px)", transition: `opacity 0.9s ${spring}, transform 0.9s ${spring}` }}>
               Diseño<br />web<br />potenciado<br />con{" "}<span style={{ color: accent, transition: "color 0.5s" }}>IA.</span>
             </h2>
           </div>
-          <div style={{ flex: 1, maxWidth: "360px", paddingBottom: "6px", opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(80px)", transition: `opacity 0.9s ${spring} 0.1s, transform 0.9s ${spring} 0.1s` }}>
+          <div className="vs-row2-text" style={{ flex: 1, maxWidth: "360px", paddingBottom: "6px", opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(80px)", transition: `opacity 0.9s ${spring} 0.1s, transform 0.9s ${spring} 0.1s` }}>
             <p style={{ fontFamily: font, fontSize: "clamp(13px,1.2vw,15px)", lineHeight: 1.8, color: "rgba(255,255,255,0.65)", marginBottom: "28px" }}>
               Transformamos tu visión en realidad con diseño preciso, movimiento fluido y la potencia de la inteligencia artificial.
             </p>
@@ -677,7 +677,11 @@ function VideoSection() {
 
       <style>{`
         .vid-section { display: block }
-        @media(max-width:768px){ .vid-section { display: none !important } }
+        @media(max-width:768px){
+          .vs-row1 { flex-direction: column; align-items: flex-start !important; gap: 16px !important; }
+          .vs-row2 { flex-direction: column; align-items: flex-start !important; gap: 28px !important; }
+          .vs-row2-text { max-width: 100% !important; }
+        }
         @keyframes vsPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(1.45)} }
         .vs-cta::before { content:''; position:absolute; inset:0; background:${C.base}; transform:translateY(101%); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1); }
         .vs-cta:hover::before { transform:translateY(0); }
