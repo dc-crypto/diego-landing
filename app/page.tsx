@@ -615,7 +615,12 @@ function VideoSection() {
     "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260629_032424_3c9c2a9d-807b-4482-80e6-dd6d9dfd4545.mp4",
     "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260627_094019_4214ea73-b963-46a4-8327-61489192de99.mp4",
   ];
-  const labels = ["01 / OLEAJE", "02 / CUADRÍCULA", "03 / TÚNEL DE LUZ"];
+
+  useEffect(() => {
+    const id = setInterval(() => setActiveIndex((i) => (i + 1) % videos.length), 5000);
+    return () => clearInterval(id);
+  }, [videos.length]);
+
   const accent = activeIndex === 0 ? C.base : C.white;
   const spring = "cubic-bezier(0.16,1,0.3,1)";
 
@@ -634,58 +639,14 @@ function VideoSection() {
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "220px", background: `linear-gradient(to bottom, transparent, ${C.black})`, zIndex: 1, pointerEvents: "none" }} />
 
       {/* ── Content ──────────────────────────────────────── */}
-      <div style={{ position: "relative", zIndex: 2, maxWidth: "1340px", margin: "0 auto", padding: "0 clamp(20px,3.5vw,56px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", gap: "clamp(52px,8vw,120px)", paddingBottom: "clamp(48px,6vh,80px)" }}>
-
-        {/* Row 1 — video switcher + disponibilidad */}
-        <div className="vs-row1" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-            {labels.map((label, i) => (
-              <button key={i} onClick={() => setActiveIndex(i)}
-                style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "5px 0", fontFamily: font, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.white, opacity: i === activeIndex ? 1 : 0.4, transform: i === activeIndex ? "translateX(10px)" : "translateX(0)", transition: "opacity 0.3s, transform 0.4s cubic-bezier(0.16,1,0.3,1)", whiteSpace: "nowrap" }}
-                onMouseEnter={(e) => { if (i !== activeIndex) (e.currentTarget as HTMLButtonElement).style.opacity = "0.7"; }}
-                onMouseLeave={(e) => { if (i !== activeIndex) (e.currentTarget as HTMLButtonElement).style.opacity = "0.4"; }}>
-                {label}
-              </button>
-            ))}
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
-            <div style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: accent, boxShadow: `0 0 8px 2px ${accent}55`, animation: "vsPulse 1.6s ease-in-out infinite", transition: "background-color 0.5s, box-shadow 0.5s" }} />
-            <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.white, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              Disponible para proyectos
-            </span>
-          </div>
-        </div>
-
-        {/* Row 2 — big text + párrafo + CTA */}
-        <div className="vs-row2" style={{ display: "flex", alignItems: "flex-end", gap: "clamp(24px,4vw,64px)" }}>
-          <div style={{ flexShrink: 0 }}>
-            <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(52px,7.2vw,112px)", lineHeight: 0.88, letterSpacing: "-0.04em", color: C.white, margin: 0, textTransform: "uppercase", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(80px)", transition: `opacity 0.9s ${spring}, transform 0.9s ${spring}` }}>
-              Diseño<br />web<br />potenciado<br />con{" "}<span style={{ color: accent, transition: "color 0.5s" }}>IA.</span>
-            </h2>
-          </div>
-          <div className="vs-row2-text" style={{ flex: 1, maxWidth: "360px", paddingBottom: "6px", opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(80px)", transition: `opacity 0.9s ${spring} 0.1s, transform 0.9s ${spring} 0.1s` }}>
-            <p style={{ fontFamily: font, fontSize: "clamp(13px,1.2vw,15px)", lineHeight: 1.8, color: "rgba(255,255,255,0.65)", marginBottom: "28px" }}>
-              Transformamos tu visión en realidad con diseño preciso, movimiento fluido y la potencia de la inteligencia artificial.
-            </p>
-            <a href="https://wa.me/523221097649" target="_blank" rel="noopener noreferrer" className="vs-cta"
-              style={{ display: "inline-block", position: "relative", overflow: "hidden", fontFamily: font, fontSize: "12px", fontWeight: 700, color: C.white, border: "1px solid rgba(255,255,255,0.45)", padding: "12px 28px", textDecoration: "none", letterSpacing: "0.08em", textTransform: "lowercase", transition: "border-color 0.35s, color 0.35s" }}>
-              <span style={{ position: "relative", zIndex: 1 }}>iniciar proyecto</span>
-            </a>
-          </div>
-        </div>
+      <div style={{ position: "relative", zIndex: 2, maxWidth: "1340px", margin: "0 auto", padding: "0 clamp(20px,3.5vw,56px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "clamp(48px,6vh,80px)" }}>
+        <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(52px,7.2vw,112px)", lineHeight: 0.88, letterSpacing: "-0.04em", color: C.white, margin: 0, textTransform: "uppercase", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(80px)", transition: `opacity 0.9s ${spring}, transform 0.9s ${spring}` }}>
+          Diseño<br />web<br />potenciado<br />con{" "}<span style={{ color: accent, transition: "color 0.5s" }}>IA.</span>
+        </h2>
       </div>
 
       <style>{`
         .vid-section { display: block }
-        @media(max-width:768px){
-          .vs-row1 { flex-direction: column; align-items: flex-start !important; gap: 16px !important; }
-          .vs-row2 { flex-direction: column; align-items: flex-start !important; gap: 28px !important; }
-          .vs-row2-text { max-width: 100% !important; }
-        }
-        @keyframes vsPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(1.45)} }
-        .vs-cta::before { content:''; position:absolute; inset:0; background:${C.base}; transform:translateY(101%); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1); }
-        .vs-cta:hover::before { transform:translateY(0); }
-        .vs-cta:hover { color:#000 !important; border-color:${C.base} !important; }
       `}</style>
     </section>
   );
