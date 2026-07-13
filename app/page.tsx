@@ -763,9 +763,7 @@ function Portfolio() {
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
                   {item.preview
                     ? <IframePreview src={item.preview} />
-                    : item.vidSrc
-                      ? <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} src={item.vidSrc} />
-                      : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
+                    : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
                   }
                   <div style={{ position: "absolute", top: "20px", left: "20px", fontFamily: font, fontWeight: 800, fontSize: "13px", color: C.color, letterSpacing: "0.06em" }}>{item.n}</div>
                   <div className="port-ov" style={{ position: "absolute", inset: 0, backgroundColor: `rgba(${C.baseRgb},0.92)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", opacity: 0, transition: "opacity 0.3s ease" }}>
