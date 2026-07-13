@@ -815,7 +815,7 @@ function Portfolio() {
       </div>
       <style>{`
           @media(max-width:600px){
-            .port-grid{grid-template-columns:1fr!important}
+            .port-grid{grid-template-columns:1fr!important;margin-left:-40px!important;margin-right:-40px!important}
             .port-card{aspect-ratio:4/3!important}
           }
         `}</style>
