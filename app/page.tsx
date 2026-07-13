@@ -866,9 +866,9 @@ function Stats() {
 ───────────────────────────────────────────────────────── */
 function Blog() {
   const posts = [
-    { date: "10 Jun", cat: "Negocio", comments: "4 comentarios", title: "¿Por qué tu negocio necesita una página web profesional?", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80&auto=format&fit=crop" },
-    { date: "28 May", cat: "Automatización", comments: "6 comentarios", title: "Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop" },
-    { date: "14 May", cat: "Diseño Web", comments: "3 comentarios", title: "5 errores que hacen perder clientes desde tu sitio web", img: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80&auto=format&fit=crop" },
+    { date: "10 Jun", cat: "Negocio",        comments: "4 comentarios", title: "¿Por qué tu negocio necesita una página web profesional?", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80&auto=format&fit=crop", href: "/blog/por-que-tu-negocio-necesita-pagina-web" },
+    { date: "28 May", cat: "Automatización", comments: "6 comentarios", title: "Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa",    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop", href: "/blog/automatizar-whatsapp-empresa" },
+    { date: "14 May", cat: "Diseño Web",     comments: "3 comentarios", title: "5 errores que hacen perder clientes desde tu sitio web",       img: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80&auto=format&fit=crop", href: "/blog/errores-que-hacen-perder-clientes" },
   ];
   return (
     <section id="blog" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
@@ -880,9 +880,9 @@ function Blog() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", backgroundColor: C.border }} className="blog-grid">
           {posts.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.12}>
-              <div style={{ backgroundColor: C.black, overflow: "hidden", transition: "background-color 0.3s" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.backgroundColor = C.black2)}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.backgroundColor = C.black)}>
+              <a href={p.href} style={{ display: "block", textDecoration: "none", backgroundColor: C.black, overflow: "hidden", transition: "background-color 0.3s" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = C.black2)}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = C.black)}>
                 <div style={{ height: "220px", position: "relative", overflow: "hidden" }}>
                   <img src={p.img} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }} loading="lazy"
                     onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)")}
@@ -903,9 +903,9 @@ function Blog() {
                     onMouseLeave={(e) => ((e.currentTarget as HTMLHeadingElement).style.color = C.white)}>
                     {p.title}
                   </h3>
-                  <RM />
+                  <RM href={p.href} />
                 </div>
-              </div>
+              </a>
             </Reveal>
           ))}
         </div>
