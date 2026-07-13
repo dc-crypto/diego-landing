@@ -421,9 +421,9 @@ function Brands() {
       </div>
 
       <div style={{ overflow: "hidden", padding: "20px 0 52px", borderBottom: `1px solid ${C.border}` }}>
-        <div style={{ display: "flex", animation: "scrollH 20s linear infinite", whiteSpace: "nowrap", flexShrink: 0 }}>
+        <div className="brand-logo-row" style={{ display: "flex", animation: "scrollH 20s linear infinite", whiteSpace: "nowrap", flexShrink: 0 }}>
           {doubled.map((logo, i) => (
-            <div key={i} style={{ display: "inline-flex", alignItems: "center", gap: "15px", margin: "0 78px", opacity: 0.5, color: C.white, transition: "opacity 0.3s", cursor: "default", flexShrink: 0 }}
+            <div key={i} className="brand-logo-item" style={{ display: "inline-flex", alignItems: "center", gap: "15px", margin: "0 78px", opacity: 0.5, color: C.white, transition: "opacity 0.3s", cursor: "default", flexShrink: 0 }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.opacity = "0.9")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.opacity = "0.5")}>
               <span className="brand-logo-icon" style={{ display: "inline-flex" }}>{logo.icon}</span>
@@ -432,7 +432,13 @@ function Brands() {
           ))}
         </div>
       </div>
-      <style>{`.brand-logo-icon svg { width: 27px; height: 27px; }`}</style>
+      <style>{`
+        .brand-logo-icon svg { width: 27px; height: 27px; }
+        @media(max-width:768px){
+          .brand-logo-row { animation-duration: 9s !important; }
+          .brand-logo-item { margin: 0 32px !important; }
+        }
+      `}</style>
     </section>
   );
 }
