@@ -580,71 +580,94 @@ function Marquee() {
 ───────────────────────────────────────────────────────── */
 
 function VideoSection() {
-  const secRef = useRef<HTMLElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [visible, setVisible] = useState(false);
+  const secRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     const el = secRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  const fadeUp = (delay: number): React.CSSProperties => ({
-    opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(24px)",
-    transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`,
-  });
+  const videos = [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260629_030107_874273ea-684a-4e90-bb96-8fdfde48d53d.mp4",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260629_032424_3c9c2a9d-807b-4482-80e6-dd6d9dfd4545.mp4",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260627_094019_4214ea73-b963-46a4-8327-61489192de99.mp4",
+  ];
+  const labels = ["01 / OLEAJE", "02 / CUADRÍCULA", "03 / TÚNEL DE LUZ"];
+  const accent = activeIndex === 0 ? C.base : C.white;
+  const spring = "cubic-bezier(0.16,1,0.3,1)";
 
   return (
-    <section ref={secRef} style={{ position: "relative", height: "100svh", width: "100%", overflow: "hidden", backgroundColor: C.black }}>
+    <section ref={secRef} className="vid-section" style={{ position: "relative", height: "100svh", backgroundColor: C.black, overflow: "hidden" }}>
 
-      {/* Video de fondo */}
-      <video autoPlay muted loop playsInline
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "70% center" }}
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
-      />
+      {/* ── 3 videos crossfade ───────────────────────────── */}
+      {videos.map((src, i) => (
+        <video key={src} autoPlay muted loop playsInline aria-hidden="true" src={src}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: i === activeIndex ? 1 : 0, transition: "opacity 1.2s ease-in-out", zIndex: 0 }}
+        />
+      ))}
 
-      {/* Overlay degradado */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.65) 100%)" }} />
+      {/* ── Overlays ─────────────────────────────────────── */}
+      <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.12)", zIndex: 1 }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "220px", background: `linear-gradient(to bottom, transparent, ${C.black})`, zIndex: 1, pointerEvents: "none" }} />
 
-      {/* Contenido */}
-      <div style={{ position: "relative", zIndex: 10, height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "clamp(48px,8vh,80px) clamp(24px,6vw,64px) clamp(40px,6vh,64px)" }}>
+      {/* ── Content ──────────────────────────────────────── */}
+      <div style={{ position: "relative", zIndex: 2, maxWidth: "1340px", margin: "0 auto", padding: "0 clamp(20px,3.5vw,56px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", gap: "clamp(52px,8vw,120px)", paddingBottom: "clamp(48px,6vh,80px)" }}>
 
-        {/* Arriba: badge + titular */}
-        <div style={{ maxWidth: "820px" }}>
-          <p style={{ fontFamily: font, fontSize: "12px", fontWeight: 700, color: "rgba(255,255,255,0.8)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "20px", ...fadeUp(0.2) }}>
-            Diseño &amp; Estrategia Digital
-          </p>
-          <h2 style={{ fontFamily: font, fontWeight: 500, fontSize: "clamp(2.4rem,6.5vw,6rem)", lineHeight: 1.06, letterSpacing: "-0.04em", color: C.white, margin: 0, ...fadeUp(0.4) }}>
-            Diseño potenciado<br />
-            con inteligencia<br />
-            artificial.
-          </h2>
+        {/* Row 1 — video switcher + disponibilidad */}
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            {labels.map((label, i) => (
+              <button key={i} onClick={() => setActiveIndex(i)}
+                style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "5px 0", fontFamily: font, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.white, opacity: i === activeIndex ? 1 : 0.4, transform: i === activeIndex ? "translateX(10px)" : "translateX(0)", transition: "opacity 0.3s, transform 0.4s cubic-bezier(0.16,1,0.3,1)" }}
+                onMouseEnter={(e) => { if (i !== activeIndex) (e.currentTarget as HTMLButtonElement).style.opacity = "0.7"; }}
+                onMouseLeave={(e) => { if (i !== activeIndex) (e.currentTarget as HTMLButtonElement).style.opacity = "0.4"; }}>
+                {label}
+              </button>
+            ))}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+            <div style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: accent, boxShadow: `0 0 8px 2px ${accent}55`, animation: "vsPulse 1.6s ease-in-out infinite", transition: "background-color 0.5s, box-shadow 0.5s" }} />
+            <span style={{ fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.white, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Disponible para proyectos
+            </span>
+          </div>
         </div>
 
-        {/* Abajo: descripción + CTA */}
-        <div>
-          <p style={{ fontFamily: font, fontSize: "clamp(14px,1.4vw,17px)", lineHeight: 1.7, color: "rgba(255,255,255,0.58)", maxWidth: "460px", marginBottom: "28px", ...fadeUp(0.65) }}>
-            Transformamos tu visión en realidad con diseño preciso, movimiento fluido y la potencia de la inteligencia artificial.
-          </p>
-          <a href="#portafolio"
-            style={{ display: "inline-flex", alignItems: "center", gap: "10px", backgroundColor: C.white, color: C.black, fontFamily: font, fontSize: "14px", fontWeight: 600, padding: "13px 26px", borderRadius: "10px", textDecoration: "none", cursor: "pointer", transition: "transform 0.2s ease", ...fadeUp(0.85) }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.05)")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)")}>
-            Ver proyectos
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+        {/* Row 2 — big text + párrafo + CTA */}
+        <div style={{ display: "flex", alignItems: "flex-end", gap: "clamp(24px,4vw,64px)" }}>
+          <div style={{ flexShrink: 0 }}>
+            <h2 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(52px,7.2vw,112px)", lineHeight: 0.88, letterSpacing: "-0.04em", color: C.white, margin: 0, textTransform: "uppercase", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(80px)", transition: `opacity 0.9s ${spring}, transform 0.9s ${spring}` }}>
+              Diseño<br />web<br />potenciado<br />con{" "}<span style={{ color: accent, transition: "color 0.5s" }}>IA.</span>
+            </h2>
+          </div>
+          <div style={{ flex: 1, maxWidth: "360px", paddingBottom: "6px", opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(80px)", transition: `opacity 0.9s ${spring} 0.1s, transform 0.9s ${spring} 0.1s` }}>
+            <p style={{ fontFamily: font, fontSize: "clamp(13px,1.2vw,15px)", lineHeight: 1.8, color: "rgba(255,255,255,0.65)", marginBottom: "28px" }}>
+              Transformamos tu visión en realidad con diseño preciso, movimiento fluido y la potencia de la inteligencia artificial.
+            </p>
+            <a href="https://wa.me/523221097649" target="_blank" rel="noopener noreferrer" className="vs-cta"
+              style={{ display: "inline-block", position: "relative", overflow: "hidden", fontFamily: font, fontSize: "12px", fontWeight: 700, color: C.white, border: "1px solid rgba(255,255,255,0.45)", padding: "12px 28px", textDecoration: "none", letterSpacing: "0.08em", textTransform: "lowercase", transition: "border-color 0.35s, color 0.35s" }}>
+              <span style={{ position: "relative", zIndex: 1 }}>iniciar proyecto</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Gradiente inferior hacia negro */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "160px", background: `linear-gradient(to bottom, transparent, ${C.black})`, pointerEvents: "none", zIndex: 5 }} />
+      <style>{`
+        .vid-section { display: block }
+        @media(max-width:768px){ .vid-section { display: none !important } }
+        @keyframes vsPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(1.45)} }
+        .vs-cta::before { content:''; position:absolute; inset:0; background:${C.base}; transform:translateY(101%); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+        .vs-cta:hover::before { transform:translateY(0); }
+        .vs-cta:hover { color:#000 !important; border-color:${C.base} !important; }
+      `}</style>
     </section>
   );
 }
