@@ -118,7 +118,14 @@ function PageNav() {
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
-  const links = ["Inicio","Páginas Web","Automatización","Inteligencia Artificial","Proyectos","Blog"];
+  const links = [
+    { label: "Inicio", href: "#inicio" },
+    { label: "Páginas Web", href: "#servicios" },
+    { label: "Automatización", href: "#servicios" },
+    { label: "Inteligencia Artificial", href: "#servicios" },
+    { label: "Proyectos", href: "#portafolio" },
+    { label: "Blog", href: "#blog" },
+  ];
   return (
     <>
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: scrolled ? "rgba(0,0,0,0.97)" : "transparent", borderBottom: `1px solid ${scrolled ? C.border : "transparent"}`, backdropFilter: scrolled ? "blur(12px)" : "none", transition: "all 0.3s ease" }}>
@@ -132,11 +139,11 @@ function PageNav() {
           {/* Desktop links */}
           <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", gap: "36px" }} className="nav-links">
             {links.map((l) => (
-              <li key={l}>
-                <a href={`#${l.toLowerCase()}`} style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: "rgba(255,255,255,0.75)", textDecoration: "none", transition: "color 0.15s", letterSpacing: "0.01em" }}
+              <li key={l.label}>
+                <a href={l.href} style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: "rgba(255,255,255,0.75)", textDecoration: "none", transition: "color 0.15s", letterSpacing: "0.01em" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = C.base)}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}>
-                  {l}
+                  {l.label}
                 </a>
               </li>
             ))}
@@ -160,8 +167,8 @@ function PageNav() {
       {open && (
         <div style={{ position: "fixed", top: "80px", left: 0, right: 0, zIndex: 99, backgroundColor: C.black2, borderBottom: `1px solid ${C.border}`, padding: "16px 40px 28px" }}>
           {links.map((l) => (
-            <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)} style={{ display: "block", fontFamily: font, fontSize: "15px", fontWeight: 600, color: "rgba(255,255,255,0.75)", padding: "13px 0", borderBottom: `1px solid ${C.border}`, textDecoration: "none" }}>
-              {l}
+            <a key={l.label} href={l.href} onClick={() => setOpen(false)} style={{ display: "block", fontFamily: font, fontSize: "15px", fontWeight: 600, color: "rgba(255,255,255,0.75)", padding: "13px 0", borderBottom: `1px solid ${C.border}`, textDecoration: "none" }}>
+              {l.label}
             </a>
           ))}
           <div style={{ marginTop: "20px" }}><OBtn href="https://wa.me/523221097649">Hablemos</OBtn></div>
@@ -231,15 +238,14 @@ function Hero() {
       {/* ── Social icons — left edge ────────────────────── */}
       <div className="lp-social" style={{ position: "absolute", left: "28px", top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", gap: "20px", zIndex: 10 }}>
         {[
-          <svg key="li" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>,
-          <svg key="gh" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>,
-          <svg key="ig" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
-          <svg key="tw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>,
-        ].map((icon, i) => (
-          <a key={i} href="#" style={{ color: "rgba(255,255,255,0.35)", transition: "color 0.2s" }}
+          { href: "https://www.linkedin.com/in/diego-castro-larrain/", icon: <svg key="li" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> },
+          { href: "https://www.instagram.com/diegocastro.tech/", icon: <svg key="ig" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
+          { href: "https://www.facebook.com/profile.php?id=61590654365455", icon: <svg key="fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.87v-6.98h-2.1v-2.89h2.1V9.41c0-2.07 1.23-3.21 3.11-3.21.9 0 1.84.16 1.84.16v2.02h-1.04c-1.02 0-1.34.64-1.34 1.29v1.55h2.28l-.36 2.89h-1.92v6.98A10 10 0 0 0 22 12z"/></svg> },
+        ].map((s, i) => (
+          <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.35)", transition: "color 0.2s" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = C.base)}
             onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>
-            {icon}
+            {s.icon}
           </a>
         ))}
       </div>
@@ -763,7 +769,7 @@ function Portfolio() {
             <SH>Soluciones digitales diseñadas para hacer crecer negocios.</SH>
           </Reveal>
           <Reveal delay={0.2}>
-            <OBtn href="#" outline>Ver todos los proyectos</OBtn>
+            <OBtn href="/portafolio" outline>Ver todos los proyectos</OBtn>
           </Reveal>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: C.border }} className="port-grid">
@@ -976,19 +982,36 @@ function Footer() {
             </a>
           </div>
           {[
-            { title: "Navegación", links: ["Inicio","Nosotros","Servicios","Portafolio","Blog","Contacto"] },
-            { title: "Servicios", links: ["Desarrollo Web","Diseño de Sitios","Automatización","Inteligencia Artificial"] },
-            { title: "Recursos", links: ["Preguntas frecuentes","Casos de éxito","Blog de tecnología","Política de privacidad"] },
+            { title: "Navegación", links: [
+              { label: "Inicio", href: "#inicio" },
+              { label: "Nosotros", href: "#nosotros" },
+              { label: "Servicios", href: "#servicios" },
+              { label: "Portafolio", href: "#portafolio" },
+              { label: "Blog", href: "#blog" },
+              { label: "Contacto", href: "#contacto" },
+            ] },
+            { title: "Servicios", links: [
+              { label: "Desarrollo Web", href: "#servicios" },
+              { label: "Diseño de Sitios", href: "#servicios" },
+              { label: "Automatización", href: "#servicios" },
+              { label: "Inteligencia Artificial", href: "#servicios" },
+            ] },
+            { title: "Recursos", links: [
+              { label: "Preguntas frecuentes", href: "#" },
+              { label: "Casos de éxito", href: "#" },
+              { label: "Blog de tecnología", href: "#blog" },
+              { label: "Política de privacidad", href: "#" },
+            ] },
           ].map((col) => (
             <div key={col.title}>
               <h4 style={{ fontFamily: font, fontWeight: 800, fontSize: "15px", color: C.white, margin: "0 0 24px", letterSpacing: "-0.01em" }}>{col.title}</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {col.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" style={{ fontFamily: font, fontSize: "13px", color: C.color, textDecoration: "none", transition: "color 0.15s", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                  <li key={l.label}>
+                    <a href={l.href} style={{ fontFamily: font, fontSize: "13px", color: C.color, textDecoration: "none", transition: "color 0.15s", display: "inline-flex", alignItems: "center", gap: "6px" }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = C.base)}
                       onMouseLeave={(e) => (e.currentTarget.style.color = C.color)}>
-                      {l}
+                      {l.label}
                     </a>
                   </li>
                 ))}
@@ -1003,11 +1026,15 @@ function Footer() {
             © {new Date().getFullYear()} Diego Castro. Todos los derechos reservados.
           </span>
           <div style={{ display: "flex", gap: "8px" }}>
-            {["Li","Gh","Ig","X"].map((s) => (
-              <a key={s} href="#" style={{ width: "32px", height: "32px", border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.color, textDecoration: "none", transition: "all 0.2s" }}
+            {[
+              { label: "Li", href: "https://www.linkedin.com/in/diego-castro-larrain/" },
+              { label: "Ig", href: "https://www.instagram.com/diegocastro.tech/" },
+              { label: "Fb", href: "https://www.facebook.com/profile.php?id=61590654365455" },
+            ].map((s) => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{ width: "32px", height: "32px", border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: "11px", fontWeight: 700, color: C.color, textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.backgroundColor = C.base; el.style.borderColor = C.base; el.style.color = C.white; }}
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.backgroundColor = "transparent"; el.style.borderColor = C.border; el.style.color = C.color; }}>
-                {s}
+                {s.label}
               </a>
             ))}
           </div>
