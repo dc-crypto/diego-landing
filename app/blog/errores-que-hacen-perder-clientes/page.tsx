@@ -157,8 +157,8 @@ function BlogFooter() {
 }
 
 const related = [
-  { title: "¿Por qué tu negocio necesita una página web profesional?",          cat: "Negocio",        href: "/blog/por-que-tu-negocio-necesita-pagina-web", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80&auto=format&fit=crop" },
-  { title: "Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa", cat: "Automatización", href: "/blog/automatizar-whatsapp-empresa",             img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop" },
+  { title: "¿Por qué tu negocio necesita una página web profesional?",          cat: "Negocio",        href: "/blog/por-que-tu-negocio-necesita-pagina-web", img: "/blog-web-profesional.webp" },
+  { title: "Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa", cat: "Automatización", href: "/blog/automatizar-whatsapp-empresa",             img: "/blog-automatizar-whatsapp.webp" },
 ];
 
 const errors = [
@@ -202,7 +202,7 @@ export default function PostErroresPerdidaClientes() {
       {/* ── Hero ─────────────────────────────────────────── */}
       <section style={{ position: "relative", height: "70vh", minHeight: "520px", overflow: "hidden" }}>
         <img
-          src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1400&q=80&auto=format&fit=crop"
+          src="/blog-errores-clientes.webp"
           alt="Laptop con diseño web en la pantalla"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
         />

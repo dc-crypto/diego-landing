@@ -157,8 +157,8 @@ function BlogFooter() {
 }
 
 const related = [
-  { title: "Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa", cat: "Automatización", href: "/blog/automatizar-whatsapp-empresa", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop" },
-  { title: "5 errores que hacen perder clientes desde tu sitio web",    cat: "Diseño Web",    href: "/blog/errores-que-hacen-perder-clientes",       img: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80&auto=format&fit=crop" },
+  { title: "Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa", cat: "Automatización", href: "/blog/automatizar-whatsapp-empresa", img: "/blog-automatizar-whatsapp.webp" },
+  { title: "5 errores que hacen perder clientes desde tu sitio web",    cat: "Diseño Web",    href: "/blog/errores-que-hacen-perder-clientes",       img: "/blog-errores-clientes.webp" },
 ];
 
 export default function PostPorQueNecesitasWeb() {
@@ -169,7 +169,7 @@ export default function PostPorQueNecesitasWeb() {
       {/* ── Hero ─────────────────────────────────────────── */}
       <section style={{ position: "relative", height: "70vh", minHeight: "520px", overflow: "hidden" }}>
         <img
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80&auto=format&fit=crop"
+          src="/blog-web-profesional.webp"
           alt="Persona trabajando en una laptop con código"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
         />
