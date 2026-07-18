@@ -145,7 +145,7 @@ export default function SireclaPage() {
             <a href="#proceso" onClick={(e) => scrollToId(e, "proceso")}>Proceso</a>
             <a href="#contacto" onClick={(e) => scrollToId(e, "contacto")}>Contacto</a>
           </nav>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn btn--outline">
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn btn--outline header__cta">
             Cotizar<span className="dot" aria-hidden="true"></span>
           </a>
         </div>
