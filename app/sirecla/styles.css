@@ -23,6 +23,9 @@
   --container-w: 1600px;
   --gutter: 1.5rem;
   --ease: cubic-bezier(.2, .7, .2, 1);
+  /* 12-column grids: a gap this size times 11 internal gutters adds up fast on
+     narrow screens, so it starts small and only opens up once there's room. */
+  --grid-gap-12: .75rem;
 
   font-family: var(--font-sans);
   background: var(--background);
@@ -32,8 +35,11 @@
   overflow-x: hidden;
 }
 
+@media (min-width: 48rem) {
+  .sr-root { --grid-gap-12: 1.5rem; }
+}
 @media (min-width: 64rem) {
-  .sr-root { --gutter: 3rem; }
+  .sr-root { --gutter: 3rem; --grid-gap-12: 2rem; }
 }
 
 .sr-root, .sr-root *, .sr-root *::before, .sr-root *::after { box-sizing: border-box; margin: 0; }
@@ -140,7 +146,7 @@
 
 /* hero */
 .sr-root .hero { position: relative; padding-top: 4rem; min-height: 100vh; display: flex; flex-direction: column; }
-.sr-root .hero__grid { padding-block: 4rem 2rem; display: grid; gap: 1.5rem; grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.sr-root .hero__grid { padding-block: 4rem 2rem; display: grid; gap: var(--grid-gap-12); grid-template-columns: repeat(12, minmax(0, 1fr)); }
 @media (min-width: 64rem) { .sr-root .hero__grid { padding-block: 6rem 2rem; } }
 .sr-root .hero__copy { grid-column: span 12; display: flex; flex-direction: column; justify-content: space-between; }
 @media (min-width: 64rem) { .sr-root .hero__copy { grid-column: span 7; } }
@@ -192,7 +198,7 @@
 /* generic grid section head */
 .sr-root .section { padding-block: clamp(5rem, 3rem + 8vw, 12rem); }
 .sr-root .section--bordered { border-block: 1px solid var(--line); background: var(--paper); }
-.sr-root .section-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2rem; }
+.sr-root .section-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--grid-gap-12); }
 .sr-root .section-grid--head { margin-bottom: 5rem; }
 .sr-root .section-head__aside { grid-column: span 12; }
 @media (min-width: 64rem) { .sr-root .section-head__aside { grid-column: span 3; } }
@@ -219,7 +225,7 @@
 .sr-root .tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--graphite); border: 1px solid var(--line); padding: .375rem .75rem; }
 
 /* proyectos waterfall */
-.sr-root .waterfall { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.5rem; }
+.sr-root .waterfall { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--grid-gap-12); }
 @media (min-width: 64rem) { .sr-root .waterfall { gap: 2.5rem; } }
 .sr-root .waterfall__item { grid-column: span 12; }
 @media (min-width: 64rem) {
@@ -268,7 +274,7 @@
 .sr-root .sectors-note { color: var(--graphite); max-width: 24rem; }
 .sr-root .sectors-list { border-top: 1px solid var(--ink); }
 .sr-root .sector-row {
-  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.5rem; align-items: center;
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--grid-gap-12); align-items: center;
   padding-block: 2rem; border-bottom: 1px solid var(--line); padding-inline: .5rem;
   transition: background-color .2s var(--ease);
 }
@@ -308,7 +314,7 @@
 }
 
 /* contacto (dark) */
-.sr-root .contact-grid { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2rem; }
+.sr-root .contact-grid { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--grid-gap-12); }
 .sr-root .contact-grid__main { grid-column: span 12; }
 @media (min-width: 64rem) { .sr-root .contact-grid__main { grid-column: span 8; } }
 .sr-root .contact-grid__aside { grid-column: span 12; }
