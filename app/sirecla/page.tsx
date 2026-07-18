@@ -159,7 +159,7 @@ export default function SireclaPage() {
             <div className="hero__copy">
               <div>
                 <div className="hero__eyebrow-row">
-                  <span className="eyebrow">01 — Puerto Vallarta, MX</span>
+                  <span className="eyebrow">01 — Bahía de Banderas, MX</span>
                   <span className="hero__rule" aria-hidden="true"></span>
                   <span className="eyebrow">Desde 1998</span>
                 </div>
@@ -243,7 +243,7 @@ export default function SireclaPage() {
                   En SIRECLA no fabricamos catálogo. Cada mesa, cada campana, cada tarja se dibuja para un espacio real, se corta a la medida exacta y se suelda a mano por operarios que llevan más tiempo con el pulidor que con el teléfono.
                 </p>
                 <p className="lede">
-                  Trabajamos con acero inoxidable 304 grado alimenticio, calibres serios y acabados sanitarios. Lo que sale de nuestro taller en Puerto Vallarta está pensado para durar el tiempo que dure el negocio.
+                  Trabajamos con acero inoxidable 304 grado alimenticio, calibres serios y acabados sanitarios. Lo que sale de nuestro taller en Bahía de Banderas está pensado para durar el tiempo que dure el negocio.
                 </p>
               </div>
             </div>
@@ -324,7 +324,7 @@ export default function SireclaPage() {
                 <div className="waterfall__caption">
                   <div>
                     <h3 className="display" style={{ fontSize: "1.875rem" }}>Taller de fabricación</h3>
-                    <p className="eyebrow" style={{ marginTop: ".5rem" }}>Puerto Vallarta · Proceso</p>
+                    <p className="eyebrow" style={{ marginTop: ".5rem" }}>Bahía de Banderas · Proceso</p>
                   </div>
                 </div>
               </div>
@@ -420,7 +420,7 @@ export default function SireclaPage() {
                 <span className="eyebrow" style={{ display: "block", marginBottom: "1rem" }}>08 — Archivo</span>
                 <h2 id="archivo-title" className="display h-xl">Trabajos recientes.</h2>
               </div>
-              <span className="eyebrow">Puerto Vallarta · MX · 2019 — 2026</span>
+              <span className="eyebrow">Bahía de Banderas · MX · 2019 — 2026</span>
             </div>
 
             <div className="archive-grid">
@@ -468,7 +468,7 @@ export default function SireclaPage() {
               <dl className="contact-info">
                 <div>
                   <dt className="eyebrow eyebrow--dim">Taller</dt>
-                  <dd>Carretera ramal El Colomo, 63735<br />Jalisco, México</dd>
+                  <dd>Carretera ramal El Colomo, 63735<br />Bahía de Banderas, Nayarit</dd>
                 </div>
                 <div>
                   <dt className="eyebrow eyebrow--dim">Correo</dt>
@@ -520,8 +520,9 @@ export default function SireclaPage() {
             address: {
               "@type": "PostalAddress",
               streetAddress: "Carretera ramal El Colomo",
+              addressLocality: "El Colomo, Bahía de Banderas",
               postalCode: "63735",
-              addressRegion: "Jalisco",
+              addressRegion: "Nayarit",
               addressCountry: "MX",
             },
             openingHoursSpecification: [

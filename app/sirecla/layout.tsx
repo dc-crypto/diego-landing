@@ -25,13 +25,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SIRECLA · Aceros Inoxidables · Fabricación sobre medida en Puerto Vallarta",
+  title: "SIRECLA · Aceros Inoxidables · Fabricación sobre medida en Bahía de Banderas, Nayarit",
   description:
-    "Fabricamos muebles y equipos de acero inoxidable grado alimenticio sobre medida para restaurantes, hoteles y cocinas industriales en Puerto Vallarta.",
+    "Fabricamos muebles y equipos de acero inoxidable grado alimenticio sobre medida para restaurantes, hoteles y cocinas industriales en Bahía de Banderas y Puerto Vallarta.",
   openGraph: {
     title: "SIRECLA · Aceros Inoxidables",
     description:
-      "Fabricación sobre medida de mobiliario y equipo industrial en acero inoxidable. Puerto Vallarta.",
+      "Fabricación sobre medida de mobiliario y equipo industrial en acero inoxidable. Bahía de Banderas, Nayarit.",
     images: ["/sirecla/linea.webp"],
     type: "website",
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SIRECLA · Aceros Inoxidables",
     description:
-      "Fabricación sobre medida de mobiliario y equipo industrial en acero inoxidable. Puerto Vallarta.",
+      "Fabricación sobre medida de mobiliario y equipo industrial en acero inoxidable. Bahía de Banderas, Nayarit.",
     images: ["/sirecla/linea.webp"],
   },
 };
