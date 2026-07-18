@@ -407,6 +407,17 @@ export default function Portafolio() {
                 cover="/pizzeria/hero.webp"
               />
             </Reveal>
+            <Reveal delay={3}>
+              <CaseCard
+                num="04"
+                sector="Restaurante de mariscos · Demo"
+                name="Mar Azul"
+                desc="Demo de landing page editorial para un restaurante de mariscos frente al Pacífico. Especialidades de la carta, historia del chef, galería fotográfica y reserva de mesa directa por WhatsApp."
+                tags={["Sitio web", "Diseño editorial", "Galería", "Reservas por WhatsApp"]}
+                url="https://diegocastro.tech/restaurante_marazul/"
+                cover="/restaurante_marazul/hero-sunset.jpg"
+              />
+            </Reveal>
           </div>
         </div>
       </section>
