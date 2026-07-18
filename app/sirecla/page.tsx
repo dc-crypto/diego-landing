@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import "./styles.css";
 
 const IMG = "/sirecla";
-const WA_NUMBER = "523221973919";
+const WA_NUMBER = "5213221581116";
+const WA_DISPLAY = "+52 1 322 158 1116";
 const WA_MESSAGE = "Hola SIRECLA, me interesa una cotización";
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
 
@@ -455,7 +456,7 @@ export default function SireclaPage() {
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn btn--accent">
                   Escribir por WhatsApp<ArrowIcon size={16} />
                 </a>
-                <a href={`tel:+${WA_NUMBER}`} className="btn btn--ghost-light">+52 322 197 3919</a>
+                <a href={`tel:+${WA_NUMBER}`} className="btn btn--ghost-light">{WA_DISPLAY}</a>
               </div>
             </div>
 
@@ -471,7 +472,7 @@ export default function SireclaPage() {
                 </div>
                 <div>
                   <dt className="eyebrow eyebrow--dim">Teléfono</dt>
-                  <dd><a href={`tel:+${WA_NUMBER}`}>+52 322 197 3919</a></dd>
+                  <dd><a href={`tel:+${WA_NUMBER}`}>{WA_DISPLAY}</a></dd>
                 </div>
                 <div>
                   <dt className="eyebrow eyebrow--dim">Horario</dt>
