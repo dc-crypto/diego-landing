@@ -6,7 +6,8 @@ import "./styles.css";
 const IMG = "/sirecla";
 const WA_NUMBER = "5213221581116";
 const WA_DISPLAY = "+52 1 322 158 1116";
-const WA_MESSAGE = "Hola SIRECLA, me interesa una cotización";
+const SITE_URL = "https://diegocastro.tech/sirecla/";
+const WA_MESSAGE = `Hola SIRECLA, me interesa una cotización. Vi su catálogo aquí: ${SITE_URL}`;
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 const sectors = [
