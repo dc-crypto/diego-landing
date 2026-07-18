@@ -32,6 +32,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://diegocastro.tech"),
   title: "Diego Castro — Tecnología y Sistemas Empresariales",
   description:
     "Ingeniero que construye sistemas para que las empresas capten, gestionen y conviertan más clientes automáticamente.",
