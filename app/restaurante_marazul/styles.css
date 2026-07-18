@@ -244,6 +244,12 @@
 @media (min-width: 48rem) { .mz-root .hero__coords { top: 7rem; } }
 .mz-root .hero__coords-right { display: none; }
 @media (min-width: 48rem) { .mz-root .hero__coords-right { display: inline; } }
+/* purely decorative — drop it on short/narrow viewports so it never collides
+   with the bottom-pinned hero copy (title block can outgrow the viewport
+   height once mobile browser chrome eats into 100svh) */
+@media (max-width: 30rem), (max-height: 700px) {
+  .mz-root .hero__coords { display: none; }
+}
 
 .mz-root .hero__content { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 4rem; }
 @media (min-width: 48rem) { .mz-root .hero__content { padding-bottom: 6rem; } }
@@ -251,6 +257,13 @@
 .mz-root .hero__eyebrow { color: var(--gold); margin-bottom: 1.5rem; }
 .mz-root .hero__title { font-family: var(--font-display); color: var(--linen); font-size: clamp(3.5rem, 2.3rem + 11vw, 10.5rem); line-height: .88; letter-spacing: -.02em; font-weight: 500; }
 .mz-root .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+@media (max-height: 700px) {
+  .mz-root .hero__content { padding-bottom: 1.75rem; }
+  .mz-root .hero__eyebrow { margin-bottom: .75rem; }
+  .mz-root .hero__title { font-size: clamp(2.5rem, 1.6rem + 9vw, 10.5rem); }
+  .mz-root .hero__bottom { margin-top: 1.25rem; gap: 1.25rem; }
+}
 
 .mz-root .hero__bottom { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 2rem; }
 @media (min-width: 48rem) { .mz-root .hero__bottom { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
