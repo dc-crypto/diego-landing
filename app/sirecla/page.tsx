@@ -240,7 +240,7 @@ export default function SireclaPage() {
               </p>
               <div className="manifest-copy">
                 <p className="lede">
-                  En SIRECLA no fabricamos catálogo. Cada mesa, cada campana, cada tarja se dibuja para un espacio real, se corta a la medida exacta y se suelda a mano por operarios que llevan más tiempo con el pulidor que con el teléfono.
+                  En SIRECLA no fabricamos catálogo. Cada mesa, cada campana, cada tarja se dibuja para un espacio real, se corta a la medida exacta y se suelda a mano por profesionales con amplia experiencia, con materiales de alta calidad.
                 </p>
                 <p className="lede">
                   Trabajamos con acero inoxidable 304 grado alimenticio, calibres serios y acabados sanitarios. Lo que sale de nuestro taller en Bahía de Banderas está pensado para durar el tiempo que dure el negocio.
