@@ -439,6 +439,9 @@ export default function SireclaPage() {
               <div className="archive-item archive-item--vitrina" data-reveal="true">
                 <img src={`${IMG}/vitrina.webp`} alt="Vitrina caliente de exhibición" loading="lazy" decoding="async" />
               </div>
+              <div className="archive-item archive-item--hornillas" data-reveal="true">
+                <img src={`${IMG}/hornillas.webp`} alt="Estufa de cuatro quemadores de alto poder" loading="lazy" decoding="async" />
+              </div>
             </div>
           </div>
         </section>

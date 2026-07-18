@@ -306,11 +306,10 @@
 .sr-root .archive-item:hover img { transform: scale(1.05); }
 .sr-root .archive-item--wide { grid-column: span 12; aspect-ratio: 16 / 10; }
 @media (min-width: 64rem) {
-  .sr-root .archive-item--estufa { grid-column: span 5; }
-  .sr-root .archive-item--tarja { grid-column: span 3; }
-  .sr-root .archive-item--barandal { grid-column: span 4; }
-  .sr-root .archive-item--foodtruck { grid-column: span 7; }
-  .sr-root .archive-item--vitrina { grid-column: span 5; }
+  .sr-root .archive-item--estufa { grid-column: span 7; }
+  .sr-root .archive-item--tarja { grid-column: span 5; }
+  .sr-root .archive-item--vitrina { grid-column: span 7; }
+  .sr-root .archive-item--hornillas { grid-column: span 5; }
 }
 
 /* contacto (dark) */
