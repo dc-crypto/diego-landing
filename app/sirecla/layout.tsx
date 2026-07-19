@@ -1,45 +1,29 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  weight: "variable",
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  display: "swap",
-});
-
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono-sr",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "SIRECLA · Aceros Inoxidables · Fabricación sobre medida en Bahía de Banderas, Nayarit",
+  title: "SIRECLA · Fabricación de acero inoxidable para restaurantes y hoteles",
   description:
-    "Fabricamos muebles y equipos de acero inoxidable grado alimenticio sobre medida para restaurantes, hoteles y cocinas industriales en Bahía de Banderas y Puerto Vallarta.",
+    "Fabricamos mesas, tarjas, líneas de cocción y equipo industrial en acero inoxidable a la medida, para restaurantes, hoteles y cocinas profesionales en Bahía de Banderas y Puerto Vallarta.",
   openGraph: {
-    title: "SIRECLA · Aceros Inoxidables",
+    title: "SIRECLA · Fabricación de acero inoxidable",
     description:
-      "Fabricación sobre medida de mobiliario y equipo industrial en acero inoxidable. Bahía de Banderas, Nayarit.",
+      "Mobiliario y equipo industrial en acero inoxidable, fabricado a la medida en Bahía de Banderas, Nayarit.",
     images: ["/sirecla/linea.webp"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SIRECLA · Aceros Inoxidables",
+    title: "SIRECLA · Fabricación de acero inoxidable",
     description:
-      "Fabricación sobre medida de mobiliario y equipo industrial en acero inoxidable. Bahía de Banderas, Nayarit.",
+      "Mobiliario y equipo industrial en acero inoxidable, fabricado a la medida en Bahía de Banderas, Nayarit.",
     images: ["/sirecla/linea.webp"],
   },
 };
@@ -47,9 +31,5 @@ export const metadata: Metadata = {
 export default function SireclaLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <div className={`${fraunces.variable} ${interTight.variable} ${jetbrainsMono.variable}`}>
-      {children}
-    </div>
-  );
+  return <div className={manrope.variable}>{children}</div>;
 }
