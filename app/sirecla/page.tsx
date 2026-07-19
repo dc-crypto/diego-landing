@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, type Variants } from "motion/react";
+import { motion, AnimatePresence, useScroll, useTransform, type Variants } from "motion/react";
 import "./styles.css";
 
 const IMG = "/sirecla";
+
+const heroSlides = [
+  { src: `${IMG}/linea.webp`, alt: "Línea de cocción de acero inoxidable fabricada por SIRECLA" },
+  { src: `${IMG}/hero-welder-1.webp`, alt: "Soldador fabricando una estructura de acero inoxidable" },
+  { src: `${IMG}/hero-welder-2.webp`, alt: "Proceso de soldadura en el taller de SIRECLA" },
+  { src: `${IMG}/hornillas.webp`, alt: "Línea de hornillas de alto poder fabricada por SIRECLA" },
+  { src: `${IMG}/vitrina.webp`, alt: "Vitrina caliente de exhibición en acero inoxidable" },
+];
 const WA_NUMBER = "5213221581116";
 const WA_DISPLAY = "+52 1 322 158 1116";
 const SITE_URL = "https://diegocastro.tech/sirecla/";
@@ -116,6 +124,7 @@ export default function SireclaPage() {
   const headerRef = useRef<HTMLElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [slide, setSlide] = useState(0);
 
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
@@ -125,6 +134,13 @@ export default function SireclaPage() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+    const id = setInterval(() => setSlide((s) => (s + 1) % heroSlides.length), 5500);
+    return () => clearInterval(id);
   }, []);
 
   const scrollToId = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -173,16 +189,34 @@ export default function SireclaPage() {
       <main id="sr-main">
         <section id="top" className="hero" ref={heroRef}>
           <motion.div className="hero__media" style={{ y: heroY }}>
-            <motion.img
-              src={`${IMG}/linea.webp`}
-              alt="Línea de cocción de acero inoxidable fabricada por SIRECLA"
-              fetchPriority="high"
-              initial={{ scale: 1 }}
-              animate={{ scale: 1.08 }}
-              transition={{ duration: 22, ease: "linear" }}
-            />
+            <AnimatePresence>
+              <motion.img
+                key={heroSlides[slide].src}
+                src={heroSlides[slide].src}
+                alt={heroSlides[slide].alt}
+                fetchPriority={slide === 0 ? "high" : undefined}
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: 1, scale: 1.06 }}
+                exit={{ opacity: 0 }}
+                transition={{ opacity: { duration: 1.1, ease: "easeInOut" }, scale: { duration: 7, ease: "linear" } }}
+              />
+            </AnimatePresence>
           </motion.div>
           <div className="hero__scrim" aria-hidden="true"></div>
+
+          <div className="hero__dots" role="tablist" aria-label="Imágenes destacadas">
+            {heroSlides.map((s, i) => (
+              <button
+                key={s.src}
+                type="button"
+                role="tab"
+                aria-selected={i === slide}
+                aria-label={`Mostrar imagen ${i + 1} de ${heroSlides.length}`}
+                className={`hero__dot${i === slide ? " is-active" : ""}`}
+                onClick={() => setSlide(i)}
+              />
+            ))}
+          </div>
 
           <motion.div
             className="hero__content container"
