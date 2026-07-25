@@ -749,6 +749,10 @@
         height: calc(var(--spacing) * 40)
     }
 
+    .h-48 {
+        height: calc(var(--spacing) * 48)
+    }
+
     .max-h-full {
         max-height: 100%
     }

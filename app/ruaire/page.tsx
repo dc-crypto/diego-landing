@@ -149,8 +149,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <!-- Galería de productos — imágenes placeholder reutilizadas por categoría hasta recibir fotos reales por producto. -->
 <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="productGrid">
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 2 Vías" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 2 Vías" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 2 Vías</h3>
@@ -158,8 +158,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 3 Vías" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 3 Vías" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 3 Vías</h3>
@@ -167,8 +167,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 4 Vías" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 4 Vías" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 4 Vías</h3>
@@ -176,8 +176,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno (Aletas Fijas)" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno (Aletas Fijas)" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno (Aletas Fijas)</h3>
@@ -185,8 +185,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno Perimetral" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno Perimetral" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno Perimetral</h3>
@@ -194,8 +194,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="lineales">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-linear-diffusers.jpeg" alt="Rejilla Lineal de Inyección" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-linear-diffusers.jpeg" alt="Rejilla Lineal de Inyección" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla Lineal de Inyección</h3>
@@ -203,8 +203,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-extractors.jpg" alt="Extractor Industrial" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-extractors.jpg" alt="Extractor Industrial" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor Industrial</h3>
@@ -212,8 +212,8 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
-<div class="flex h-40 items-center justify-center bg-subtle p-4">
-<img src="/ruaire/images/product-extractors.jpg" alt="Extractor para Baño" loading="lazy" class="max-h-full w-auto object-contain"/>
+<div class="h-48 w-full overflow-hidden bg-subtle">
+<img src="/ruaire/images/product-extractors.jpg" alt="Extractor para Baño" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor para Baño</h3>
