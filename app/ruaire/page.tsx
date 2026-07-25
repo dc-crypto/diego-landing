@@ -138,115 +138,88 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="text-center">
 <h2 class="section-title font-display text-2xl font-extrabold uppercase tracking-wide text-brand sm:text-3xl">Catálogo de productos y equipos</h2>
 </div>
-<div class="mt-10 flex flex-wrap justify-center gap-2" id="catalogTabs">
-<button type="button" data-tab="difusores" aria-pressed="true" class="tab-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition bg-primary text-primary-foreground shadow-md">Difusores de 2, 3 y 4 vías</button>
-<button type="button" data-tab="retorno" aria-pressed="false" class="tab-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Rejillas de retorno (aletas fijas y perimetrales)</button>
-<button type="button" data-tab="lineales" aria-pressed="false" class="tab-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Rejillas lineales de inyección</button>
-<button type="button" data-tab="extractores" aria-pressed="false" class="tab-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Extractores para baño y cocina</button>
+<div class="mt-10 flex flex-wrap justify-center gap-2" id="productFilters">
+<button type="button" data-filter="todos" aria-pressed="true" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition bg-primary text-primary-foreground shadow-md">Todos</button>
+<button type="button" data-filter="difusores" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Difusores de 2, 3 y 4 vías</button>
+<button type="button" data-filter="retorno" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Rejillas de retorno (aletas fijas y perimetrales)</button>
+<button type="button" data-filter="lineales" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Rejillas lineales de inyección</button>
+<button type="button" data-filter="extractores" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Extractores para baño y cocina</button>
 </div>
 
-<!-- Panel 1: Difusores — contenido real capturado del sitio original -->
-<div class="tab-panel mt-6 overflow-hidden rounded-2xl border-2 border-brand bg-white p-4 shadow-sm sm:p-6" data-panel="difusores">
-<div class="grid gap-6 lg:grid-cols-2">
-<div class="flex items-center justify-center rounded-xl bg-subtle p-4 sm:p-6">
-<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusores de 2, 3 y 4 vías" loading="lazy" class="max-h-64 w-auto object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.12)] sm:max-h-80"/>
+<!-- Galería de productos — imágenes placeholder reutilizadas por categoría hasta recibir fotos reales por producto. -->
+<div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="productGrid">
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 2 Vías" loading="lazy" class="max-h-full w-auto object-contain"/>
 </div>
-<div class="flex flex-col justify-center">
-<h3 class="font-display text-xl font-extrabold uppercase text-brand sm:text-2xl">Difusores de 2, 3 y 4 vías</h3>
-<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 2 vías</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Distribución de aire en dos direcciones opuestas. Ideal para pasillos, oficinas y habitaciones donde se busca un flujo lineal controlado.</p>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 2 Vías</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Difusor de techo para distribución de aire en dos direcciones opuestas. Fabricado en aluminio con acabado de pintura electrostática.</p>
+</div>
 </article>
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 3 vías</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Expulsa el aire en tres direcciones. Perfecto para instalarse en esquinas o zonas angulares de salas comerciales y restaurantes.</p>
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 3 Vías" loading="lazy" class="max-h-full w-auto object-contain"/>
+</div>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 3 Vías</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Unidad para inyección de aire con un patrón de distribución de tres vías. Ideal para espacios que requieren cobertura de esquina.</p>
+</div>
 </article>
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 4 vías</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Distribución uniforme en 360°. Recomendado para centros comerciales, auditorios y espacios amplios que requieren confort térmico parejo.</p>
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 4 Vías" loading="lazy" class="max-h-full w-auto object-contain"/>
+</div>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 4 Vías</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Difusor de techo estándar para una distribución de aire completa y equitativa en todas las direcciones.</p>
+</div>
 </article>
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno (Aletas Fijas)" loading="lazy" class="max-h-full w-auto object-contain"/>
 </div>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno (Aletas Fijas)</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Rejilla de retorno de aire para sistemas de ventilación y aire acondicionado. Presenta aletas fijas y diseño de perfil bajo.</p>
 </div>
-</div>
-</div>
-
-<!-- Panel 2: Rejillas de retorno — PLACEHOLDER: no se recibió foto/copy real de este producto.
-     Imagen reutilizada de project-industrial-ducts (ya en el proyecto) y descripciones genéricas
-     de la industria, a pedido del cliente ("por ahora"). Reemplazar cuando haya contenido real. -->
-<div class="tab-panel mt-6 hidden overflow-hidden rounded-2xl border-2 border-brand bg-white p-4 shadow-sm sm:p-6" data-panel="retorno">
-<div class="grid gap-6 lg:grid-cols-2">
-<div class="flex items-center justify-center rounded-xl bg-subtle p-4 sm:p-6">
-<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejillas de retorno" loading="lazy" class="max-h-64 w-auto object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.12)] sm:max-h-80"/>
-</div>
-<div class="flex flex-col justify-center">
-<h3 class="font-display text-xl font-extrabold uppercase text-brand sm:text-2xl">Rejillas de retorno (aletas fijas y perimetrales)</h3>
-<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de aletas fijas</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Aletas fijas a 45° para retorno de aire en muro o plafón, con vista limpia y flujo constante sin partes móviles.</p>
 </article>
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla perimetral</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Marco perimetral de bajo perfil, pensado para integrarse discretamente en el borde de plafones comerciales y residenciales.</p>
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno Perimetral" loading="lazy" class="max-h-full w-auto object-contain"/>
+</div>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno Perimetral</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Rejilla de retorno con aletas dispuestas en patrón perimetral para una mayor captación de aire.</p>
+</div>
 </article>
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="lineales">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-linear-diffusers.jpeg" alt="Rejilla Lineal de Inyección" loading="lazy" class="max-h-full w-auto object-contain"/>
 </div>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla Lineal de Inyección</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Rejilla lineal de diseño elegante y discreto para inyección de aire continuo.</p>
 </div>
-</div>
-</div>
-
-<!-- Panel 3: Rejillas lineales de inyección — PLACEHOLDER: no se recibió foto/copy real de este producto.
-     Imagen reutilizada de project-ceiling (ya en el proyecto) y descripciones genéricas
-     de la industria, a pedido del cliente ("por ahora"). Reemplazar cuando haya contenido real. -->
-<div class="tab-panel mt-6 hidden overflow-hidden rounded-2xl border-2 border-brand bg-white p-4 shadow-sm sm:p-6" data-panel="lineales">
-<div class="grid gap-6 lg:grid-cols-2">
-<div class="flex items-center justify-center rounded-xl bg-subtle p-4 sm:p-6">
-<img src="/ruaire/images/product-linear-diffusers.jpeg" alt="Rejillas lineales de inyección" loading="lazy" class="max-h-64 w-auto object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.12)] sm:max-h-80"/>
-</div>
-<div class="flex flex-col justify-center">
-<h3 class="font-display text-xl font-extrabold uppercase text-brand sm:text-2xl">Rejillas lineales de inyección</h3>
-<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla lineal de 1 ranura</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Perfil delgado de una sola ranura en aluminio extruido, ideal para plafones minimalistas de oficina y retail.</p>
 </article>
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla lineal de 2 ranuras</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Mayor capacidad de inyección de aire manteniendo un acabado lineal continuo a lo largo del plafón.</p>
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-extractors.jpg" alt="Extractor Industrial" loading="lazy" class="max-h-full w-auto object-contain"/>
+</div>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor Industrial</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Extractor centrífugo de alto rendimiento diseñado para ventilación general y extracción de humos.</p>
+</div>
 </article>
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla lineal de 3 ranuras</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Recomendada para espacios amplios que requieren mayor volumen de aire con distribución uniforme y bajo ruido.</p>
-</article>
+<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
+<div class="flex h-40 items-center justify-center bg-subtle p-4">
+<img src="/ruaire/images/product-extractors.jpg" alt="Extractor para Baño" loading="lazy" class="max-h-full w-auto object-contain"/>
 </div>
-</div>
-</div>
-</div>
-
-<!-- Panel 4: Extractores — contenido real, extraído del PDF/captura de pantalla del sitio -->
-<div class="tab-panel mt-6 hidden overflow-hidden rounded-2xl border-2 border-brand bg-white p-4 shadow-sm sm:p-6" data-panel="extractores">
-<div class="grid gap-6 lg:grid-cols-2">
-<div class="flex items-center justify-center rounded-xl bg-subtle p-4 sm:p-6">
-<img src="/ruaire/images/product-extractors.jpg" alt="Extractores para baño y cocina" loading="lazy" class="max-h-64 w-auto object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.12)] sm:max-h-80"/>
-</div>
-<div class="flex flex-col justify-center">
-<h3 class="font-display text-xl font-extrabold uppercase text-brand sm:text-2xl">Extractores para baño y cocina</h3>
-<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Extractor para baño</h4>
+<div class="p-4">
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor para Baño</h3>
 <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Extracción de humedad y olores con bajo nivel de ruido. Ideal para baños residenciales, hoteles y áreas comunes.</p>
-</article>
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Extractor centrífugo para cocina</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Alta capacidad de extracción de grasa, humo y vapor. Diseñado para ductos con presión media/alta en cocinas industriales.</p>
-</article>
-<article class="rounded-xl border border-border bg-subtle p-4 transition hover:shadow-sm">
-<h4 class="font-display text-sm font-extrabold uppercase text-brand">Ventilador centrífugo</h4>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Flujo de aire forzado para sistemas de ventilación, extracción de calor y renovación de aire en espacios confinados.</p>
-</article>
 </div>
-</div>
-</div>
+</article>
 </div>
 
 <div class="mt-10 flex justify-center">
@@ -543,11 +516,11 @@ export default function RuairePage() {
     }
     menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
 
-    const tabButtons = Array.from(document.querySelectorAll<HTMLButtonElement>(".tab-btn"));
-    const tabPanels = Array.from(document.querySelectorAll<HTMLDivElement>(".tab-panel"));
-    function onTabClick(this: HTMLButtonElement) {
-      const target = this.getAttribute("data-tab");
-      tabButtons.forEach((b) => {
+    const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>(".filter-btn"));
+    const productCards = Array.from(document.querySelectorAll<HTMLElement>(".product-card"));
+    function onFilterClick(this: HTMLButtonElement) {
+      const target = this.getAttribute("data-filter");
+      filterButtons.forEach((b) => {
         const active = b === this;
         b.setAttribute("aria-pressed", active ? "true" : "false");
         b.classList.toggle("bg-primary", active);
@@ -558,11 +531,12 @@ export default function RuairePage() {
         b.classList.toggle("bg-white", !active);
         b.classList.toggle("text-brand", !active);
       });
-      tabPanels.forEach((panel) => {
-        panel.classList.toggle("hidden", panel.getAttribute("data-panel") !== target);
+      productCards.forEach((card) => {
+        const show = target === "todos" || card.getAttribute("data-category") === target;
+        card.classList.toggle("hidden", !show);
       });
     }
-    tabButtons.forEach((btn) => btn.addEventListener("click", onTabClick));
+    filterButtons.forEach((btn) => btn.addEventListener("click", onFilterClick));
 
     const carousel = document.getElementById("projectsCarousel");
     const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("#carouselDots .dot"));
@@ -599,7 +573,7 @@ export default function RuairePage() {
     return () => {
       menuBtn?.removeEventListener("click", onMenuBtnClick);
       menuLinks.forEach((link) => link.removeEventListener("click", closeMenu));
-      tabButtons.forEach((btn) => btn.removeEventListener("click", onTabClick));
+      filterButtons.forEach((btn) => btn.removeEventListener("click", onFilterClick));
       carousel?.removeEventListener("scroll", onCarouselScroll);
       dots.forEach((dot, i) => dot.removeEventListener("click", dotClickHandlers[i]));
       form?.removeEventListener("submit", onSubmit);
