@@ -8,7 +8,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
 <a href="#inicio" class="text-brand-foreground">
 <div class="flex items-center gap-3 ">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/logo-ruaire.webp"/>
 <img src="/ruaire/images/logo-ruaire.png" alt="RUAIRE - Instalación de ductos y mantenimiento" class="h-10 w-auto sm:h-11" />
+</picture>
 </div>
 </a>
 <nav class="hidden items-center gap-7 lg:flex">
@@ -40,7 +43,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </header>
 
 <section class="relative isolate overflow-hidden bg-[#0b0f17] text-white">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/hero-ducts.webp"/>
 <img src="/ruaire/images/hero-ducts.jpg" alt="Ductos y difusores HVAC industriales instalados en techo" width="1920" height="1080" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"/>
+</picture>
 <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/20"></div>
 <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
 <div class="max-w-2xl">
@@ -150,7 +156,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" id="productGrid">
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
 <div class="h-48 w-full overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/product-diffusers-combined.webp"/>
 <img src="/ruaire/images/product-diffusers-combined.jpeg" alt="Difusores de 2, 3 y 4 Vías" loading="lazy" class="h-full w-full object-cover"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusores de 2, 3 y 4 Vías</h3>
@@ -159,7 +168,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
 <div class="h-48 w-full overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/product-return-grille-fixed.webp"/>
 <img src="/ruaire/images/product-return-grille-fixed.jpg" alt="Rejilla de Retorno (Aletas Fijas)" loading="lazy" class="h-full w-full object-cover"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno (Aletas Fijas)</h3>
@@ -168,7 +180,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
 <div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-return-grille-perimeter.png" alt="Rejilla de Retorno Perimetral" loading="lazy" class="h-full w-full object-cover"/>
+<picture>
+<source type="image/webp" srcset="/ruaire/images/product-return-grille-perimeter.webp"/>
+<img src="/ruaire/images/product-return-grille-perimeter.jpg" alt="Rejilla de Retorno Perimetral" loading="lazy" class="h-full w-full object-cover"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno Perimetral</h3>
@@ -177,7 +192,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="lineales">
 <div class="h-48 w-full overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/product-linear-grille-install.webp"/>
 <img src="/ruaire/images/product-linear-grille-install.jpeg" alt="Rejilla Lineal de Inyección" loading="lazy" class="h-full w-full object-cover"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla Lineal de Inyección</h3>
@@ -186,7 +204,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
 <div class="h-48 w-full overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/product-extractor-industrial.webp"/>
 <img src="/ruaire/images/product-extractor-industrial.jpeg" alt="Extractor Industrial" loading="lazy" class="h-full w-full object-cover"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor Industrial</h3>
@@ -195,7 +216,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
 <div class="h-48 w-full overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/product-extractor-bano.webp"/>
 <img src="/ruaire/images/product-extractor-bano.jpeg" alt="Extractor para Baño" loading="lazy" class="h-full w-full object-cover"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor para Baño</h3>
@@ -221,7 +245,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="mt-12 hidden gap-4 md:grid md:grid-cols-3 lg:grid-cols-5">
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-ceiling.webp"/>
 <img src="/ruaire/images/project-ceiling.jpeg" alt="INSTALACIÓN SUTIL EN PLAFÓN COMERCIAL" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">INSTALACIÓN SUTIL EN PLAFÓN COMERCIAL</h3>
@@ -230,7 +257,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-rooftop.webp"/>
 <img src="/ruaire/images/project-rooftop.jpeg" alt="MANTENIMIENTO Y RENOVACIÓN DE UNIDAD DE AZOTEA" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">MANTENIMIENTO Y RENOVACIÓN DE UNIDAD DE AZOTEA</h3>
@@ -239,7 +269,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-industrial-ducts.webp"/>
 <img src="/ruaire/images/project-industrial-ducts.jpg" alt="SISTEMA DE DUCTOS INDUSTRIALES" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">SISTEMA DE DUCTOS INDUSTRIALES</h3>
@@ -248,7 +281,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-technician.webp"/>
 <img src="/ruaire/images/project-technician.jpg" alt="INSTALACIÓN PROFESIONAL Y SEGURA" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">INSTALACIÓN PROFESIONAL Y SEGURA</h3>
@@ -272,7 +308,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="w-full shrink-0 snap-start">
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-ceiling.webp"/>
 <img src="/ruaire/images/project-ceiling.jpeg" alt="INSTALACIÓN SUTIL EN PLAFÓN COMERCIAL" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">INSTALACIÓN SUTIL EN PLAFÓN COMERCIAL</h3>
@@ -283,7 +322,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="w-full shrink-0 snap-start">
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-rooftop.webp"/>
 <img src="/ruaire/images/project-rooftop.jpeg" alt="MANTENIMIENTO Y RENOVACIÓN DE UNIDAD DE AZOTEA" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">MANTENIMIENTO Y RENOVACIÓN DE UNIDAD DE AZOTEA</h3>
@@ -294,7 +336,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="w-full shrink-0 snap-start">
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-industrial-ducts.webp"/>
 <img src="/ruaire/images/project-industrial-ducts.jpg" alt="SISTEMA DE DUCTOS INDUSTRIALES" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">SISTEMA DE DUCTOS INDUSTRIALES</h3>
@@ -305,7 +350,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="w-full shrink-0 snap-start">
 <article class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-lg">
 <div class="aspect-[4/3] overflow-hidden bg-subtle">
+<picture>
+<source type="image/webp" srcset="/ruaire/images/project-technician.webp"/>
 <img src="/ruaire/images/project-technician.jpg" alt="INSTALACIÓN PROFESIONAL Y SEGURA" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+</picture>
 </div>
 <div class="p-4">
 <h3 class="text-xs font-extrabold uppercase leading-tight text-brand">INSTALACIÓN PROFESIONAL Y SEGURA</h3>
@@ -387,7 +435,10 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="grid gap-10 lg:grid-cols-[1fr_1fr_1fr]">
 <div>
 <div class="flex items-center gap-3 ">
-<img src="/ruaire/images/logo-ruaire.png" alt="RUAIRE - Instalación de ductos y mantenimiento" class="h-10 w-auto sm:h-11" />
+<picture>
+<source type="image/webp" srcset="/ruaire/images/logo-ruaire.webp"/>
+<img src="/ruaire/images/logo-ruaire.png" alt="RUAIRE - Instalación de ductos y mantenimiento" loading="lazy" class="h-10 w-auto sm:h-11" />
+</picture>
 </div>
 <p class="mt-5 max-w-xs text-sm text-white/80">Especialistas en fabricación, instalación y mantenimiento de sistemas de ventilación y aire acondicionado.</p>
 <div class="mt-5 flex gap-2">
