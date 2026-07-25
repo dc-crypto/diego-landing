@@ -71,9 +71,9 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 
 <article class="group relative flex flex-col items-center rounded-xl border border-border bg-card p-5 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
 <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-subtle text-brand transition group-hover:bg-primary group-hover:text-primary-foreground">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hammer h-7 w-7" aria-hidden="true">
-<path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"></path><path d="m18 15 4-4"></path>
-<path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"></path>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cylinder h-7 w-7" aria-hidden="true">
+<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+<path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
 </svg>
 </div>
 <h3 class="text-[0.8rem] font-extrabold uppercase leading-tight text-brand">FABRICACIÓN</h3>
