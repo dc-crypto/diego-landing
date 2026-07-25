@@ -150,29 +150,11 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="productGrid">
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
 <div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 2 Vías" loading="lazy" class="h-full w-full object-cover"/>
+<img src="/ruaire/images/product-diffusers-combined.jpeg" alt="Difusores de 2, 3 y 4 Vías" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
-<h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 2 Vías</h3>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Difusor de techo para distribución de aire en dos direcciones opuestas. Fabricado en aluminio con acabado de pintura electrostática.</p>
-</div>
-</article>
-<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
-<div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 3 Vías" loading="lazy" class="h-full w-full object-cover"/>
-</div>
-<div class="p-4">
-<h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 3 Vías</h3>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Unidad para inyección de aire con un patrón de distribución de tres vías. Ideal para espacios que requieren cobertura de esquina.</p>
-</div>
-</article>
-<article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
-<div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-diffusers-2-3-4-way.jpg" alt="Difusor de 4 Vías" loading="lazy" class="h-full w-full object-cover"/>
-</div>
-<div class="p-4">
-<h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusor de 4 Vías</h3>
-<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Difusor de techo estándar para una distribución de aire completa y equitativa en todas las direcciones.</p>
+<h3 class="font-display text-sm font-extrabold uppercase text-brand">Difusores de 2, 3 y 4 Vías</h3>
+<p class="mt-1 text-sm leading-relaxed text-muted-foreground">Difusores de techo disponibles en 2, 3 y 4 vías de distribución. Fabricados en aluminio con acabado de pintura electrostática, para cobertura lineal, de esquina o 360°.</p>
 </div>
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
