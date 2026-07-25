@@ -147,7 +147,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 
 <!-- Galería de productos — imágenes placeholder reutilizadas por categoría hasta recibir fotos reales por producto. -->
-<div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="productGrid">
+<div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" id="productGrid">
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="difusores">
 <div class="h-48 w-full overflow-hidden bg-subtle">
 <img src="/ruaire/images/product-diffusers-combined.jpeg" alt="Difusores de 2, 3 y 4 Vías" loading="lazy" class="h-full w-full object-cover"/>
