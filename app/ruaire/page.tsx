@@ -484,6 +484,9 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <span>Lunes a Sábado: 8:00 am – 6:00 pm</span>
 </li>
 </ul>
+<a href="https://www.google.com/maps/search/?api=1&query=Abasolo+166+B%2C+C.P.+48290%2C+El+Pitillal%2C+Jalisco" target="_blank" rel="noreferrer" aria-label="Abrir ubicación de RUAIRE en Google Maps" class="relative mt-5 block h-[240px] w-full overflow-hidden rounded-xl border border-white/10 shadow-sm transition hover:brightness-95">
+<iframe src="https://www.google.com/maps?q=Abasolo+166+B,+C.P.+48290,+El+Pitillal,+Jalisco&z=16&output=embed" class="pointer-events-none absolute inset-x-0 -top-[46px] h-[286px] w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de RUAIRE en el mapa"></iframe>
+</a>
 </div>
 </div>
 </div>
