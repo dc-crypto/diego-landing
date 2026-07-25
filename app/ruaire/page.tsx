@@ -143,7 +143,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <button type="button" data-filter="difusores" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Difusores de 2, 3 y 4 vías</button>
 <button type="button" data-filter="retorno" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Rejillas de retorno (aletas fijas y perimetrales)</button>
 <button type="button" data-filter="lineales" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Rejillas lineales de inyección</button>
-<button type="button" data-filter="extractores" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Extractores para baño y cocina</button>
+<button type="button" data-filter="extractores" aria-pressed="false" class="filter-btn rounded-lg px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition border border-brand bg-white text-brand hover:bg-brand/5">Extractores</button>
 </div>
 
 <!-- Galería de productos — imágenes placeholder reutilizadas por categoría hasta recibir fotos reales por producto. -->
