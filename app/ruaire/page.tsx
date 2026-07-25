@@ -19,7 +19,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <a href="#contacto" class="text-sm font-semibold tracking-wide text-brand-foreground/90 transition hover:text-primary">CONTACTO</a>
 </nav>
 <div class="flex items-center gap-2">
-<a href="#contacto" class="hidden items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-bold tracking-wide text-primary-foreground shadow-sm transition hover:brightness-110 sm:inline-flex">
+<a href="https://wa.me/5213222949871?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noreferrer" class="hidden items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-bold tracking-wide text-primary-foreground shadow-sm transition hover:brightness-110 sm:inline-flex">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone h-4 w-4" aria-hidden="true">
 <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
 </svg>COTIZAR AHORA</a>
@@ -48,11 +48,11 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <h1 class="font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">Rejillas y difusores para aire acondicionado y extractores</h1>
 <p class="mt-5 max-w-xl text-base text-white/85 sm:text-lg">Diseño, fabricación, instalación y mantenimiento certificado para proyectos residenciales, comerciales e industriales.</p>
 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-<a href="https://wa.me/15555208900?text=Hola%20RUAIRE%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-lg transition hover:brightness-110">
+<a href="https://wa.me/5213222949871?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-lg transition hover:brightness-110">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle h-5 w-5" aria-hidden="true">
 <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
 </svg>Contactar por WhatsApp</a>
-<a href="#contacto" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/90 bg-transparent px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-white hover:text-brand">
+<a href="https://wa.me/5213222949871?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/90 bg-transparent px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-white hover:text-brand">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-5 w-5" aria-hidden="true">
 <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path>
 <path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path>
@@ -250,7 +250,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 
 <div class="mt-10 flex justify-center">
-<a href="#contacto" class="inline-flex w-full max-w-xl items-center justify-center gap-2 rounded-md bg-primary px-6 py-4 text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-md transition hover:brightness-110 sm:w-auto">
+<a href="https://wa.me/5213222949871?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noreferrer" class="inline-flex w-full max-w-xl items-center justify-center gap-2 rounded-md bg-primary px-6 py-4 text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-md transition hover:brightness-110 sm:w-auto">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download h-5 w-5" aria-hidden="true">
 <path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path>
 </svg>Solicitar catálogo completo (PDF)</a>
@@ -463,7 +463,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true">
 <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
 </svg>
-<a href="tel:+15555208900" class="hover:underline">02 (555) 520 890</a>
+<a href="tel:+5213222949871" class="hover:underline">+52 1 322 294 9871</a>
 </li>
 <li class="flex items-start gap-3">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true">
@@ -475,7 +475,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true">
 <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle>
 </svg>
-<span>Av. Ventilación 284, Parque Industrial Palmal, London.</span>
+<span>Abasolo 166 B, C.P. 48290, El Pitillal, Jalisco</span>
 </li>
 <li class="flex items-start gap-3">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true">
@@ -490,7 +490,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="border-t border-white/10 bg-[#164a8a] py-4 text-center text-xs text-white/80 sm:pb-4 pb-20">© <span id="year">2026</span> RUAIRE. Todos los derechos reservados.</div>
 </footer>
 
-<a href="https://wa.me/15555208900?text=Hola%20RUAIRE%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp" class="fixed bottom-24 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-2xl transition hover:scale-110 sm:bottom-6 sm:right-6">
+<a href="https://wa.me/5213222949871?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp" class="fixed bottom-24 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-2xl transition hover:scale-110 sm:bottom-6 sm:right-6">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle h-7 w-7" aria-hidden="true">
 <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
 </svg>
@@ -498,15 +498,15 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </a>
 
 <nav class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-white/10 bg-brand text-brand-foreground shadow-[0_-4px_12px_rgba(0,0,0,0.15)] sm:hidden">
-<a href="tel:+15555208900" rel="noreferrer" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[0.7rem] font-semibold transition active:bg-white/10">
+<a href="tel:+5213222949871" rel="noreferrer" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[0.7rem] font-semibold transition active:bg-white/10">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone h-5 w-5 text-primary" aria-hidden="true">
 <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
 </svg>Llamar</a>
-<a href="https://wa.me/15555208900?text=Hola%20RUAIRE%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noreferrer" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[0.7rem] font-semibold transition active:bg-white/10">
+<a href="https://wa.me/5213222949871?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noreferrer" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[0.7rem] font-semibold transition active:bg-white/10">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle h-5 w-5 text-primary" aria-hidden="true">
 <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
 </svg>WhatsApp</a>
-<a href="#contacto" rel="noreferrer" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[0.7rem] font-semibold transition active:bg-white/10">
+<a href="https://wa.me/5213222949871?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noreferrer" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[0.7rem] font-semibold transition active:bg-white/10">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-5 w-5 text-primary" aria-hidden="true">
 <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path>
 <path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path>
