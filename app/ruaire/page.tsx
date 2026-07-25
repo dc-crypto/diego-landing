@@ -177,7 +177,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
 <div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno (Aletas Fijas)" loading="lazy" class="h-full w-full object-cover"/>
+<img src="/ruaire/images/product-return-grille-fixed.jpg" alt="Rejilla de Retorno (Aletas Fijas)" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno (Aletas Fijas)</h3>
@@ -186,7 +186,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="retorno">
 <div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-return-grilles.jpg" alt="Rejilla de Retorno Perimetral" loading="lazy" class="h-full w-full object-cover"/>
+<img src="/ruaire/images/product-return-grille-perimeter.png" alt="Rejilla de Retorno Perimetral" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla de Retorno Perimetral</h3>
@@ -204,7 +204,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
 <div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-extractors.jpg" alt="Extractor Industrial" loading="lazy" class="h-full w-full object-cover"/>
+<img src="/ruaire/images/product-extractor-industrial.jpeg" alt="Extractor Industrial" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor Industrial</h3>
@@ -213,7 +213,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="extractores">
 <div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-extractors.jpg" alt="Extractor para Baño" loading="lazy" class="h-full w-full object-cover"/>
+<img src="/ruaire/images/product-extractor-bano.jpeg" alt="Extractor para Baño" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Extractor para Baño</h3>
