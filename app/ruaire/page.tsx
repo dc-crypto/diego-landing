@@ -195,7 +195,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </article>
 <article class="product-card overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:shadow-lg" data-category="lineales">
 <div class="h-48 w-full overflow-hidden bg-subtle">
-<img src="/ruaire/images/product-linear-diffusers.jpeg" alt="Rejilla Lineal de Inyección" loading="lazy" class="h-full w-full object-cover"/>
+<img src="/ruaire/images/product-linear-grille-install.jpeg" alt="Rejilla Lineal de Inyección" loading="lazy" class="h-full w-full object-cover"/>
 </div>
 <div class="p-4">
 <h3 class="font-display text-sm font-extrabold uppercase text-brand">Rejilla Lineal de Inyección</h3>
