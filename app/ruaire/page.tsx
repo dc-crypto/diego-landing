@@ -8,19 +8,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
 <a href="#inicio" class="text-brand-foreground">
 <div class="flex items-center gap-3 ">
-<svg viewBox="0 0 64 48" class="h-11 w-14 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
-<path d="M4 20 C 4 8, 20 6, 22 18 L 22 30 L 4 30 Z" stroke-width="2.2"></path>
-<path d="M8 14 L 12 14 M 6 20 L 22 20" stroke-width="1.2" opacity="0.7"></path>
-<path d="M26 16 L 46 16 L 50 22 L 50 34 L 30 34 L 26 28 Z" stroke-width="2.2"></path>
-<path d="M26 16 L 30 22 L 50 22 M 30 22 L 30 34" stroke-width="1.5"></path>
-<path d="M52 22 L 60 22 M 57 19 L 60 22 L 57 25" stroke-width="1.6"></path>
-<path d="M52 27 L 62 27 M 59 24 L 62 27 L 59 30" stroke-width="1.6"></path>
-<path d="M52 32 L 58 32 M 55 29 L 58 32 L 55 35" stroke-width="1.6"></path>
-</svg>
-<div class="leading-none">
-<div class="font-display text-2xl font-extrabold italic tracking-tight sm:text-[1.75rem]" style="font-stretch:condensed">RUAIRE</div>
-<div class="mt-1 text-[0.55rem] font-semibold tracking-[0.12em] opacity-90 sm:text-[0.6rem]">INSTALACIÓN DE DUCTOS<br/>Y MANTENIMIENTO</div>
-</div>
+<img src="/ruaire/images/logo-ruaire.png" alt="RUAIRE - Instalación de ductos y mantenimiento" class="h-10 w-auto sm:h-11" />
 </div>
 </a>
 <nav class="hidden items-center gap-7 lg:flex">
@@ -456,19 +444,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="grid gap-10 lg:grid-cols-[1fr_1fr_1fr]">
 <div>
 <div class="flex items-center gap-3 ">
-<svg viewBox="0 0 64 48" class="h-11 w-14 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
-<path d="M4 20 C 4 8, 20 6, 22 18 L 22 30 L 4 30 Z" stroke-width="2.2"></path>
-<path d="M8 14 L 12 14 M 6 20 L 22 20" stroke-width="1.2" opacity="0.7"></path>
-<path d="M26 16 L 46 16 L 50 22 L 50 34 L 30 34 L 26 28 Z" stroke-width="2.2"></path>
-<path d="M26 16 L 30 22 L 50 22 M 30 22 L 30 34" stroke-width="1.5"></path>
-<path d="M52 22 L 60 22 M 57 19 L 60 22 L 57 25" stroke-width="1.6"></path>
-<path d="M52 27 L 62 27 M 59 24 L 62 27 L 59 30" stroke-width="1.6"></path>
-<path d="M52 32 L 58 32 M 55 29 L 58 32 L 55 35" stroke-width="1.6"></path>
-</svg>
-<div class="leading-none">
-<div class="font-display text-2xl font-extrabold italic tracking-tight sm:text-[1.75rem]" style="font-stretch:condensed">RUAIRE</div>
-<div class="mt-1 text-[0.55rem] font-semibold tracking-[0.12em] opacity-90 sm:text-[0.6rem]">INSTALACIÓN DE DUCTOS<br/>Y MANTENIMIENTO</div>
-</div>
+<img src="/ruaire/images/logo-ruaire.png" alt="RUAIRE - Instalación de ductos y mantenimiento" class="h-10 w-auto sm:h-11" />
 </div>
 <p class="mt-5 max-w-xs text-sm text-white/80">Especialistas en fabricación, instalación y mantenimiento de sistemas de ventilación y aire acondicionado.</p>
 <div class="mt-5 flex gap-2">
