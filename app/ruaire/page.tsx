@@ -67,7 +67,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="text-center">
 <h2 class="section-title font-display text-2xl font-extrabold uppercase tracking-wide text-brand sm:text-3xl">Nuestros Servicios</h2>
 </div>
-<div class="mt-12 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-6">
+<div class="mt-12 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
 
 <article class="group relative flex flex-col items-center rounded-xl border border-border bg-card p-5 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
 <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-subtle text-brand transition group-hover:bg-primary group-hover:text-primary-foreground">
@@ -115,18 +115,6 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 <h3 class="text-[0.8rem] font-extrabold uppercase leading-tight text-brand">REPARACIÓN</h3>
 <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Diagnóstico rápido y solución de fallas en HVAC.</p>
-<div class="mt-4 h-0.5 w-8 bg-primary/70"></div>
-</article>
-
-<article class="group relative flex flex-col items-center rounded-xl border border-border bg-card p-5 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-<div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-subtle text-brand transition group-hover:bg-primary group-hover:text-primary-foreground">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-7 w-7" aria-hidden="true">
-<path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
-<path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle>
-</svg>
-</div>
-<h3 class="text-[0.8rem] font-extrabold uppercase leading-tight text-brand">LIMPIEZA DE DUCTOS</h3>
-<p class="mt-2 text-xs leading-relaxed text-muted-foreground">Eliminación de polvo, grasa y contaminantes.</p>
 <div class="mt-4 h-0.5 w-8 bg-primary/70"></div>
 </article>
 
