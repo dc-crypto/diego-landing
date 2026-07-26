@@ -73,7 +73,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <div class="text-center">
 <h2 class="section-title font-display text-2xl font-extrabold uppercase tracking-wide text-brand sm:text-3xl">Nuestros Servicios</h2>
 </div>
-<div class="mt-12 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
+<div class="mt-12 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
 
 <article class="group relative flex flex-col items-center rounded-xl border border-border bg-card p-5 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
 <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-subtle text-brand transition group-hover:bg-primary group-hover:text-primary-foreground">
@@ -121,17 +121,6 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 </div>
 <h3 class="text-[0.8rem] font-extrabold uppercase leading-tight text-brand">REPARACIÓN</h3>
 <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Diagnóstico rápido y solución de fallas en HVAC.</p>
-<div class="mt-4 h-0.5 w-8 bg-primary/70"></div>
-</article>
-
-<article class="group relative flex flex-col items-center rounded-xl border border-border bg-card p-5 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-<div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-subtle text-brand transition group-hover:bg-primary group-hover:text-primary-foreground">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind h-7 w-7" aria-hidden="true">
-<path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path>
-</svg>
-</div>
-<h3 class="text-[0.8rem] font-extrabold uppercase leading-tight text-brand">BALANCEO DE AIRE</h3>
-<p class="mt-2 text-xs leading-relaxed text-muted-foreground">Optimización del flujo para eficiencia energética.</p>
 <div class="mt-4 h-0.5 w-8 bg-primary/70"></div>
 </article>
 
@@ -475,7 +464,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true">
 <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect>
 </svg>
-<a href="mailto:info@ruaire.com" class="hover:underline">info@ruaire.com</a>
+<a href="mailto:ruponceviveros@yahoo.com.mx" class="hover:underline">ruponceviveros@yahoo.com.mx</a>
 </li>
 <li class="flex items-start gap-3">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true">
@@ -595,6 +584,19 @@ export default function RuairePage() {
     const label = document.getElementById("contactFormLabel");
     function onSubmit(e: SubmitEvent) {
       e.preventDefault();
+      if (form) {
+        const data = new FormData(form);
+        const nombre = (data.get("nombre") as string) || "";
+        const email = (data.get("email") as string) || "";
+        const mensaje = (data.get("mensaje") as string) || "";
+        const subject = "Nuevo mensaje de contacto - RUAIRE";
+        const body = "Nombre: " + nombre + "\nCorreo: " + email + "\n\n" + mensaje;
+        window.location.href =
+          "mailto:ruponceviveros@yahoo.com.mx?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body);
+      }
       if (label) label.textContent = "¡Mensaje enviado!";
       form?.reset();
       setTimeout(() => {
