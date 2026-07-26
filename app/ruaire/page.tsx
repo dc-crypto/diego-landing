@@ -476,7 +476,7 @@ const HTML = `<div class="min-h-screen bg-background text-foreground">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true">
 <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
 </svg>
-<span>Lunes a Sábado: 8:00 am – 6:00 pm</span>
+<span><span class="block">Lunes a Viernes: 9:00 am – 6:00 pm</span><span class="block">Sábados: 9:00 am – 2:00 pm</span></span>
 </li>
 </ul>
 <a href="https://www.google.com/maps/search/?api=1&query=Abasolo+166+B%2C+C.P.+48290%2C+El+Pitillal%2C+Jalisco" target="_blank" rel="noreferrer" aria-label="Abrir ubicación de RUAIRE en Google Maps" class="relative mt-5 block h-[240px] w-full overflow-hidden rounded-xl border border-white/10 shadow-sm transition hover:brightness-95 lg:hidden">
