@@ -53,7 +53,7 @@ function BlogNav() {
   const links = [
     { label: "Inicio",    href: "/" },
     { label: "Servicios", href: "/#servicios" },
-    { label: "Proyectos", href: "/#portafolio" },
+    { label: "Proyectos", href: "/proyectos/" },
     { label: "Blog",      href: "/#blog" },
     { label: "Contacto",  href: "/#contacto" },
   ];
@@ -112,7 +112,7 @@ function BlogNav() {
 
 function BlogFooter() {
   const cols = [
-    { title: "Navegación", links: [["Inicio", "/"], ["Servicios", "/#servicios"], ["Proyectos", "/#portafolio"], ["Blog", "/#blog"], ["Contacto", "/#contacto"]] },
+    { title: "Navegación", links: [["Inicio", "/"], ["Servicios", "/#servicios"], ["Proyectos", "/proyectos/"], ["Blog", "/#blog"], ["Contacto", "/#contacto"]] },
     { title: "Servicios",  links: [["Páginas Web", "/#servicios"], ["Automatización", "/#servicios"], ["Inteligencia Artificial", "/#servicios"], ["Software a la Medida", "/#servicios"]] },
     { title: "Blog",       links: [["¿Por qué necesitas web?", "/blog/por-que-tu-negocio-necesita-pagina-web"], ["Automatizar WhatsApp", "/blog/automatizar-whatsapp-empresa"], ["5 errores en tu sitio", "/blog/errores-que-hacen-perder-clientes"]] },
   ];

@@ -123,7 +123,7 @@ function PageNav() {
     { label: "Páginas Web", href: "#servicios" },
     { label: "Automatización", href: "#servicios" },
     { label: "Inteligencia Artificial", href: "#servicios" },
-    { label: "Proyectos", href: "#portafolio" },
+    { label: "Proyectos", href: "/proyectos/" },
     { label: "Blog", href: "#blog" },
   ];
   return (
@@ -776,7 +776,7 @@ function Portfolio() {
             <SH>Soluciones digitales diseñadas para hacer crecer negocios.</SH>
           </Reveal>
           <Reveal delay={0.2}>
-            <OBtn href="/portafolio" outline>Ver todos los proyectos</OBtn>
+            <OBtn href="/proyectos/" outline>Ver todos los proyectos</OBtn>
           </Reveal>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: C.border }} className="port-grid">
