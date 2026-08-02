@@ -77,7 +77,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  observeReveal(document.querySelectorAll(".reveal"));
+  observeReveal(document.querySelectorAll(".reveal:not(.destination-card)"));
+
+  // Destination cards reveal together based on the track's own visibility.
+  // Individually observing each card breaks once there are more cards than
+  // fit on screen: a card scrolled out of view horizontally never counts as
+  // "intersecting" the viewport, so it would stay invisible forever.
+  const destinationsTrackEl = document.getElementById("destinationsTrack");
+  if (destinationsTrackEl) {
+    const revealDestinationCards = () => {
+      destinationsTrackEl.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+    };
+    if (revealObserver) {
+      const trackObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              revealDestinationCards();
+              trackObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      trackObserver.observe(destinationsTrackEl);
+    } else {
+      revealDestinationCards();
+    }
+  }
 
   // Featured collection carousel (crossfade between slides)
   const track = document.getElementById("collectionTrack");

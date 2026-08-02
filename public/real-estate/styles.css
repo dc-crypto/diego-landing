@@ -108,6 +108,18 @@ a {
   transition-delay: 0.24s;
 }
 
+.destinations-track .reveal:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+.destinations-track .reveal:nth-child(5) {
+  transition-delay: 0.48s;
+}
+
+.destinations-track .reveal:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-bg.kenburns-play {
     animation: none;
@@ -880,9 +892,15 @@ a {
   display: none;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 720px) and (max-width: 1079px) {
   .destination-card {
-    flex: 1 1 0;
+    flex: 0 0 calc((100% - 1.25rem) / 2);
+  }
+}
+
+@media (min-width: 1080px) {
+  .destination-card {
+    flex: 0 0 calc((100% - 2 * 1.25rem) / 3);
   }
 }
 
