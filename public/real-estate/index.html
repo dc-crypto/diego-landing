@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Costa Privada | Villas y propiedades de lujo en Puerto Vallarta</title>
+<meta name="description" content="Villas y propiedades exclusivas en renta en Puerto Vallarta y Riviera Nayarit. Experiencias privadas, atención personalizada y las mejores ubicaciones frente al mar."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://diegocastro.tech/real-estate/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#inicio" class="logo">Costa<span>Privada</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#propiedades">Propiedades</a>
+      <a href="#zonas">Zonas</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#blog">Blog</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Buscar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#propiedades">Propiedades</a>
+    <a href="#zonas">Zonas</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#blog">Blog</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide is-active" data-index="0">
+      <picture>
+        <source media="(max-width: 700px)" type="image/webp" srcset="images/hero-1-mobile.webp"/>
+        <source media="(max-width: 700px)" srcset="images/hero-1-mobile.jpg"/>
+        <source type="image/webp" srcset="images/hero-1-desktop.webp"/>
+        <img src="images/hero-1-desktop.jpg" alt="Vista aérea nocturna del centro histórico de Puerto Vallarta" class="hero-bg"/>
+      </picture>
+    </div>
+    <div class="hero-slide" data-index="1">
+      <picture>
+        <source media="(max-width: 700px)" type="image/webp" srcset="images/hero-2-mobile.webp"/>
+        <source media="(max-width: 700px)" srcset="images/hero-2-mobile.jpg"/>
+        <source type="image/webp" srcset="images/hero-2-desktop.webp"/>
+        <img src="images/hero-2-desktop.jpg" alt="Vista de la bahía de Puerto Vallarta desde la costa" class="hero-bg"/>
+      </picture>
+    </div>
+    <div class="hero-slide" data-index="2">
+      <picture>
+        <source media="(max-width: 700px)" type="image/webp" srcset="images/hero-3-mobile.webp"/>
+        <source media="(max-width: 700px)" srcset="images/hero-3-mobile.jpg"/>
+        <source type="image/webp" srcset="images/hero-3-desktop.webp"/>
+        <img src="images/hero-3-desktop.jpg" alt="Malecón de Puerto Vallarta al atardecer" class="hero-bg"/>
+      </picture>
+    </div>
+    <div class="hero-slide" data-index="3">
+      <picture>
+        <source media="(max-width: 700px)" type="image/webp" srcset="images/hero-4-mobile.webp"/>
+        <source media="(max-width: 700px)" srcset="images/hero-4-mobile.jpg"/>
+        <source type="image/webp" srcset="images/hero-4-desktop.webp"/>
+        <img src="images/hero-4-desktop.jpg" alt="Costa de Puerto Vallarta entre palmeras al amanecer" class="hero-bg"/>
+      </picture>
+    </div>
+    <div class="hero-slide" data-index="4">
+      <picture>
+        <source media="(max-width: 700px)" type="image/webp" srcset="images/hero-5-mobile.webp"/>
+        <source media="(max-width: 700px)" srcset="images/hero-5-mobile.jpg"/>
+        <source type="image/webp" srcset="images/hero-5-desktop.webp"/>
+        <img src="images/hero-5-desktop.jpg" alt="Alberca infinity de una villa con vista al mar" class="hero-bg"/>
+      </picture>
+    </div>
+    <div class="hero-slide" data-index="5">
+      <picture>
+        <source media="(max-width: 700px)" type="image/webp" srcset="images/hero-6-mobile.webp"/>
+        <source media="(max-width: 700px)" srcset="images/hero-6-mobile.jpg"/>
+        <source type="image/webp" srcset="images/hero-6-desktop.webp"/>
+        <img src="images/hero-6-desktop.jpg" alt="Playa tropical con palmeras" class="hero-bg"/>
+      </picture>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot is-active" data-index="0" aria-label="Imagen 1"></button>
+    <button class="hero-dot" data-index="1" aria-label="Imagen 2"></button>
+    <button class="hero-dot" data-index="2" aria-label="Imagen 3"></button>
+    <button class="hero-dot" data-index="3" aria-label="Imagen 4"></button>
+    <button class="hero-dot" data-index="4" aria-label="Imagen 5"></button>
+    <button class="hero-dot" data-index="5" aria-label="Imagen 6"></button>
+  </div>
+  <div class="hero-content">
+    <h1>Reserva tu próxima estadía privada</h1>
+    <p class="hero-sub">Villas seleccionadas a mano en Puerto Vallarta y Riviera Nayarit</p>
+
+    <form class="search-bar" id="searchBar">
+      <div class="search-field">
+        <label for="destino">Destino</label>
+        <select id="destino" name="destino">
+          <option value="">¿A dónde vas?</option>
+          <option value="zona-romantica">Zona Romántica</option>
+          <option value="conchas-chinas">Conchas Chinas</option>
+          <option value="nuevo-vallarta">Nuevo Vallarta</option>
+          <option value="punta-mita">Punta Mita</option>
+          <option value="sayulita">Sayulita</option>
+          <option value="bucerias">Bucerías</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin" name="checkin"/>
+      </div>
+      <div class="search-field">
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout" name="checkout"/>
+      </div>
+      <button type="submit" class="search-btn">Buscar</button>
+    </form>
+  </div>
+</section>
+
+<section class="value-strip">
+  <div class="value-strip-inner">
+    <div class="value-item reveal">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.4 7.2H22l-6 4.4 2.3 7.2L12 16.4l-6.3 4.4 2.3-7.2-6-4.4h7.6z"></path></svg>
+      <h3>Propiedades exclusivas</h3>
+      <p>Una selección curada de villas privadas con atributos únicos: vistas, acabados y ubicaciones que no encuentras en portales masivos.</p>
+    </div>
+    <div class="value-item reveal">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"></path><path d="M12 6v6l4 2"></path></svg>
+      <h3>Experiencias a la medida</h3>
+      <p>Cada estadía se planea según lo que buscas: privacidad, cercanía a la playa o acceso rápido a la vida nocturna de Vallarta.</p>
+    </div>
+    <div class="value-item reveal">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      <h3>Atención cercana</h3>
+      <p>Un equipo local disponible antes, durante y después de tu llegada — desde la reservación hasta la salida.</p>
+    </div>
+  </div>
+</section>
+
+<section class="collection" id="coleccion">
+  <div class="collection-track" id="collectionTrack">
+
+    <article class="collection-slide is-active">
+      <div class="collection-media">
+        <picture>
+          <source type="image/webp" srcset="images/villa-pool-1.webp"/>
+          <img src="images/villa-pool-1.jpg" alt="Villa moderna con alberca infinity y vista al mar"/>
+        </picture>
+      </div>
+      <div class="collection-text">
+        <span class="eyebrow">Colección Litoral</span>
+        <h2>Villas con vista al mar</h2>
+        <p>Propiedades pensadas para el atardecer: albercas infinity, terrazas abiertas y líneas modernas frente a la costa de Vallarta.</p>
+        <a href="#propiedades" class="btn btn-outline-dark">Ver colección</a>
+      </div>
+    </article>
+
+    <article class="collection-slide">
+      <div class="collection-media">
+        <picture>
+          <source type="image/webp" srcset="images/villa-bedroom-2.webp"/>
+          <img src="images/villa-bedroom-2.jpg" alt="Villa contemporánea con alberca y palmeras"/>
+        </picture>
+      </div>
+      <div class="collection-text">
+        <span class="eyebrow">Colección Costera</span>
+        <h2>Casas frente a la playa</h2>
+        <p>Acceso directo a la arena, diseño contemporáneo y espacios abiertos para disfrutar el clima de la Riviera Nayarit todo el año.</p>
+        <a href="#propiedades" class="btn btn-outline-dark">Ver colección</a>
+      </div>
+    </article>
+
+    <article class="collection-slide">
+      <div class="collection-media">
+        <picture>
+          <source type="image/webp" srcset="images/villa-night-1.webp"/>
+          <img src="images/villa-night-1.jpg" alt="Villa con alberca al atardecer"/>
+        </picture>
+      </div>
+      <div class="collection-text">
+        <span class="eyebrow">Colección Privada</span>
+        <h2>Retiros para grupos grandes</h2>
+        <p>Residencias amplias con múltiples habitaciones, ideales para familias o grupos que buscan quedarse bajo un mismo techo.</p>
+        <a href="#propiedades" class="btn btn-outline-dark">Ver colección</a>
+      </div>
+    </article>
+
+    <button class="collection-arrow collection-arrow-prev" id="collectionPrev" aria-label="Colección anterior">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+    </button>
+    <button class="collection-arrow collection-arrow-next" id="collectionNext" aria-label="Siguiente colección">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+    </button>
+  </div>
+</section>
+
+<section class="offer-banner">
+  <div class="offer-video reveal">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/zG1eHYS7Gq8?autoplay=1&mute=1&loop=1&playlist=zG1eHYS7Gq8&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1"
+      title="Recorrido en video de una villa"
+      allow="autoplay; encrypted-media"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+  </div>
+</section>
+
+<section class="properties" id="propiedades">
+  <div class="section-heading">
+    <h2>Propiedades destacadas</h2>
+    <p>Las más solicitadas por huéspedes en los últimos meses</p>
+  </div>
+  <div class="property-grid" id="propertyGrid">
+    <p class="properties-loading">Cargando propiedades…</p>
+  </div>
+</section>
+
+<section class="destinations" id="zonas">
+  <div class="section-heading">
+    <h2>Zonas populares</h2>
+    <p>Encuentra tu próxima estadía en alguna de estas zonas</p>
+  </div>
+  <div class="destinations-track" id="destinationsTrack">
+    <a href="#propiedades" class="destination-card reveal">
+      <picture>
+        <source type="image/webp" srcset="images/beach-palm-1.webp"/>
+        <img src="images/beach-palm-1.jpg" alt="Playa con palmeras en la Zona Romántica"/>
+      </picture>
+      <span class="destination-name">Zona Romántica</span>
+    </a>
+    <a href="#propiedades" class="destination-card reveal">
+      <picture>
+        <source type="image/webp" srcset="images/villa-view-1.webp"/>
+        <img src="images/villa-view-1.jpg" alt="Vista de Marina Vallarta desde una terraza"/>
+      </picture>
+      <span class="destination-name">Marina Vallarta</span>
+    </a>
+    <a href="#propiedades" class="destination-card reveal">
+      <picture>
+        <source type="image/webp" srcset="images/villa-exterior-1.webp"/>
+        <img src="images/villa-exterior-1.jpg" alt="Villa frente al mar en Nuevo Vallarta"/>
+      </picture>
+      <span class="destination-name">Nuevo Vallarta</span>
+    </a>
+    <button class="destinations-arrow destinations-arrow-prev" aria-label="Zona anterior">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+    </button>
+    <button class="destinations-arrow destinations-arrow-next" aria-label="Siguiente zona">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+    </button>
+  </div>
+</section>
+
+<footer class="site-footer" id="contacto">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <a href="#inicio" class="logo">Costa<span>Privada</span></a>
+      <p>Villas y propiedades exclusivas en renta en Puerto Vallarta y Riviera Nayarit.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="WhatsApp">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Explora</h3>
+      <a href="#propiedades">Propiedades</a>
+      <a href="#zonas">Zonas</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#blog">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <a href="tel:+523221234567">+52 322 123 4567</a>
+      <a href="mailto:hola@costaprivada.mx">hola@costaprivada.mx</a>
+      <span>Puerto Vallarta, Jalisco, México</span>
+    </div>
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> Costa Privada. Todos los derechos reservados.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

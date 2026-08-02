@@ -1,0 +1,97 @@
+[
+  {
+    "id": "villa-horizonte",
+    "name": "Villa Horizonte",
+    "zone": "Conchas Chinas",
+    "guests": 8,
+    "bedrooms": 4,
+    "priceFrom": 12500,
+    "currency": "MXN",
+    "image": "villa-pool-1",
+    "tag": "Vista al mar"
+  },
+  {
+    "id": "casa-alba",
+    "name": "Casa Alba",
+    "zone": "Zona Romántica",
+    "guests": 6,
+    "bedrooms": 3,
+    "priceFrom": 7800,
+    "currency": "MXN",
+    "image": "villa-interior-1",
+    "tag": "Céntrica"
+  },
+  {
+    "id": "villa-palmar-azul",
+    "name": "Villa Palmar Azul",
+    "zone": "Nuevo Vallarta",
+    "guests": 10,
+    "bedrooms": 5,
+    "priceFrom": 19900,
+    "currency": "MXN",
+    "image": "villa-exterior-1",
+    "tag": "Frente de playa"
+  },
+  {
+    "id": "residencia-mirador",
+    "name": "Residencia Mirador",
+    "zone": "Amapas",
+    "guests": 4,
+    "bedrooms": 2,
+    "priceFrom": 5400,
+    "currency": "MXN",
+    "image": "villa-view-1"
+  },
+  {
+    "id": "casa-serena",
+    "name": "Casa Serena",
+    "zone": "Bucerías",
+    "guests": 6,
+    "bedrooms": 3,
+    "priceFrom": 8900,
+    "currency": "MXN",
+    "image": "villa-terrace-1"
+  },
+  {
+    "id": "villa-oceanica",
+    "name": "Villa Oceánica",
+    "zone": "Punta Mita",
+    "guests": 12,
+    "bedrooms": 6,
+    "priceFrom": 34500,
+    "currency": "MXN",
+    "image": "villa-bedroom-1",
+    "tag": "Exclusiva"
+  },
+  {
+    "id": "casa-suite-marina",
+    "name": "Casa Suite Marina",
+    "zone": "Marina Vallarta",
+    "guests": 4,
+    "bedrooms": 2,
+    "priceFrom": 4600,
+    "currency": "MXN",
+    "image": "villa-facade-1"
+  },
+  {
+    "id": "villa-costera-sayulita",
+    "name": "Villa Costera Sayulita",
+    "zone": "Sayulita",
+    "guests": 8,
+    "bedrooms": 4,
+    "priceFrom": 14200,
+    "currency": "MXN",
+    "image": "villa-bedroom-2",
+    "tag": "Frente de playa"
+  },
+  {
+    "id": "casa-del-faro",
+    "name": "Casa del Faro",
+    "zone": "Versalles",
+    "guests": 6,
+    "bedrooms": 3,
+    "priceFrom": 6900,
+    "currency": "MXN",
+    "image": "villa-night-1"
+  }
+]
