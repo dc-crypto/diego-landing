@@ -388,15 +388,19 @@ a {
   box-shadow: var(--shadow);
   max-width: 900px;
   margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .search-field {
   flex: 1;
+  min-width: 0;
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.25rem 0.75rem;
+  box-sizing: border-box;
 }
 
 .search-field label {
@@ -409,12 +413,15 @@ a {
 
 .search-field select,
 .search-field input {
+  width: 100%;
+  min-width: 0;
   border: none;
   font-family: inherit;
   font-size: 0.95rem;
   color: var(--text);
   background: transparent;
   padding: 0.15rem 0;
+  box-sizing: border-box;
 }
 
 .search-field select:focus,
@@ -423,6 +430,7 @@ a {
 }
 
 .search-btn {
+  box-sizing: border-box;
   background: var(--accent);
   color: #fff;
   border: none;
@@ -470,6 +478,7 @@ a {
 
   .search-btn {
     grid-column: 1 / -1;
+    width: 100%;
     padding: 0.8rem 1.5rem;
   }
 }
