@@ -30,10 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Hero carousel: auto-advancing crossfade with a re-triggered Ken Burns zoom per slide
   const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
-  const heroDots = Array.from(document.querySelectorAll(".hero-dot"));
   const HERO_INTERVAL = 6500;
   let heroIndex = 0;
-  let heroTimer = null;
 
   const playKenBurns = (slide) => {
     const img = slide.querySelector(".hero-bg");
@@ -45,27 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const showHeroSlide = (index) => {
     heroSlides[heroIndex].classList.remove("is-active");
-    heroDots[heroIndex]?.classList.remove("is-active");
     heroIndex = (index + heroSlides.length) % heroSlides.length;
     heroSlides[heroIndex].classList.add("is-active");
-    heroDots[heroIndex]?.classList.add("is-active");
     playKenBurns(heroSlides[heroIndex]);
-  };
-
-  const restartHeroTimer = () => {
-    if (heroTimer) clearInterval(heroTimer);
-    heroTimer = setInterval(() => showHeroSlide(heroIndex + 1), HERO_INTERVAL);
   };
 
   if (heroSlides.length) {
     playKenBurns(heroSlides[heroIndex]);
-    heroDots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        showHeroSlide(Number(dot.dataset.index));
-        restartHeroTimer();
-      });
-    });
-    restartHeroTimer();
+    setInterval(() => showHeroSlide(heroIndex + 1), HERO_INTERVAL);
   }
 
   // Scroll-reveal: fades/slides elements in the first time they enter the viewport
