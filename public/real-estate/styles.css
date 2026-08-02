@@ -440,6 +440,40 @@ a {
   filter: brightness(1.08);
 }
 
+@media (max-width: 799px) {
+  .hero-content {
+    padding: 6rem 1.25rem 2rem;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-sub {
+    margin-bottom: 1.5rem;
+  }
+
+  .search-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .search-field {
+    padding: 0.2rem 0.6rem;
+  }
+
+  .search-field:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .search-btn {
+    grid-column: 1 / -1;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
 @media (min-width: 800px) {
   .search-bar {
     flex-direction: row;
