@@ -470,6 +470,21 @@ export default function RestauranteMarazulPage() {
               <figure className="gallery__item gallery__item--wide-5" data-reveal="true">
                 <img src={`${IMG}/terrace.jpg`} alt="Terraza al atardecer" loading="lazy" decoding="async" />
               </figure>
+              <figure className="gallery__item gallery__item--tall" data-reveal="true">
+                <img src={`${IMG}/terrace-lights.jpg`} alt="Luces junto al mar al anochecer" loading="lazy" decoding="async" />
+              </figure>
+              <figure className="gallery__item gallery__item--square" data-reveal="true">
+                <img src={`${IMG}/dish-ceviche.jpg`} alt="Ceviche de pescado" loading="lazy" decoding="async" />
+              </figure>
+              <figure className="gallery__item gallery__item--portrait" data-reveal="true">
+                <img src={`${IMG}/dish-pescado.jpg`} alt="Pescado zarandeado" loading="lazy" decoding="async" />
+              </figure>
+              <figure className="gallery__item gallery__item--wide-7" data-reveal="true">
+                <img src={`${IMG}/dish-camarones.jpg`} alt="Camarones al mojo de ajo" loading="lazy" decoding="async" />
+              </figure>
+              <figure className="gallery__item gallery__item--wide-5" data-reveal="true">
+                <img src={`${IMG}/beach-sunset-lights.jpg`} alt="Atardecer en la terraza junto al mar" loading="lazy" decoding="async" />
+              </figure>
             </div>
           </div>
         </section>

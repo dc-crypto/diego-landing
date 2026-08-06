@@ -1,93 +1,70 @@
 "use client";
 
-import { useRef, type CSSProperties } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
 import FadeIn from "./FadeIn";
-import LiveProjectButton from "./LiveProjectButton";
 import { PROJECTS, type Project } from "./projectsData";
-import { TEXT_LIGHT, heroHeadingStyle } from "./styles";
+import { ACCENT, ACCENT_RGB, BG_DARK, TEXT_LIGHT, TEXT_MUTED, heroHeadingStyle } from "./styles";
 
 function ProjectCard({
   project,
   index,
-  total,
+  isLast,
 }: {
   project: Project;
   index: number;
-  total: number;
+  isLast: boolean;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "start start"],
-  });
-
-  const maxShrink = 0.15;
-  const step = total > 1 ? maxShrink / (total - 1) : 0;
-  const targetScale = 1 - (total - 1 - index) * step;
-  const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
-
-  // Capped so the accumulated peek offset never pushes a late card's sticky
-  // container past the bottom of common desktop/mobile viewport heights.
-  const stackOffset = Math.min(index * 8, 48);
-
   return (
-    <div
-      ref={containerRef}
-      className="sticky h-[87vh] flex items-center justify-center top-[calc(4rem+var(--stack-offset))] md:top-[calc(3rem+var(--stack-offset))]"
-      style={{ "--stack-offset": `${stackOffset}px` } as CSSProperties}
-    >
-      <motion.div
-        style={{ scale }}
-        className="w-full h-full max-h-full flex flex-col gap-4 md:gap-6 rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-white/80 bg-[#0C0C0C] p-4 sm:p-6 md:p-8 overflow-hidden"
+    <FadeIn delay={Math.min(index * 0.06, 0.4)} className={isLast ? "sm:col-span-2" : undefined}>
+      <a
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block overflow-hidden"
+        style={{ aspectRatio: "16/10" }}
       >
-        <div className="flex items-center justify-between gap-4 flex-wrap flex-shrink-0">
-          <span
-            className="font-black"
-            style={{ color: TEXT_LIGHT, fontSize: "clamp(2.5rem, 8vw, 110px)", lineHeight: 1 }}
-          >
-            {project.number}
+        <img
+          src={project.image}
+          alt={project.name}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 45%, transparent 100%)" }}
+        />
+
+        <span className="absolute top-5 left-5 font-extrabold text-xs tracking-wider" style={{ color: TEXT_MUTED }}>
+          {project.number}
+        </span>
+
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{ backgroundColor: `rgba(${ACCENT_RGB},0.92)` }}
+        >
+          <span className="uppercase tracking-widest text-xs font-bold" style={{ color: "rgba(255,255,255,0.75)" }}>
+            {project.category}
           </span>
-          <div className="flex flex-col items-center text-center">
-            <span
-              className="uppercase tracking-widest text-xs sm:text-sm opacity-60"
-              style={{ color: TEXT_LIGHT }}
-            >
-              {project.category}
-            </span>
-            <span
-              className="font-medium uppercase"
-              style={{ color: TEXT_LIGHT, fontSize: "clamp(1.25rem, 3vw, 2.5rem)" }}
-            >
-              {project.name}
-            </span>
+          <span className="font-extrabold uppercase px-6" style={{ color: TEXT_LIGHT, fontSize: "clamp(1.25rem,2vw,1.75rem)" }}>
+            {project.name}
+          </span>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ border: "2px solid rgba(255,255,255,0.5)" }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
           </div>
-          <LiveProjectButton href={project.href} />
         </div>
 
-        <div className="flex gap-3 sm:gap-4 md:gap-6 flex-1 min-h-0">
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 w-[40%]">
-            <img
-              src={project.col1[0]}
-              alt={`${project.name} vista 1`}
-              className="w-full min-h-0 flex-[2] object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-            />
-            <img
-              src={project.col1[1]}
-              alt={`${project.name} vista 2`}
-              className="w-full min-h-0 flex-[3] object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-            />
-          </div>
-          <div className="w-[60%]">
-            <img
-              src={project.col2}
-              alt={`${project.name} vista 3`}
-              className="w-full h-full object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-            />
-          </div>
+        <div className="absolute bottom-4 left-4 right-4">
+          <span className="block uppercase tracking-widest text-xs font-bold mb-1" style={{ color: ACCENT }}>
+            {project.category}
+          </span>
+          <span className="font-bold" style={{ color: TEXT_LIGHT, fontSize: "clamp(1.1rem,2vw,1.4rem)" }}>
+            {project.name}
+          </span>
         </div>
-      </motion.div>
-    </div>
+      </a>
+    </FadeIn>
   );
 }
 
@@ -95,20 +72,28 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative z-10 -mt-10 sm:-mt-12 md:-mt-14 bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 pt-20 sm:pt-24 md:pt-32 pb-24 sm:pb-28 md:pb-32"
+      className="relative z-10 -mt-10 sm:-mt-12 md:-mt-14 rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 pt-20 sm:pt-24 md:pt-32 pb-24 sm:pb-28 md:pb-32"
+      style={{ backgroundColor: BG_DARK }}
     >
       <FadeIn>
-        <h2
-          className="font-black uppercase text-center leading-none tracking-tight mb-16 sm:mb-20 md:mb-24"
-          style={{ ...heroHeadingStyle, fontSize: "clamp(3rem, 12vw, 160px)" }}
-        >
-          Proyectos
-        </h2>
+        <div className="flex flex-col items-center text-center gap-3 mb-16 sm:mb-20 md:mb-24">
+          <span className="uppercase font-semibold tracking-widest" style={{ color: ACCENT, fontSize: "clamp(0.8rem,1.6vw,1rem)" }}>
+            Portafolio completo
+          </span>
+          <h2 className="font-black uppercase tracking-tight" style={{ ...heroHeadingStyle, fontSize: "clamp(1.75rem, 4vw, 3rem)" }}>
+            Proyectos que hemos construido
+          </h2>
+        </div>
       </FadeIn>
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-0">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
         {PROJECTS.map((project, i) => (
-          <ProjectCard key={project.number} project={project} index={i} total={PROJECTS.length} />
+          <ProjectCard
+            key={project.number}
+            project={project}
+            index={i}
+            isLast={i === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0}
+          />
         ))}
       </div>
     </section>
