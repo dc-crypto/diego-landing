@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "RUAIRE | Rejillas, Difusores y Ductos HVAC",
     description:
       "Especialistas en fabricación, instalación y mantenimiento de sistemas HVAC. Cotiza tu proyecto hoy.",
+    images: ["/ruaire/images/hero-ducts.webp"],
     type: "website",
   },
   twitter: {
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     title: "RUAIRE | Rejillas, Difusores y Ductos HVAC",
     description:
       "Especialistas en fabricación, instalación y mantenimiento de sistemas HVAC. Cotiza tu proyecto hoy.",
+    images: ["/ruaire/images/hero-ducts.webp"],
   },
 };
 

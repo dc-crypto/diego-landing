@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "SIRECLA · Fabricación de acero inoxidable",
     description:
       "Mobiliario y equipo industrial en acero inoxidable, fabricado a la medida en Bahía de Banderas, Nayarit.",
-    images: ["/sirecla/linea.webp"],
+    images: ["/sirecla/hero-welder-1.webp"],
     type: "website",
   },
   twitter: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "SIRECLA · Fabricación de acero inoxidable",
     description:
       "Mobiliario y equipo industrial en acero inoxidable, fabricado a la medida en Bahía de Banderas, Nayarit.",
-    images: ["/sirecla/linea.webp"],
+    images: ["/sirecla/hero-welder-1.webp"],
   },
 };
 
