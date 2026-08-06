@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Archivo, Courier_Prime } from "next/font/google";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const courierPrime = Courier_Prime({
+  variable: "--font-courier",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -40,7 +48,7 @@ export default function RestauranteMarazulLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className={`${cormorant.variable} ${jetbrainsMono.variable}`}>
+    <div className={`${fraunces.variable} ${archivo.variable} ${courierPrime.variable}`}>
       {children}
     </div>
   );

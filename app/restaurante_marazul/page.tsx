@@ -196,9 +196,25 @@ export default function RestauranteMarazulPage() {
             <div className="hero__vignette" aria-hidden="true"></div>
           </div>
 
-          <div className="hero__coords container" aria-hidden="true">
-            <span>N 20°36′ · W 105°14′</span>
-            <span className="hero__coords-right">Estab. MMXVI</span>
+          <div className="hero__stamp" aria-hidden="true">
+            <svg viewBox="0 0 140 140">
+              <defs>
+                <path id="mz-stamp-path" d="M 70,70 m -54,0 a 54,54 0 1,1 108,0 a 54,54 0 1,1 -108,0" />
+              </defs>
+              <circle cx="70" cy="70" r="64" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.55" />
+              <circle cx="70" cy="70" r="52" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+              <text fontSize="8.2" letterSpacing="2.5">
+                <textPath href="#mz-stamp-path">
+                  PUERTO VALLARTA · EST. MMXVI · PUERTO VALLARTA · EST. MMXVI ·
+                </textPath>
+              </text>
+              <text x="70" y="66" textAnchor="middle" fontSize="10.5" fontFamily="var(--font-display)" fontStyle="italic">
+                20°36′N
+              </text>
+              <text x="70" y="80" textAnchor="middle" fontSize="10.5" fontFamily="var(--font-display)" fontStyle="italic">
+                105°14′W
+              </text>
+            </svg>
           </div>
 
           <div className="hero__content container">
@@ -245,7 +261,7 @@ export default function RestauranteMarazulPage() {
         <section id="experiencia" className="section" aria-labelledby="experiencia-title">
           <div className="container split-12">
             <div className="split-12__aside">
-              <p className="eyebrow eyebrow--ember">01 · La experiencia</p>
+              <p className="eyebrow eyebrow--ember">La experiencia</p>
               <p className="mono-note">— desde 2016</p>
             </div>
             <div className="split-12__main" data-reveal="true">
@@ -260,23 +276,26 @@ export default function RestauranteMarazulPage() {
                   Nuestro equipo trata al ingrediente con la misma reverencia con la que el pescador desciende al muelle al amanecer. Aquí no hay prisa. Aquí hay puerto.
                 </p>
               </div>
-              <dl className="stat-grid">
-                <div className="stat-grid__item">
-                  <dt className="sr-only">Horas de brasas al día</dt>
-                  <dd className="stat-grid__num">12</dd>
-                  <dt className="stat-grid__label">hrs de brasas al día</dt>
+              <dl className="leader-list">
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Brasas al día</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">12 hrs</dd>
                 </div>
-                <div className="stat-grid__item">
-                  <dd className="stat-grid__num">06:14</dd>
-                  <dt className="stat-grid__label">amanecer en el muelle</dt>
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Amanecer en el muelle</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">06:14</dd>
                 </div>
-                <div className="stat-grid__item">
-                  <dd className="stat-grid__num">100%</dd>
-                  <dt className="stat-grid__label">pesca del Pacífico</dt>
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Pesca del Pacífico</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">100%</dd>
                 </div>
-                <div className="stat-grid__item">
-                  <dd className="stat-grid__num">9.4</dd>
-                  <dt className="stat-grid__label">en reseñas de huéspedes</dt>
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Reseñas de huéspedes</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">9.4</dd>
                 </div>
               </dl>
             </div>
@@ -284,11 +303,10 @@ export default function RestauranteMarazulPage() {
         </section>
 
         <section id="cocina" className="section section--dark" aria-labelledby="cocina-title">
-          <div className="glow glow--ember" aria-hidden="true"></div>
-          <div className="glow glow--brine" aria-hidden="true"></div>
+          <div className="grain" aria-hidden="true"></div>
           <div className="container">
             <div className="section-head">
-              <p className="eyebrow eyebrow--gold">02 · Nuestra cocina</p>
+              <p className="eyebrow eyebrow--gold">Nuestra cocina</p>
               <p className="mono-note mono-note--light">Mesa · Brasa · Mar</p>
             </div>
             <div className="kitchen-grid">
@@ -319,7 +337,7 @@ export default function RestauranteMarazulPage() {
           <div className="container">
             <div className="section-head">
               <div>
-                <p className="eyebrow eyebrow--ember">03 · Especialidades</p>
+                <p className="eyebrow eyebrow--ember">Especialidades</p>
                 <h2 id="especialidades-title" className="h-display h-xl measure-lg">
                   Una carta breve, escrita cada día por lo que el mar decida entregar.
                 </h2>
@@ -327,15 +345,12 @@ export default function RestauranteMarazulPage() {
             </div>
 
             <div className="specialties">
-              <article className="specialty" data-reveal="true">
-                <div className="specialty__media">
-                  <img src={`${IMG}/dish-pulpo.jpg`} alt="Pulpo a la leña" loading="lazy" decoding="async" className="ratio-4-5" />
-                  <span className="specialty__numeral" aria-hidden="true">I.</span>
+              <article className="dish dish--feature" data-reveal="true">
+                <div className="dish__media--bleed">
+                  <img src={`${IMG}/dish-pulpo.jpg`} alt="Pulpo a la leña" loading="lazy" decoding="async" />
                 </div>
-                <div className="specialty__content">
-                  <p className="eyebrow eyebrow--muted">Plato de la casa</p>
+                <div className="dish__card">
                   <h3 className="h-display h-dish">Pulpo a la leña</h3>
-                  <span className="rule" aria-hidden="true"></span>
                   <p className="lede measure-sm">
                     Tentáculo cocido tres horas, brasa de mezquite, aceite de pimentón ahumado, sal de Colima.
                   </p>
@@ -346,55 +361,43 @@ export default function RestauranteMarazulPage() {
                 </div>
               </article>
 
-              <article className="specialty specialty--reverse" data-reveal="true">
-                <div className="specialty__media">
-                  <img src={`${IMG}/dish-tiradito.jpg`} alt="Tiradito del día" loading="lazy" decoding="async" className="ratio-4-5" />
-                  <span className="specialty__numeral" aria-hidden="true">II.</span>
-                </div>
-                <div className="specialty__content">
-                  <p className="eyebrow eyebrow--muted">Plato de la casa</p>
-                  <h3 className="h-display h-dish">Tiradito del día</h3>
-                  <span className="rule" aria-hidden="true"></span>
+              <article className="dish dish--text" data-reveal="true">
+                <p className="mark">Plato de la casa</p>
+                <h3 className="h-display h-dish">Tiradito del día</h3>
+                <div className="dish__row">
+                  <img className="dish__inset" src={`${IMG}/dish-tiradito.jpg`} alt="Tiradito del día" loading="lazy" decoding="async" />
                   <p className="lede measure-sm">
-                    Atún aleta amarilla, leche de tigre de yuzu, flores comestibles, aguacate en textura.
+                    Atún aleta amarilla, leche de tigre de yuzu, flores comestibles, aguacate en textura. Se corta al momento y llega helado — para que el frío del mar todavía se sienta en la mesa.
                   </p>
-                  <a href="#reserva" className="link-underline" onClick={(e) => scrollToId(e, "reserva")}>
-                    Vivir este plato
-                    <ArrowIcon size={14} />
-                  </a>
                 </div>
+                <a href="#reserva" className="link-underline" onClick={(e) => scrollToId(e, "reserva")}>
+                  Vivir este plato
+                  <ArrowIcon size={14} />
+                </a>
               </article>
 
-              <article className="specialty" data-reveal="true">
-                <div className="specialty__media">
-                  <img src={`${IMG}/oysters.jpg`} alt="Ostras del Pacífico" loading="lazy" decoding="async" className="ratio-4-5" />
-                  <span className="specialty__numeral" aria-hidden="true">III.</span>
-                </div>
-                <div className="specialty__content">
-                  <p className="eyebrow eyebrow--muted">Plato de la casa</p>
-                  <h3 className="h-display h-dish">Ostras del Pacífico</h3>
-                  <span className="rule" aria-hidden="true"></span>
-                  <p className="lede measure-sm">
-                    Kumamoto sobre hielo, mignonette de mezcal, limón amarillo, cítrico serrano.
-                  </p>
-                  <a href="#reserva" className="link-underline" onClick={(e) => scrollToId(e, "reserva")}>
-                    Vivir este plato
-                    <ArrowIcon size={14} />
-                  </a>
+              <article className="dish dish--ticket" data-reveal="true">
+                <div className="ticket">
+                  <img className="ticket__img" src={`${IMG}/oysters.jpg`} alt="Ostras del Pacífico" loading="lazy" decoding="async" />
+                  <div className="ticket__body">
+                    <span className="ticket__name">Ostras del Pacífico</span>
+                    <span className="ticket__leader" aria-hidden="true"></span>
+                    <span className="ticket__note">Kumamoto · mignonette de mezcal · limón amarillo</span>
+                  </div>
                 </div>
               </article>
             </div>
           </div>
         </section>
 
-        <section id="chef" className="section section--sand" aria-labelledby="chef-title">
+        <section id="chef" className="section section--sand section--loose" aria-labelledby="chef-title">
           <div className="container chef-grid">
             <div className="chef-grid__media" data-reveal="true">
               <img src={`${IMG}/chef.jpg`} alt="Chef ejecutivo Mateo Reyes" loading="lazy" decoding="async" className="ratio-4-5" />
               <span className="rotated-label" aria-hidden="true">Ret. de cocina · MMXVI</span>
             </div>
             <div className="chef-grid__text" data-reveal="true">
-              <p className="eyebrow eyebrow--ember">04 · El chef</p>
+              <p className="eyebrow eyebrow--ember">El chef</p>
               <h2 id="chef-title" className="h-display h-xl">
                 Mateo Reyes.<br /><em>Un cocinero</em><br />del Pacífico.
               </h2>
@@ -424,7 +427,7 @@ export default function RestauranteMarazulPage() {
           <div className="atmosphere__content container">
             <div className="atmosphere-grid">
               <div>
-                <p className="eyebrow eyebrow--gold">05 · La atmósfera</p>
+                <p className="eyebrow eyebrow--gold">La atmósfera</p>
                 <h2 className="h-display h-lg">
                   Madera, lino, <em className="gold">brisa</em><br />y el mar contando el resto.
                 </h2>
@@ -433,10 +436,22 @@ export default function RestauranteMarazulPage() {
                 <p>
                   Cincuenta metros de terraza sobre la arena. Faroles que se encienden cuando el cielo se pone rosa. Un piano al fondo, sin insistir. Ropa cómoda, conversación larga.
                 </p>
-                <dl className="mini-grid">
-                  <div><dt className="mini-grid__label">Piano</dt><dd>vie · sáb</dd></div>
-                  <div><dt className="mini-grid__label">Sunset</dt><dd>18:45 hrs</dd></div>
-                  <div><dt className="mini-grid__label">Dress</dt><dd>Beach chic</dd></div>
+                <dl className="leader-list leader-list--light">
+                  <div className="leader-list__row">
+                    <dt className="leader-list__label">Piano</dt>
+                    <span className="leader-list__dots" aria-hidden="true"></span>
+                    <dd className="leader-list__value">vie · sáb</dd>
+                  </div>
+                  <div className="leader-list__row">
+                    <dt className="leader-list__label">Sunset</dt>
+                    <span className="leader-list__dots" aria-hidden="true"></span>
+                    <dd className="leader-list__value">18:45 hrs</dd>
+                  </div>
+                  <div className="leader-list__row">
+                    <dt className="leader-list__label">Dress code</dt>
+                    <span className="leader-list__dots" aria-hidden="true"></span>
+                    <dd className="leader-list__value">Beach chic</dd>
+                  </div>
                 </dl>
               </div>
             </div>
@@ -447,7 +462,7 @@ export default function RestauranteMarazulPage() {
           <div className="container">
             <div className="section-head section-head--gallery">
               <div>
-                <p className="eyebrow eyebrow--ember">06 · Galería</p>
+                <p className="eyebrow eyebrow--ember">Galería</p>
                 <h2 id="galeria-title" className="h-display h-md">Instantes robados a la hora azul.</h2>
               </div>
               <p className="gallery-note">
@@ -490,10 +505,10 @@ export default function RestauranteMarazulPage() {
         </section>
 
         <section id="reserva" className="section section--ink" aria-labelledby="reserva-title">
-          <div className="dot-glow" aria-hidden="true"></div>
+          <div className="grain" aria-hidden="true"></div>
           <div className="container reserve-grid">
             <div className="reserve-grid__info">
-              <p className="eyebrow eyebrow--gold">07 · Reserva tu mesa</p>
+              <p className="eyebrow eyebrow--gold">Reserva tu mesa</p>
               <h2 id="reserva-title" className="h-display h-xl">
                 Guarda una noche<br /><em className="gold">frente al mar.</em>
               </h2>
@@ -562,14 +577,30 @@ export default function RestauranteMarazulPage() {
         <section id="ubicacion" className="section" aria-labelledby="ubicacion-title">
           <div className="container location-grid">
             <div className="location-grid__info" data-reveal="true">
-              <p className="eyebrow eyebrow--ember">08 · Ubicación</p>
+              <p className="eyebrow eyebrow--ember">Ubicación</p>
               <h2 id="ubicacion-title" className="h-display h-md">Playa Los Muertos, Zona Romántica.</h2>
               <p className="lede">Calle Púlpito 145, Emiliano Zapata, 48380 Puerto Vallarta, Jal.</p>
-              <dl className="hours-grid">
-                <div><dt className="eyebrow eyebrow--muted">Comida</dt><dd>13:00 — 17:00</dd></div>
-                <div><dt className="eyebrow eyebrow--muted">Cena</dt><dd>18:30 — 23:30</dd></div>
-                <div><dt className="eyebrow eyebrow--muted">Sunset bar</dt><dd>17:00 — 19:00</dd></div>
-                <div><dt className="eyebrow eyebrow--muted">Cerrado</dt><dd>Martes</dd></div>
+              <dl className="leader-list">
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Comida</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">13:00 – 17:00</dd>
+                </div>
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Cena</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">18:30 – 23:30</dd>
+                </div>
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Sunset bar</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">17:00 – 19:00</dd>
+                </div>
+                <div className="leader-list__row">
+                  <dt className="leader-list__label">Cerrado</dt>
+                  <span className="leader-list__dots" aria-hidden="true"></span>
+                  <dd className="leader-list__value">Martes</dd>
+                </div>
               </dl>
               <a
                 href="https://maps.google.com/?q=Playa+Los+Muertos+Puerto+Vallarta"
