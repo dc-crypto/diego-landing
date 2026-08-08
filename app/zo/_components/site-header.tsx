@@ -56,7 +56,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-6">
           <a
             href="#booking"
-            className={`hidden border px-6 py-3 text-xs font-medium tracking-[0.18em] uppercase transition-colors duration-700 sm:inline-block ${
+            className={`inline-block border px-4 py-2.5 text-[0.65rem] font-medium tracking-[0.14em] uppercase transition-colors duration-700 sm:px-6 sm:py-3 sm:text-xs sm:tracking-[0.18em] ${
               scrolled || menuOpen
                 ? "border-zo-ink bg-zo-ink text-zo-sand hover:bg-zo-ink/85"
                 : "border-zo-sand bg-zo-sand text-zo-ink hover:bg-zo-sand/85"

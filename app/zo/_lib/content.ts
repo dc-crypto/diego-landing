@@ -22,6 +22,7 @@ export const hero = {
 export const bookingBar = {
   eyebrow: "Reserve with confidence",
   heading: "Book direct — best rate guaranteed",
+  headingShort: "Best rate, booked direct",
   cta: "Check Availability",
 };
 

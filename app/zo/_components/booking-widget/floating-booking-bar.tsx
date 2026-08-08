@@ -56,14 +56,17 @@ export function FloatingBookingBar() {
           : "pointer-events-none translate-y-full opacity-0"
       }`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-4 md:px-12">
-        <div>
-          <p className="eyebrow text-zo-ink-muted">{bookingBar.eyebrow}</p>
-          <p className="font-zo-serif text-lg text-zo-ink">{bookingBar.heading}</p>
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 py-4 md:gap-6 md:px-12">
+        <div className="min-w-0">
+          <p className="eyebrow hidden text-zo-ink-muted sm:block">{bookingBar.eyebrow}</p>
+          <p className="truncate font-zo-serif text-base text-zo-ink sm:text-lg">
+            <span className="sm:hidden">{bookingBar.headingShort}</span>
+            <span className="hidden sm:inline">{bookingBar.heading}</span>
+          </p>
         </div>
         <a
           href="#booking"
-          className="shrink-0 bg-zo-ink px-6 py-3 text-xs font-medium tracking-[0.18em] text-zo-sand uppercase transition-colors hover:bg-zo-ink/90 sm:px-8"
+          className="shrink-0 bg-zo-ink px-4 py-2.5 text-[0.65rem] font-medium tracking-[0.14em] text-zo-sand uppercase transition-colors hover:bg-zo-ink/90 sm:px-8 sm:py-3 sm:text-xs sm:tracking-[0.18em]"
         >
           {bookingBar.cta}
         </a>
