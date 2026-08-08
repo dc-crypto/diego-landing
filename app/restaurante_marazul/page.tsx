@@ -345,11 +345,12 @@ export default function RestauranteMarazulPage() {
             </div>
 
             <div className="specialties">
-              <article className="dish dish--feature" data-reveal="true">
-                <div className="dish__media--bleed">
+              <article className="dish" data-reveal="true">
+                <div className="dish__media">
                   <img src={`${IMG}/dish-pulpo.jpg`} alt="Pulpo a la leña" loading="lazy" decoding="async" />
                 </div>
-                <div className="dish__card">
+                <div className="dish__content">
+                  <p className="mark">Cocido tres horas</p>
                   <h3 className="h-display h-dish">Pulpo a la leña</h3>
                   <p className="lede measure-sm">
                     Tentáculo cocido tres horas, brasa de mezquite, aceite de pimentón ahumado, sal de Colima.
@@ -361,29 +362,37 @@ export default function RestauranteMarazulPage() {
                 </div>
               </article>
 
-              <article className="dish dish--text" data-reveal="true">
-                <p className="mark">Plato de la casa</p>
-                <h3 className="h-display h-dish">Tiradito del día</h3>
-                <div className="dish__row">
-                  <img className="dish__inset" src={`${IMG}/dish-tiradito.jpg`} alt="Tiradito del día" loading="lazy" decoding="async" />
-                  <p className="lede measure-sm">
-                    Atún aleta amarilla, leche de tigre de yuzu, flores comestibles, aguacate en textura. Se corta al momento y llega helado — para que el frío del mar todavía se sienta en la mesa.
-                  </p>
+              <article className="dish dish--reverse" data-reveal="true">
+                <div className="dish__media">
+                  <img src={`${IMG}/dish-tiradito.jpg`} alt="Tiradito del día" loading="lazy" decoding="async" />
                 </div>
-                <a href="#reserva" className="link-underline" onClick={(e) => scrollToId(e, "reserva")}>
-                  Vivir este plato
-                  <ArrowIcon size={14} />
-                </a>
+                <div className="dish__content">
+                  <p className="mark">Corte del día</p>
+                  <h3 className="h-display h-dish">Tiradito del día</h3>
+                  <p className="lede measure-sm">
+                    Atún aleta amarilla, leche de tigre de yuzu, flores comestibles, aguacate en textura. Se corta al momento y llega helado.
+                  </p>
+                  <a href="#reserva" className="link-underline" onClick={(e) => scrollToId(e, "reserva")}>
+                    Vivir este plato
+                    <ArrowIcon size={14} />
+                  </a>
+                </div>
               </article>
 
-              <article className="dish dish--ticket" data-reveal="true">
-                <div className="ticket">
-                  <img className="ticket__img" src={`${IMG}/oysters.jpg`} alt="Ostras del Pacífico" loading="lazy" decoding="async" />
-                  <div className="ticket__body">
-                    <span className="ticket__name">Ostras del Pacífico</span>
-                    <span className="ticket__leader" aria-hidden="true"></span>
-                    <span className="ticket__note">Kumamoto · mignonette de mezcal · limón amarillo</span>
-                  </div>
+              <article className="dish" data-reveal="true">
+                <div className="dish__media">
+                  <img src={`${IMG}/oysters.jpg`} alt="Ostras del Pacífico" loading="lazy" decoding="async" />
+                </div>
+                <div className="dish__content">
+                  <p className="mark">Sobre hielo</p>
+                  <h3 className="h-display h-dish">Ostras del Pacífico</h3>
+                  <p className="lede measure-sm">
+                    Kumamoto sobre hielo, mignonette de mezcal, limón amarillo, cítrico serrano.
+                  </p>
+                  <a href="#reserva" className="link-underline" onClick={(e) => scrollToId(e, "reserva")}>
+                    Vivir este plato
+                    <ArrowIcon size={14} />
+                  </a>
                 </div>
               </article>
             </div>
