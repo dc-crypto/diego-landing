@@ -70,4 +70,11 @@ export const PROJECTS: Project[] = [
     href: "https://diegocastro.tech/ruaire/",
     image: "/ruaire/images/hero-ducts.webp",
   },
+  {
+    number: "10",
+    category: "Aplicación Web",
+    name: "Rentatuvilla",
+    href: "https://rentatuvilla.com/",
+    image: "/feat-rentatuvilla.webp",
+  },
 ];
