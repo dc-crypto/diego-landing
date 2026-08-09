@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { bookingBar } from "../../_lib/content";
+import { DatePicker } from "./date-picker";
 
 /**
  * Visual-only booking form. No availability, pricing, or reservation logic —
@@ -9,6 +10,8 @@ import { bookingBar } from "../../_lib/content";
  */
 export function InlineBookingForm() {
   const [guests, setGuests] = useState(2);
+  const [arrive, setArrive] = useState<Date | null>(null);
+  const [depart, setDepart] = useState<Date | null>(null);
 
   return (
     <div
@@ -28,23 +31,19 @@ export function InlineBookingForm() {
           onSubmit={(e) => e.preventDefault()}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_auto]"
         >
-          <label className="border-b border-zo-line/60 px-6 py-5 sm:border-r md:px-10">
+          <div className="border-b border-zo-line/60 px-6 py-5 sm:border-r md:px-10">
             <span className="eyebrow block text-zo-ink-muted">Arrive</span>
-            <input
-              type="date"
-              className="mt-2 w-full bg-transparent font-zo-serif text-lg text-zo-ink outline-none [color-scheme:light] accent-zo-brass"
-              aria-label="Arrival date"
-            />
-          </label>
+            <DatePicker value={arrive} onChange={setArrive} />
+          </div>
 
-          <label className="border-b border-zo-line/60 px-6 py-5 lg:border-r md:px-10">
+          <div className="border-b border-zo-line/60 px-6 py-5 lg:border-r md:px-10">
             <span className="eyebrow block text-zo-ink-muted">Depart</span>
-            <input
-              type="date"
-              className="mt-2 w-full bg-transparent font-zo-serif text-lg text-zo-ink outline-none [color-scheme:light] accent-zo-brass"
-              aria-label="Departure date"
+            <DatePicker
+              value={depart}
+              onChange={setDepart}
+              minDate={arrive ?? undefined}
             />
-          </label>
+          </div>
 
           <div className="border-b border-zo-line/60 px-6 py-5 sm:border-r-0 md:px-10 lg:border-r">
             <span className="eyebrow block text-zo-ink-muted">Guests</span>
