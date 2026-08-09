@@ -32,7 +32,7 @@ export function InlineBookingForm() {
             <span className="eyebrow block text-zo-ink-muted">Arrive</span>
             <input
               type="date"
-              className="mt-2 w-full bg-transparent font-zo-serif text-lg text-zo-ink outline-none [color-scheme:light]"
+              className="mt-2 w-full bg-transparent font-zo-serif text-lg text-zo-ink outline-none [color-scheme:light] accent-zo-brass"
               aria-label="Arrival date"
             />
           </label>
@@ -41,7 +41,7 @@ export function InlineBookingForm() {
             <span className="eyebrow block text-zo-ink-muted">Depart</span>
             <input
               type="date"
-              className="mt-2 w-full bg-transparent font-zo-serif text-lg text-zo-ink outline-none [color-scheme:light]"
+              className="mt-2 w-full bg-transparent font-zo-serif text-lg text-zo-ink outline-none [color-scheme:light] accent-zo-brass"
               aria-label="Departure date"
             />
           </label>
