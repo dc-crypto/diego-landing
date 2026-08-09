@@ -1,21 +1,15 @@
-import Image from "next/image";
 import { hero } from "../_lib/content";
 import { Reveal } from "./reveal";
 import { InlineBookingForm } from "./booking-widget/inline-booking-form";
+import { HeroVideoBackground } from "./hero-video-background";
 
 export function Hero() {
   return (
     <div id="top" className="relative">
       <div className="relative flex h-[100svh] min-h-[640px] items-end overflow-hidden">
-        <Image
-          src={hero.image.src}
-          alt={hero.image.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-zo-ink/70 via-zo-ink/10 to-zo-ink/30" />
+        <HeroVideoBackground />
+        <div className="absolute inset-0 bg-zo-ink/35" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-zo-ink/55 to-transparent" />
 
         <div className="relative mx-auto w-full max-w-[1500px] px-6 pb-28 md:px-12 md:pb-36">
           <Reveal>
