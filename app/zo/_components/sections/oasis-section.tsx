@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResponsiveImage } from "../responsive-image";
 import { oasis, retreat } from "../../_lib/content";
 import { Reveal } from "../reveal";
 import { SectionHeading } from "../section-heading";
@@ -10,12 +10,11 @@ export function OasisSection() {
     <section id="oasis" className="scroll-mt-24 bg-zo-card pb-28 md:pb-40">
       <Reveal>
         <div className="relative h-[62vh] min-h-[420px] w-full md:h-[86vh]">
-          <Image
+          <ResponsiveImage
             src={oasis.heroImage.src}
             alt={oasis.heroImage.alt}
-            fill
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </Reveal>
