@@ -26,15 +26,15 @@ export function SiteHeader() {
           : "border-b border-transparent py-7"
       }`}
     >
-      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 md:px-12">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-start gap-6 px-6 sm:justify-between sm:gap-0 md:px-12">
         <a
           href="#top"
           className={`font-zo-serif leading-none transition-colors duration-700 ${
             scrolled || menuOpen ? "text-zo-ink" : "text-zo-sand"
           }`}
         >
-          <span className="block text-lg tracking-[0.22em]">ZENSATIONAL</span>
-          <span className="block text-[0.6rem] tracking-[0.5em] opacity-70">
+          <span className="block text-[13.5px] tracking-[0.22em] sm:text-lg">ZENSATIONAL</span>
+          <span className="block text-xs tracking-[0.5em] opacity-70 sm:text-[0.6rem]">
             OASIS
           </span>
         </a>
