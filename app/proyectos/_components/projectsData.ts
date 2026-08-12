@@ -77,4 +77,11 @@ export const PROJECTS: Project[] = [
     href: "https://rentatuvilla.com/",
     image: "/feat-rentatuvilla.webp",
   },
+  {
+    number: "11",
+    category: "Página Web",
+    name: "Regenerix",
+    href: "https://diegocastro.tech/cr/",
+    image: "/feat-regenerix.webp",
+  },
 ];
