@@ -762,7 +762,7 @@ function IframePreview({ src }: { src: string }) {
 function Portfolio() {
   const items = [
     { n: "01", title: "Lumé Clínica Estética",                    desc: "Agenda citas en línea y convierte visitantes en clientes.",      cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop", preview: "/clinica-estetica", href: "/clinica-estetica" },
-    { n: "02", title: "Vallarta Transportation",                  desc: "Transporte privado, tours y traslados en Puerto Vallarta.",      cat: "Páginas Web",             img: "/feat-vallarta-transportation.webp", href: "https://diegocastro.tech/tv/" },
+    { n: "02", title: "Vallarta Transportation",                  desc: "Transporte privado, tours y traslados en Puerto Vallarta.",      cat: "Páginas Web",             vidSrc: "https://diegocastro.tech/tv/video/hero-yate.mp4", href: "https://diegocastro.tech/tv/" },
     { n: "03", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp",   href: "https://leadtrack.diegocastro.tech/" },
     { n: "04", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "/feat-propmanager.webp", href: "https://propmanager.diegocastro.tech/" },
     { n: "05", title: "Asistente IA en el WhatsApp de tu negocio", desc: "Responde consultas, agenda visitas y atiende clientes 24/7.",   cat: "Inteligencia Artificial", img: "/feat-asistente-ia.webp" },
@@ -787,7 +787,9 @@ function Portfolio() {
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="port-card" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", display: "block", textDecoration: "none" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
-                  {item.preview
+                  {item.vidSrc
+                    ? <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} src={item.vidSrc} />
+                    : item.preview
                     ? <IframePreview src={item.preview} />
                     : <img src={item.img} alt={item.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} loading="lazy" />
                   }
@@ -836,6 +838,12 @@ function Portfolio() {
           @media(max-width:600px){
             .port-grid{grid-template-columns:1fr!important;margin-left:-40px!important;margin-right:-40px!important}
             .port-card{aspect-ratio:4/3!important}
+            .port-grid > div:nth-child(1){order:1}
+            .port-grid > div:nth-child(2){order:3}
+            .port-grid > div:nth-child(3){order:2}
+            .port-grid > div:nth-child(4){order:4}
+            .port-grid > div:nth-child(5){order:5}
+            .port-grid > div:nth-child(6){order:6}
           }
         `}</style>
     </section>
