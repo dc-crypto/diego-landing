@@ -761,11 +761,12 @@ function IframePreview({ src }: { src: string }) {
 ───────────────────────────────────────────────────────── */
 function Portfolio() {
   const items = [
-    { n: "01", title: "Clínica de Medicina Estética",                         desc: "Agenda citas en línea y convierte visitantes en clientes.",      cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop", preview: "/clinica-estetica", href: "/clinica-estetica" },
-    { n: "02", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp",   href: "https://leadtrack.diegocastro.tech/" },
-    { n: "03", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "/feat-propmanager.webp", href: "https://propmanager.diegocastro.tech/" },
-    { n: "04", title: "Asistente IA para Property Managers",     desc: "Responde consultas, agenda visitas y atiende huéspedes 24/7.",   cat: "Inteligencia Artificial", img: "/feat-asistente-ia.webp" },
-    { n: "05", title: "Animación con Inteligencia Artificial", desc: "Hero page con video generado por IA, navbar flotante y tipografía escalonada.", cat: "Inteligencia Artificial", vidSrc: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_215831_c6a8989c-d716-4d8d-8745-e972a2eec711.mp4" },
+    { n: "01", title: "Lumé Clínica Estética",                    desc: "Agenda citas en línea y convierte visitantes en clientes.",      cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop", preview: "/clinica-estetica", href: "/clinica-estetica" },
+    { n: "02", title: "Vallarta Transportation",                  desc: "Transporte privado, tours y traslados en Puerto Vallarta.",      cat: "Páginas Web",             img: "/feat-vallarta-transportation.webp", href: "https://diegocastro.tech/tv/" },
+    { n: "03", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp",   href: "https://leadtrack.diegocastro.tech/" },
+    { n: "04", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "/feat-propmanager.webp", href: "https://propmanager.diegocastro.tech/" },
+    { n: "05", title: "Asistente IA en el WhatsApp de tu negocio", desc: "Responde consultas, agenda visitas y atiende clientes 24/7.",   cat: "Inteligencia Artificial", img: "/feat-asistente-ia.webp" },
+    { n: "06", title: "Animación con Inteligencia Artificial", desc: "Hero page con video generado por IA, navbar flotante y tipografía escalonada.", cat: "Inteligencia Artificial", vidSrc: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_215831_c6a8989c-d716-4d8d-8745-e972a2eec711.mp4" },
   ];
   return (
     <section id="portafolio" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
