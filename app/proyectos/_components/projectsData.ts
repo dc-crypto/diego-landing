@@ -84,4 +84,11 @@ export const PROJECTS: Project[] = [
     href: "https://diegocastro.tech/cr/",
     image: "/feat-regenerix.webp",
   },
+  {
+    number: "12",
+    category: "Página Web",
+    name: "Vallarta Transportation",
+    href: "https://diegocastro.tech/tv/",
+    image: "/feat-vallarta-transportation.webp",
+  },
 ];
