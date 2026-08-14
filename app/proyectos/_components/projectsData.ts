@@ -3,16 +3,17 @@ export interface Project {
   category: string;
   name: string;
   href: string;
-  image: string;
+  image?: string;
+  vidSrc?: string;
 }
 
 export const PROJECTS: Project[] = [
   {
     number: "01",
-    category: "Hotel · Página Web",
-    name: "Villa Bahía",
-    href: "https://bahia.world/",
-    image: "/landing/card-bahia-1.png",
+    category: "Página Web",
+    name: "Lumé Clínica Estética",
+    href: "https://diegocastro.tech/clinica-estetica/",
+    image: "/landing/card-clinica-1.png",
   },
   {
     number: "02",
@@ -23,72 +24,72 @@ export const PROJECTS: Project[] = [
   },
   {
     number: "03",
+    category: "Página Web",
+    name: "Vallarta Transportation",
+    href: "https://diegocastro.tech/tv/",
+    vidSrc: "https://diegocastro.tech/tv/video/hero-yate.mp4",
+  },
+  {
+    number: "04",
     category: "Aplicación Web",
     name: "LeadTrack CRM",
     href: "https://leadtrack.diegocastro.tech/",
     image: "/feat-leadtrack.webp",
   },
   {
-    number: "04",
-    category: "Página Web",
-    name: "Lumé Clínica Estética",
-    href: "https://diegocastro.tech/clinica-estetica/",
-    image: "/landing/card-clinica-1.png",
+    number: "05",
+    category: "Hotel · Página Web",
+    name: "Villa Bahía",
+    href: "https://bahia.world/",
+    image: "/landing/card-bahia-1.png",
   },
   {
-    number: "05",
+    number: "06",
     category: "Página Web",
     name: "Sirecla",
     href: "https://diegocastro.tech/sirecla/",
     image: "/sirecla/hero-welder-1.webp",
   },
   {
-    number: "06",
+    number: "07",
     category: "Página Web",
     name: "Restaurante Mar Azul",
     href: "https://diegocastro.tech/restaurante_marazul/",
     image: "/restaurante_marazul/hero-sunset.jpg",
   },
   {
-    number: "07",
+    number: "08",
     category: "Página Web",
     name: "Pizzería",
     href: "https://diegocastro.tech/pizzeria/",
     image: "/pizzeria/hero.webp",
   },
   {
-    number: "08",
+    number: "09",
     category: "Página Web",
     name: "Centro Integral Reiki",
     href: "https://diegocastro.tech/centro-integral-reiki/",
     image: "/ei/hero.jpg",
   },
   {
-    number: "09",
+    number: "10",
     category: "Página Web",
     name: "Ru-Aire",
     href: "https://diegocastro.tech/ruaire/",
     image: "/ruaire/images/hero-ducts.webp",
   },
   {
-    number: "10",
+    number: "11",
     category: "Aplicación Web",
     name: "Rentatuvilla",
     href: "https://rentatuvilla.com/",
     image: "/feat-rentatuvilla.webp",
   },
   {
-    number: "11",
+    number: "12",
     category: "Página Web",
     name: "Regenerix",
     href: "https://diegocastro.tech/cr/",
     image: "/feat-regenerix.webp",
-  },
-  {
-    number: "12",
-    category: "Página Web",
-    name: "Vallarta Transportation",
-    href: "https://diegocastro.tech/tv/",
-    image: "/feat-vallarta-transportation.webp",
   },
 ];

@@ -22,12 +22,23 @@ function ProjectCard({
         className="group relative block overflow-hidden"
         style={{ aspectRatio: "16/10" }}
       >
-        <img
-          src={project.image}
-          alt={project.name}
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
+        {project.vidSrc ? (
+          <video
+            src={project.vidSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        ) : (
+          <img
+            src={project.image}
+            alt={project.name}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        )}
 
         <div
           className="absolute inset-0 pointer-events-none"
