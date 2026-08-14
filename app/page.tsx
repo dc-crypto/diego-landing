@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import SiteNav from "@/components/SiteNav";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -104,88 +105,6 @@ function RM({ href = "#", nested = false }: { href?: string; nested?: boolean })
       onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.gap = "6px")}>
       {content}
     </a>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────
-   NAV
-───────────────────────────────────────────────────────── */
-function PageNav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-  const links = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Páginas Web", href: "#servicios" },
-    { label: "Automatización", href: "#servicios" },
-    { label: "Inteligencia Artificial", href: "#servicios" },
-    { label: "Proyectos", href: "/proyectos/" },
-    { label: "Blog", href: "#blog" },
-  ];
-  return (
-    <>
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: scrolled ? "rgba(0,0,0,0.97)" : "transparent", borderBottom: `1px solid ${scrolled ? C.border : "transparent"}`, backdropFilter: scrolled ? "blur(12px)" : "none", transition: "all 0.3s ease" }}>
-        <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "80px" }}>
-          {/* Logo — diegocastro.tech */}
-          <a href="#" style={{ display: "flex", alignItems: "center", gap: "0px", textDecoration: "none" }}>
-            <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.white, letterSpacing: "-0.03em" }}>diegocastro</span>
-            <span style={{ fontFamily: font, fontWeight: 800, fontSize: "20px", color: C.base, letterSpacing: "-0.03em" }}>.tech</span>
-          </a>
-
-          {/* Desktop links */}
-          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", gap: "36px" }} className="nav-links">
-            {links.map((l) => (
-              <li key={l.label}>
-                <a href={l.href} style={{ fontFamily: font, fontSize: "14px", fontWeight: 600, color: "rgba(255,255,255,0.75)", textDecoration: "none", transition: "color 0.15s", letterSpacing: "0.01em" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = C.base)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}>
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Right side */}
-          <div style={{ display: "flex", alignItems: "center", gap: "24px" }} className="nav-right">
-            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>hola@diegocastro.tech</a>
-            <OBtn href="https://wa.me/523221097649" small>Hablemos</OBtn>
-          </div>
-
-          {/* Mobile toggle */}
-          <button onClick={() => setOpen(!open)} style={{ background: "none", border: "none", cursor: "pointer", color: C.white, padding: "4px" }} className="nav-toggle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              {open ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></> : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>}
-            </svg>
-          </button>
-        </div>
-      </nav>
-
-      {open && (
-        <div style={{ position: "fixed", top: "80px", left: 0, right: 0, zIndex: 99, backgroundColor: C.black2, borderBottom: `1px solid ${C.border}`, padding: "16px 40px 28px" }}>
-          {links.map((l) => (
-            <a key={l.label} href={l.href} onClick={() => setOpen(false)} style={{ display: "block", fontFamily: font, fontSize: "15px", fontWeight: 600, color: "rgba(255,255,255,0.75)", padding: "13px 0", borderBottom: `1px solid ${C.border}`, textDecoration: "none" }}>
-              {l.label}
-            </a>
-          ))}
-          <div style={{ marginTop: "20px" }}><OBtn href="https://wa.me/523221097649">Hablemos</OBtn></div>
-        </div>
-      )}
-
-      <style>{`
-        @media(max-width:1024px){.nav-links,.nav-right{display:none!important}.nav-toggle{display:block!important}}
-        @media(min-width:1025px){.nav-toggle{display:none!important}}
-        @keyframes bubbleMover{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}100%{transform:translateY(0) rotate(0deg)}}
-        @keyframes textRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-        @keyframes fadeSlideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
-        @keyframes scrollH{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        @keyframes orbitDot{from{transform:translate(-50%,-50%) rotate(0deg) translateX(195px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(195px) rotate(-360deg)}}
-        @keyframes orbitDotMobile{from{transform:translate(-50%,-50%) rotate(0deg) translateX(140px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(140px) rotate(-360deg)}}
-      `}</style>
-    </>
   );
 }
 
@@ -1069,7 +988,7 @@ function Footer() {
 export default function LandingPrueba2() {
   return (
     <div className={jakarta.variable} style={{ fontFamily: font, backgroundColor: C.black }}>
-      <PageNav />
+      <SiteNav />
       <Hero />
       <Brands />
       <Features />

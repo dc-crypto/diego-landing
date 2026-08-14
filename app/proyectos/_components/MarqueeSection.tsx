@@ -25,9 +25,9 @@ const ROW1: Tile[] = [
   vid(PLANE_VIDEO),
 ];
 
-/** Row 2 — darker/moodier tone: Villa Bahía's real hero footage + night/deep-color project shots. */
+/** Row 2 — darker/moodier tone: Vallarta Transportation's real hero footage + night/deep-color project shots. */
 const ROW2: Tile[] = [
-  vid("/landing/bahia-hero.webm"),
+  vid("https://diegocastro.tech/tv/video/hero-sayulita.mp4"),
   img("marquee-restaurante.png"),
   img("marquee-reiki.png"),
   img("marquee-ruaire.png"),
