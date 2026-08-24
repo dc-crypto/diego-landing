@@ -89,7 +89,14 @@ export const PROJECTS: Project[] = [
     number: "12",
     category: "Página Web",
     name: "Regenerix",
-    href: "https://diegocastro.tech/cr/",
+    href: "https://regenerix.com.mx/",
     image: "/feat-regenerix.webp",
+  },
+  {
+    number: "13",
+    category: "Inmobiliaria · Página Web",
+    name: "Costa Viva",
+    href: "https://diegocastro.tech/cv/",
+    image: "/feat-costaviva.jpg",
   },
 ];
