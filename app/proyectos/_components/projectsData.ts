@@ -97,6 +97,6 @@ export const PROJECTS: Project[] = [
     category: "Inmobiliaria · Página Web",
     name: "Costa Viva",
     href: "https://diegocastro.tech/cv/",
-    image: "/feat-costaviva.jpg",
+    vidSrc: "/feat-costaviva.mp4",
   },
 ];
