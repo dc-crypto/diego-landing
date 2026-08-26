@@ -99,4 +99,11 @@ export const PROJECTS: Project[] = [
     href: "https://diegocastro.tech/cv/",
     vidSrc: "/feat-costaviva.mp4",
   },
+  {
+    number: "14",
+    category: "Tienda en Línea · Página Web",
+    name: "Lila Shop",
+    href: "https://diegocastro.tech/boutique/",
+    image: "/feat-boutique.webp",
+  },
 ];
