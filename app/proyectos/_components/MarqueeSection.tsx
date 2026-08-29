@@ -20,7 +20,7 @@ const ROW1: Tile[] = [
   localImg("hero-client.webp"),
   vid(LUME_VIDEO),
   localImg("feat-app-web.webp"),
-  img("marquee-sirecla.png"),
+  img("marquee-acero-bahia.jpg"),
   localImg("feat-automatizacion-ia.webp"),
   vid(PLANE_VIDEO),
 ];
