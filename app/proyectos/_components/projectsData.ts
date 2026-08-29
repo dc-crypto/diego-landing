@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
   {
     number: "14",
     category: "Tienda en Línea · Página Web",
-    name: "Lila Shop",
+    name: "Lola Shop",
     href: "https://diegocastro.tech/boutique/",
     image: "/feat-boutique.webp",
   },
