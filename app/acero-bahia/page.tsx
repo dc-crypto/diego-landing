@@ -4,19 +4,20 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, type Variants } from "motion/react";
 import "./styles.css";
 
-const IMG = "/sirecla";
+const IMG = "/acero-bahia";
+const BRAND = "Acero Bahía";
 
 const heroSlides = [
-  { src: `${IMG}/linea.webp`, alt: "Línea de cocción de acero inoxidable fabricada por SIRECLA" },
+  { src: `${IMG}/linea.webp`, alt: "Línea de cocción de acero inoxidable fabricada a la medida" },
   { src: `${IMG}/hero-welder-1.webp`, alt: "Soldador fabricando una estructura de acero inoxidable" },
-  { src: `${IMG}/hero-welder-2.webp`, alt: "Proceso de soldadura en el taller de SIRECLA" },
-  { src: `${IMG}/hornillas.webp`, alt: "Línea de hornillas de alto poder fabricada por SIRECLA" },
+  { src: `${IMG}/hero-welder-2.webp`, alt: "Proceso de soldadura en el taller" },
+  { src: `${IMG}/hornillas.webp`, alt: "Línea de hornillas de alto poder fabricada a la medida" },
   { src: `${IMG}/vitrina.webp`, alt: "Vitrina caliente de exhibición en acero inoxidable" },
 ];
-const WA_NUMBER = "5213221581116";
-const WA_DISPLAY = "+52 1 322 158 1116";
-const SITE_URL = "https://diegocastro.tech/sirecla/";
-const WA_MESSAGE = `Hola SIRECLA, me interesa una cotización. Vi su catálogo aquí: ${SITE_URL}`;
+const WA_NUMBER = "523221097649";
+const WA_DISPLAY = "+52 322 109 7649";
+const SITE_URL = "https://diegocastro.tech/acero-bahia/";
+const WA_MESSAGE = `Hola ${BRAND}, me interesa una cotización. Vi su catálogo aquí: ${SITE_URL}`;
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -119,7 +120,7 @@ function PlusIcon() {
   );
 }
 
-export default function SireclaPage() {
+export default function AceroBahiaPage() {
   const rootRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLElement>(null);
   const heroRef = useRef<HTMLElement>(null);
@@ -170,8 +171,8 @@ export default function SireclaPage() {
             onClick={(e) => scrollToId(e, "top")}
             style={{ color: scrolled ? "var(--ink)" : "#fff" }}
           >
-            <img src={`${IMG}/${scrolled ? "mark-black" : "mark-white"}.png`} alt="SIRECLA" className="wordmark__icon" width={36} height={36} />
-            <span className="wordmark__name">SIRECLA</span>
+            <span className="wordmark__icon wordmark__badge" aria-hidden="true">AB</span>
+            <span className="wordmark__name">{BRAND}</span>
           </a>
           <nav className="main-nav" aria-label="Navegación principal" style={{ color: scrolled ? "var(--steel)" : "rgba(255,255,255,.8)" }}>
             <a href="#nosotros" onClick={(e) => scrollToId(e, "nosotros")}>Nosotros</a>
@@ -522,11 +523,11 @@ export default function SireclaPage() {
                 <dl className="contact-info">
                   <div>
                     <dt className="label label--dark">Taller</dt>
-                    <dd>Carretera ramal El Colomo, 63735<br />Bahía de Banderas, Nayarit</dd>
+                    <dd>Bahía de Banderas, Nayarit</dd>
                   </div>
                   <div>
                     <dt className="label label--dark">Correo</dt>
-                    <dd><a href="mailto:contacto@sirecla.com.mx">contacto@sirecla.com.mx</a></dd>
+                    <dd><a href="mailto:hola@diegocastro.tech">hola@diegocastro.tech</a></dd>
                   </div>
                   <div>
                     <dt className="label label--dark">Teléfono</dt>
@@ -546,10 +547,10 @@ export default function SireclaPage() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <a href="#top" className="wordmark" onClick={(e) => scrollToId(e, "top")}>
-            <img src={`${IMG}/mark-white.png`} alt="SIRECLA" className="wordmark__icon" width={36} height={36} />
-            <span className="wordmark__name">SIRECLA</span>
+            <span className="wordmark__icon wordmark__badge" aria-hidden="true">AB</span>
+            <span className="wordmark__name">{BRAND}</span>
           </a>
-          <div className="footer-copy">© {new Date().getFullYear()} SIRECLA · Fabricación de acero inoxidable</div>
+          <div className="footer-copy">© {new Date().getFullYear()} {BRAND} · Fabricación de acero inoxidable</div>
           <nav className="footer-nav" aria-label="Enlaces del pie de página">
             <a href="#nosotros" onClick={(e) => scrollToId(e, "nosotros")}>Nosotros</a>
             <a href="#proyectos" onClick={(e) => scrollToId(e, "proyectos")}>Proyectos</a>
@@ -564,16 +565,14 @@ export default function SireclaPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            name: "SIRECLA",
+            name: BRAND,
             image: `${IMG}/linea.webp`,
             description: "Fabricación de mobiliario y equipo de acero inoxidable grado alimenticio a la medida.",
             telephone: `+${WA_NUMBER}`,
-            email: "contacto@sirecla.com.mx",
+            email: "hola@diegocastro.tech",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Carretera ramal El Colomo",
-              addressLocality: "El Colomo, Bahía de Banderas",
-              postalCode: "63735",
+              addressLocality: "Bahía de Banderas",
               addressRegion: "Nayarit",
               addressCountry: "MX",
             },

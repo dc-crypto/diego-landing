@@ -9,22 +9,22 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "SIRECLA · Fabricación de acero inoxidable para restaurantes y hoteles",
+  title: "Acero Bahía · Fabricación de acero inoxidable para restaurantes y hoteles",
   description:
     "Fabricamos mesas, tarjas, líneas de cocción y equipo industrial en acero inoxidable a la medida, para restaurantes, hoteles y cocinas profesionales en Bahía de Banderas y Puerto Vallarta.",
   openGraph: {
-    title: "SIRECLA · Fabricación de acero inoxidable",
+    title: "Acero Bahía · Fabricación de acero inoxidable",
     description:
       "Mobiliario y equipo industrial en acero inoxidable, fabricado a la medida en Bahía de Banderas, Nayarit.",
-    images: ["/sirecla/hero-welder-1.webp"],
+    images: ["/acero-bahia/hero-welder-1.webp"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SIRECLA · Fabricación de acero inoxidable",
+    title: "Acero Bahía · Fabricación de acero inoxidable",
     description:
       "Mobiliario y equipo industrial en acero inoxidable, fabricado a la medida en Bahía de Banderas, Nayarit.",
-    images: ["/sirecla/hero-welder-1.webp"],
+    images: ["/acero-bahia/hero-welder-1.webp"],
   },
 };
 

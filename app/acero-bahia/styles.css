@@ -122,6 +122,11 @@
 .sr-root .wordmark { display: flex; align-items: center; gap: .625rem; min-width: 0; }
 .sr-root .wordmark__icon { height: 2rem; width: 2rem; object-fit: contain; flex-shrink: 0; }
 @media (min-width: 30rem) { .sr-root .wordmark__icon { height: 2.25rem; width: 2.25rem; } }
+.sr-root .wordmark__badge {
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid currentColor; border-radius: 9999px;
+  font-family: var(--font-display); font-weight: 700; font-size: .75rem; letter-spacing: -.02em;
+}
 .sr-root .wordmark__name { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -.01em; white-space: nowrap; }
 
 .sr-root .main-nav { display: none; align-items: center; gap: 2.25rem; font-weight: 500; font-size: .9375rem; color: var(--steel); }
