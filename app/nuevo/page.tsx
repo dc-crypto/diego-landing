@@ -192,10 +192,10 @@ function Statement({ children, style }: { children: React.ReactNode; style?: Rea
         textTransform: "uppercase",
         margin: "34px 0 0",
         fontWeight: 900,
-        lineHeight: 0.88,
+        lineHeight: 0.96,
         maxWidth: "1060px",
         marginLeft: "auto",
-        fontSize: "clamp(2.4rem, 6.2vw, 6rem)",
+        fontSize: "clamp(2.2rem, 5.7vw, 5.6rem)",
         color: C.foreground,
         overflowWrap: "break-word",
         ...style,
@@ -431,47 +431,54 @@ function Hero() {
       className="nuevo-hero section-rule"
       style={{ borderBottom: `1px solid ${C.border}`, paddingTop: "48px", paddingBottom: "34px" }}
     >
-      <div style={{ display: "flex", alignItems: "center", fontFamily: fontUI, fontSize: "12px", fontWeight: 700, color: C.secondary }}>
-        <span style={{ background: C.primary, borderRadius: "50%", width: "7px", height: "7px", marginRight: "7px", display: "inline-block" }} />
-        ESTRATEGIA DIGITAL
-      </div>
+      <div className="nuevo-hero-top">
+        <div style={{ display: "flex", alignItems: "center", fontFamily: fontUI, fontSize: "12px", fontWeight: 700, color: C.secondary }}>
+          <span style={{ background: C.primary, borderRadius: "50%", width: "7px", height: "7px", marginRight: "7px", display: "inline-block" }} />
+          ESTRATEGIA DIGITAL
+        </div>
 
-      <div ref={containerRef} className="nuevo-hero-h1" style={{ marginTop: "34px" }}>
-        <span
-          aria-hidden="true"
-          ref={measureRef}
-          style={{ ...lineBase, whiteSpace: "nowrap", position: "absolute", visibility: "hidden", pointerEvents: "none", top: 0, left: 0, zIndex: -1 }}
-        />
-        <h1 style={{ margin: 0 }} aria-label="Que te encuentren. Que te contacten. Que te compren.">
-          {lines.map((line, i) => {
-            const typed = lineText(i);
-            const firstLen = phrases[i].first.length;
-            const firstPart = typed.length <= firstLen ? typed : phrases[i].first;
-            const secondPart = typed.length > firstLen + 1 ? typed.slice(firstLen + 1) : "";
-            return (
-              <span
-                key={line}
-                aria-hidden="true"
-                className="nuevo-hero-line"
-                style={{ ...lineBase, color: i === 2 ? C.primary : C.foreground }}
-              >
-                {firstPart}
-                <span className="nuevo-hero-break">{" "}</span>
-                {secondPart}
+        <div ref={containerRef} className="nuevo-hero-h1" style={{ marginTop: "34px" }}>
+          <span
+            aria-hidden="true"
+            ref={measureRef}
+            style={{ ...lineBase, whiteSpace: "nowrap", position: "absolute", visibility: "hidden", pointerEvents: "none", top: 0, left: 0, zIndex: -1 }}
+          />
+          <h1 style={{ margin: 0 }} aria-label="Que te encuentren. Que te contacten. Que te compren.">
+            {lines.map((line, i) => {
+              const typed = lineText(i);
+              const firstLen = phrases[i].first.length;
+              const firstTyped = typed.length <= firstLen ? typed : phrases[i].first;
+              const firstRest = phrases[i].first.slice(firstTyped.length);
+              const secondTyped = typed.length > firstLen + 1 ? typed.slice(firstLen + 1) : "";
+              const secondRest = phrases[i].second.slice(secondTyped.length);
+              const color = i === 2 ? C.primary : C.foreground;
+              const caretStyle: React.CSSProperties = {
+                display: "inline-block",
+                marginLeft: "0.05em",
+                borderRight: `0.07em solid ${color}`,
+                animation: "nuevo-caret 0.8s steps(1) infinite",
+              };
+              const showCaretA = activeIndex === i && typed.length <= firstLen;
+              const showCaretB = activeIndex === i && typed.length > firstLen;
+              return (
                 <span
+                  key={line}
                   aria-hidden="true"
-                  style={{
-                    display: "inline-block",
-                    marginLeft: "0.05em",
-                    borderRight: `0.07em solid ${i === 2 ? C.primary : C.foreground}`,
-                    opacity: activeIndex === i ? 1 : 0,
-                    animation: activeIndex === i ? "nuevo-caret 0.8s steps(1) infinite" : "none",
-                  }}
-                />
-              </span>
-            );
-          })}
-        </h1>
+                  className="nuevo-hero-line"
+                  style={{ ...lineBase, color, marginTop: i > 0 ? "0.28em" : 0 }}
+                >
+                  {firstTyped}
+                  {showCaretA && <span aria-hidden="true" style={caretStyle} />}
+                  <span style={{ color: "transparent" }}>{firstRest}</span>
+                  <span className="nuevo-hero-break">{" "}</span>
+                  {secondTyped}
+                  {showCaretB && <span aria-hidden="true" style={caretStyle} />}
+                  <span style={{ color: "transparent" }}>{secondRest}</span>
+                </span>
+              );
+            })}
+          </h1>
+        </div>
       </div>
 
       <div className="nuevo-hero-bottom" style={{ display: "grid", gridTemplateColumns: "1fr 320px", alignItems: "end", marginTop: "40px", gap: "24px" }}>
@@ -505,7 +512,7 @@ function Recorrido() {
         {steps.map((s, i) => (
           <Reveal as="article" key={s.n} delay={i * 100} className="nuevo-step-article" style={{ padding: "26px 18px 30px", minHeight: "260px" }}>
             <span style={{ fontFamily: fontUI, fontSize: "13px", fontWeight: 700, color: C.primary }}>{s.n}</span>
-            <h3 style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none", overflowWrap: "break-word" }}>{s.title}</h3>
+            <h3 className="nuevo-service-h3" style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none", overflowWrap: "break-word" }}>{s.title}</h3>
             <p style={{ fontFamily: fontBody, fontSize: "15px", color: C.mutedForeground, margin: 0, lineHeight: 1.5 }}>{s.desc}</p>
           </Reveal>
         ))}
@@ -572,8 +579,8 @@ function Servicios() {
             textTransform: "uppercase",
             margin: "34px 0 0",
             fontWeight: 900,
-            lineHeight: 0.88,
-            fontSize: "clamp(2.4rem, 6.2vw, 6rem)",
+            lineHeight: 0.96,
+            fontSize: "clamp(2.2rem, 5.7vw, 5.6rem)",
             color: C.foreground,
             overflowWrap: "break-word",
             minWidth: 0,
@@ -629,8 +636,8 @@ function Metodo() {
           textTransform: "uppercase",
           margin: "34px 0 0",
           fontWeight: 900,
-          lineHeight: 0.88,
-          fontSize: "clamp(2.4rem, 6.2vw, 6rem)",
+          lineHeight: 0.96,
+          fontSize: "clamp(2.2rem, 5.7vw, 5.6rem)",
           color: C.foreground,
           overflowWrap: "break-word",
         }}
@@ -641,7 +648,7 @@ function Metodo() {
         {steps.map((s, i) => (
           <Reveal as="article" key={s.n} delay={i * 100} className="nuevo-step-article" style={{ padding: "26px 18px 30px", minHeight: "260px" }}>
             <span style={{ fontFamily: fontUI, fontSize: "13px", fontWeight: 700, color: C.primary }}>{s.n}</span>
-            <h3 style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none", overflowWrap: "break-word" }}>{s.title}</h3>
+            <h3 className="nuevo-service-h3" style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none", overflowWrap: "break-word" }}>{s.title}</h3>
             <p style={{ fontFamily: fontBody, fontSize: "15px", color: C.mutedForeground, margin: 0, lineHeight: 1.5 }}>{s.desc}</p>
           </Reveal>
         ))}
@@ -669,7 +676,7 @@ function Prueba() {
     <section className="nuevo-section nuevo-proof section-rule" style={{ borderBottom: `1px solid ${C.border}`, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 0 }}>
       <div style={{ paddingRight: "56px" }}>
         <Kicker>PRUEBA / 05</Kicker>
-        <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.9, fontSize: "clamp(2.4rem, 6.2vw, 6rem)", color: C.foreground, overflowWrap: "break-word" }}>
+        <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.98, fontSize: "clamp(2.2rem, 5.7vw, 5.6rem)", color: C.foreground, overflowWrap: "break-word" }}>
           ASÍ CONSTRUIMOS
         </h2>
         <div style={{ marginTop: "24px", borderTop: `1px solid ${C.border}` }}>
@@ -694,7 +701,7 @@ function Prueba() {
         </div>
       </div>
       <div className="nuevo-proof-strategy" style={{ borderLeft: `1px solid ${C.border}`, padding: "0 0 0 56px" }}>
-        <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.9, fontSize: "clamp(2.4rem, 6.2vw, 6rem)", color: C.foreground, overflowWrap: "break-word" }}>
+        <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.98, fontSize: "clamp(2.2rem, 5.7vw, 5.6rem)", color: C.foreground, overflowWrap: "break-word" }}>
           NUESTRA PROPIA ESTRATEGIA ES LA PRUEBA
         </h2>
         <p style={{ fontFamily: fontBody, fontSize: "16px", color: C.foreground, margin: "20px 0 0" }}>
@@ -730,9 +737,9 @@ function FinalCta() {
             fontFamily: fontDisplay,
             textTransform: "uppercase",
             fontWeight: 900,
-            lineHeight: 0.88,
+            lineHeight: 0.96,
             margin: 0,
-            fontSize: "clamp(3.2rem, 8vw, 8rem)",
+            fontSize: "clamp(3rem, 7.3vw, 7.4rem)",
             color: C.background,
             overflowWrap: "break-word",
           }}
@@ -747,6 +754,160 @@ function FinalCta() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+function Footer() {
+  const columns = [
+    {
+      title: "Navegación",
+      links: [
+        { label: "Inicio", href: "#inicio" },
+        { label: "Recorrido", href: "#recorrido" },
+        { label: "Servicios", href: "#servicios" },
+        { label: "Empezar", href: "#contacto" },
+      ],
+    },
+    {
+      title: "Servicios",
+      links: [
+        { label: "Páginas Web", href: "#servicios" },
+        { label: "Automatización", href: "#servicios" },
+        { label: "Inteligencia Artificial", href: "#servicios" },
+        { label: "Desarrollo a la Medida", href: "#servicios" },
+      ],
+    },
+    {
+      title: "Recursos",
+      links: [
+        { label: "Proyectos", href: "https://diegocastro.tech/proyectos/" },
+        { label: "Así construimos", href: "#" },
+        { label: "Preguntas frecuentes", href: "#" },
+      ],
+    },
+  ];
+  const socials = [
+    { label: "Li", href: "https://www.linkedin.com/in/diego-castro-larrain/" },
+    { label: "Ig", href: "https://www.instagram.com/diegocastro.tech/" },
+    { label: "Fb", href: "https://www.facebook.com/profile.php?id=61590654365455" },
+  ];
+  return (
+    <footer style={{ backgroundColor: C.background, borderTop: `1px solid ${C.border}` }}>
+      <div
+        className="nuevo-footer-grid"
+        style={{
+          width: "min(100% - 32px, 1440px)",
+          marginInline: "auto",
+          padding: "64px 0 48px",
+          display: "grid",
+          gridTemplateColumns: "2fr 1fr 1fr 1fr",
+          gap: "40px",
+        }}
+      >
+        <div>
+          <a
+            href="#inicio"
+            style={{
+              fontFamily: fontLogo,
+              fontSize: "20px",
+              fontWeight: 800,
+              letterSpacing: "-0.03em",
+              display: "inline-flex",
+              textDecoration: "none",
+              color: C.foreground,
+            }}
+          >
+            diegocastro<span style={{ color: C.primary }}>.tech</span>
+          </a>
+          <p style={{ fontFamily: fontBody, fontSize: "15px", lineHeight: 1.7, color: C.mutedForeground, margin: "18px 0 20px", maxWidth: "34ch" }}>
+            Páginas web, automatización e inteligencia artificial para que tu negocio consiga más clientes.
+          </p>
+          <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: fontUI, fontSize: "13px", fontWeight: 700, color: C.primary, textDecoration: "none" }}>
+            hola@diegocastro.tech
+          </a>
+        </div>
+
+        {columns.map((col) => (
+          <div key={col.title}>
+            <h4 style={{ fontFamily: fontUI, fontWeight: 700, fontSize: "12px", color: C.foreground, margin: "0 0 20px", letterSpacing: "0.02em" }}>
+              {col.title}
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+              {col.links.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    style={{ fontFamily: fontBody, fontSize: "14px", color: C.mutedForeground, textDecoration: "none", transition: "color 0.15s" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = C.primary)}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = C.mutedForeground)}
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ borderTop: `1px solid ${C.border}` }}>
+        <div
+          style={{
+            width: "min(100% - 32px, 1440px)",
+            marginInline: "auto",
+            padding: "20px 0",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "12px",
+          }}
+        >
+          <span style={{ fontFamily: fontBody, fontSize: "13px", color: C.mutedForeground }}>
+            © {new Date().getFullYear()} Diego Castro. Todos los derechos reservados.
+          </span>
+          <div style={{ display: "flex", gap: "8px" }}>
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  border: `1px solid ${C.border}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: fontUI,
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  color: C.mutedForeground,
+                  textDecoration: "none",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget;
+                  el.style.backgroundColor = C.primary;
+                  el.style.borderColor = C.primary;
+                  el.style.color = C.background;
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget;
+                  el.style.backgroundColor = "transparent";
+                  el.style.borderColor = C.border;
+                  el.style.color = C.mutedForeground;
+                }}
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }
 
@@ -765,8 +926,13 @@ export default function Nuevo() {
       <Metodo />
       <Prueba />
       <FinalCta />
+      <Footer />
 
       <style>{`
+        html { scroll-snap-type: y mandatory; }
+        header.nuevo-header, section#servicios, section#contacto,
+        .nuevo-section.section-rule, .nuevo-proof { scroll-snap-align: start; scroll-snap-stop: always; }
+
         .nuevo-section { width: min(100% - 32px, 1440px); margin-inline: auto; padding-block: 76px; }
         .nuevo-hero, .nuevo-final-cta-inner, header.nuevo-header + .nuevo-hero, section.nuevo-hero { }
         header, section.nuevo-hero { position: relative; }
@@ -775,8 +941,8 @@ export default function Nuevo() {
         section.nuevo-proof { width: min(100% - 32px, 1440px); margin-inline: auto; padding-block: 76px; }
 
         .nuevo-step-article { border-right: 1px solid ${C.border}; min-width: 0; }
-        .nuevo-step-grid, .nuevo-proof, .nuevo-final-cta-inner, .nuevo-hero-bottom { min-width: 0; }
-        .nuevo-step-grid > *, .nuevo-proof > *, .nuevo-final-cta-inner > * { min-width: 0; }
+        .nuevo-step-grid, .nuevo-proof, .nuevo-final-cta-inner, .nuevo-hero-bottom, .nuevo-footer-grid { min-width: 0; }
+        .nuevo-step-grid > *, .nuevo-proof > *, .nuevo-final-cta-inner > *, .nuevo-footer-grid > * { min-width: 0; }
         .nuevo-step-article:last-child { border-right: 0; }
 
         .nuevo-nav-desktop { display: none; }
@@ -800,6 +966,11 @@ export default function Nuevo() {
           .nuevo-proof { grid-template-columns: 1fr !important; }
           .nuevo-proof-strategy { border-left: 0 !important; border-top: 1px solid ${C.border}; padding: 40px 0 0 !important; margin-top: 40px; }
           .nuevo-final-cta-inner { grid-template-columns: 1fr !important; min-height: auto !important; }
+          .nuevo-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+        }
+
+        @media (max-width: 480px) {
+          .nuevo-footer-grid { grid-template-columns: 1fr !important; }
         }
 
         .nuevo-hero-line { font-size: clamp(1.7rem, 9.5vw, 2.3rem); }
@@ -807,12 +978,20 @@ export default function Nuevo() {
         @keyframes nuevo-caret { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
 
         @media (min-width: 901px) {
-          .nuevo-proof-h2 { font-size: clamp(1.9rem, 3.4vw, 3.2rem) !important; }
+          .nuevo-proof-h2 { font-size: clamp(1.8rem, 3.1vw, 3rem) !important; }
         }
 
         @media (max-width: 719px) {
           .nuevo-header { min-height: 56px !important; }
-          .nuevo-hero { padding-top: 14px !important; padding-bottom: 14px !important; }
+          .nuevo-hero {
+            padding-top: 14px !important;
+            padding-bottom: 24px !important;
+            min-height: calc(100vh - 56px) !important;
+            min-height: calc(100svh - 56px) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+          }
           .nuevo-hero-h1 { margin-top: 10px !important; }
           .nuevo-hero-break { display: block !important; }
           .nuevo-hero-bottom { grid-template-columns: 1fr !important; margin-top: 16px !important; gap: 10px !important; }
