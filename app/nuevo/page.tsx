@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Archivo_Black, Space_Grotesk, Inter } from "next/font/google";
+import { Archivo_Black, Space_Grotesk, Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 const archivoBlack = Archivo_Black({
   subsets: ["latin"],
@@ -20,6 +20,12 @@ const inter = Inter({
   variable: "--font-body",
   display: "swap",
 });
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-logo",
+  display: "swap",
+});
 
 const C = {
   background: "#f5f1ea",
@@ -35,6 +41,7 @@ const C = {
 const fontDisplay = "var(--font-display), 'Archivo Black', 'Arial Black', sans-serif";
 const fontUI = "var(--font-ui), 'Space Grotesk', sans-serif";
 const fontBody = "var(--font-body), Inter, sans-serif";
+const fontLogo = "var(--font-logo), 'Plus Jakarta Sans', system-ui, sans-serif";
 
 /* ── Scroll reveal (fade + rise, matches reference's CSS scroll-timeline animation) ── */
 function useReveal() {
@@ -56,6 +63,86 @@ function useReveal() {
     return () => obs.disconnect();
   }, []);
   return { ref, visible };
+}
+
+/* ── Hero line auto-fit: shrinks font-size so each line stays on one row ── */
+function useHeroFit(lines: string[]) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLSpanElement>(null);
+  const [fontSize, setFontSize] = useState<number | null>(null);
+
+  useEffect(() => {
+    function fit() {
+      const container = containerRef.current;
+      const measure = measureRef.current;
+      if (!container || !measure) return;
+      if (window.innerWidth < 720) {
+        setFontSize(null);
+        return;
+      }
+      const max = 168;
+      const min = 32;
+      const availableWidth = container.clientWidth;
+      let size = max;
+      for (const line of lines) {
+        measure.textContent = line;
+        let s = max;
+        measure.style.fontSize = s + "px";
+        while (measure.scrollWidth > availableWidth && s > min) {
+          s -= 2;
+          measure.style.fontSize = s + "px";
+        }
+        size = Math.min(size, s);
+      }
+      setFontSize(size);
+    }
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lines.join("|")]);
+
+  return { containerRef, measureRef, fontSize };
+}
+
+/* ── Typewriter: reveals text one character at a time ── */
+/* ── Sequential typewriter: types line 0, then line 1, then line 2 ── */
+function useSequentialTypewriter(lines: string[], speed = 35, startDelay = 200, gap = 250) {
+  const [lineIndex, setLineIndex] = useState(-1);
+  const [charCount, setCharCount] = useState(0);
+  const [doneLines, setDoneLines] = useState(-1);
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    let intervalId: ReturnType<typeof setInterval>;
+
+    function typeLine(idx: number) {
+      if (idx >= lines.length) return;
+      setLineIndex(idx);
+      setCharCount(0);
+      let i = 0;
+      const text = lines[idx];
+      intervalId = setInterval(() => {
+        i += 1;
+        setCharCount(i);
+        if (i >= text.length) {
+          clearInterval(intervalId);
+          setDoneLines(idx);
+          timeoutId = setTimeout(() => typeLine(idx + 1), gap);
+        }
+      }, speed);
+    }
+
+    timeoutId = setTimeout(() => typeLine(0), startDelay);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lines.join("|"), speed, startDelay, gap]);
+
+  return { lineIndex, charCount, doneLines };
 }
 
 function Reveal({
@@ -110,6 +197,7 @@ function Statement({ children, style }: { children: React.ReactNode; style?: Rea
         marginLeft: "auto",
         fontSize: "clamp(2.4rem, 6.2vw, 6rem)",
         color: C.foreground,
+        overflowWrap: "break-word",
         ...style,
       }}
     >
@@ -168,22 +256,23 @@ function Header() {
         href="#inicio"
         aria-label="Diego Castro Tech, inicio"
         style={{
-          fontFamily: fontUI,
-          fontSize: "17px",
-          fontWeight: 700,
+          fontFamily: fontLogo,
+          fontSize: "20px",
+          fontWeight: 800,
+          letterSpacing: "-0.03em",
           display: "flex",
           alignItems: "center",
           textDecoration: "none",
           color: C.foreground,
         }}
       >
-        DIEGO CASTRO<span style={{ color: C.primary }}>.TECH</span>
+        diegocastro<span style={{ color: C.primary }}>.tech</span>
       </a>
 
       <nav
         aria-label="Navegación principal"
         className="nuevo-nav-desktop"
-        style={{ display: "flex", alignItems: "stretch" }}
+        style={{ alignItems: "stretch" }}
       >
         {links.map((l) => (
           <a
@@ -310,6 +399,32 @@ function Header() {
 
 /* ── Hero ────────────────────────────────────────────────── */
 function Hero() {
+  const phrases = [
+    { first: "QUE TE", second: "ENCUENTREN" },
+    { first: "QUE TE", second: "CONTACTEN" },
+    { first: "QUE TE", second: "COMPREN" },
+  ];
+  const lines = phrases.map((p) => `${p.first} ${p.second}`);
+  const { containerRef, measureRef, fontSize } = useHeroFit(lines);
+  const { lineIndex, charCount, doneLines } = useSequentialTypewriter(lines, 35, 200, 250);
+
+  const lineBase: React.CSSProperties = {
+    fontFamily: fontDisplay,
+    textTransform: "uppercase",
+    fontWeight: 900,
+    lineHeight: 0.88,
+    display: "block",
+    whiteSpace: fontSize ? "nowrap" : "normal",
+    ...(fontSize ? { fontSize: `${fontSize}px` } : {}),
+  };
+
+  function lineText(i: number) {
+    if (doneLines >= i) return lines[i];
+    if (lineIndex === i) return lines[i].slice(0, charCount);
+    return "";
+  }
+  const activeIndex = doneLines < lineIndex ? lineIndex : -1;
+
   return (
     <section
       id="inicio"
@@ -321,24 +436,43 @@ function Hero() {
         ESTRATEGIA DIGITAL
       </div>
 
-      <h1
-        className="nuevo-hero-h1"
-        style={{
-          fontFamily: fontDisplay,
-          textTransform: "uppercase",
-          margin: "34px 0 0",
-          fontWeight: 900,
-          lineHeight: 0.88,
-          maxWidth: "1360px",
-          color: C.foreground,
-        }}
-      >
-        QUE TE ENCUENTREN.
-        <br />
-        QUE TE CONTACTEN.
-        <br />
-        <span style={{ color: C.primary }}>QUE TE COMPREN.</span>
-      </h1>
+      <div ref={containerRef} className="nuevo-hero-h1" style={{ marginTop: "34px" }}>
+        <span
+          aria-hidden="true"
+          ref={measureRef}
+          style={{ ...lineBase, whiteSpace: "nowrap", position: "absolute", visibility: "hidden", pointerEvents: "none", top: 0, left: 0, zIndex: -1 }}
+        />
+        <h1 style={{ margin: 0 }} aria-label="Que te encuentren. Que te contacten. Que te compren.">
+          {lines.map((line, i) => {
+            const typed = lineText(i);
+            const firstLen = phrases[i].first.length;
+            const firstPart = typed.length <= firstLen ? typed : phrases[i].first;
+            const secondPart = typed.length > firstLen + 1 ? typed.slice(firstLen + 1) : "";
+            return (
+              <span
+                key={line}
+                aria-hidden="true"
+                className="nuevo-hero-line"
+                style={{ ...lineBase, color: i === 2 ? C.primary : C.foreground }}
+              >
+                {firstPart}
+                <span className="nuevo-hero-break">{" "}</span>
+                {secondPart}
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-block",
+                    marginLeft: "0.05em",
+                    borderRight: `0.07em solid ${i === 2 ? C.primary : C.foreground}`,
+                    opacity: activeIndex === i ? 1 : 0,
+                    animation: activeIndex === i ? "nuevo-caret 0.8s steps(1) infinite" : "none",
+                  }}
+                />
+              </span>
+            );
+          })}
+        </h1>
+      </div>
 
       <div className="nuevo-hero-bottom" style={{ display: "grid", gridTemplateColumns: "1fr 320px", alignItems: "end", marginTop: "40px", gap: "24px" }}>
         <p style={{ fontFamily: fontBody, fontSize: "16px", lineHeight: 1.5, color: C.foreground, margin: 0, marginLeft: "25%" }} className="nuevo-hero-p">
@@ -371,7 +505,7 @@ function Recorrido() {
         {steps.map((s, i) => (
           <Reveal as="article" key={s.n} delay={i * 100} className="nuevo-step-article" style={{ padding: "26px 18px 30px", minHeight: "260px" }}>
             <span style={{ fontFamily: fontUI, fontSize: "13px", fontWeight: 700, color: C.primary }}>{s.n}</span>
-            <h3 style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none" }}>{s.title}</h3>
+            <h3 style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none", overflowWrap: "break-word" }}>{s.title}</h3>
             <p style={{ fontFamily: fontBody, fontSize: "15px", color: C.mutedForeground, margin: 0, lineHeight: 1.5 }}>{s.desc}</p>
           </Reveal>
         ))}
@@ -431,7 +565,7 @@ function Servicios() {
   ];
   return (
     <section id="servicios" className="nuevo-section section-rule" style={{ borderBottom: `1px solid ${C.border}` }}>
-      <div className="nuevo-section-heading" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "24px" }}>
+      <div className="nuevo-section-heading" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "24px" }}>
         <h2
           style={{
             fontFamily: fontDisplay,
@@ -441,6 +575,9 @@ function Servicios() {
             lineHeight: 0.88,
             fontSize: "clamp(2.4rem, 6.2vw, 6rem)",
             color: C.foreground,
+            overflowWrap: "break-word",
+            minWidth: 0,
+            flex: "1 1 320px",
           }}
         >
           ¿QUÉ PODEMOS HACER POR TU NEGOCIO?
@@ -466,7 +603,7 @@ function Servicios() {
             >
               {s.n}
             </span>
-            <h3 style={{ fontFamily: fontDisplay, fontSize: "18px", fontWeight: 900, margin: "18px 0 10px", color: C.foreground, textTransform: "uppercase", lineHeight: 1.15 }}>{s.title}</h3>
+            <h3 className="nuevo-service-h3" style={{ fontFamily: fontDisplay, fontSize: "18px", fontWeight: 900, margin: "18px 0 10px", color: C.foreground, textTransform: "uppercase", lineHeight: 1.15, overflowWrap: "break-word" }}>{s.title}</h3>
             <p style={{ fontFamily: fontBody, fontSize: "15px", color: C.mutedForeground, margin: 0, lineHeight: 1.5 }}>{s.desc}</p>
           </article>
         ))}
@@ -495,6 +632,7 @@ function Metodo() {
           lineHeight: 0.88,
           fontSize: "clamp(2.4rem, 6.2vw, 6rem)",
           color: C.foreground,
+          overflowWrap: "break-word",
         }}
       >
         NO TE VENDEMOS LO QUE NO NECESITAS.
@@ -503,7 +641,7 @@ function Metodo() {
         {steps.map((s, i) => (
           <Reveal as="article" key={s.n} delay={i * 100} className="nuevo-step-article" style={{ padding: "26px 18px 30px", minHeight: "260px" }}>
             <span style={{ fontFamily: fontUI, fontSize: "13px", fontWeight: 700, color: C.primary }}>{s.n}</span>
-            <h3 style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none" }}>{s.title}</h3>
+            <h3 style={{ fontFamily: fontDisplay, fontSize: "20px", fontWeight: 900, margin: "14px 0 10px", color: C.foreground, textTransform: "none", overflowWrap: "break-word" }}>{s.title}</h3>
             <p style={{ fontFamily: fontBody, fontSize: "15px", color: C.mutedForeground, margin: 0, lineHeight: 1.5 }}>{s.desc}</p>
           </Reveal>
         ))}
@@ -531,7 +669,7 @@ function Prueba() {
     <section className="nuevo-section nuevo-proof section-rule" style={{ borderBottom: `1px solid ${C.border}`, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 0 }}>
       <div style={{ paddingRight: "56px" }}>
         <Kicker>PRUEBA / 05</Kicker>
-        <h2 style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.88, fontSize: "clamp(2.4rem, 6.2vw, 6rem)", color: C.foreground }}>
+        <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.9, fontSize: "clamp(2.4rem, 6.2vw, 6rem)", color: C.foreground, overflowWrap: "break-word" }}>
           ASÍ CONSTRUIMOS
         </h2>
         <div style={{ marginTop: "24px", borderTop: `1px solid ${C.border}` }}>
@@ -556,7 +694,7 @@ function Prueba() {
         </div>
       </div>
       <div className="nuevo-proof-strategy" style={{ borderLeft: `1px solid ${C.border}`, padding: "0 0 0 56px" }}>
-        <h2 style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.88, fontSize: "clamp(2.4rem, 6.2vw, 6rem)", color: C.foreground }}>
+        <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.9, fontSize: "clamp(2.4rem, 6.2vw, 6rem)", color: C.foreground, overflowWrap: "break-word" }}>
           NUESTRA PROPIA ESTRATEGIA ES LA PRUEBA
         </h2>
         <p style={{ fontFamily: fontBody, fontSize: "16px", color: C.foreground, margin: "20px 0 0" }}>
@@ -596,6 +734,7 @@ function FinalCta() {
             margin: 0,
             fontSize: "clamp(3.2rem, 8vw, 8rem)",
             color: C.background,
+            overflowWrap: "break-word",
           }}
         >
           ¿QUIERES QUE MÁS PERSONAS ENCUENTREN TU NEGOCIO?
@@ -615,7 +754,7 @@ function FinalCta() {
 export default function Nuevo() {
   return (
     <div
-      className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${inter.variable}`}
+      className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${inter.variable} ${jakarta.variable}`}
       style={{ backgroundColor: C.background, color: C.foreground, fontFamily: fontBody }}
     >
       <Header />
@@ -635,7 +774,9 @@ export default function Nuevo() {
         section.nuevo-hero { width: min(100% - 32px, 1440px); margin-inline: auto; }
         section.nuevo-proof { width: min(100% - 32px, 1440px); margin-inline: auto; padding-block: 76px; }
 
-        .nuevo-step-article { border-right: 1px solid ${C.border}; }
+        .nuevo-step-article { border-right: 1px solid ${C.border}; min-width: 0; }
+        .nuevo-step-grid, .nuevo-proof, .nuevo-final-cta-inner, .nuevo-hero-bottom { min-width: 0; }
+        .nuevo-step-grid > *, .nuevo-proof > *, .nuevo-final-cta-inner > * { min-width: 0; }
         .nuevo-step-article:last-child { border-right: 0; }
 
         .nuevo-nav-desktop { display: none; }
@@ -652,6 +793,7 @@ export default function Nuevo() {
         }
 
         @media (max-width: 900px) {
+          .nuevo-service-h3 { font-size: 15px !important; }
           .nuevo-step-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .nuevo-step-article:nth-child(2n+1) { border-right: 1px solid ${C.border}; }
           .nuevo-step-article:nth-child(2n) { border-right: 0; }
@@ -660,20 +802,24 @@ export default function Nuevo() {
           .nuevo-final-cta-inner { grid-template-columns: 1fr !important; min-height: auto !important; }
         }
 
+        .nuevo-hero-line { font-size: clamp(1.7rem, 9.5vw, 2.3rem); }
+        .nuevo-hero-break { display: inline; }
+        @keyframes nuevo-caret { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+
+        @media (min-width: 901px) {
+          .nuevo-proof-h2 { font-size: clamp(1.9rem, 3.4vw, 3.2rem) !important; }
+        }
+
         @media (max-width: 719px) {
-          .nuevo-hero-h1 { font-size: 2.78rem !important; }
-          .nuevo-hero-bottom { grid-template-columns: 1fr !important; }
-          .nuevo-hero-p { margin-left: 0 !important; }
+          .nuevo-header { min-height: 56px !important; }
+          .nuevo-hero { padding-top: 14px !important; padding-bottom: 14px !important; }
+          .nuevo-hero-h1 { margin-top: 10px !important; }
+          .nuevo-hero-break { display: block !important; }
+          .nuevo-hero-bottom { grid-template-columns: 1fr !important; margin-top: 16px !important; gap: 10px !important; }
+          .nuevo-hero-p { margin-left: 0 !important; font-size: 13px !important; line-height: 1.35 !important; }
           .nuevo-section-heading { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
         }
 
-        @media (min-width: 720px) and (max-width: 1099px) {
-          .nuevo-hero-h1 { font-size: min(7.7vw, 7.5rem) !important; }
-        }
-
-        @media (min-width: 1100px) {
-          .nuevo-hero-h1 { font-size: clamp(2.95rem, 11vw, 10.5rem) !important; }
-        }
       `}</style>
     </div>
   );
