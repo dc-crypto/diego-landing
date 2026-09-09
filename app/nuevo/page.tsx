@@ -526,7 +526,7 @@ function Propuesta() {
   const path = ["ENCONTRAR", "CONOCER", "CONTACTAR", "COMPRAR"];
   return (
     <section className="nuevo-section section-rule" style={{ borderBottom: `1px solid ${C.border}` }}>
-      <Kicker>TU PROPUESTA / 02</Kicker>
+      <Kicker>LA PROPUESTA / 02</Kicker>
       <Statement>NO HACEMOS SOLO UNA PÁGINA WEB. CONSTRUIMOS EL CAMINO HASTA TU CLIENTE.</Statement>
 
       <div
@@ -629,7 +629,7 @@ function Metodo() {
   ];
   return (
     <section className="nuevo-section section-rule" style={{ borderBottom: `1px solid ${C.border}` }}>
-      <Kicker>TU MÉTODO / 04</Kicker>
+      <Kicker>EL MÉTODO / 04</Kicker>
       <h2
         style={{
           fontFamily: fontDisplay,
@@ -675,7 +675,7 @@ function Prueba() {
   return (
     <section className="nuevo-section nuevo-proof section-rule" style={{ borderBottom: `1px solid ${C.border}`, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 0 }}>
       <div style={{ paddingRight: "56px" }}>
-        <Kicker>PRUEBA / 05</Kicker>
+        <Kicker>DESARROLLO / 05</Kicker>
         <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.98, fontSize: "clamp(2.2rem, 5.7vw, 5.6rem)", color: C.foreground, overflowWrap: "break-word" }}>
           ASÍ CONSTRUIMOS
         </h2>
@@ -932,6 +932,7 @@ export default function Nuevo() {
         html { scroll-snap-type: y mandatory; }
         header.nuevo-header, section#servicios, section#contacto,
         .nuevo-section.section-rule, .nuevo-proof { scroll-snap-align: start; scroll-snap-stop: always; }
+        footer { scroll-snap-align: end; }
 
         .nuevo-section { width: min(100% - 32px, 1440px); margin-inline: auto; padding-block: 76px; }
         .nuevo-hero, .nuevo-final-cta-inner, header.nuevo-header + .nuevo-hero, section.nuevo-hero { }
