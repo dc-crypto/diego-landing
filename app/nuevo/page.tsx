@@ -206,11 +206,22 @@ function Statement({ children, style }: { children: React.ReactNode; style?: Rea
   );
 }
 
-function CtaButton({ href, children }: { href: string; children: React.ReactNode }) {
+function CtaButton({
+  href,
+  children,
+  target,
+}: {
+  href: string;
+  children: React.ReactNode;
+  target?: string;
+}) {
   const [hover, setHover] = useState(false);
   return (
     <a
       href={href}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      className="nuevo-cta-btn"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
@@ -230,6 +241,38 @@ function CtaButton({ href, children }: { href: string; children: React.ReactNode
       }}
     >
       {children} <span aria-hidden="true">→</span>
+    </a>
+  );
+}
+
+function WhatsAppButton({ href, children }: { href: string; children: React.ReactNode }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="nuevo-cta-btn"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        fontFamily: fontUI,
+        fontSize: "14px",
+        fontWeight: 700,
+        padding: "0 22px",
+        height: "62px",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "10px",
+        backgroundColor: "transparent",
+        color: hover ? C.primary : C.foreground,
+        border: `1.5px solid ${hover ? C.primary : C.foreground}`,
+        textDecoration: "none",
+        transition: "color 0.2s, border-color 0.2s",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {children}
     </a>
   );
 }
@@ -432,9 +475,12 @@ function Hero() {
       style={{ borderBottom: `1px solid ${C.border}`, paddingTop: "48px", paddingBottom: "34px" }}
     >
       <div className="nuevo-hero-top">
-        <div style={{ display: "flex", alignItems: "center", fontFamily: fontUI, fontSize: "12px", fontWeight: 700, color: C.secondary }}>
-          <span style={{ background: C.primary, borderRadius: "50%", width: "7px", height: "7px", marginRight: "7px", display: "inline-block" }} />
-          ESTRATEGIA DIGITAL
+        <div
+          className="nuevo-hero-eyebrow"
+          style={{ display: "flex", alignItems: "flex-start", fontFamily: fontUI, fontSize: "12px", fontWeight: 700, color: C.secondary, lineHeight: 1.5, maxWidth: "760px" }}
+        >
+          <span style={{ background: C.primary, borderRadius: "50%", width: "7px", height: "7px", marginRight: "7px", marginTop: "5px", flexShrink: 0, display: "inline-block" }} />
+          SISTEMAS DE CAPTACIÓN PARA HOTELES, TOURS Y NEGOCIOS DE PUERTO VALLARTA
         </div>
 
         <div ref={containerRef} className="nuevo-hero-h1" style={{ marginTop: "34px" }}>
@@ -481,20 +527,26 @@ function Hero() {
         </div>
       </div>
 
-      <div className="nuevo-hero-bottom" style={{ display: "grid", gridTemplateColumns: "1fr 320px", alignItems: "end", marginTop: "40px", gap: "24px" }}>
-        <p style={{ fontFamily: fontBody, fontSize: "16px", lineHeight: 1.5, color: C.foreground, margin: 0, marginLeft: "25%" }} className="nuevo-hero-p">
-          Te ponemos frente a quienes ya buscan lo que vendes. Tú respondes y cierras.
-        </p>
-        <div style={{ justifySelf: "end" }}>
-          <CtaButton href="#contacto">Empezar</CtaButton>
+      <div className="nuevo-hero-bottom" style={{ marginTop: "40px" }}>
+        <div className="nuevo-hero-cta-block" style={{ marginLeft: "25%", maxWidth: "620px" }}>
+          <p style={{ fontFamily: fontBody, fontSize: "16px", lineHeight: 1.5, color: C.foreground, margin: "0 0 28px" }} className="nuevo-hero-p">
+            Conectamos publicidad, tu página web y WhatsApp para que las personas que ya buscan lo que vendes terminen escribiéndote a ti — no a tu competencia.
+          </p>
+          <div className="nuevo-hero-cta-row" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px" }}>
+            <CtaButton href="#contacto">Solicitar diagnóstico gratis (15 min)</CtaButton>
+            <WhatsAppButton href="https://wa.me/523221097649">💬 Escríbeme directo por WhatsApp</WhatsAppButton>
+          </div>
+          <p className="nuevo-hero-trust" style={{ fontFamily: fontBody, fontSize: "12px", lineHeight: 1.4, color: C.mutedForeground, margin: "16px 0 0" }}>
+            Sin compromiso. Te digo en 15 minutos si tiene sentido antes de invertir en publicidad.
+          </p>
         </div>
       </div>
     </section>
   );
 }
 
-/* ── Section 01 — Recorrido ──────────────────────────────── */
-function Recorrido() {
+/* ── Section 01 — Cómo funciona (fusión de Recorrido + Propuesta) ── */
+function ComoFunciona() {
   const steps = [
     { n: "01", title: "TE ENCUENTRA", desc: "Apareces donde ya está buscando." },
     { n: "02", title: "TE CONOCE", desc: "Entiende lo que puedes resolver." },
@@ -503,10 +555,10 @@ function Recorrido() {
   ];
   return (
     <section id="recorrido" className="nuevo-section section-rule" style={{ borderBottom: `1px solid ${C.border}` }}>
-      <Kicker>EL RECORRIDO / 01</Kicker>
+      <Kicker>CÓMO FUNCIONA / 01</Kicker>
       <Statement>TU CLIENTE TE ESTÁ BUSCANDO. NOSOTROS HACEMOS QUE TE ENCUENTRE.</Statement>
       <p style={{ fontFamily: fontBody, fontWeight: 600, color: C.foreground, margin: "42px 0 18px", fontSize: "16px" }}>
-        Google · Instagram · Facebook · ChatGPT · Recomendaciones
+        Google · Instagram · Facebook · Meta
       </p>
       <div className="nuevo-step-grid" style={{ borderTop: `1px solid ${C.border}`, display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
         {steps.map((s, i) => (
@@ -517,45 +569,7 @@ function Recorrido() {
           </Reveal>
         ))}
       </div>
-    </section>
-  );
-}
-
-/* ── Section 02 — Propuesta ──────────────────────────────── */
-function Propuesta() {
-  const path = ["ENCONTRAR", "CONOCER", "CONTACTAR", "COMPRAR"];
-  return (
-    <section className="nuevo-section section-rule" style={{ borderBottom: `1px solid ${C.border}` }}>
-      <Kicker>LA PROPUESTA / 02</Kicker>
-      <Statement>NO HACEMOS SOLO UNA PÁGINA WEB. CONSTRUIMOS EL CAMINO HASTA TU CLIENTE.</Statement>
-
-      <div
-        className="nuevo-pathway"
-        aria-label="El camino hasta tu cliente"
-        style={{
-          borderTop: `2px solid ${C.foreground}`,
-          borderBottom: `2px solid ${C.foreground}`,
-          color: C.primary,
-          fontFamily: fontDisplay,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: "16px",
-          margin: "48px 0",
-          padding: "25px 0",
-          fontSize: "clamp(1.25rem, 3.2vw, 2.6rem)",
-        }}
-      >
-        {path.map((p, i) => (
-          <span key={p} style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <strong style={{ fontWeight: 900 }}>{p}</strong>
-            {i < path.length - 1 && <span aria-hidden="true" style={{ color: C.foreground }}>→</span>}
-          </span>
-        ))}
-      </div>
-
-      <p style={{ fontFamily: fontBody, fontSize: "18px", lineHeight: 1.6, color: C.foreground, maxWidth: "760px", margin: "0 0 0 auto" }}>
+      <p style={{ fontFamily: fontBody, fontSize: "16px", lineHeight: 1.6, color: C.foreground, maxWidth: "760px", margin: "32px 0 0 auto" }}>
         Publicidad, Google, página web, WhatsApp, reservas y automatización trabajan juntos para llevar a una persona desde que descubre tu negocio hasta que se convierte en cliente.
       </p>
     </section>
@@ -589,7 +603,7 @@ function Servicios() {
         >
           ¿QUÉ PODEMOS HACER POR TU NEGOCIO?
         </h2>
-        <span style={{ fontFamily: fontUI, fontSize: "12px", fontWeight: 700, color: C.secondary, whiteSpace: "nowrap" }}>SERVICIOS / 03</span>
+        <span style={{ fontFamily: fontUI, fontSize: "12px", fontWeight: 700, color: C.secondary, whiteSpace: "nowrap" }}>SERVICIOS / 02</span>
       </div>
 
       <div className="nuevo-step-grid" style={{ marginTop: "56px", borderTop: `1px solid ${C.border}`, display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
@@ -629,7 +643,7 @@ function Metodo() {
   ];
   return (
     <section className="nuevo-section section-rule" style={{ borderBottom: `1px solid ${C.border}` }}>
-      <Kicker>EL MÉTODO / 04</Kicker>
+      <Kicker>EL MÉTODO / 03</Kicker>
       <h2
         style={{
           fontFamily: fontDisplay,
@@ -675,7 +689,7 @@ function Prueba() {
   return (
     <section className="nuevo-section nuevo-proof section-rule" style={{ borderBottom: `1px solid ${C.border}`, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 0 }}>
       <div style={{ paddingRight: "56px" }}>
-        <Kicker>DESARROLLO / 05</Kicker>
+        <Kicker>DESARROLLO / 04</Kicker>
         <h2 className="nuevo-proof-h2" style={{ fontFamily: fontDisplay, textTransform: "uppercase", margin: "34px 0 0", fontWeight: 900, lineHeight: 0.98, fontSize: "clamp(2.2rem, 5.7vw, 5.6rem)", color: C.foreground, overflowWrap: "break-word" }}>
           ASÍ CONSTRUIMOS
         </h2>
@@ -920,8 +934,7 @@ export default function Nuevo() {
     >
       <Header />
       <Hero />
-      <Recorrido />
-      <Propuesta />
+      <ComoFunciona />
       <Servicios />
       <Metodo />
       <Prueba />
@@ -929,7 +942,7 @@ export default function Nuevo() {
       <Footer />
 
       <style>{`
-        html { scroll-snap-type: y mandatory; }
+        html { scroll-snap-type: y proximity; }
         header.nuevo-header, section#servicios, section#contacto,
         .nuevo-section.section-rule, .nuevo-proof { scroll-snap-align: start; scroll-snap-stop: always; }
         footer { scroll-snap-align: end; }
@@ -995,8 +1008,13 @@ export default function Nuevo() {
           }
           .nuevo-hero-h1 { margin-top: 10px !important; }
           .nuevo-hero-break { display: block !important; }
-          .nuevo-hero-bottom { grid-template-columns: 1fr !important; margin-top: 16px !important; gap: 10px !important; }
-          .nuevo-hero-p { margin-left: 0 !important; font-size: 13px !important; line-height: 1.35 !important; }
+          .nuevo-hero-eyebrow { font-size: 10px !important; line-height: 1.4 !important; max-width: 100% !important; }
+          .nuevo-hero-bottom { margin-top: 14px !important; }
+          .nuevo-hero-cta-block { margin-left: 0 !important; max-width: 100% !important; }
+          .nuevo-hero-p { margin-left: 0 !important; font-size: 13px !important; line-height: 1.35 !important; margin-bottom: 14px !important; }
+          .nuevo-hero-cta-row { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; }
+          .nuevo-cta-btn { height: auto !important; min-height: 46px !important; padding: 10px 16px !important; font-size: 12.5px !important; white-space: normal !important; justify-content: center !important; text-align: center !important; }
+          .nuevo-hero-trust { font-size: 10.5px !important; margin-top: 10px !important; }
           .nuevo-section-heading { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
         }
 
