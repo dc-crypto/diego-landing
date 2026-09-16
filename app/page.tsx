@@ -529,17 +529,13 @@ function VideoSection() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.2 }
+      { threshold: 0.2, rootMargin: "600px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  const videos = [
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260629_030107_874273ea-684a-4e90-bb96-8fdfde48d53d.mp4",
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260629_032424_3c9c2a9d-807b-4482-80e6-dd6d9dfd4545.mp4",
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260627_094019_4214ea73-b963-46a4-8327-61489192de99.mp4",
-  ];
+  const videos = ["/video-section/video-1.mp4", "/video-section/video-2.mp4", "/video-section/video-3.mp4"];
 
   useEffect(() => {
     const id = setInterval(() => setActiveIndex((i) => (i + 1) % videos.length), 5000);
