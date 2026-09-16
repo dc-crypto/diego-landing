@@ -2,6 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
+import Tooltip from "@/components/Tooltip";
+import ContactForm from "@/components/ContactForm";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -157,11 +159,11 @@ function Hero() {
       {/* ── Social icons — left edge ────────────────────── */}
       <div className="lp-social" style={{ position: "absolute", left: "28px", top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", gap: "20px", zIndex: 10 }}>
         {[
-          { href: "https://www.linkedin.com/in/diego-castro-larrain/", icon: <svg key="li" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> },
-          { href: "https://www.instagram.com/diegocastro.tech/", icon: <svg key="ig" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
-          { href: "https://www.facebook.com/profile.php?id=61590654365455", icon: <svg key="fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.87v-6.98h-2.1v-2.89h2.1V9.41c0-2.07 1.23-3.21 3.11-3.21.9 0 1.84.16 1.84.16v2.02h-1.04c-1.02 0-1.34.64-1.34 1.29v1.55h2.28l-.36 2.89h-1.92v6.98A10 10 0 0 0 22 12z"/></svg> },
+          { href: "https://www.linkedin.com/in/diego-castro-larrain/", label: "Síguenos en LinkedIn", icon: <svg key="li" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> },
+          { href: "https://www.instagram.com/diegocastro.tech/", label: "Síguenos en Instagram", icon: <svg key="ig" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
+          { href: "https://www.facebook.com/profile.php?id=61590654365455", label: "Síguenos en Facebook", icon: <svg key="fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.87v-6.98h-2.1v-2.89h2.1V9.41c0-2.07 1.23-3.21 3.11-3.21.9 0 1.84.16 1.84.16v2.02h-1.04c-1.02 0-1.34.64-1.34 1.29v1.55h2.28l-.36 2.89h-1.92v6.98A10 10 0 0 0 22 12z"/></svg> },
         ].map((s, i) => (
-          <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.35)", transition: "color 0.2s" }}
+          <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" title={s.label} aria-label={s.label} style={{ color: "rgba(255,255,255,0.35)", transition: "color 0.2s" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = C.base)}
             onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>
             {s.icon}
@@ -592,21 +594,25 @@ function Services() {
     {
       n: "01", title: "Páginas Web",
       desc: "Diseñamos y desarrollamos sitios web rápidos, modernos y optimizados para atraer clientes y convertir visitas en ventas.",
+      tip: "Sitios listos en días, no meses.",
       icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>,
     },
     {
       n: "02", title: "Automatización",
       desc: "Automatizamos procesos repetitivos para que tu equipo ahorre tiempo, reduzca errores y se enfoque en lo que realmente importa.",
+      tip: "Menos trabajo manual, más horas para crecer.",
       icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>,
     },
     {
       n: "03", title: "Inteligencia Artificial",
       desc: "Integramos IA en tu negocio: asistentes virtuales, análisis de datos, chatbots y agentes que toman decisiones por ti.",
+      tip: "Atiende clientes 24/7, incluso mientras duermes.",
       icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>,
     },
     {
       n: "04", title: "Desarrollo a la Medida",
       desc: "Construimos aplicaciones y software personalizado para resolver los desafíos específicos de tu empresa con tecnología de punta.",
+      tip: "Software hecho a tu medida, no una plantilla genérica.",
       icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
     },
   ];
@@ -626,11 +632,13 @@ function Services() {
               <div style={{ backgroundColor: "#181818", padding: "44px 36px", position: "relative", transition: "background-color 0.3s", height: "100%" }}
                 onMouseEnter={(e) => { const el = e.currentTarget as HTMLDivElement; el.style.backgroundColor = "#242424"; const ic = el.querySelector(".svc-icon") as HTMLElement; if (ic) ic.style.color = C.base; }}
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLDivElement; el.style.backgroundColor = "#181818"; const ic = el.querySelector(".svc-icon") as HTMLElement; if (ic) ic.style.color = C.white; }}>
-                <div className="svc-icon" style={{ color: C.white, marginBottom: "28px", transition: "color 0.3s" }}>{s.icon}</div>
+                <Tooltip label={s.tip}>
+                  <div className="svc-icon" style={{ color: C.white, marginBottom: "28px", transition: "color 0.3s" }}>{s.icon}</div>
+                </Tooltip>
                 <h3 style={{ fontFamily: font, fontWeight: 800, fontSize: "clamp(20px,2vw,24px)", color: C.white, margin: "0 0 14px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.title}</h3>
                 <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.72)", margin: "0 0 28px" }}>{s.desc}</p>
                 <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.1)", marginBottom: "20px" }} />
-                <RM />
+                <RM href="#contacto" />
               </div>
             </Reveal>
           ))}
@@ -871,6 +879,116 @@ function Blog() {
 }
 
 /* ─────────────────────────────────────────────────────────
+   FAQ
+───────────────────────────────────────────────────────── */
+const FAQS: { q: string; a: string }[] = [
+  {
+    q: "¿Cuánto cuesta una página web profesional?",
+    a: "Depende del alcance. Un Sitio Inicial de una sola página tiene un costo de $5,000 MXN, con dominio y hosting del primer año incluidos y entrega en 72 horas. Un sitio informativo de alrededor de 5 páginas empieza desde $10,000 MXN. Proyectos más complejos —tienda en línea, sistema de reservas, sitios bilingües o funcionalidades avanzadas— parten de $20,000 MXN, y ahí te doy un precio exacto según lo que necesite tu proyecto, no una tarifa genérica.",
+  },
+  {
+    q: "¿Qué incluye el precio?",
+    a: "Todos mis proyectos incluyen SEO técnico, optimización de velocidad y diseño responsivo desde el inicio, no como extra. Reviso página por página qué sí se incluye y qué no en una lista clara, para que sepas exactamente qué vas a recibir antes de pagar.",
+  },
+  {
+    q: "¿Usan plantillas como WordPress o construyen a la medida?",
+    a: "Puedo hacer ambos, según lo que tu proyecto necesite. Para negocios que buscan más control, velocidad y una imagen distinta a la de cualquier otro sitio, construyo a la medida. Para proyectos donde WordPress conviene por presupuesto o porque tú mismo quieres editar el contenido después, también lo puedo entregar así.",
+  },
+  {
+    q: "¿Cuánto tiempo tarda la entrega de mi sitio?",
+    a: "Un Sitio Inicial (una página) se entrega en 72 horas. Proyectos a la medida con más páginas o funcionalidades toman más tiempo, según el alcance definido.",
+  },
+  {
+    q: "¿El hosting y el dominio están incluidos?",
+    a: "Sí, el primer año de dominio y hosting va incluido en el precio. La renovación anual a partir del segundo año es de $1,500 MXN.",
+  },
+  {
+    q: "¿Mi página se va a ver bien en el celular?",
+    a: "Sí. Priorizo el diseño responsivo y la velocidad de carga en mobile, ya que la mayoría de tus visitantes van a navegar desde el teléfono.",
+  },
+  {
+    q: "¿Dónde están tus clientes?",
+    a: "La mayoría de mis clientes están en Puerto Vallarta y Bahía de Banderas (Bucerías, Nuevo Vallarta, Sayulita, La Cruz de Huanacaxtle), pero hago sitios web para negocios de cualquier parte del mundo.",
+  },
+  {
+    q: "¿Cómo es el proceso para empezar a trabajar contigo?",
+    a: "Empezamos con un diagnóstico inicial por WhatsApp para entender qué necesita tu negocio, te doy una cotización clara con lo que incluye tu proyecto, y avanzamos con fechas de entrega definidas desde el inicio.",
+  },
+  {
+    q: "¿Cómo puedo contactarte?",
+    a: "WhatsApp es mi canal principal de contacto para cotizaciones y dudas.",
+  },
+];
+
+function FAQItem({ q, a, isOpen, onClick }: { q: string; a: string; isOpen: boolean; onClick: () => void }) {
+  return (
+    <div style={{ borderBottom: `1px solid ${C.border}` }}>
+      <button
+        onClick={onClick}
+        aria-expanded={isOpen}
+        style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "20px", padding: "26px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
+      >
+        <span style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(16px,1.6vw,18px)", color: C.white, letterSpacing: "-0.01em" }}>{q}</span>
+        <span
+          style={{
+            flexShrink: 0, width: "28px", height: "28px", borderRadius: "50%",
+            border: `1px solid ${isOpen ? C.base : C.border}`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            transition: "transform 0.3s ease, border-color 0.3s ease",
+            transform: isOpen ? "rotate(45deg)" : "none",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={isOpen ? C.base : "rgba(255,255,255,0.5)"} strokeWidth="2.5" strokeLinecap="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </span>
+      </button>
+      <div style={{ display: "grid", gridTemplateRows: isOpen ? "1fr" : "0fr", transition: "grid-template-rows 0.35s ease" }}>
+        <div style={{ overflow: "hidden" }}>
+          <p style={{ fontFamily: font, fontSize: "clamp(15px,1.3vw,16px)", lineHeight: 1.8, color: C.color, margin: "0 0 28px", maxWidth: "70ch" }}>{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <section id="faqs" style={{ backgroundColor: C.black, padding: "100px 0" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 40px" }}>
+          <Reveal style={{ textAlign: "center", marginBottom: "56px" }}>
+            <SubTag>Preguntas Frecuentes</SubTag>
+            <SH center>Todo lo que necesitas saber<br />antes de empezar</SH>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div>
+              {FAQS.map((item, i) => (
+                <FAQItem key={item.q} q={item.q} a={item.a} isOpen={openIndex === i} onClick={() => setOpenIndex(openIndex === i ? null : i)} />
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
    CTA
 ───────────────────────────────────────────────────────── */
 function CTA() {
@@ -888,10 +1006,12 @@ function CTA() {
           <p style={{ fontFamily: font, fontSize: "clamp(16px,1.4vw,17px)", color: C.color, maxWidth: "50ch", margin: "0 auto 40px", lineHeight: 1.8 }}>
             Me encantaría escuchar sobre tu proyecto. Escríbeme y te respondo a la brevedad para explorar cómo puedo ayudarte.
           </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap", marginBottom: "56px" }}>
             <OBtn href="https://wa.me/523221097649">Escribirme ahora</OBtn>
             <OBtn href="#portafolio" outline>Ver mi portafolio</OBtn>
           </div>
+          <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.1)", maxWidth: "480px", margin: "0 auto 56px" }} />
+          <ContactForm />
         </Reveal>
       </div>
     </section>
@@ -934,10 +1054,10 @@ function Footer() {
               { label: "Inteligencia Artificial", href: "#servicios" },
             ] },
             { title: "Recursos", links: [
-              { label: "Preguntas frecuentes", href: "#" },
-              { label: "Casos de éxito", href: "#" },
+              { label: "Preguntas frecuentes", href: "#faqs" },
+              { label: "Casos de éxito", href: "/proyectos/" },
               { label: "Blog de tecnología", href: "#blog" },
-              { label: "Política de privacidad", href: "#" },
+              { label: "Política de privacidad", href: "/politica-de-privacidad/" },
             ] },
           ].map((col) => (
             <div key={col.title}>
@@ -964,11 +1084,11 @@ function Footer() {
           </span>
           <div style={{ display: "flex", gap: "8px" }}>
             {[
-              { label: "Li", href: "https://www.linkedin.com/in/diego-castro-larrain/" },
-              { label: "Ig", href: "https://www.instagram.com/diegocastro.tech/" },
-              { label: "Fb", href: "https://www.facebook.com/profile.php?id=61590654365455" },
+              { label: "Li", full: "LinkedIn", href: "https://www.linkedin.com/in/diego-castro-larrain/" },
+              { label: "Ig", full: "Instagram", href: "https://www.instagram.com/diegocastro.tech/" },
+              { label: "Fb", full: "Facebook", href: "https://www.facebook.com/profile.php?id=61590654365455" },
             ].map((s) => (
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{ width: "32px", height: "32px", border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.color, textDecoration: "none", transition: "all 0.2s" }}
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" title={s.full} aria-label={s.full} style={{ width: "32px", height: "32px", border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.color, textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.backgroundColor = C.base; el.style.borderColor = C.base; el.style.color = C.white; }}
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.backgroundColor = "transparent"; el.style.borderColor = C.border; el.style.color = C.color; }}>
                 {s.label}
@@ -1000,6 +1120,7 @@ export default function LandingPrueba2() {
       <Team />
       <Stats />
       <Blog />
+      <FAQ />
       <CTA />
       <Footer />
     </div>

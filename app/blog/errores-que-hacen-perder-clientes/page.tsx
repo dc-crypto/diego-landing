@@ -54,7 +54,7 @@ function BlogNav() {
     { label: "Inicio",    href: "/" },
     { label: "Servicios", href: "/#servicios" },
     { label: "Proyectos", href: "/proyectos/" },
-    { label: "Blog",      href: "/#blog" },
+    { label: "Blog",      href: "/blog/" },
     { label: "Contacto",  href: "/#contacto" },
   ];
   return (
@@ -112,7 +112,7 @@ function BlogNav() {
 
 function BlogFooter() {
   const cols = [
-    { title: "Navegación", links: [["Inicio", "/"], ["Servicios", "/#servicios"], ["Proyectos", "/proyectos/"], ["Blog", "/#blog"], ["Contacto", "/#contacto"]] },
+    { title: "Navegación", links: [["Inicio", "/"], ["Servicios", "/#servicios"], ["Proyectos", "/proyectos/"], ["Blog", "/blog/"], ["Contacto", "/#contacto"]] },
     { title: "Servicios",  links: [["Páginas Web", "/#servicios"], ["Automatización", "/#servicios"], ["Inteligencia Artificial", "/#servicios"], ["Software a la Medida", "/#servicios"]] },
     { title: "Blog",       links: [["¿Por qué necesitas web?", "/blog/por-que-tu-negocio-necesita-pagina-web"], ["Automatizar WhatsApp", "/blog/automatizar-whatsapp-empresa"], ["5 errores en tu sitio", "/blog/errores-que-hacen-perder-clientes"]] },
   ];
@@ -210,7 +210,7 @@ export default function PostErroresPerdidaClientes() {
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "clamp(32px,6vw,80px)" }}>
           <div style={{ maxWidth: "900px" }}>
             <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "20px" }}>
-              <a href="/#blog" style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.55)", textDecoration: "none", transition: "color 0.2s" }}
+              <a href="/blog/" style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.55)", textDecoration: "none", transition: "color 0.2s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = C.base)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}>Blog</a>
               <span style={{ color: "rgba(255,255,255,0.4)" }}>›</span>

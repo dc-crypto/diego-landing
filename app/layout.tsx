@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   title: "Diego Castro — Tecnología y Sistemas Empresariales",
   description:
     "Ingeniero que construye sistemas para que las empresas capten, gestionen y conviertan más clientes automáticamente.",
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
@@ -43,7 +44,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${inter.variable} ${instrumentSerif.variable} ${spectral.variable} ${jost.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+      </body>
     </html>
   );
 }

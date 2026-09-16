@@ -17,7 +17,7 @@ const LINKS = [
   { label: "Automatización", href: "/#servicios" },
   { label: "Inteligencia Artificial", href: "/#servicios" },
   { label: "Proyectos", href: "/proyectos/" },
-  { label: "Blog", href: "/#blog" },
+  { label: "Blog", href: "/blog/" },
 ];
 
 function HablemosBtn({ small = false }: { small?: boolean }) {
