@@ -173,19 +173,19 @@ const CATS = [
     label: "ROSTRO",
     tagline: "Tratamientos Faciales",
     desc: "Hidrafacial, bioestimulación, peelings y rellenos. Piel radiante con resultados desde la primera sesión.",
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260518_203023_87a26602-2898-4acc-a396-c7a2b5ad84fd.mp4",
+    video: "/ce/video/rostro.mp4",
   },
   {
     label: "CUIDADO",
     tagline: "Skincare & Protocolos",
     desc: "Rutinas personalizadas con activos médicos y cuidado preventivo para piel sana a largo plazo.",
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260518_203415_b86e3f19-2aec-46cd-9a86-b64c40118e38.mp4",
+    video: "/ce/video/cuidado.mp4",
   },
   {
     label: "CUERPO",
     tagline: "Tratamientos Corporales",
     desc: "Modelado, tonificación y bienestar integral. Tecnología avanzada para transformar tu figura.",
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260518_203051_85fee398-ea01-4aa0-972b-137a74213be5.mp4",
+    video: "/ce/video/cuerpo.mp4",
   },
 ];
 
