@@ -98,7 +98,7 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
               className="blog-card"
               style={{ display: "flex", flexDirection: "column", textDecoration: "none", backgroundColor: C.black }}
             >
-              <CoverArt image={p.image} alt={p.title} category={p.category} height="200px" />
+              <CoverArt image={p.image} alt={p.title} category={p.category} height="200px" width={640} />
               <div style={{ display: "flex", flexDirection: "column", flexGrow: 1, padding: "28px 32px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
                   <span style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, letterSpacing: "0.08em", textTransform: "uppercase" }}>{p.category}</span>

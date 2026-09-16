@@ -750,7 +750,7 @@ export default function ClinicaEstetica() {
                       "{t.quote}"
                     </p>
                     <div style={{ display: "flex", alignItems: "center", gap: "14px", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "22px" }}>
-                      <img src={t.img} alt={t.name} style={{ width: "46px", height: "46px", borderRadius: "50%", objectFit: "cover", border: `2px solid ${T.gold}`, flexShrink: 0 }} />
+                      <img src={t.img} alt={t.name} loading="lazy" style={{ width: "46px", height: "46px", borderRadius: "50%", objectFit: "cover", border: `2px solid ${T.gold}`, flexShrink: 0 }} />
                       <div>
                         <div style={{ fontFamily: sans, fontWeight: 600, fontSize: "0.9rem", color: "white" }}>{t.name}</div>
                         <div style={{ fontFamily: sans, fontSize: "0.78rem", color: "rgba(255,255,255,0.42)", marginTop: "2px" }}>{t.loc}</div>

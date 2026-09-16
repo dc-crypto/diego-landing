@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <CoverArt image={meta.image} alt={meta.title} category={meta.category} height="min(420px, 46vw)" />
+      <CoverArt image={meta.image} alt={meta.title} category={meta.category} height="min(420px, 46vw)" width={1400} priority />
 
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "56px 24px 80px" }}>
         <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />

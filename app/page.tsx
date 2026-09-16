@@ -417,6 +417,7 @@ function Features() {
               <img
                 src={card.img}
                 alt={card.alt}
+                loading="lazy"
                 style={{
                   width: "100%", height: "100%", objectFit: "cover",
                   display: "block",
@@ -465,6 +466,7 @@ function About() {
               <img
                 src="/about-diego.webp"
                 alt="Diego Castro, fundador de diegocastro.tech"
+                loading="lazy"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
               />
               <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.15)" }} />
