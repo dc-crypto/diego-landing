@@ -114,7 +114,6 @@ function RM({ href = "#", nested = false }: { href?: string; nested?: boolean })
    HERO
 ───────────────────────────────────────────────────────── */
 function Hero() {
-  const [ready, setReady] = useState(false);
   const [slide, setSlide] = useState(0);
   const [img1Hov, setImg1Hov] = useState(false);
   const [img2Hov, setImg2Hov] = useState(false);
@@ -133,11 +132,6 @@ function Hero() {
   ];
 
   useEffect(() => {
-    const id = setTimeout(() => setReady(true), 80);
-    return () => clearTimeout(id);
-  }, []);
-
-  useEffect(() => {
     const t = setInterval(() => setSlide((s) => (s + 1) % slides.length), 5500);
     return () => clearInterval(t);
   }, []);
@@ -151,7 +145,7 @@ function Hero() {
 
       {/* ── Mobile video background ─────────────────────── */}
       <video className="lp-hero-vid" autoPlay muted loop playsInline
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
+        src="/hero-video/mobile.mp4"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "70% center", display: "none" }}
       />
       <div className="lp-hero-vid-ov" style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.62) 100%)", display: "none" }} />
@@ -192,9 +186,7 @@ function Hero() {
           color: C.white, lineHeight: 0.95,
           letterSpacing: "-0.04em",
           margin: 0, whiteSpace: "pre",
-          opacity: ready ? 1 : 0,
-          transform: ready ? "translateY(0)" : "translateY(-72px)",
-          transition: `opacity ${dur.text} ${ease} ${del.text}, transform ${dur.text} ${ease} ${del.text}`,
+          animation: `heroTextIn ${dur.text} ${ease} ${del.text} both`,
         }}>
           {slides[slide].h}
         </h1>
@@ -203,9 +195,7 @@ function Hero() {
         <div className="lp-badge" style={{
           position: "absolute", bottom: "14%", right: "-70px",
           width: "160px", height: "160px", zIndex: 20,
-          opacity: ready ? 1 : 0,
-          transform: ready ? "translateY(0)" : "translateY(72px)",
-          transition: `opacity ${dur.badge} ${ease} ${del.badge}, transform ${dur.badge} ${ease} ${del.badge}`,
+          animation: `heroBadgeIn ${dur.badge} ${ease} ${del.badge} both`,
         }}>
           <svg viewBox="0 0 160 160" width="160" height="160" style={{ animation: "textRotate 14s linear infinite", position: "absolute", top: 0, left: 0 }}>
             <defs>
@@ -247,9 +237,7 @@ function Hero() {
       }}>
         <div style={{
           position: "relative", overflow: "hidden",
-          opacity: ready ? 1 : 0,
-          transform: ready ? "translateX(0)" : "translateX(120%)",
-          transition: `opacity ${dur.img1} ${ease} ${del.img1}, transform ${dur.img1} ${ease} ${del.img1}`,
+          animation: `heroImgIn ${dur.img1} ${ease} ${del.img1} both`,
           cursor: "pointer",
         }}
           onMouseEnter={() => setImg1Hov(true)}
@@ -268,9 +256,7 @@ function Hero() {
 
         <div style={{
           position: "relative", overflow: "hidden",
-          opacity: ready ? 1 : 0,
-          transform: ready ? "translateX(0)" : "translateX(120%)",
-          transition: `opacity ${dur.img2} ${ease} ${del.img2}, transform ${dur.img2} ${ease} ${del.img2}`,
+          animation: `heroImgIn ${dur.img2} ${ease} ${del.img2} both`,
           cursor: "pointer",
         }}
           onMouseEnter={() => setImg2Hov(true)}
@@ -299,6 +285,9 @@ function Hero() {
         @keyframes textRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
         @keyframes fadeSlideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
         @keyframes scrollH{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        @keyframes heroTextIn{from{opacity:0;transform:translateY(-72px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes heroBadgeIn{from{opacity:0;transform:translateY(72px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes heroImgIn{from{opacity:0;transform:translateX(120%)}to{opacity:1;transform:translateX(0)}}
 
         @media(max-width:768px){
           .lp-hero { height: auto !important; min-height: 100svh !important; flex-direction: column !important; }
