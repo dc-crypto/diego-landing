@@ -683,7 +683,7 @@ function Prueba() {
   };
   const proofSites = [
     { name: "RUAIRE", href: "https://diegocastro.tech/ruaire/", desc: "Sitio nuevo para instalación de ductos y HVAC, con WhatsApp integrado." },
-    { name: "ZENSATIONAL OASIS", href: "https://diegocastro.tech/zo/", desc: "Condominio boutique a tres cuadras de playa Los Muertos, Zona Romántica, Puerto Vallarta." },
+    { name: "ZENSATIONAL OASIS", href: "https://zensational-oasis.dcastrol75.workers.dev/es/", desc: "Condominio boutique a tres cuadras de playa Los Muertos, Zona Romántica, Puerto Vallarta." },
     { name: "REGENERIX", href: "https://regenerix.com.mx/", desc: "Página web para clínica de medicina regenerativa antienvejecimiento en Puerto Vallarta y Tepic." },
   ];
   return (
