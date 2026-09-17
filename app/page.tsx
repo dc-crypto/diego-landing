@@ -138,7 +138,7 @@ function Hero() {
 
   const ease = "cubic-bezier(0.25, 1, 0.5, 1)";
   const dur  = { text: "1.3s", img1: "1.2s", img2: "1.2s", badge: "1.1s" };
-  const del  = { text: "0s",   img1: "0.35s", img2: "0.55s", badge: "0.7s" };
+  const del  = { text: "0s",   img1: "0.35s", img2: "0.55s", badge: "0s" };
 
   return (
     <section id="inicio" className="lp-hero" style={{ position: "relative", backgroundColor: C.black, height: "100vh", minHeight: "600px", overflow: "hidden", display: "flex" }}>
