@@ -1,7 +1,8 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import FadeIn from "./FadeIn";
-import { PROJECTS, type Project } from "./projectsData";
+import { ALL_SECTOR, PROJECTS, SECTORS, type Project, type Sector } from "./projectsData";
 import { ACCENT, ACCENT_RGB, BG_DARK, TEXT_LIGHT, TEXT_MUTED, heroHeadingStyle } from "./styles";
 
 function ProjectCard({
@@ -80,6 +81,16 @@ function ProjectCard({
 }
 
 export default function ProjectsSection() {
+  const [activeSector, setActiveSector] = useState<Sector>(ALL_SECTOR);
+
+  const filtered = useMemo(
+    () =>
+      activeSector === ALL_SECTOR
+        ? PROJECTS
+        : PROJECTS.filter((project) => project.sector === activeSector),
+    [activeSector]
+  );
+
   return (
     <section
       id="projects"
@@ -87,7 +98,7 @@ export default function ProjectsSection() {
       style={{ backgroundColor: BG_DARK }}
     >
       <FadeIn>
-        <div className="flex flex-col items-center text-center gap-3 mb-16 sm:mb-20 md:mb-24">
+        <div className="flex flex-col items-center text-center gap-3 mb-10 sm:mb-12 md:mb-14">
           <span className="uppercase font-semibold tracking-widest" style={{ color: ACCENT, fontSize: "clamp(0.8rem,1.6vw,1rem)" }}>
             Portafolio completo
           </span>
@@ -97,16 +108,49 @@ export default function ProjectsSection() {
         </div>
       </FadeIn>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
-        {PROJECTS.map((project, i) => (
+      <FadeIn delay={0.1}>
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-16 sm:mb-20 md:mb-24 px-2">
+          {SECTORS.map((sector) => {
+            const active = sector === activeSector;
+            return (
+              <button
+                key={sector}
+                type="button"
+                onClick={() => setActiveSector(sector)}
+                className="rounded-full px-4 py-2 text-xs sm:text-sm font-semibold uppercase tracking-wide transition-colors duration-200 cursor-pointer"
+                style={
+                  active
+                    ? { backgroundColor: ACCENT, color: "#0C0C0C" }
+                    : { backgroundColor: "rgba(255,255,255,0.06)", color: TEXT_MUTED, border: "1px solid rgba(255,255,255,0.12)" }
+                }
+              >
+                {sector}
+              </button>
+            );
+          })}
+        </div>
+      </FadeIn>
+
+      <div
+        key={activeSector}
+        className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-px"
+        style={{ backgroundColor: "rgba(255,255,255,0.08)" }}
+      >
+        {filtered.map((project, i) => (
           <ProjectCard
             key={project.number}
             project={project}
             index={i}
-            isLast={i === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0}
+            isLast={i === filtered.length - 1 && filtered.length % 2 !== 0}
           />
         ))}
       </div>
+
+      {filtered.length === 0 ? (
+        <p className="text-center mt-12" style={{ color: TEXT_MUTED }}>
+          Aún no hay proyectos publicados en esta categoría.
+        </p>
+      ) : null}
     </section>
   );
 }

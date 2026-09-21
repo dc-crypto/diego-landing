@@ -1,0 +1,10 @@
+:HL["/yacht-rentals/_next/static/chunks/38ix_if79elb_.css","style"]
+:HL["/yacht-rentals/_next/static/media/1bc7fc94203521e3-s.p.0gm5xa07u9y0b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/yacht-rentals/_next/static/media/216579b50e548914-s.p.1ay1jy0-bfc4a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/yacht-rentals/_next/static/media/3df2de83712245dd-s.p.0w014qgprzbql.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/yacht-rentals/_next/static/media/4d8317c93ee732c4-s.p.0m0qyut8jzol1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/yacht-rentals/_next/static/media/524fc324e7045cf1-s.p.01akst883npin.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/yacht-rentals/_next/static/media/bcccc008c7b50e95-s.p.369ysb_p77jod.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/yacht-rentals/_next/static/media/c5fcd0f3d4585eab-s.p.3vmfv_xzwv7ra.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/yacht-rentals/_next/static/media/cd72e39fe5f8e190-s.p.0e2034rwz-vfe.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"hrkjBN8bEbKBQ89aSUsms"}
