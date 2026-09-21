@@ -160,4 +160,20 @@ export const PROJECTS: Project[] = [
     href: "https://diegocastro.tech/villa-concierge/",
     image: "/feat-villaconcierge.webp",
   },
+  {
+    number: "18",
+    category: "Inmobiliaria · Página Web",
+    sector: "Bienes Raíces",
+    name: "Vallarta & Co. Real Estate",
+    href: "https://diegocastro.tech/vallartaandco/",
+    image: "https://diegocastro.tech/vallartaandco/assets/hero-BgBxRxp4.jpg",
+  },
+  {
+    number: "19",
+    category: "Turismo · Página Web",
+    sector: "Turismo",
+    name: "Vallarta Private Yachts",
+    href: "https://diegocastro.tech/yacht-rentals/",
+    image: "/yacht-rentals/images/optimized/frame-yacht-aerial-960.webp",
+  },
 ];
