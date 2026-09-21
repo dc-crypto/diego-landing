@@ -7,4 +7,4 @@
 :HL["/yacht-rentals/_next/static/media/bcccc008c7b50e95-s.p.369ysb_p77jod.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/yacht-rentals/_next/static/media/c5fcd0f3d4585eab-s.p.3vmfv_xzwv7ra.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/yacht-rentals/_next/static/media/cd72e39fe5f8e190-s.p.0e2034rwz-vfe.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"hrkjBN8bEbKBQ89aSUsms"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"2n_x86mUiINS3-NwSGil3"}
