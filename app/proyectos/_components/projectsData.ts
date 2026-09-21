@@ -174,6 +174,6 @@ export const PROJECTS: Project[] = [
     sector: "Turismo",
     name: "Vallarta Private Yachts",
     href: "https://diegocastro.tech/yacht-rentals/",
-    image: "/yacht-rentals/images/optimized/frame-yacht-aerial-960.webp",
+    vidSrc: "/yacht-rentals/videos/hero-1-mobile.mp4",
   },
 ];

@@ -29,7 +29,7 @@ const ROW1: Tile[] = [
 const ROW2: Tile[] = [
   vid("https://diegocastro.tech/tv/video/hero-sayulita.mp4"),
   img("marquee-restaurante.png"),
-  img("marquee-reiki.png"),
+  vid("/yacht-rentals/videos/hero-1-mobile.mp4"),
   img("marquee-ruaire.png"),
   img("marquee-pizzeria.png"),
   img("marquee-leadtrack.png"),
