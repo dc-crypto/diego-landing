@@ -77,7 +77,7 @@ export default function SiteNav() {
           </ul>
 
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }} className="nav-right">
-            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: navFont, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>hola@diegocastro.tech</a>
+            <a href="mailto:hola@diegocastro.tech" className="nav-email" style={{ fontFamily: navFont, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>hola@diegocastro.tech</a>
             <HablemosBtn small />
           </div>
 
@@ -103,6 +103,7 @@ export default function SiteNav() {
       <style>{`
         @media(max-width:1024px){.nav-links,.nav-right{display:none!important}.nav-toggle{display:block!important}}
         @media(min-width:1025px){.nav-toggle{display:none!important}}
+        @media(max-width:1300px){.nav-email{display:none!important}}
       `}</style>
     </>
   );

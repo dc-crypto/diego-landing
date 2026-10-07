@@ -64,7 +64,7 @@ export default function BlogNav() {
             ))}
           </ul>
           <div className="bnav-right" style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-            <a href="mailto:hola@diegocastro.tech" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>hola@diegocastro.tech</a>
+            <a href="mailto:hola@diegocastro.tech" className="bnav-email" style={{ fontFamily: font, fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>hola@diegocastro.tech</a>
             <a
               href="https://wa.me/523221097649"
               target="_blank"
@@ -109,6 +109,7 @@ export default function BlogNav() {
       <style>{`
         @media(max-width:1024px){.bnav-links,.bnav-right{display:none!important}.bnav-toggle{display:block!important}}
         @media(min-width:1025px){.bnav-toggle{display:none!important}}
+        @media(max-width:1300px){.bnav-email{display:none!important}}
       `}</style>
     </>
   );
