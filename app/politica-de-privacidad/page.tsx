@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
 import BlogFooter from "@/components/blog/BlogFooter";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -165,6 +166,7 @@ export default function PoliticaDePrivacidad() {
       </article>
 
       <BlogFooter />
+      <WhatsAppButton />
     </div>
   );
 }
