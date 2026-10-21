@@ -32,13 +32,23 @@ function ProjectCard({
             playsInline
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-        ) : (
+        ) : project.image ? (
           <img
             src={project.image}
             alt={project.name}
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
+        ) : (
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-105"
+            style={{ background: `radial-gradient(circle at 30% 20%, rgba(${ACCENT_RGB},0.35), ${BG_DARK} 70%)` }}
+          >
+            <span className="font-black uppercase tracking-tight" style={{ color: `rgba(${ACCENT_RGB},0.25)`, fontSize: "clamp(2.5rem,6vw,4.5rem)" }}>
+              {project.name}
+            </span>
+          </div>
         )}
 
         <div

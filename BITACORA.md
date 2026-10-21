@@ -22,8 +22,10 @@ de esta rama: los commits se hacen con `git add <archivo>` uno por uno, nunca `g
 | Fecha | Commit | Cambio | Cómo revertir |
 |---|---|---|---|
 | 2026-10-21 | a755ded | Crear rama y bitácora | `git revert a755ded` |
-| 2026-10-21 | (este) | Renombrar renta-tu-villa → portalprop (rama y bitácora) | `git revert <hash>`; `git branch -m feature/subpath-portalprop feature/subpath-renta-tu-villa` |
+| 2026-10-21 | 7978824 | Renombrar renta-tu-villa → portalprop (rama y bitácora) | `git revert 7978824`; `git branch -m feature/subpath-portalprop feature/subpath-renta-tu-villa` |
+| 2026-10-21 | (este) | Galería `/proyectos`: `ProjectsSection.tsx` muestra un fondo de respaldo (degradado de acento + nombre) en tarjetas sin `image` ni `vidSrc`, en vez de una imagen rota. `projectsData.ts`: la tarjeta 11 existente "Rentatuvilla" (`https://rentatuvilla.com/`, dominio vencido) pasa a "PortalProp" → https://diegocastro.tech/portalprop/; conserva `image: "/feat-rentatuvilla.webp"` (captura de la portada sin logo). No se agrega tarjeta nueva: siguen 19 y el diseño no cambia. El fondo de respaldo queda como protección para tarjetas futuras sin imagen | `git revert <hash>` |
 
 ## Pendientes (requieren confirmación antes de tocarse)
-- [ ] `app/proyectos/_components/projectsData.ts`: tarjeta del demo /portalprop
+- [x] `app/proyectos/_components/projectsData.ts`: tarjeta del demo /portalprop (se actualizó la 11 existente)
+- [ ] Opcional: renombrar `public/feat-rentatuvilla.webp` → `feat-portalprop.webp` o tomar captura nueva del demo real tras desplegar
 - [ ] Deploy (`wrangler deploy`), solo con confirmación explícita

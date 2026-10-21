@@ -108,8 +108,8 @@ export const PROJECTS: Project[] = [
     number: "11",
     category: "Aplicación Web",
     sector: "Bienes Raíces",
-    name: "Rentatuvilla",
-    href: "https://rentatuvilla.com/",
+    name: "PortalProp",
+    href: "https://diegocastro.tech/portalprop/",
     image: "/feat-rentatuvilla.webp",
   },
   {
