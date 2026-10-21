@@ -23,9 +23,40 @@ de esta rama: los commits se hacen con `git add <archivo>` uno por uno, nunca `g
 |---|---|---|---|
 | 2026-10-21 | a755ded | Crear rama y bitácora | `git revert a755ded` |
 | 2026-10-21 | 7978824 | Renombrar renta-tu-villa → portalprop (rama y bitácora) | `git revert 7978824`; `git branch -m feature/subpath-portalprop feature/subpath-renta-tu-villa` |
-| 2026-10-21 | (este) | Galería `/proyectos`: `ProjectsSection.tsx` muestra un fondo de respaldo (degradado de acento + nombre) en tarjetas sin `image` ni `vidSrc`, en vez de una imagen rota. `projectsData.ts`: la tarjeta 11 existente "Rentatuvilla" (`https://rentatuvilla.com/`, dominio vencido) pasa a "PortalProp" → https://diegocastro.tech/portalprop/; conserva `image: "/feat-rentatuvilla.webp"` (captura de la portada sin logo). No se agrega tarjeta nueva: siguen 19 y el diseño no cambia. El fondo de respaldo queda como protección para tarjetas futuras sin imagen | `git revert <hash>` |
+| 2026-10-21 | 2d25028 | Galería `/proyectos`: `ProjectsSection.tsx` muestra un fondo de respaldo (degradado de acento + nombre) en tarjetas sin `image` ni `vidSrc`, en vez de una imagen rota. `projectsData.ts`: la tarjeta 11 existente "Rentatuvilla" (`https://rentatuvilla.com/`, dominio vencido) pasa a "PortalProp" → https://diegocastro.tech/portalprop/; conserva `image: "/feat-rentatuvilla.webp"` (captura de la portada sin logo). No se agrega tarjeta nueva: siguen 19 y el diseño no cambia. El fondo de respaldo queda como protección para tarjetas futuras sin imagen | `git revert 2d25028` |
 
 ## Pendientes (requieren confirmación antes de tocarse)
 - [x] `app/proyectos/_components/projectsData.ts`: tarjeta del demo /portalprop (se actualizó la 11 existente)
 - [ ] Opcional: renombrar `public/feat-rentatuvilla.webp` → `feat-portalprop.webp` o tomar captura nueva del demo real tras desplegar
 - [ ] Deploy (`wrangler deploy`), solo con confirmación explícita
+
+## Pendiente de despliegue (cuando Railway reanude los builds)
+
+Orden obligatorio: **1) portalprop en Railway → 2) Worker `portalprop-proxy` → 3) esta tarjeta.**
+Si la tarjeta sale antes, apunta a diegocastro.tech/portalprop/ cuando todavía no funciona.
+
+a. Diego: push a `main` de portalprop y verificar SUCCESS en Railway.
+b. Claude: curl con y sin `X-Portalprop-Prefix` contra Railway y mostrar resultados.
+c. Solo con ok de Diego: `npm run deploy` del Worker `portalprop-proxy`.
+   (Pasos a–c con comandos exactos en `portalprop/BITACORA.md`.)
+
+**d. Solo con ok de Diego — publicar la tarjeta en diegocastro.tech**
+
+⚠️ El push NO despliega este sitio: se publica con `npm run build` + `npx wrangler deploy`
+(Worker `diego-landing`, sale de `out/`). Y **lo que está en línea coincide con la copia de trabajo,
+no con lo commiteado** (verificado 2026-10-21: `/cv` en línea usa `index-BEjrQMLo.js` igual que
+`public/cv` local, mientras `HEAD` tiene `index-DzaGjvZN.js`; `/boutique` igual). Por eso:
+- NO construir desde un checkout limpio de `main`: revertiría en producción los 65 cambios ajenos
+  que ya están en línea.
+- Construir desde esta copia de trabajo, en la rama `feature/subpath-portalprop`
+  (= lo que está en línea + la tarjeta):
+```
+cd ~/diegocastro-v2 && git branch --show-current     # feature/subpath-portalprop
+npm run build && npx wrangler deploy
+curl -s https://diegocastro.tech/proyectos/ | grep -c 'diegocastro.tech/portalprop/'   # ≥ 1
+curl -s https://diegocastro.tech/proyectos/ | grep -c 'rentatuvilla.com'               # 0
+```
+- Registro en git: push de `feature/subpath-portalprop` y merge fast-forward a `main` + push
+  (solo commits; los 65 cambios ajenos siguen sin commitear y conviene ordenarlos aparte).
+
+Revertir: `git revert 2d25028` + `npm run build && npx wrangler deploy` desde la copia de trabajo.
