@@ -25,10 +25,12 @@ de esta rama: los commits se hacen con `git add <archivo>` uno por uno, nunca `g
 | 2026-10-21 | 7978824 | Renombrar renta-tu-villa → portalprop (rama y bitácora) | `git revert 7978824`; `git branch -m feature/subpath-portalprop feature/subpath-renta-tu-villa` |
 | 2026-10-21 | 2d25028 | Galería `/proyectos`: `ProjectsSection.tsx` muestra un fondo de respaldo (degradado de acento + nombre) en tarjetas sin `image` ni `vidSrc`, en vez de una imagen rota. `projectsData.ts`: la tarjeta 11 existente "Rentatuvilla" (`https://rentatuvilla.com/`, dominio vencido) pasa a "PortalProp" → https://diegocastro.tech/portalprop/; conserva `image: "/feat-rentatuvilla.webp"` (captura de la portada sin logo). No se agrega tarjeta nueva: siguen 19 y el diseño no cambia. El fondo de respaldo queda como protección para tarjetas futuras sin imagen | `git revert 2d25028` |
 
+| 2026-10-24 | — | Paso d: `npm run build && npx wrangler deploy` desde la copia de trabajo (rama `feature/subpath-portalprop` + los 65 cambios ajenos que ya estaban en línea). Versión `diego-landing` `ee704cd3-5109-4e17-9b76-c7af41f8f1de`. Verificado: `/proyectos/` tiene 1 enlace a `diegocastro.tech/portalprop/` y 0 a `rentatuvilla.com`; `/`, `/proyectos/`, `/cv/`, `/boutique/`, `/portalprop/` → 200. Fast-forward de `main` a esta rama + push (solo commits) | `git revert 2d25028` + build y `wrangler deploy` desde la copia de trabajo; o "Rollback" a la versión anterior en el panel de Cloudflare |
+
 ## Pendientes (requieren confirmación antes de tocarse)
 - [x] `app/proyectos/_components/projectsData.ts`: tarjeta del demo /portalprop (se actualizó la 11 existente)
 - [ ] Opcional: renombrar `public/feat-rentatuvilla.webp` → `feat-portalprop.webp` o tomar captura nueva del demo real tras desplegar
-- [ ] Deploy (`wrangler deploy`), solo con confirmación explícita
+- [x] Deploy (`wrangler deploy`), 2026-10-24
 
 ## Pendiente de despliegue (cuando Railway reanude los builds)
 
