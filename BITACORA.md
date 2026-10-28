@@ -1,3 +1,17 @@
+# Bitácora — botones "Compartir en redes" en el blog
+
+Rama: `feature/compartir-redes` (desde `feature/subpath-portalprop` = `main` @ `1928c60`, 2026-10-28).
+Commits pequeños, solo con `git add <archivo>`; los ~12 cambios ajenos sin commitear siguen fuera.
+Revertir un cambio: `git revert <hash>`. Revertir todo: no mergear la rama, o `git revert` de sus commits en orden inverso.
+Para quitarlo de producción después de desplegar: revertir, `npm run build && npx wrangler deploy`
+desde la copia de trabajo, o "Rollback" del Worker `diego-landing` en Cloudflare.
+
+| Fecha | Commit | Archivo | Cambio | Cómo revertir |
+|---|---|---|---|---|
+| 2026-10-28 | (este) | `BITACORA.md` | Crear rama y esta sección | `git revert <hash>` |
+
+---
+
 # Bitácora — demo en diegocastro.tech/portalprop
 
 Rama: `feature/subpath-portalprop` (desde `main` @ `4352985`; antes `feature/subpath-renta-tu-villa`,
