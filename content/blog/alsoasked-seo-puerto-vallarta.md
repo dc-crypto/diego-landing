@@ -10,6 +10,15 @@ keywords:
   - "SEO Puerto Vallarta"
   - "SEO Bahía de Banderas"
   - "ideas de contenido"
+caption: |
+  Una sola búsqueda gratis en AlsoAsked me dijo qué pregunta la gente antes de contratar una página web en Puerto Vallarta: cuánto cuesta.
+  La lección: entre más específica la keyword (nicho + ciudad), más te rinde cada búsqueda.
+hashtags:
+  - "#PuertoVallarta"
+  - "#BahiaDeBanderas"
+  - "#SEOLocal"
+  - "#AlsoAsked"
+  - "#MarketingDigital"
 ---
 
 # Probé AlsoAsked para encontrar ideas de contenido en Puerto Vallarta: esto fue lo que pasó

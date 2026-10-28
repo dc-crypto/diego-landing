@@ -9,6 +9,15 @@ keywords:
   - "service area business Google"
   - "GMB Puerto Vallarta"
   - "Google Business Profile Bahía de Banderas"
+caption: |
+  ¿Tu negocio no tiene local? Igual puedes aparecer en Google Maps.
+  Configuré mi propio Google Business Profile como empresa de servicios en Puerto Vallarta y Bahía de Banderas, sin dirección pública, y quedó verificado. Te cuento cómo.
+hashtags:
+  - "#BahiaDeBanderas"
+  - "#PuertoVallarta"
+  - "#GoogleBusinessProfile"
+  - "#SEOLocal"
+  - "#NegociosDeServicios"
 ---
 
 # Google Business Profile para negocios de servicio en Bahía de Banderas: cómo configurarlo sin local físico

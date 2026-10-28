@@ -9,6 +9,15 @@ keywords:
   - "mejor plataforma web para empresas"
   - "Next.js vs WordPress"
   - "desarrollo web Puerto Vallarta"
+caption: |
+  ¿WordPress o desarrollo a medida? Depende de qué tiene que hacer tu sitio.
+  Si es informativo y lo vas a editar tú, WordPress. Si necesita reservas, integraciones o lógica propia, a la medida. Así lo decido con cada negocio en Puerto Vallarta.
+hashtags:
+  - "#PuertoVallarta"
+  - "#WordPress"
+  - "#NextJS"
+  - "#DesarrolloWeb"
+  - "#DisenoWeb"
 ---
 
 # ¿WordPress o desarrollo a medida? Así decido qué le conviene a cada negocio en Puerto Vallarta

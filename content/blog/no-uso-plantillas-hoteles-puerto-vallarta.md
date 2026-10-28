@@ -10,6 +10,15 @@ keywords:
   - "agencia desarrollo web México"
   - "cómo elegir agencia web Puerto Vallarta"
   - "agencia web Bahía de Banderas"
+caption: |
+  ¿Plantilla o a la medida? Es lo primero que me preguntan los hoteles en Vallarta.
+  Antes de cotizar reviso el sitio de referencia página por página y marco qué entra y qué no, para que sepas exactamente qué vas a recibir antes de pagar.
+hashtags:
+  - "#PuertoVallarta"
+  - "#HotelesPuertoVallarta"
+  - "#DisenoWeb"
+  - "#Turismo"
+  - "#DesarrolloWeb"
 ---
 
 # Cómo elegí no usar plantillas para los sitios de hoteles y negocios de Puerto Vallarta

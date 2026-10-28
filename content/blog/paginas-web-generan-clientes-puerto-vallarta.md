@@ -8,6 +8,15 @@ keywords:
   - "página web para captar clientes"
   - "diseño web orientado a conversión"
   - "sitio web para pequeña empresa"
+caption: |
+  En 60 días de anuncios de Meta dirigidos a WhatsApp gasté $9,627 MXN y conseguí 106 conversaciones: unos $91 por cada una.
+  Son mis números reales, y esto es lo que hace que una página sí traiga clientes en Puerto Vallarta.
+hashtags:
+  - "#PuertoVallarta"
+  - "#BahiaDeBanderas"
+  - "#MarketingDigital"
+  - "#MetaAds"
+  - "#PaginasWeb"
 ---
 
 # Páginas web que generan clientes en Puerto Vallarta: lo que realmente mueve la aguja

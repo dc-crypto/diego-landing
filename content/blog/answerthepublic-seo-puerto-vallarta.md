@@ -10,6 +10,15 @@ keywords:
   - "palabras clave Puerto Vallarta"
   - "palabras clave Bahía de Banderas"
   - "investigación de keywords"
+caption: |
+  Probé AnswerThePublic para mi negocio de diseño web en Puerto Vallarta y casi todo estaba bloqueado en el plan gratis.
+  Lo que sí me sirvió fue buscar directo en Google: ahí vi que mi competencia ya usa el precio como gancho.
+hashtags:
+  - "#PuertoVallarta"
+  - "#SEOLocal"
+  - "#AnswerThePublic"
+  - "#PalabrasClave"
+  - "#NegociosLocales"
 ---
 
 # Probé AnswerThePublic para posicionar mi página web en Puerto Vallarta: esto es lo que encontré
