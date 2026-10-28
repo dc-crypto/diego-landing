@@ -4,6 +4,7 @@ import { getMarkdownSlugs, getPostContent, formatDateEs, WHATSAPP_URL } from "@/
 import BlogNav from "@/components/blog/BlogNav";
 import BlogFooter from "@/components/blog/BlogFooter";
 import CoverArt from "@/components/blog/CoverArt";
+import ShareButtons from "@/components/blog/ShareButtons";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const { meta } = getPostContent(slug);
   const url = `https://diegocastro.tech${meta.href}`;
+  const image = { url: `/blog/imagenes/${slug}-og.png`, width: 1200, height: 630, alt: meta.title };
 
   return {
     title: meta.title,
@@ -45,11 +47,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: meta.date,
       siteName: "Diego Castro",
       locale: "es_MX",
+      images: [image],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: meta.title,
       description: meta.description,
+      images: [image],
     },
   };
 }
@@ -79,6 +83,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
             <span style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.55)" }}>{readingTime} min de lectura</span>
           </div>
+          <div style={{ marginTop: "32px" }}>
+            <ShareButtons slug={slug} title={meta.title} href={meta.href} />
+          </div>
         </div>
       </section>
 
@@ -86,6 +93,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "56px 24px 80px" }}>
         <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
+        <div style={{ marginTop: "56px", paddingTop: "32px", borderTop: `1px solid ${C.border}` }}>
+          <ShareButtons slug={slug} title={meta.title} href={meta.href} />
+        </div>
       </article>
 
       <section style={{ backgroundColor: C.black3, borderTop: `1px solid ${C.border}`, padding: "96px 0", textAlign: "center" }}>
