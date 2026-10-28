@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { getMarkdownSlugs, getPostContent, formatDateEs, WHATSAPP_URL } from "@/lib/blog";
+import { getMarkdownSlugs, getPostContent, formatDateEs, buildCaption, WHATSAPP_URL } from "@/lib/blog";
 import BlogNav from "@/components/blog/BlogNav";
 import BlogFooter from "@/components/blog/BlogFooter";
 import CoverArt from "@/components/blog/CoverArt";
@@ -61,6 +61,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const { meta, html, readingTime } = getPostContent(slug);
+  const caption = buildCaption(meta);
 
   return (
     <div className={jakarta.variable} style={{ fontFamily: font, backgroundColor: C.black }}>
@@ -84,7 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span style={{ fontFamily: font, fontSize: "13px", color: "rgba(255,255,255,0.55)" }}>{readingTime} min de lectura</span>
           </div>
           <div style={{ marginTop: "32px" }}>
-            <ShareButtons slug={slug} title={meta.title} href={meta.href} />
+            <ShareButtons slug={slug} title={meta.title} href={meta.href} caption={caption} />
           </div>
         </div>
       </section>
@@ -94,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "56px 24px 80px" }}>
         <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
         <div style={{ marginTop: "56px", paddingTop: "32px", borderTop: `1px solid ${C.border}` }}>
-          <ShareButtons slug={slug} title={meta.title} href={meta.href} />
+          <ShareButtons slug={slug} title={meta.title} href={meta.href} caption={caption} />
         </div>
       </article>
 

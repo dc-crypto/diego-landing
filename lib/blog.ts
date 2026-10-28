@@ -6,7 +6,7 @@ import type { PostMeta } from "./blog-shared";
 import { WHATSAPP_URL } from "./blog-shared";
 
 export type { PostMeta };
-export { WHATSAPP_URL, formatDateEs } from "./blog-shared";
+export { WHATSAPP_URL, formatDateEs, buildCaption } from "./blog-shared";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/blog");
 

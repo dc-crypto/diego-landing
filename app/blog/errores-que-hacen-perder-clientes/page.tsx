@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import ShareButtons from "@/components/blog/ShareButtons";
+import { buildCaption } from "@/lib/blog-shared";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -22,6 +23,13 @@ const C = {
   border:  "#1a1a1a",
 };
 const font = "var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif";
+
+// Legacy posts have no frontmatter, so the social caption is built from the title and description.
+const CAPTION = buildCaption({
+  title: "5 errores que hacen perder clientes desde tu sitio web",
+  description:
+    "Identifica los errores más comunes en sitios web de negocios que espantan visitantes y les cuestan clientes potenciales, y cómo corregirlos.",
+});
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -236,7 +244,7 @@ export default function PostErroresPerdidaClientes() {
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
         <div style={{ marginBottom: "52px" }}>
-          <ShareButtons slug="errores-que-hacen-perder-clientes" title="5 errores que hacen perder clientes desde tu sitio web" href="/blog/errores-que-hacen-perder-clientes/" />
+          <ShareButtons slug="errores-que-hacen-perder-clientes" title="5 errores que hacen perder clientes desde tu sitio web" href="/blog/errores-que-hacen-perder-clientes/" caption={CAPTION} />
         </div>
 
         {/* Lead */}
@@ -295,7 +303,7 @@ export default function PostErroresPerdidaClientes() {
         </div>
 
         <div style={{ marginTop: "56px", paddingTop: "32px", borderTop: `1px solid ${C.border}` }}>
-          <ShareButtons slug="errores-que-hacen-perder-clientes" title="5 errores que hacen perder clientes desde tu sitio web" href="/blog/errores-que-hacen-perder-clientes/" />
+          <ShareButtons slug="errores-que-hacen-perder-clientes" title="5 errores que hacen perder clientes desde tu sitio web" href="/blog/errores-que-hacen-perder-clientes/" caption={CAPTION} />
         </div>
       </article>
 

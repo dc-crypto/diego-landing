@@ -48,31 +48,36 @@ async function copyText(text: string): Promise<boolean> {
 /**
  * Share block shown at the top and bottom of every blog post.
  * Link networks open their web share dialog; Instagram/TikTok/WhatsApp
- * status go through the phone's native share sheet with the square image
- * built at /blog/imagenes/<slug>-1080.png.
+ * status go through the phone's native share sheet with the images built
+ * at /blog/imagenes/<slug>-1080.png (feed) and <slug>-historia.png (stories).
  */
-export default function ShareButtons({ slug, title, href }: { slug: string; title: string; href: string }) {
+export default function ShareButtons({ slug, title, href, caption }: { slug: string; title: string; href: string; caption: string }) {
   const url = `https://diegocastro.tech${href}`;
-  const imageUrl = `/blog/imagenes/${slug}-1080.png`;
-  const shareText = `${title}\n${url}`;
+  const images = {
+    post: `/blog/imagenes/${slug}-1080.png`,
+    historia: `/blog/imagenes/${slug}-historia.png`,
+  };
+  const linkText = `${title}\n${url}`;
 
-  const [file, setFile] = useState<File | null>(null);
-  // null while the image is still loading; false means "use the fallback buttons"
+  const [files, setFiles] = useState<{ post: File; historia: File } | null>(null);
+  // null while the images are still loading; false means "use the fallback buttons"
   const [canShareFiles, setCanShareFiles] = useState<boolean | null>(null);
   const [notice, setNotice] = useState("");
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  // The file has to exist before the click: canShare() needs it, and fetching
-  // inside the click handler could expire the user gesture before share().
+  // The files have to exist before the click: canShare() needs them, and
+  // fetching inside the click handler could expire the user gesture before share().
   useEffect(() => {
     let cancelled = false;
-    fetch(imageUrl)
-      .then((r) => (r.ok ? r.blob() : Promise.reject(new Error(String(r.status)))))
-      .then((blob) => {
+    const load = (src: string, name: string) =>
+      fetch(src)
+        .then((r) => (r.ok ? r.blob() : Promise.reject(new Error(String(r.status)))))
+        .then((blob) => new File([blob], name, { type: "image/png" }));
+    Promise.all([load(images.post, `${slug}.png`), load(images.historia, `${slug}-historia.png`)])
+      .then(([post, historia]) => {
         if (cancelled) return;
-        const f = new File([blob], `${slug}.png`, { type: "image/png" });
-        setFile(f);
-        setCanShareFiles(typeof navigator.canShare === "function" && navigator.canShare({ files: [f] }));
+        setFiles({ post, historia });
+        setCanShareFiles(typeof navigator.canShare === "function" && navigator.canShare({ files: [post] }));
       })
       .catch(() => {
         if (!cancelled) setCanShareFiles(false);
@@ -80,26 +85,35 @@ export default function ShareButtons({ slug, title, href }: { slug: string; titl
     return () => {
       cancelled = true;
     };
-  }, [imageUrl, slug]);
+  }, [images.post, images.historia, slug]);
 
   useEffect(() => () => clearTimeout(timer.current), []);
 
-  function flash(msg: string) {
+  function flash(msg: string, ms = 2500) {
     setNotice(msg);
     clearTimeout(timer.current);
-    timer.current = setTimeout(() => setNotice(""), 2500);
+    timer.current = setTimeout(() => setNotice(""), ms);
   }
 
-  async function shareImage() {
-    if (!file) return;
+  async function shareImage(file: File) {
     // Facebook/Instagram drop any text sent along with a file, so the caption
     // goes to the clipboard first and the share sheet only gets the image.
-    if (await copyText(shareText)) flash("Texto copiado ✓");
+    if (await copyText(caption)) flash("Texto copiado ✓");
     try {
       await navigator.share({ files: [file] });
     } catch {
       // user closed the share sheet
     }
+  }
+
+  // Facebook and LinkedIn only take the URL, so the text goes to the
+  // clipboard. The window opens a moment later so the notice is seen before
+  // the new tab covers the page (on Android it takes the whole screen).
+  async function copyThenOpen(e: React.MouseEvent<HTMLAnchorElement>, target: string) {
+    e.preventDefault();
+    const copied = await copyText(linkText);
+    if (copied) flash("Texto copiado ✓ Pégalo en tu publicación", 4000);
+    setTimeout(() => window.open(target, "_blank", "noopener"), copied ? 600 : 0);
   }
 
   async function copy(text: string, msg: string) {
@@ -108,11 +122,17 @@ export default function ShareButtons({ slug, title, href }: { slug: string; titl
 
   const enc = encodeURIComponent;
   const links = [
-    { label: "Facebook", icon: ICONS.facebook, href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}` },
-    { label: "X", icon: ICONS.x, href: `https://x.com/intent/post?text=${enc(title)}&url=${enc(url)}` },
-    { label: "LinkedIn", icon: ICONS.linkedin, href: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}` },
-    { label: "WhatsApp", icon: ICONS.whatsapp, href: `https://wa.me/?text=${enc(`${title} ${url}`)}` },
+    { label: "Facebook", icon: ICONS.facebook, href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`, copyFirst: true },
+    { label: "X", icon: ICONS.x, href: `https://x.com/intent/post?text=${enc(title)}&url=${enc(url)}`, copyFirst: false },
+    { label: "LinkedIn", icon: ICONS.linkedin, href: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`, copyFirst: true },
+    { label: "WhatsApp", icon: ICONS.whatsapp, href: `https://wa.me/?text=${enc(`${title} ${url}`)}`, copyFirst: false },
   ];
+
+  const download = (
+    <Stroke>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+    </Stroke>
+  );
 
   return (
     <div className="share-box" style={{ fontFamily: font }}>
@@ -122,7 +142,16 @@ export default function ShareButtons({ slug, title, href }: { slug: string; titl
 
       <div className="share-row">
         {links.map((l) => (
-          <a key={l.label} href={l.href} target="_blank" rel="noopener" className="share-btn" aria-label={`Compartir en ${l.label}`} title={`Compartir en ${l.label}`}>
+          <a
+            key={l.label}
+            href={l.href}
+            target="_blank"
+            rel="noopener"
+            className="share-btn"
+            aria-label={`Compartir en ${l.label}`}
+            title={`Compartir en ${l.label}`}
+            onClick={l.copyFirst ? (e) => copyThenOpen(e, l.href) : undefined}
+          >
             <Brand d={l.icon} />
             <span className="share-txt">{l.label}</span>
           </a>
@@ -139,27 +168,36 @@ export default function ShareButtons({ slug, title, href }: { slug: string; titl
       <div className="share-row" style={{ marginTop: "8px" }}>
         {canShareFiles === false ? (
           <>
-            <button type="button" className="share-btn share-wide" onClick={() => copy(shareText, "Texto copiado ✓")}>
+            <button type="button" className="share-btn share-wide" onClick={() => copy(caption, "Texto copiado ✓")}>
               <Stroke>
                 <rect x="9" y="9" width="13" height="13" rx="2" />
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
               </Stroke>
               Copiar texto
             </button>
-            <a href={imageUrl} download={`${slug}.png`} className="share-btn share-wide">
-              <Stroke>
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-              </Stroke>
-              Descargar imagen
+            <a href={images.post} download={`${slug}.png`} className="share-btn share-wide">
+              {download}
+              Descargar post
+            </a>
+            <a href={images.historia} download={`${slug}-historia.png`} className="share-btn share-wide">
+              {download}
+              Descargar historia
             </a>
           </>
         ) : (
-          <button type="button" className="share-btn share-wide share-main" onClick={shareImage} disabled={!file}>
-            <Brand d={ICONS.instagram} />
-            <Brand d={ICONS.tiktok} />
-            <Brand d={ICONS.whatsapp} />
-            <span>{file ? "Compartir imagen" : "Preparando imagen…"}</span>
-          </button>
+          <>
+            <button type="button" className="share-btn share-wide share-main" onClick={() => files && shareImage(files.post)} disabled={!files}>
+              <Brand d={ICONS.instagram} />
+              <Brand d={ICONS.facebook} />
+              <span>{files ? "Compartir post" : "Preparando imágenes…"}</span>
+            </button>
+            <button type="button" className="share-btn share-wide share-main" onClick={() => files && shareImage(files.historia)} disabled={!files}>
+              <Brand d={ICONS.instagram} />
+              <Brand d={ICONS.tiktok} />
+              <Brand d={ICONS.whatsapp} />
+              <span>{files ? "Compartir historia" : "Preparando imágenes…"}</span>
+            </button>
+          </>
         )}
       </div>
 

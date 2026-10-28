@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import ShareButtons from "@/components/blog/ShareButtons";
+import { buildCaption } from "@/lib/blog-shared";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -22,6 +23,13 @@ const C = {
   border:  "#1a1a1a",
 };
 const font = "var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif";
+
+// Legacy posts have no frontmatter, so the social caption is built from the title and description.
+const CAPTION = buildCaption({
+  title: "¿Por qué tu negocio necesita una página web profesional?",
+  description:
+    "Descubre por qué tener un sitio web profesional es clave para que tu negocio genere confianza, atraiga clientes y compita en línea.",
+});
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -203,7 +211,7 @@ export default function PostPorQueNecesitasWeb() {
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
         <div style={{ marginBottom: "52px" }}>
-          <ShareButtons slug="por-que-tu-negocio-necesita-pagina-web" title="¿Por qué tu negocio necesita una página web profesional?" href="/blog/por-que-tu-negocio-necesita-pagina-web/" />
+          <ShareButtons slug="por-que-tu-negocio-necesita-pagina-web" title="¿Por qué tu negocio necesita una página web profesional?" href="/blog/por-que-tu-negocio-necesita-pagina-web/" caption={CAPTION} />
         </div>
 
         {/* Lead */}
@@ -309,7 +317,7 @@ export default function PostPorQueNecesitasWeb() {
         </div>
 
         <div style={{ marginTop: "56px", paddingTop: "32px", borderTop: `1px solid ${C.border}` }}>
-          <ShareButtons slug="por-que-tu-negocio-necesita-pagina-web" title="¿Por qué tu negocio necesita una página web profesional?" href="/blog/por-que-tu-negocio-necesita-pagina-web/" />
+          <ShareButtons slug="por-que-tu-negocio-necesita-pagina-web" title="¿Por qué tu negocio necesita una página web profesional?" href="/blog/por-que-tu-negocio-necesita-pagina-web/" caption={CAPTION} />
         </div>
       </article>
 
