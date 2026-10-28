@@ -77,6 +77,8 @@ function toMarkdownMeta(slug: string): PostMeta {
     keywords: data.keywords ?? [],
     href: `/blog/${slug}/`,
     image: data.image,
+    caption: data.caption,
+    hashtags: data.hashtags,
   };
 }
 
