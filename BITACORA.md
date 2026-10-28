@@ -10,6 +10,7 @@ desde la copia de trabajo, o "Rollback" del Worker `diego-landing` en Cloudflare
 |---|---|---|---|---|
 | 2026-10-28 | fc5eccf | `BITACORA.md` | Crear rama y esta sección | `git revert fc5eccf` |
 | 2026-10-28 | (ver abajo) | `app/blog/imagenes/[img]/route.tsx`, `app/blog/imagenes/PlusJakartaSans-ExtraBold.woff` | Imágenes generadas en el build con `next/og`: `/blog/imagenes/<slug>-1080.png` (1080×1080) y `<slug>-og.png` (1200×630). Portada oscurecida + título + "diegocastro.tech"; posts antiguos (.webp) con fondo negro y barra naranja. La fuente es Plus Jakarta Sans 800 (OFL, vía fontsource). El build descarga las portadas de Unsplash: necesita internet | `git revert <hash>` (borra la carpeta `app/blog/imagenes`) |
+| 2026-10-28 | (ver abajo) | `components/blog/ShareButtons.tsx` | Componente nuevo (cliente): Facebook, X, LinkedIn, WhatsApp (pestaña nueva, `rel="noopener"`), "Copiar enlace" y "Compartir imagen" (copia título+enlace y abre `navigator.share` con la imagen 1080). Si `canShare({ files })` falla: "Copiar texto" + "Descargar imagen". Móvil: solo íconos; ≥640px: ícono + nombre | `git revert <hash>` (no hace nada sin los commits que lo usan) |
 
 ---
 
