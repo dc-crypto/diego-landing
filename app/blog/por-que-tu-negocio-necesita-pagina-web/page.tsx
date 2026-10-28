@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import ShareButtons from "@/components/blog/ShareButtons";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -201,6 +202,10 @@ export default function PostPorQueNecesitasWeb() {
       {/* ── Article ──────────────────────────────────────── */}
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
+        <div style={{ marginBottom: "52px" }}>
+          <ShareButtons slug="por-que-tu-negocio-necesita-pagina-web" title="¿Por qué tu negocio necesita una página web profesional?" href="/blog/por-que-tu-negocio-necesita-pagina-web/" />
+        </div>
+
         {/* Lead */}
         <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
           Vivimos en una era donde la primera reacción de un consumidor ante cualquier recomendación es simple: buscar en Google. Si tu negocio no aparece —o aparece con una página desactualizada— la respuesta del cliente es igual de simple: ir a la competencia.
@@ -301,6 +306,10 @@ export default function PostPorQueNecesitasWeb() {
           {["Negocio", "Páginas Web", "Presencia Digital", "Marketing"].map((tag) => (
             <span key={tag} style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
           ))}
+        </div>
+
+        <div style={{ marginTop: "56px", paddingTop: "32px", borderTop: `1px solid ${C.border}` }}>
+          <ShareButtons slug="por-que-tu-negocio-necesita-pagina-web" title="¿Por qué tu negocio necesita una página web profesional?" href="/blog/por-que-tu-negocio-necesita-pagina-web/" />
         </div>
       </article>
 

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import ShareButtons from "@/components/blog/ShareButtons";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -209,6 +210,10 @@ export default function PostAutomatizarWhatsApp() {
       {/* ── Article ──────────────────────────────────────── */}
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
+        <div style={{ marginBottom: "52px" }}>
+          <ShareButtons slug="automatizar-whatsapp-empresa" title="Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa" href="/blog/automatizar-whatsapp-empresa/" />
+        </div>
+
         {/* Lead */}
         <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
           WhatsApp ya no es solo una app de mensajes personales. En México y Latinoamérica es el canal de atención al cliente número uno —y también el principal consumidor de tiempo de cualquier negocio que lo usa sin automatización.
@@ -312,6 +317,10 @@ export default function PostAutomatizarWhatsApp() {
           {["Automatización", "WhatsApp", "Productividad", "Chatbots"].map((tag) => (
             <span key={tag} style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
           ))}
+        </div>
+
+        <div style={{ marginTop: "56px", paddingTop: "32px", borderTop: `1px solid ${C.border}` }}>
+          <ShareButtons slug="automatizar-whatsapp-empresa" title="Cómo automatizar WhatsApp y ahorrar tiempo en tu empresa" href="/blog/automatizar-whatsapp-empresa/" />
         </div>
       </article>
 

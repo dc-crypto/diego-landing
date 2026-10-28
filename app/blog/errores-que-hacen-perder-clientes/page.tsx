@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import ShareButtons from "@/components/blog/ShareButtons";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -234,6 +235,10 @@ export default function PostErroresPerdidaClientes() {
       {/* ── Article ──────────────────────────────────────── */}
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "72px 24px 80px" }}>
 
+        <div style={{ marginBottom: "52px" }}>
+          <ShareButtons slug="errores-que-hacen-perder-clientes" title="5 errores que hacen perder clientes desde tu sitio web" href="/blog/errores-que-hacen-perder-clientes/" />
+        </div>
+
         {/* Lead */}
         <p style={{ fontFamily: font, fontSize: "clamp(18px,1.8vw,20px)", lineHeight: 1.8, color: "rgba(255,255,255,0.88)", marginBottom: "52px", borderLeft: `3px solid ${C.base}`, paddingLeft: "24px" }}>
           Tu página web puede estar haciendo exactamente lo contrario de lo que quieres: alejar clientes antes de que tengan la oportunidad de conocerte. Estos son los 5 errores más comunes —y cómo corregirlos sin reconstruir todo desde cero.
@@ -287,6 +292,10 @@ export default function PostErroresPerdidaClientes() {
           {["Diseño Web", "UX", "Conversión", "SEO"].map((tag) => (
             <span key={tag} style={{ fontFamily: font, fontSize: "13px", fontWeight: 700, color: C.base, border: `1px solid rgba(245,144,13,0.3)`, padding: "6px 14px", letterSpacing: "0.06em" }}>{tag}</span>
           ))}
+        </div>
+
+        <div style={{ marginTop: "56px", paddingTop: "32px", borderTop: `1px solid ${C.border}` }}>
+          <ShareButtons slug="errores-que-hacen-perder-clientes" title="5 errores que hacen perder clientes desde tu sitio web" href="/blog/errores-que-hacen-perder-clientes/" />
         </div>
       </article>
 
