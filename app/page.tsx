@@ -676,13 +676,16 @@ function IframePreview({ src }: { src: string }) {
 ───────────────────────────────────────────────────────── */
 function Portfolio() {
   const items = [
-    { n: "01", title: "Lumé Clínica Estética",                    desc: "Agenda citas en línea y convierte visitantes en clientes.",      cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop", preview: "/clinica-estetica", href: "/clinica-estetica" },
-    { n: "02", title: "Vallarta Transportation",                  desc: "Transporte privado, tours y traslados en Puerto Vallarta.",      cat: "Páginas Web",             vidSrc: "https://diegocastro.tech/tv/video/hero-yate.mp4", href: "https://diegocastro.tech/tv/" },
-    { n: "03", title: "LeadTrack CRM",                            desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp",   href: "https://leadtrack.diegocastro.tech/" },
-    { n: "04", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "/feat-propmanager.webp", href: "https://propmanager.diegocastro.tech/" },
-    { n: "05", title: "Asistente IA en el WhatsApp de tu negocio", desc: "Responde consultas, agenda visitas y atiende clientes 24/7.",   cat: "Inteligencia Artificial", img: "/feat-asistente-ia.webp" },
-    { n: "06", title: "Animación con Inteligencia Artificial", desc: "Hero page con video generado por IA, navbar flotante y tipografía escalonada.", cat: "Inteligencia Artificial", vidSrc: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_215831_c6a8989c-d716-4d8d-8745-e972a2eec711.mp4" },
-  ];
+    { n: "01", title: "Zensational Oasis",                        desc: "Renta vacacional con reservas directas, calendario y pagos en línea.", cat: "Páginas Web",      img: "/feat-zensational.webp", href: "https://zensationalosasis.com/" },
+    { n: "02", title: "RUAIRE",                                   desc: "Catálogo HVAC bilingüe con cotización por WhatsApp.",            cat: "Páginas Web",             img: "/ruaire/images/hero-ducts.webp", href: "https://ruaire.com.mx/" },
+    { n: "03", title: "Regenerix",                                desc: "Clínica de medicina regenerativa bilingüe con dos sedes.",       cat: "Páginas Web",             img: "/feat-regenerix.webp",   href: "https://regenerix.com.mx/" },
+    { n: "04", id: "leadtrack", title: "LeadTrack CRM",           desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp",   href: "https://leadtrack.diegocastro.tech/" },
+    { n: "05", title: "PropManager",                              desc: "Centraliza la administración de propiedades y reservas.",        cat: "Aplicaciones Web",        img: "/feat-propmanager.webp", href: "https://propmanager.diegocastro.tech/" },
+    { n: "06", title: "Vallarta Transportation",                  desc: "Transporte privado, tours y traslados en Puerto Vallarta.",      cat: "Páginas Web",             vidSrc: "https://diegocastro.tech/tv/video/hero-yate.mp4", href: "https://diegocastro.tech/tv/" },
+    { n: "07", id: "asistente-ia", title: "Asistente IA en el WhatsApp de tu negocio", desc: "Responde consultas, agenda visitas y atiende clientes 24/7.", cat: "Inteligencia Artificial", img: "/feat-asistente-ia.webp" },
+    { n: "08", title: "Animación con Inteligencia Artificial", desc: "Hero page con video generado por IA, navbar flotante y tipografía escalonada.", cat: "Inteligencia Artificial", vidSrc: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_215831_c6a8989c-d716-4d8d-8745-e972a2eec711.mp4" },
+    { n: "09", title: "Lumé Clínica Estética",                    desc: "Agenda citas en línea y convierte visitantes en clientes.",      cat: "Páginas Web",            img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop", preview: "/clinica-estetica", href: "/clinica-estetica" },
+  ] as { n: string; id?: string; title: string; desc: string; cat: string; img?: string; vidSrc?: string; preview?: string; href?: string }[];
   return (
     <section id="portafolio" style={{ backgroundColor: C.black2, padding: "100px 0" }}>
       <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 40px" }}>
@@ -699,7 +702,7 @@ function Portfolio() {
           {items.map((item, i) => (
             <Reveal key={item.n} delay={i * 0.1} style={i === items.length - 1 && items.length % 2 !== 0 ? { gridColumn: "1 / -1" } : undefined}>
               {item.href ? (
-                <a href={item.href} target="_blank" rel="noopener noreferrer" className="port-card" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", display: "block", textDecoration: "none" }}
+                <a id={item.id} href={item.href} target="_blank" rel="noopener noreferrer" className="port-card" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", display: "block", textDecoration: "none", scrollMarginTop: "100px" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
                   {item.vidSrc
@@ -723,7 +726,7 @@ function Portfolio() {
                   </div>
                 </a>
               ) : (
-                <div className="port-card" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer" }}
+                <div id={item.id} className="port-card" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", scrollMarginTop: "100px" }}
                   onMouseEnter={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "1"; }}
                   onMouseLeave={(e) => { const ov = e.currentTarget.querySelector(".port-ov") as HTMLElement; if (ov) ov.style.opacity = "0"; }}>
                   {item.vidSrc
@@ -1036,10 +1039,10 @@ function Footer() {
               { label: "Contacto", href: "#contacto" },
             ] },
             { title: "Servicios", links: [
-              { label: "Desarrollo Web", href: "#servicios" },
-              { label: "Diseño de Sitios", href: "#servicios" },
-              { label: "Automatización", href: "#servicios" },
-              { label: "Inteligencia Artificial", href: "#servicios" },
+              { label: "Desarrollo Web", href: "#portafolio" },
+              { label: "Diseño de Sitios", href: "#portafolio" },
+              { label: "Automatización", href: "#leadtrack" },
+              { label: "Inteligencia Artificial", href: "#asistente-ia" },
             ] },
             { title: "Recursos", links: [
               { label: "Preguntas frecuentes", href: "#faqs" },

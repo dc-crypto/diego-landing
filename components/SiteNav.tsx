@@ -13,9 +13,9 @@ const navFont = "'Plus Jakarta Sans', system-ui, sans-serif";
 
 const LINKS = [
   { label: "Inicio", href: "/#inicio" },
-  { label: "Páginas Web", href: "/#servicios" },
-  { label: "Automatización", href: "/#servicios" },
-  { label: "Inteligencia Artificial", href: "/#servicios" },
+  { label: "Páginas Web", href: "/#portafolio" },
+  { label: "Automatización", href: "/#leadtrack" },
+  { label: "Inteligencia Artificial", href: "/#asistente-ia" },
   { label: "Proyectos", href: "/proyectos/" },
   { label: "Blog", href: "/blog/" },
 ];
