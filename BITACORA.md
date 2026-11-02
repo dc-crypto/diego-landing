@@ -90,3 +90,17 @@ curl -s https://diegocastro.tech/proyectos/ | grep -c 'rentatuvilla.com'        
   (solo commits; los 65 cambios ajenos siguen sin commitear y conviene ordenarlos aparte).
 
 Revertir: `git revert 2d25028` + `npm run build && npx wrangler deploy` desde la copia de trabajo.
+
+
+## 2026-11-02 21:15 UTC: Orden de proyectos y enlaces del menú (commit d6a0989, rama feature/compartir-redes)
+Cambio:
+- Home (galería "Proyectos destacados"): Zensational Oasis, RUAIRE (ruaire.com.mx), Regenerix, LeadTrack, PropManager,
+  Vallarta Transportation, Asistente IA, Animación con IA, Lumé (9 tarjetas).
+- /proyectos: Zensational Oasis (nuevo, imagen `public/feat-zensational.webp`), Ru-Aire, Regenerix, LeadTrack, PropManager,
+  Vallarta Transportation, el resto igual y Lumé al final. Ru-Aire enlaza a https://ruaire.com.mx/ (antes el demo /ruaire/).
+- Menú (SiteNav) y pie de la home: Páginas Web / Desarrollo Web / Diseño de Sitios → #portafolio; Automatización → #leadtrack;
+  Inteligencia Artificial → #asistente-ia (ids nuevos en las tarjetas, con scroll-margin).
+Valor anterior: home Lumé, VT, LeadTrack, PropManager, 2 de IA; /proyectos empezaba con Lumé; los tres enlaces del menú iban a #servicios.
+Nota: Zensational apunta a zensationalosasis.com (dominio temporal con errata); cambiarlo al dominio definitivo.
+Deploy: desde esta copia de trabajo (incluye los cambios ajenos sin commitear, como antes): `npm run build && npx wrangler deploy`.
+Revertir: `git revert d6a0989` y volver a desplegar desde la copia de trabajo.
