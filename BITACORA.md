@@ -104,3 +104,9 @@ Valor anterior: home Lumé, VT, LeadTrack, PropManager, 2 de IA; /proyectos empe
 Nota: Zensational apunta a zensationalosasis.com (dominio temporal con errata); cambiarlo al dominio definitivo.
 Deploy: desde esta copia de trabajo (incluye los cambios ajenos sin commitear, como antes): `npm run build && npx wrangler deploy`.
 Revertir: `git revert d6a0989` y volver a desplegar desde la copia de trabajo.
+
+
+## 2026-11-02 21:17 UTC: Deploy del orden de proyectos (versión 9ff2c3c4, commit d6a0989)
+Verificado en vivo: home con Zensational Oasis primero e ids #leadtrack y #asistente-ia; /proyectos con Zensational y ruaire.com.mx; /feat-zensational.webp 200.
+Incluye los cambios ajenos sin commitear de la copia de trabajo (decisión de Diego).
+Revertir: Rollback en Cloudflare (Workers → diego-landing → Deployments) a la versión anterior, o `git revert d6a0989` + `npm run build && npx wrangler deploy` desde la copia de trabajo.
