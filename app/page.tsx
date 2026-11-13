@@ -676,7 +676,7 @@ function IframePreview({ src }: { src: string }) {
 ───────────────────────────────────────────────────────── */
 function Portfolio() {
   const items = [
-    { n: "01", title: "Zensational Oasis",                        desc: "Renta vacacional con reservas directas, calendario y pagos en línea.", cat: "Páginas Web",      img: "/feat-zensational.webp", href: "https://zensationalosasis.com/" },
+    { n: "01", title: "Zensational Oasis",                        desc: "Renta vacacional con reservas directas, calendario y pagos en línea.", cat: "Páginas Web",      img: "/feat-zensational.webp", href: "https://zensationaloasis.mx/" },
     { n: "02", title: "RUAIRE",                                   desc: "Catálogo HVAC bilingüe con cotización por WhatsApp.",            cat: "Páginas Web",             img: "/ruaire/images/hero-ducts.webp", href: "https://ruaire.com.mx/" },
     { n: "03", title: "Regenerix",                                desc: "Clínica de medicina regenerativa bilingüe con dos sedes.",       cat: "Páginas Web",             img: "/feat-regenerix.webp",   href: "https://regenerix.com.mx/" },
     { n: "04", id: "leadtrack", title: "LeadTrack CRM",           desc: "Organiza, califica y da seguimiento a cada prospecto.",          cat: "Aplicaciones Web",        img: "/feat-leadtrack.webp",   href: "https://leadtrack.diegocastro.tech/" },

@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
     category: "Renta Vacacional · Página Web",
     sector: "Turismo",
     name: "Zensational Oasis",
-    href: "https://zensationalosasis.com/",
+    href: "https://zensationaloasis.mx/",
     image: "/feat-zensational.webp",
   },
   {
