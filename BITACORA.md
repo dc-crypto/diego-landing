@@ -135,5 +135,5 @@ Revertir: Rollback en Cloudflare (Workers → diego-landing → Deployments) a a
 
 
 ## 2026-11-13: PENDIENTE: espejo con GitHub (diego-landing)
-Lo desplegado en diegocastro.tech incluye 9 archivos modificados sin commitear que no están en GitHub (app/acero-bahia, centro-integral-reiki, clinica-estetica, pizzeria, restaurante_marazul, ruaire y app/zo ya eliminado; HTML de public/boutique, public/cv, public/real-estate). Además el build de Cloudflare Workers Builds de este repo falla (último en main y en la rama de trabajo).
+Lo desplegado en diegocastro.tech incluye 9 archivos modificados sin commitear que no están en GitHub (app/acero-bahia, centro-integral-reiki, clinica-estetica, pizzeria, restaurante_marazul y ruaire (layouts); HTML de public/boutique, public/cv, public/real-estate). Además el build de Cloudflare Workers Builds de este repo falla (último en main y en la rama de trabajo).
 Por hacer: revisar y commitear o descartar esos cambios, fusionar la rama de trabajo a `main` y arreglar (o desconectar) Workers Builds. Meta: local = GitHub main = desplegado. Decisión de Diego: dejarlo pendiente.
