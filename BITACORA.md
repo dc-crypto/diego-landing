@@ -132,3 +132,8 @@ Revertir: `git revert` del commit, `npm run build && npx wrangler deploy` desde 
 ## 2026-11-13: Deploy sin /zo (versión 6a564188, commit 975ff97)
 Verificado en vivo: diegocastro.tech/zo/ → 404; home y /proyectos → 200. Nota: el primer deploy (cbc6bbcc) salió con el build anterior porque el build falló (tipos en caché .next); se limpió .next y se reconstruyó antes del deploy bueno.
 Revertir: Rollback en Cloudflare (Workers → diego-landing → Deployments) a abc92b08, o `git revert 975ff97` + `npm run build && npx wrangler deploy`.
+
+
+## 2026-11-13: PENDIENTE: espejo con GitHub (diego-landing)
+Lo desplegado en diegocastro.tech incluye 9 archivos modificados sin commitear que no están en GitHub (app/acero-bahia, centro-integral-reiki, clinica-estetica, pizzeria, restaurante_marazul, ruaire y app/zo ya eliminado; HTML de public/boutique, public/cv, public/real-estate). Además el build de Cloudflare Workers Builds de este repo falla (último en main y en la rama de trabajo).
+Por hacer: revisar y commitear o descartar esos cambios, fusionar la rama de trabajo a `main` y arreglar (o desconectar) Workers Builds. Meta: local = GitHub main = desplegado. Decisión de Diego: dejarlo pendiente.
