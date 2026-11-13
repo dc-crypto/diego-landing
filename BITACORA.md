@@ -110,3 +110,25 @@ Revertir: `git revert d6a0989` y volver a desplegar desde la copia de trabajo.
 Verificado en vivo: home con Zensational Oasis primero e ids #leadtrack y #asistente-ia; /proyectos con Zensational y ruaire.com.mx; /feat-zensational.webp 200.
 Incluye los cambios ajenos sin commitear de la copia de trabajo (decisión de Diego).
 Revertir: Rollback en Cloudflare (Workers → diego-landing → Deployments) a la versión anterior, o `git revert d6a0989` + `npm run build && npx wrangler deploy` desde la copia de trabajo.
+
+
+## 2026-11-13: Zensational Oasis apunta al dominio definitivo (rama feature/compartir-redes)
+Cambio: el enlace de Zensational Oasis en la home (`app/page.tsx`, galería "Proyectos destacados") y en /proyectos (`app/proyectos/_components/projectsData.ts`) pasa a https://zensationaloasis.mx/.
+Valor anterior: https://zensationalosasis.com/ (dominio temporal con errata, ya fuera del Worker).
+No tocado: `app/nuevo/page.tsx:686` (apunta a workers.dev/es/) y el correo hola@zensationaloasis.com de `app/zo/*` (demo; dominio .com no es nuestro).
+Revertir: `git revert` del commit, `npm run build && npx wrangler deploy` desde la copia de trabajo.
+
+## 2026-11-13: Deploy del enlace a zensationaloasis.mx (versión abc92b08, commit 4075988)
+Verificado en vivo en diegocastro.tech (home y /proyectos). Incluye los cambios ajenos sin commitear de la copia de trabajo, como en deploys anteriores.
+Revertir: Rollback en Cloudflare (Workers → diego-landing → Deployments) a la versión anterior (9ff2c3c4 o posterior), o `git revert 4075988` + `npm run build && npx wrangler deploy`.
+
+
+## 2026-11-13: Se quita app/zo (demo de Zensational Oasis, rama feature/compartir-redes)
+Cambio: se elimina `app/zo/` (la ruta /zo, 98 archivos aprox. de código y contenido). Nada fuera de esa carpeta enlazaba a /zo. El sitio real vive en https://zensationaloasis.mx.
+Valor anterior: /zo respondía 200 con la demo (con un noindex sin commitear en app/zo/layout.tsx, que se pierde).
+Se conserva sin tocar: `public/zo/` (13 MB de imágenes y videos, ya huérfano) y el bloque de tema /zo en `app/globals.css`; quitarlos después si se quiere.
+Revertir: `git revert` del commit, `npm run build && npx wrangler deploy` desde la copia de trabajo.
+
+## 2026-11-13: Deploy sin /zo (versión 6a564188, commit 975ff97)
+Verificado en vivo: diegocastro.tech/zo/ → 404; home y /proyectos → 200. Nota: el primer deploy (cbc6bbcc) salió con el build anterior porque el build falló (tipos en caché .next); se limpió .next y se reconstruyó antes del deploy bueno.
+Revertir: Rollback en Cloudflare (Workers → diego-landing → Deployments) a abc92b08, o `git revert 975ff97` + `npm run build && npx wrangler deploy`.
